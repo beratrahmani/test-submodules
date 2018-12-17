@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_dashboard.information_service_class">Shopware\B2B\Dashboard\Framework\InformationService</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_dashboard.information_service_abstract" abstract="true">
+      <argument type="service" id="b2b_contingent_group.repository"/>
+      <argument type="service" id="b2b_contingent_rule.repository"/>
+      <argument type="service" id="b2b_contingent_rule.entity_factory"/>
+    </service>
+    <service id="b2b_dashboard.information_service" class="%b2b_dashboard.information_service_class%" parent="b2b_dashboard.information_service_abstract"/>
+  </services>
+</container>

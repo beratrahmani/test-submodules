@@ -1,0 +1,32 @@
+.emotion--banner {
+    .banner--mapping-icon {
+        .unitize-width(50);
+        .unitize-height(50);
+        .unitize(line-height, 50);
+        .unitize(font-size, 34);
+        .border-radius(50%);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background: rgba(255, 255, 255, 0.8);
+        font-family: @sw-icon-fontname;
+        text-align: center;
+        color: @text-color;
+
+        &:before {
+            content: @sw-icon-plus3;
+        }
+    }
+}
+
+@media screen and(min-width: @desktopViewportWidth) {
+    .emotion--banner {
+        .banner--mapping-icon:hover {
+            color: @brand-primary;
+            background: #ffffff;
+        }
+    }
+}

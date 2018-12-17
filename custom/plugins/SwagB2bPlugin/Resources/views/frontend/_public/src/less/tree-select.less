@@ -1,0 +1,211 @@
+.is--b2b-tree-select-container {
+  #tree-node-id-0 > span.node-content-container{
+    border-top: none !important;
+  }
+}
+
+.is--b2b-tree-select.list--unordered {
+  list-style: none;
+  padding-left: 0;
+
+  &.is--root-list {
+    border: 1px solid @border-color;
+    .unitize-max-height(500);
+    overflow-y: auto;
+  }
+
+  li {
+    &:before {
+      content: "";
+      width: 0;
+    }
+
+    &.dragover {
+      font-weight: bolder;
+    }
+
+    &.is--selected span.node-content-container {
+      background: darken(@brand-secondary, 10%);
+    }
+
+    &.dragged {
+      .opacity(.5);
+      background: darken(@body-bg, 5%);
+    }
+
+    &.is--disabled > .node-content-container{
+      .opacity(.5);
+    }
+
+    span.node-content-container {
+      display: block;
+      border-top: 1px solid @border-color;
+
+      span.b2b-tree-node-inner {
+        position: relative;
+        display: block;
+        .unitize(padding, 2);
+
+        &.dragover > .drop-area {
+          display: block;
+        }
+
+        &.hover {
+          border: 2px dashed @brand-secondary;
+          .unitize(border-radius, 3);
+          padding: 0;
+        }
+
+        span.drop-area {
+          display: none;
+          position: absolute;
+          top: 0;
+          .unitize(left, 44);
+          bottom: 0;
+          right: 0;
+          z-index: 10;
+
+          span {
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 33%;
+            box-sizing: border-box;
+          }
+
+          span.drop-before {
+            top: 0;
+          }
+
+          span.drop-before.hover,
+          span.drop-before:hover {
+            border-top: 2px dashed @brand-secondary;
+          }
+
+          span.drop-as-child {
+            top: 33%;
+          }
+
+          span.drop-after {
+            top: 66%;
+          }
+
+          span.drop-after.hover,
+          span.drop-after:hover {
+            border-bottom: 2px dashed @brand-secondary;
+          }
+        }
+
+        .tree-handle {
+          color: @brand-secondary;
+          .unitize(width, 44);
+          .unitize(height, 44);
+          position: absolute;
+          top: 1px;
+          left: 1px;
+          right: 1px;
+          bottom: 1px;
+          text-align: center;
+
+          &:hover {
+            background: rgba(0,62,89,0.1);
+            cursor: pointer;
+          }
+
+          i {
+            .unitize(font-size, 23);
+            .unitize(line-height, 13);
+          }
+
+          i.tree-icon {
+            position: absolute;
+            .unitize(top, 16);
+            .unitize(left, 10);
+            .unitize(right, 10);
+            .unitize(bottom, 10);
+            display: none;
+          }
+
+          i.tree-icon.leaf {
+            display: block;
+          }
+        }
+
+        .tree-label {
+          .unitize-padding(10, 10, 10, 10);
+          .unitize(margin-left, 44);
+          display: block;
+          position: relative;
+
+          &:hover, &.selected {
+            background: rgba(0,62,89,0.1);
+            cursor: pointer;
+          }
+
+          &:hover .actions {
+            visibility: visible;
+          }
+
+          &.is--company {
+            font-weight: bold;
+          }
+
+          .actions {
+            visibility: hidden;
+            position: absolute;
+            .unitize(right, 10);
+            .unitize(top, 10);
+            background-color: #fff;
+            border: 1px solid @border-color;
+
+            button.btn {
+              .unitize-height(22);
+              .unitize-width(22);
+              .unitize(line-height, 22);
+              .unitize-padding(5);
+              border: none;
+            }
+          }
+        }
+
+        .actions {
+          float:right;
+
+          button.btn {
+            .unitize(margin-top, -5);
+            background-color: transparent;
+            background-image: none;
+          }
+        }
+      }
+    }
+
+    &.has--children.is--closed > span.node-content-container span.b2b-tree-node-inner {
+      i.tree-icon.closed {
+        display: block;
+      }
+      i.tree-icon.leaf {
+        display: none;
+      }
+    }
+
+    &.has--children.is--opened > span.node-content-container span.b2b-tree-node-inner {
+      i.tree-icon.opened {
+        display: block;
+      }
+      i.tree-icon.leaf {
+        display: none;
+      }
+    }
+
+    &.has--children.is--loading > span.node-content-container span.b2b-tree-node-inner {
+      i.tree-icon.loading {
+        display: block;
+      }
+      i.tree-icon.leaf {
+        display: none;
+      }
+    }
+  }
+}

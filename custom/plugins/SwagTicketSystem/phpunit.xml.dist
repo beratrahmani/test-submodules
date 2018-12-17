@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="./Tests/bootstrap.php"
+         backupGlobals="false"
+         backupStaticAttributes="false"
+         colors="true">
+    <testsuite name="SwagTicketSystem Test Suite">
+        <directory>Tests</directory>
+    </testsuite>
+
+    <filter>
+        <whitelist>
+            <directory suffix=".php">./</directory>
+            <exclude>
+                <directory suffix=".php">./Tests</directory>
+                <directory suffix=".php">./vendor</directory>
+
+                <!-- Testing the Model's getter and setter is unnecessary -->
+                <file>./Models/Ticket/File.php</file>
+                <file>./Models/Ticket/History.php</file>
+                <file>./Models/Ticket/Mail.php</file>
+                <file>./Models/Ticket/Status.php</file>
+                <file>./Models/Ticket/Support.php</file>
+                <file>./Models/Ticket/Type.php</file>
+
+                <!-- Bootstrap -->
+                <file>SwagTicketSystem.php</file>
+                <directory suffix=".php">./Setup</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>

@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="b2b_order_number.repository" class="Shopware\B2B\OrderNumber\Bridge\OrderNumberRepository">
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="b2b_common.repository_dbal_helper"/>
+        </service>
+        <service id="b2b_order_number.grid_helper" class="Shopware\B2B\Common\Controller\GridHelper">
+            <argument type="service" id="b2b_order_number.repository"/>
+        </service>
+        <service id="b2b_order_number.search_term_query_builder"
+                 class="Shopware\B2B\OrderNumber\Bridge\OrderNumberSearchTermQueryBuilder"
+                 decorates="shopware_searchdbal.search_query_builder_dbal">
+            <argument type="service" id="config"/>
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="shopware_searchdbal.keyword_finder_dbal"/>
+            <argument type="service" id="shopware_searchdbal.search_indexer"/>
+            <argument type="service" id="shopware_searchdbal.search_term_helper"/>
+            <argument type="service" id="b2b_front_auth.authentication_service"/>
+        </service>
+        <service id="b2b_order_number.list_product_service_decorator"
+                 class="Shopware\B2B\OrderNumber\Bridge\ListProductServiceDecorator"
+                 decorates="shopware_storefront.list_product_service">
+            <argument type="service" id="b2b_order_number.list_product_service_decorator.inner"/>
+            <argument type="service" id="b2b_order_number.repository" />
+            <argument type="service" id="b2b_front_auth.authentication_service"/>
+        </service>
+        <service id="b2b_order_number.product_service_decorator"
+                 class="Shopware\B2B\OrderNumber\Bridge\ProductServiceDecorator"
+                 decorates="shopware_storefront.product_service">
+            <argument id="b2b_order_number.product_service_decorator.inner" type="service"/>
+            <argument id="b2b_front_auth.authentication_service" type="service"/>
+            <argument id="b2b_order_number.repository" type="service"/>
+        </service>
+
+    </services>
+</container>

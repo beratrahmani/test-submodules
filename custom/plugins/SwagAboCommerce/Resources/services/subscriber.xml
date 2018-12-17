@@ -1,0 +1,70 @@
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="swag_abo_commerce.subscriber.template" class="SwagAboCommerce\Subscriber\Template">
+            <argument>%swag_abo_commerce.plugin_dir%</argument>
+            <argument type="service" id="template"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swag_abo_commerce.subscriber.backend" class="SwagAboCommerce\Subscriber\Backend">
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swag_abo_commerce.subscriber.basket_subscriber"
+                 class="SwagAboCommerce\Subscriber\BasketSubscriber">
+            <argument type="service" id="swag_abo_commerce.dependency_provider"/>
+            <argument type="service" id="swag_abo_commerce.abo_commerce_service"/>
+            <argument type="service" id="models"/>
+            <argument type="service" id="snippets"/>
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="config"/>
+            <argument type="service" id="template"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swag_abo_commerce.subscriber.checkout" class="SwagAboCommerce\Subscriber\Checkout">
+            <argument type="service" id="swag_abo_commerce.abo_commerce_service"/>
+            <argument type="service" id="swag_abo_commerce.abo_commerce_basket_service"/>
+            <argument type="service" id="swag_abo_commerce.dependency_provider"/>
+            <argument type="service" id="models"/>
+            <argument type="service" id="events"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swag_abo_commerce.subscriber.document" class="SwagAboCommerce\Subscriber\Document">
+            <argument type="service" id="swag_abo_commerce.abo_commerce_service"/>
+            <argument type="service" id="models"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swag_abo_commerce.subscriber.frontend" class="SwagAboCommerce\Subscriber\Frontend">
+            <argument type="service" id="swag_abo_commerce.abo_commerce_service"/>
+            <argument type="service" id="models"/>
+            <argument type="service" id="plugins"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swag_abo_commerce.subscriber.order" class="SwagAboCommerce\Subscriber\Order">
+            <argument type="service" id="swag_abo_commerce.dependency_provider"/>
+            <argument type="service" id="swag_abo_commerce.abo_commerce_service"/>
+            <argument type="service" id="models"/>
+            <argument type="service" id="templatemail"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swag_abo_commerce.subscriber.order_cron_job" class="SwagAboCommerce\Subscriber\OrderCronJob">
+            <argument type="service" id="swag_abo_commerce.order_cron_job_service"/>
+            <argument type="service" id="swag_abo_commerce.dependency_provider"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swag_abo_commerce.subscriber.custom_products" class="SwagAboCommerce\Subscriber\CustomProducts">
+            <argument type="service" id="models"/>
+            <argument type="service" id="swag_abo_commerce.abo_commerce_service"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+    </services>
+</container>

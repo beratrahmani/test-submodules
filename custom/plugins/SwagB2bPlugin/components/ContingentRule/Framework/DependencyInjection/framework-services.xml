@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_contingent_rule.release_types" type="collection">
+      <parameter type="constant">\Shopware\B2B\ContingentRule\Framework\TimeRestrictionType\OrderAmountType::NAME</parameter>
+      <parameter type="constant">\Shopware\B2B\ContingentRule\Framework\TimeRestrictionType\OrderItemQuantityType::NAME</parameter>
+      <parameter type="constant">\Shopware\B2B\ContingentRule\Framework\TimeRestrictionType\OrderQuantityType::NAME</parameter>
+    </parameter>
+    <parameter key="b2b_contingent_rule.restrict_types" type="collection">
+      <parameter type="constant">\Shopware\B2B\ContingentRule\Framework\CategoryType\CategoryType::NAME</parameter>
+      <parameter type="constant">\Shopware\B2B\ContingentRule\Framework\ProductPriceType\ProductPriceType::NAME</parameter>
+      <parameter type="constant">\Shopware\B2B\ContingentRule\Framework\ProductOrderNumberType\ProductOrderNumberType::NAME</parameter>
+    </parameter>
+    <parameter key="b2b_contingent_rule.order_amount_type_class">Shopware\B2B\ContingentRule\Framework\TimeRestrictionType\OrderAmountType</parameter>
+    <parameter key="b2b_contingent_rule.order_item_quantity_type_class">Shopware\B2B\ContingentRule\Framework\TimeRestrictionType\OrderItemQuantityType</parameter>
+    <parameter key="b2b_contingent_rule.order_quantity_type_class">Shopware\B2B\ContingentRule\Framework\TimeRestrictionType\OrderQuantityType</parameter>
+    <parameter key="b2b_contingent_rule.product_price_repository_class">Shopware\B2B\ContingentRule\Framework\ProductPriceType\ProductPriceRepository</parameter>
+    <parameter key="b2b_contingent_rule.product_order_number_repository_class">Shopware\B2B\ContingentRule\Framework\ProductOrderNumberType\ProductOrderNumberRepository</parameter>
+    <parameter key="b2b_contingent.category_type_class">Shopware\B2B\ContingentRule\Framework\CategoryType\CategoryType</parameter>
+    <parameter key="b2b_contingent.product_price_type_class">Shopware\B2B\ContingentRule\Framework\ProductPriceType\ProductPriceType</parameter>
+    <parameter key="b2b_contingent.product_order_number_type_class">Shopware\B2B\ContingentRule\Framework\ProductOrderNumberType\ProductOrderNumberType</parameter>
+    <parameter key="b2b_contingent_rule.entity_factory_class">Shopware\B2B\ContingentRule\Framework\ContingentRuleTypeFactory</parameter>
+    <parameter key="b2b_contingent_rule.validation_service_class">Shopware\B2B\ContingentRule\Framework\ContingentRuleValidationService</parameter>
+    <parameter key="b2b_contingent_rule.repository_class">Shopware\B2B\ContingentRule\Framework\ContingentRuleRepository</parameter>
+    <parameter key="b2b_contingent_rule.crud_service_class">Shopware\B2B\ContingentRule\Framework\ContingentRuleCrudService</parameter>
+    <parameter key="b2b_contingent_rule.grid_helper_class">Shopware\B2B\Common\Controller\GridHelper</parameter>
+    <parameter key="b2b_contingent_rule.service_class">Shopware\B2B\ContingentRule\Framework\ContingentRuleService</parameter>
+    <parameter key="b2b_contingent_rule.rule_cart_access_factory_class">Shopware\B2B\ContingentRule\Framework\RuleCartAccessFactory</parameter>
+    <parameter key="b2b_contingent_rule.restrict_cart_access_factory_class">Shopware\B2B\ContingentRule\Framework\RestrictionCartAccessFactory</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_contingent_rule.order_amount_type_abstract" abstract="true">
+      <argument type="service" id="b2b_contingent_rule.service"/>
+      <argument type="service" id="b2b_cart.cart_history_repository"/>
+      <argument type="service" id="b2b_currency.service"/>
+    </service>
+    <service id="b2b_contingent_rule.order_item_quantity_type_abstract" abstract="true">
+      <argument type="service" id="b2b_contingent_rule.service"/>
+      <argument type="service" id="b2b_cart.cart_history_repository"/>
+      <argument type="service" id="b2b_currency.service"/>
+    </service>
+    <service id="b2b_contingent_rule.order_quantity_type_abstract" abstract="true">
+      <argument type="service" id="b2b_contingent_rule.service"/>
+      <argument type="service" id="b2b_cart.cart_history_repository"/>
+      <argument type="service" id="b2b_currency.service"/>
+    </service>
+    <service id="b2b_contingent_rule.product_price_repository_abstract" abstract="true">
+      <argument id="dbal_connection" type="service"/>
+    </service>
+    <service id="b2b_contingent_rule.product_order_number_repository_abstract" abstract="true">
+      <argument id="dbal_connection" type="service"/>
+    </service>
+    <service id="b2b_contingent.category_type_abstract" abstract="true">
+      <argument type="service" id="b2b_shop.category_repository"/>
+    </service>
+    <service id="b2b_contingent.product_price_type_abstract" abstract="true">
+            
+        </service>
+    <service id="b2b_contingent.product_order_number_type_abstract" abstract="true">
+      <argument id="b2b_contingent_rule.product_order_number_repository" type="service"/>
+    </service>
+    <service id="b2b_contingent_rule.entity_factory_abstract" abstract="true"/>
+    <service id="b2b_contingent_rule.validation_service_abstract" abstract="true">
+      <argument id="b2b_common.validation_builder" type="service"/>
+      <argument id="validator" type="service"/>
+      <argument id="b2b_contingent_rule.entity_factory" type="service"/>
+    </service>
+    <service id="b2b_contingent_rule.repository_abstract" abstract="true">
+      <argument id="dbal_connection" type="service"/>
+      <argument id="b2b_common.repository_dbal_helper" type="service"/>
+      <argument id="b2b_contingent_rule.entity_factory" type="service"/>
+      <argument id="b2b_currency.calculator" type="service"/>
+      <argument id="b2b_product_name.product_name_service" type="service"/>
+    </service>
+    <service id="b2b_contingent_rule.crud_service_abstract" abstract="true">
+      <argument id="b2b_contingent_rule.repository" type="service"/>
+      <argument id="b2b_contingent_rule.validation_service" type="service"/>
+      <argument id="b2b_contingent_rule.entity_factory" type="service"/>
+    </service>
+    <service id="b2b_contingent_rule.grid_helper_abstract" abstract="true">
+      <argument type="service" id="b2b_contingent_rule.repository"/>
+    </service>
+    <service id="b2b_contingent_rule.service_abstract" abstract="true">
+        </service>
+    <service id="b2b_contingent_rule.rule_cart_access_factory_abstract" abstract="true">
+      <argument type="service" id="b2b_contingent_group.repository"/>
+      <argument type="service" id="b2b_contingent_rule.service"/>
+      <argument type="service" id="b2b_contingent_rule.repository"/>
+      <argument type="service" id="b2b_contingent_rule.entity_factory"/>
+      <argument type="service" id="b2b_currency.service"/>
+      <argument>%b2b_contingent_rule.release_types%</argument>
+    </service>
+    <service id="b2b_contingent_rule.restrict_cart_access_factory_abstract" abstract="true">
+      <argument type="service" id="b2b_contingent_group.repository"/>
+      <argument type="service" id="b2b_contingent_rule.repository"/>
+      <argument type="service" id="b2b_contingent_rule.entity_factory"/>
+      <argument type="service" id="b2b_currency.service"/>
+      <argument>%b2b_contingent_rule.restrict_types%</argument>
+    </service>
+    <service id="b2b_contingent_rule.order_amount_type" class="%b2b_contingent_rule.order_amount_type_class%" parent="b2b_contingent_rule.order_amount_type_abstract">
+      <tag name="b2b_contingent_rule.type"/>
+    </service>
+    <service id="b2b_contingent_rule.order_item_quantity_type" class="%b2b_contingent_rule.order_item_quantity_type_class%" parent="b2b_contingent_rule.order_item_quantity_type_abstract">
+      <tag name="b2b_contingent_rule.type"/>
+    </service>
+    <service id="b2b_contingent_rule.order_quantity_type" class="%b2b_contingent_rule.order_quantity_type_class%" parent="b2b_contingent_rule.order_quantity_type_abstract">
+      <tag name="b2b_contingent_rule.type"/>
+    </service>
+    <service id="b2b_contingent_rule.product_price_repository" class="%b2b_contingent_rule.product_price_repository_class%" parent="b2b_contingent_rule.product_price_repository_abstract"/>
+    <service id="b2b_contingent_rule.product_order_number_repository" class="%b2b_contingent_rule.product_order_number_repository_class%" parent="b2b_contingent_rule.product_order_number_repository_abstract"/>
+    <service id="b2b_contingent.category_type" class="%b2b_contingent.category_type_class%" parent="b2b_contingent.category_type_abstract">
+      <tag name="b2b_contingent_rule.type"/>
+    </service>
+    <service id="b2b_contingent.product_price_type" class="%b2b_contingent.product_price_type_class%" parent="b2b_contingent.product_price_type_abstract">
+      <tag name="b2b_contingent_rule.type"/>
+    </service>
+    <service id="b2b_contingent.product_order_number_type" class="%b2b_contingent.product_order_number_type_class%" parent="b2b_contingent.product_order_number_type_abstract">
+      <tag name="b2b_contingent_rule.type"/>
+    </service>
+    <service id="b2b_contingent_rule.entity_factory" class="%b2b_contingent_rule.entity_factory_class%" parent="b2b_contingent_rule.entity_factory_abstract"/>
+    <service id="b2b_contingent_rule.validation_service" class="%b2b_contingent_rule.validation_service_class%" parent="b2b_contingent_rule.validation_service_abstract"/>
+    <service id="b2b_contingent_rule.repository" class="%b2b_contingent_rule.repository_class%" parent="b2b_contingent_rule.repository_abstract"/>
+    <service id="b2b_contingent_rule.crud_service" class="%b2b_contingent_rule.crud_service_class%" parent="b2b_contingent_rule.crud_service_abstract"/>
+    <service id="b2b_contingent_rule.grid_helper" class="%b2b_contingent_rule.grid_helper_class%" parent="b2b_contingent_rule.grid_helper_abstract"/>
+    <service id="b2b_contingent_rule.service" class="%b2b_contingent_rule.service_class%" parent="b2b_contingent_rule.service_abstract"/>
+    <service id="b2b_contingent_rule.rule_cart_access_factory" class="%b2b_contingent_rule.rule_cart_access_factory_class%" parent="b2b_contingent_rule.rule_cart_access_factory_abstract">
+      <tag name="b2b_cart.cart_access_strategies"/>
+    </service>
+    <service id="b2b_contingent_rule.restrict_cart_access_factory" class="%b2b_contingent_rule.restrict_cart_access_factory_class%" parent="b2b_contingent_rule.restrict_cart_access_factory_abstract">
+      <tag name="b2b_cart.cart_access_strategies"/>
+    </service>
+  </services>
+</container>

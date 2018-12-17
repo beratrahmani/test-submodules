@@ -1,0 +1,1 @@
+INSERT INTO `s_plugin_promotion_customer_count` (`promotion_id`, `customer_id`, `order_id`) VALUES ('9999', '1', '123');

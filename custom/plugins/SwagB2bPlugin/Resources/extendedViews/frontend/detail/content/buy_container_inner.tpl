@@ -1,0 +1,1 @@
+{action module=widgets controller=b2bremotebox action=detail orderNumber=$sArticle.ordernumber quantity=$sArticle.minpurchase}

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.5/engine/Shopware/Components/Plugin/schema/plugin.xsd">
+
+    <label lang="de">Produkt Bundles</label>
+    <label lang="en">Product bundles</label>
+    <version>5.3.0</version>
+    <description lang="de"><![CDATA[<div style="padding-bottom:12px;color:999;">
+    <strong style="font-weight:bold">Produktinformationen: "Produkt Bundles"</strong>
+    <p>​Mit dem "Bundle"-Plugin kannst du beliebige Artikel in Shopware miteinander kombinieren, um diese dann als Bundle zu einem vergünstigten Preis anzubieten.
+Auf diese Weise kannst du beispielsweise Zubehörartikel zu einem reduzierten Preis in Verbindung mit dem Hauptartikel anbieten.
+Dabei kannst du sowohl prozentuale Rabatte als auch feste Preise für ein Bundle definieren.
+Im Warenkorb werden hierbei immer die Originalpreise der Artikel, zusammen mit einem Bundlerabatt ausgegeben.
+So müssen keine extra Artikel für Bundles angelegt werden.</p>
+    <p>&nbsp;</p>
+    <p>Funktionen:</p>
+    <ul>
+        <li>- Erstellen von beliebigen Bundles</li>
+        <li>- Untersützung von prozentualen Rabatten und festen Preisen</li>
+        <li>- "Zubehörbundles"</li>
+    </ul>
+</div>]]></description>
+    <description lang="en"><![CDATA[<div style="padding-bottom:12px;color:999;">
+    <strong style="font-weight:bold">Product information: "Product bundles"</strong>
+    <p>Bundles lets you create special offer packages.
+Combine as many items together as you wish, then sell the complete package at an exclusive price.
+You can either offer entire packages as discounts, or assign discounts for accessories that compliment already purchased items.
+These discounts can be determined either as percentages or as fixed bundle prices.
+In the shopping cart, the original price is always displayed first, followed by the discounted price.
+Highlight the range of your shop‘s items and reward customers for making larger purchases at the same time.</p>
+    <p>&nbsp;</p>
+    <p>Features:</p>
+    <ul>
+        <li>- Easily create your custom bundles</li>
+        <li>- Discounts are possible as fixed prices or percentages</li>
+        <li>- Create Bundles of accessories or complimentary items</li>
+    </ul>
+</div>]]></description>
+
+    <copyright>(c) by shopware AG</copyright>
+    <license>proprietary</license>
+    <link>http://store.shopware.com</link>
+    <author>shopware AG</author>
+    <compatibility minVersion="5.5.0"/>
+
+    <changelog version="5.3.0">
+        <changes lang="de">
+            PT-9626 - Behebt ein Problem beim Variantenwechsel;
+            PT-9262 - Behebt ein Problem mit deaktivierten Varianten;
+            PT-9388 - Übersetzungen der Konfigurator Optionen werden wieder angezeigt;
+            PT-9656 - Übersetzungen des Artikelnamens werden wieder angezeigt;
+        </changes>
+        <changes lang="en">
+            PT-9626 - Solves an issue changing variants;
+            PT-9262 - Solves an issue with inactive variants;
+            PT-9388 - Translations of configurator options will be shown;
+            PT-9656 - Translations of product name will be shown correctly;
+        </changes>
+    </changelog>
+
+    <changelog version="5.2.0">
+        <changes lang="de">PT-9175, PT-9536 - Shopware 5.5 Kompatibilität;</changes>
+        <changes lang="en">PT-9175, PT-9536 - Shopware 5.5 compatibility;</changes>
+    </changelog>
+
+    <changelog version="5.1.3">
+        <changes lang="de">
+            PT-9029 - Bundle-Badge Anzeige im Listing verbessert;
+            PT-9056 - Gutscheinberechnung verbessert;
+            PT-9101 - Steuer des Rabatts wird nun richtig berücksichtigt;
+        </changes>
+        <changes lang="en">
+            PT-9029 - Improve Bundle badge displaying in listing;
+            PT-9056 - Improve voucher calculation;
+            PT-9101 - Tax from discount is now properly taken into account;
+        </changes>
+    </changelog>
+
+    <changelog version="5.1.2">
+        <changes lang="de">
+            PT-8911 - Invalide Bundles können nicht mehr in den Warenkorb gelegt werden;
+            PT-9075 - Bundle-Filter verbessert;
+        </changes>
+        <changes lang="en">
+            PT-8911 - It is no longer possible to put invalid bundles in the cart;
+            PT-9075 - Improve Bundle filter;
+        </changes>
+    </changelog>
+
+    <changelog version="5.1.1">
+        <changes lang="de">PT-8965 - Deaktiviere Custom Facet beim Deinstallieren und Deaktivieren des Plugins;</changes>
+        <changes lang="en">PT-8965 - Deactivate custom facet if plugin is uninstalled or deactivated;</changes>
+    </changelog>
+
+    <changelog version="5.1.0">
+        <changes lang="de">PT-8810 - Shopware 5.4 Kompatibilität</changes>
+        <changes lang="en">PT-8810 - Shopware 5.4 compatibility</changes>
+    </changelog>
+
+    <changelog version="5.0.0">
+        <changes lang="de">PT-8124 - Migration auf das Shopware 5.2 Plugin System; PT-8796 - Aktualisiere Bundle Container beim Variantenwechsel;</changes>
+        <changes lang="en">PT-8124 - Migration to the Shopware 5.2 plugin system; PT-8796 - Update Bundle container on variant change;</changes>
+    </changelog>
+
+    <changelog version="4.0.3">
+        <changes lang="de">PT-8693 - Problem mit den Warenkorbwert in der Session behoben;</changes>
+        <changes lang="en">PT-8693 - Fix problem with basket amount in session;</changes>
+    </changelog>
+
+    <changelog version="4.0.2">
+        <changes lang="de">PT-8454 - Bundle-Preis Berechnung bei selektierbaren Bundles korrigiert; PT-8457 - Preisdarstellung korrigiert, wenn es keinen Bundle-Rabatt gibt;</changes>
+        <changes lang="en">PT-8454 - Fix bundle price calculation for selectable bundles; PT-8457 - Fix displaying of bundle price, if there is not discount;</changes>
+    </changelog>
+
+    <changelog version="4.0.1">
+        <changes lang="de">PT-6979 - Anzeige der Variantenübersetzung korrigiert; PT-8107, PT-8180 - Snippets korrigiert; PT-8014 - Bundle Attribute werden nun in den Bestelldetails übernommen; PT-8304 - Invalide Artikel werden nun im Bundle korrekt behandelt; PT-8370 - Wird ein nicht existierendes Bundle in den Warenkorb gelegt, wird eine korrekte Fehlermeldung ausgegeben;</changes>
+        <changes lang="en">PT-6979 - Fixed displaying of variant translation; PT-8107, PT-8180 - Fixed snippets; PT-8014 - Bundle attributes are now copied to the order details; PT-8304 - Invalide products are now handled correctly in the bundle; PT-8370 - If a non-existing bundle is placed in the shopping cart, a correct error message is displayed;</changes>
+    </changelog>
+
+    <changelog version="4.0.0">
+        <changes lang="de">PT-7642, PT-7717, SW-16633, SW-16941: Shopware 5.3 Kompatibilität; PT-7674 - Update Übersetzungen; PT-7774 - Kundengruppenwechsel während des Checkout-Prozesses; PT-7804 - Rabattberechnung für Bundles mit 19% und 7% MwSt-Sätzen;</changes>
+        <changes lang="en">PT-7642, PT-7717, SW-16633, SW-16941: Shopware 5.3 compatibility; PT-7674 - Update translations; PT-7774 - Fixed checkout process if customer group changes; PT-7804 - Fixed discount calculation for bundles with 19% and 7% tax rates;</changes>
+    </changelog>
+
+    <changelog version="3.3.0">
+        <changes lang="de">PT-4655 - Feature: Paging-Funktion für Bundles im Artikel-Modul hinzugefügt; PT-6764 - Bugfix: Prozentuale Gutscheine können nun korrekt ausgeschlossen werden; PT-7338 - Bugfix: Artikel im Warenkorb werden nun bei Bundle-Verfügbarkeits Prüfung beachtet; PT-7339 - Bugfix: Selektierbare Bundles wieder mit Abverkaufs-Artikeln kaufbar;</changes>
+        <changes lang="en">PT-4655 - Feature: Added paging functionality for bundles in the product module; PT-6764 - Bugfix: Percental vouchers can now be properly excluded; PT-7338 - Bugfix: Products in the basket are now properly considered for the bundle availability check; PT-7339 - Bugfix: Selectable bundles can now be properly purchased with on-sale products;</changes>
+    </changelog>
+
+    <changelog version="3.2.6">
+        <changes lang="de">PT-7139 - Bugfix: Problem mit der Einstellung 'SSL verwenden'; PT-7284 - Bugfix: Problem mit Abverkaufartikel und Limitierung des Bundles; PT-7356 - Bugfix: Doppelte Bundles und Fehlermeldungen;</changes>
+        <changes lang="en">PT-7139 - Bugfix: Problem with the setting 'Use SSL'; PT-7284 - Bugfix: Problem with last stock products and limiting the bundles; PT-7356 - Bugfix: Bundles and error messages appeared twice;</changes>
+    </changelog>
+
+    <changelog version="3.2.5">
+        <changes lang="de">SW-16690, SW-16691 - Feature: Shopware 5.3 Kompatibilität; PT-7070 - Feature: Filter Kompatibilität mit Product Streams; PT-7017 - Bugfix: Prozentualer Rabatt bei selektierbaren Bundles. Ungenutzter Parameter '$selectedProductIsDisplayGlobal' in Shopware_Components_Bundle::getCalculatedBundle() ersetzt;</changes>
+        <changes lang="en">SW-16690, SW-16691 - Feature: Shopware 5.3 compatibility; PT-7070 - Feature: Filter compatibility with Product Streams; PT-7017 - Bugfix: Fixed percental discount with selectable bundles. Replaced unused parameter '$selectedProductIsDisplayGlobal' in Shopware_Components_Bundle::getCalculatedBundle()</changes>
+    </changelog>
+
+    <changelog version="3.2.4">
+        <changes lang="de">PT-4012 - Bugfix: Neuberechnung des Preises im Warenkorb nach Login; PT-4662 - Feature: Elasticsearch Kompatibilität; PT-5879 - Bugfix: Refaktorierung Bundle Slider; PT-6260 - Bugfix: Konfiguration des Bundles mit Variantenartikeln; PT-6335 - Bugfix: Anzeige Badge im Listing abhängig von der Verfügbarkeit; PT-6723 - Bugfix: Verhalten der Verfügbarkeit bei Variantenartikeln verbessert;</changes>
+        <changes lang="en">PT-4012 - Bugfix: Recalculating the price in the cart after login; PT-4662 - Feature: Elasticsearch compatibility; PT-5879 - Bugfix: Refactoring Bundle slider; PT-6260 - Bugfix: Configuration of Bundles with variant products; PT-6335 - Bugfix: Show badge in listing depending on availability; PT-6723 - Bugfix: Improve behaviour of availability with variant products;</changes>
+    </changelog>
+
+    <changelog version="3.2.3">
+        <changes lang="de">PT-6304 - Bugfix: CSRF Protection bei Variantenauswahl; PT-6327 - Bugfix: Menüpunkt Name; PT-6332 - Bugfix: Globale Bundles lassen sich nun auf allen Bundle Artikel Detailseiten konfigurieren;</changes>
+        <changes lang="en">PT-6304 - Bugfix: CSRF Protection with variants; PT-6327 - Bugfix: Menu item name; PT-6332 - Bugfix: Global bundles are now configurable from every bundle product detail page;</changes>
+    </changelog>
+
+    <changelog version="3.2.2">
+        <changes lang="de">PT-6160 - Bugfix: Menü Icon;</changes>
+        <changes lang="en">PT-6160 - Bugfix: Menu icon;</changes>
+    </changelog>
+
+    <changelog version="3.2.1">
+        <changes lang="de">PT-5412, PT-6072 - Bugfix: Shopware 5.2 Kompatibilität;</changes>
+        <changes lang="en">PT-5412, PT-6072 - Bugfix: Shopware 5.2 compatibility;</changes>
+    </changelog>
+
+    <changelog version="3.2.0">
+        <changes lang="de">PT-5412 - Feature: Shopware 5.2 Kompatibilität;</changes>
+        <changes lang="en">PT-5412 - Feature: Shopware 5.2 compatibility;</changes>
+    </changelog>
+
+    <changelog version="3.1.5">
+        <changes lang="de">PT-4121 - Bugfix: Fehlerhafter Datenbank Query; PT-4449 - Feature: SecureUninstall Methode; PT-4971 - Bugfix: Zeige LiveShopping Informationen im Bundle Listing;</changes>
+        <changes lang="en">PT-4121 - Bugfix: Wrong database query; PT-4449 - Feature: SecureUninstall method; PT-4971 - Bugfix: Show LiveShopping information in bundle listing;</changes>
+    </changelog>
+
+    <changelog version="3.1.4">
+        <changes lang="de">PT-5568 - Bugfix: Shopware 5.1.4 Kompatibilität;</changes>
+        <changes lang="en">PT-5568 - Bugfix: Shopware 5.1.4 compatibility;</changes>
+    </changelog>
+
+    <changelog version="3.1.3">
+        <changes lang="de">PT-4749 - Bugfix: Falscher Templateverweis bei Option 'Bundle unter Produktbeschreibung anzeigen'; PT-4856 - Bugfix: Veraltete Core Funktionen ersetzt; PT-5051 - Bugfix: Performance Verbesserungen;</changes>
+        <changes lang="en">PT-4749 - Bugfix: Wrong template reference if option 'Show bundle below product description' is set; PT-4856 - Bugfix: Replaced deprecated core methods; PT-5051 - Bugfix: Performance improvements;</changes>
+    </changelog>
+
+    <changelog version="3.1.2">
+        <changes lang="de">PT-3398 - Bugfix: Berechnung des Rabatts; PT-4405 - Bugfix: Berücksichtigung Steuerfrei-Einstellung beim Bundlerabatt;</changes>
+        <changes lang="en">PT-3398 - Bugfix: Calculation of discount; PT-4405 - Bugfix: Consider tax free setting for bundle discount;</changes>
+    </changelog>
+    <changelog version="3.1.1">
+        <changes lang="de">PT-3698 - Bugfix: Shopware 5.1 und PHP 7 Kompatibilität;</changes>
+        <changes lang="en">PT-3698 - Bugfix: Shopware 5.1 and PHP 7 compatibility;</changes>
+    </changelog>
+
+    <changelog version="3.1.0">
+        <changes lang="de">PT-2083 - Feature: Listing aller Bundle Artikel hinzugefügt -> www.myshop.de/bundle; PT-3286 - Bugfix: Problem mit HTTPS und Varianten; PT-3366 - Bugfix: Fehlermeldung bei CLI Commands; PT-3464 - Bugfix: Template Blöcke hinzugefügt; PT-3511 - Bugfix: SQL Fehler beim Update; PT-3493, PT-3539 - Bugfix: Shopware 5.1 Kompatibilität;</changes>
+        <changes lang="en">PT-2083 - Feature: Added listing with all bundle items -> www.myshop.de/bundle; PT-3286 - Bugfix: Problem with HTTPS and variants; PT-3366 - Bugfix: CLI Commands error message; PT-3464 - Bugfix: Added template blocks; PT-3511 - Bugfix: SQL error on update; PT-3493, PT-3539 - Bugfix: Shopware 5.1 compatibility;</changes>
+    </changelog>
+
+    <changelog version="3.0.4">
+        <changes lang="de">PT-2793 - Feature: Markierung der Bundle Artikel im Listing; PT-2744 - Bugfix: h2-Tag ersetzt; PT-2754 - Bugfix: Anzeige der Lieferzeit; PT-3151, PT-3192 - Bugfix: Fehler im Warenkorb; PT-3198 - Bugfix: Bundle Artikel global anzeigen;</changes>
+        <changes lang="en">PT-2793 - Feature: Marking of Bundle items in the Listing; PT-2744 - Bugfix: Replaced h2-Tag; PT-2754 - Bugfix: Displaying of delivery time; PT-3151, PT-3192 - Bugfix: Issues with cart; PT-3198 - Bugfix: Show Bundle items globally;</changes>
+    </changelog>
+
+    <changelog version="3.0.3">
+        <changes lang="de">PT-2423 - Fix: Fehler beim Hinzufügen zum Warenkorb; PT-2767 - Fix: Bundle-Mindestmenge im Backend; PT-3051 - Fix: Fehlendes Bundle-Icon im Backend</changes>
+        <changes lang="en">PT-2423 - Fix: Error when putting bundle intoo cart; PT-2767 - Fix: Bundle mininum instock in backend; PT-3051 - Fix: Missing bundle icon in backend</changes>
+    </changelog>
+
+    <changelog version="3.0.2">
+        <changes lang="de">PT-3015 - Fix: Installationsprobleme in älteren SW-Versionen</changes>
+        <changes lang="en">PT-3015 - Fix: install issues in older shopware versions</changes>
+    </changelog>
+
+    <changelog version="3.0.1">
+        <changes lang="de">PT-2942 - Bugfix: Update from 2.0.18 to 3.x; PT-2975 - Bugfix: Bundle-Kompatiblität</changes>
+        <changes lang="en">PT-2942 - Bugfix: Update from 2.0.18 to 3.x; PT-2975 - Bugfix: Bundle compatibility</changes>
+    </changelog>
+
+    <changelog version="3.0.0">
+        <changes lang="de">SW-9191 - Feature: Kompatibilität mit Shopware 5;</changes>
+        <changes lang="en">SW-9191 - Feature: Compatibility with Shopware 5;</changes>
+    </changelog>
+
+    <changelog version="2.1.3">
+        <changes lang="de">PT-2399 - Bugfix: Steuerberechnung; PT-2702 - Bugfix: Übersetzung der Bundle Beschreibung; PT-2714 - Bugfix: Problem mit gelöschten Bundles; PT-2743 - Bugfix: Problem beim Löschen von Bundle Artikeln über die API; PT-2677 - Bugfix: Hinzufügen von normalen Artikeln, die bereits als Bundle im Warenkorb sind; PT-2678 - Bugfix: Problem mit BonusSystem; PT-2342, PT-2158, PT-2704 - Bugfix: Problem mit Varianten;</changes>
+        <changes lang="en">PT-2399 - Bugfix: Tax calculation; PT-2702 - Bugfix: Translation of bundle description; PT-2714 - Bugfix: Problem with deleted Bundles; PT-2743 - Bugfix: Problem with deleting bundle products via API; PT-2677 - Bugfix: Adding of normal products, which are already as bundle product in the basket; PT-2678 - Bugfix: Problem with BonusSystem; PT-2342, PT-2158, PT-2704 - Bugfix: Problems with variants;</changes>
+    </changelog>
+
+    <changelog version="2.1.2">
+        <changes lang="de">PT-2222 - Bugfix: Bundleartikel werden nach Vorgabe sortiert; PT-2394 - Bugfix: Konfigurierte Bundles aktualisieren, wenn enthaltener Artikel gelöscht wird; PT-2610 - Bugfix: Fehler beim Instanzieren der Bundle-Basket-Komponente; PT-2609 - Feature: Weitere Informationen auf der Artikeldetailseite: Gültigkeit, Versandkostenfreiheit; PT-2608 - Bugfix: Fehler nach Löschen eines Bundle-Artikels korrigiert; PT-2334 - Bugfix: Caching der Bundle Anzeigedaten auf der Artikeldetailseite verhindern; PT-2577 - Feature: Erlaubt Sortierung der Bundle-Felder auf der Detailseite; PT-2576 - Feature: Möglichkeit, Bundle-Beschreibungen zu definieren; PT-2582 - Feature: Bundle Positionierung hinzugefügt; PT-2579 - Bugfix: Korrigiert Anzeige der Benachrichtigung bei Bundle-Typ-Änderung; PT-2440 - Bugfix: Übersetzung der Varianten im Frontend; PT-2586 - Bugfix: Verstecke normales Bundle, wenn der Artikel nicht auf Lager ist; PT-2657 - Bugfix: von/bis Datum zurücksetzen; PT-2669 - Bugfix: Bundle wird inaktiv, wenn ein zugehöriger Artikel gelöscht wird; PT-2641 - Bugfix: Fehler auf der Detailseite; PT-2639 - Bugfix: Fehler beim Speichern von Bundles</changes>
+        <changes lang="en">PT-2222 - Bugfix: Bundle products are sorted by the order in the backend; PT-2394 - Bugfix: Issue with bundle configuration if contained product is deleted; PT-2610 - Bugfix: Error on instantiating bundleBasket component; PT-2609 - Feature: Added additional information on product detail page like valid from, valid to and shipping free; PT-2608 - Bugfix: Error when using deleted products in a bundle; PT-2334 - Bugfix: Prevent caching of bundle display data on product detail page; PT-2577 - Feature: Order Bundles on the detail page, using backend options; PT-2576 - Feature: Add description for bundle; PT-2582 - Feature: Added bundle positioning; PT-2579 - Bugfix: Displaying of bundle type changing message; PT-2440 - Bugfix: Translation of variants in the frontend; PT-2586 - Bugfix: Hide normal bundle if product is out of stock; PT-2657 - Bugfix: Resetting of from/to date; PT-2669 - Bugfix: Bundle will become inactive, if one of its products is deleted; PT-2641 - Bugfix: Error on detail page; PT-2639 - Bugfix: Error on saving bundles;</changes>
+    </changelog>
+
+    <changelog version="2.1.1">
+        <changes lang="de">Behebt Fehler mit der Variantenauswahl; Behebt Gutscheinberechnung, wenn das Trusted Shops Plugin aktiv ist; Korrigiert Bundle Rabattpreisberechnung für andere Währungen</changes>
+        <changes lang="en">Fixed issue with variant selection; Fix voucher calculation when trusted shop plugin is active; Fix bundle discount price for different currency</changes>
+    </changelog>
+
+    <changelog version="2.1.0">
+        <changes lang="de">Neue Option: Bundles von prozentualen Gutscheinen ausschließen; Verbesserung: Bundles in der Bundleübersicht deaktivieren; Neue Option: Bundle-Name auf Detailseite anzeigen; Korrektur: Zusatztext von Varianten im Checkout anzeigen; Korrektur: Zusammenspiel mit Liveshopping; Korrektur: Ergänzung fehlender image-tags; Korrektur: Fremdwährungen; Korrektur: Anzeige von Artikeln, die nicht dem Shop zugeordnet sind; Korrektur: Keine Anzeige nicht-verfügbarer Varianten;</changes>
+        <changes lang="en">Added option to exclude bundle from percentage vouchers; Added option to deactivate bundles in the overview window; Added option to show name of the bundle; Show additional text of variants; Fixed issue with Live-Shopping; Fixed missing images tags; Fixed issue with other currencies; Fixed issues if product is not in a category; Fixed issue with not available variants;</changes>
+    </changelog>
+
+    <changelog version="2.0.19">
+        <changes lang="de">Korrektur: Unterdrücke Exceptions im Frontend, wenn der Lizenzcheck fehlschlägt</changes>
+        <changes lang="en">Don't throw frontend exceptions if the license check fails</changes>
+    </changelog>
+
+    <changelog version="2.0.18">
+        <changes lang="de">Korrektur: von/bis nicht mehr zwingend erforderlich</changes>
+        <changes lang="en">Make from/to dates not required</changes>
+    </changelog>
+
+    <changelog version="2.0.17">
+        <changes lang="de">Neue Option: Lieferzeit auf Detailseite anzeigen</changes>
+        <changes lang="en">Added option to show delivery time on detail page</changes>
+    </changelog>
+</plugin>

@@ -1,0 +1,228 @@
+.advisor--content {
+    .clearfix();
+    .advisor--content-padding {
+        .unitize(padding-top, 45);
+    }
+
+    .content-inner--advisor-teaser {
+        text-align: center;
+
+        .advisor-teaser--ct {
+            display: inline-block;
+            max-width: 100%;
+        }
+    }
+    .advisor--content-inner .content-inner--main {
+        word-wrap: break-word;
+    }
+
+    .advisor-start--button {
+        .unitize(padding-left, 20);
+    }
+
+    .listing-ct--advisor-result {
+        .clearfix();
+    }
+
+    .advisor--tophit-ct {
+        .unitize(margin-bottom, 30);
+
+        .advisor--listing-title {
+            .unitize(font-size, 18);
+        }
+    }
+
+    .box--advisor-tophit {
+        float: none;
+
+        &:after{
+            clear: inherit;
+            display: inherit;
+            content: inherit;
+        }
+    }
+}
+
+.advisor--listing-title {
+    color: @product-advisor-text-color-dark;
+    font-weight: 700;
+
+    &:not(.advisor--others-title) {
+        .unitize(padding-bottom, 5);
+        margin-left: 2%;
+        border-bottom: 1px solid @product-advisor-border-color;
+    }
+
+    &.advisor--others-title {
+        .unitize(margin-top, 30);
+        padding-left: 2%;
+        width: 100%;
+        float: left;
+
+        .others-title--inner {
+            border-bottom: 1px solid @product-advisor-border-color;
+        }
+    }
+}
+
+.box--show_matches,
+.box--show_matches_and_misses,
+.box--advisor-tophit {
+    width: 100%;
+
+    .box--content {
+        .unitize-padding(20, 10);
+    }
+
+    .product--info {
+        position: relative;
+    }
+}
+
+.box--advisor-tophit .box--content{
+    border: 1px solid @product-advisor-highlight-success;
+}
+
+.advisor--hits-ct {
+    .unitize(margin-bottom, 35);
+    //Fixes float issue
+    overflow: hidden;
+
+    .hits-ct--matches {
+        .unitize(padding-right, 20);
+    }
+
+    .hits-ct--matches,
+    .hits-ct--misses {
+        float: left;
+        width: 50%;
+    }
+}
+
+.advisor--list {
+    list-style: none;
+
+    .list--single-property {
+        font-weight: 600;
+
+        .advisor--icon {
+            .unitize(font-size, 11);
+            .unitize(margin-top, 5);
+            float: left;
+        }
+
+        .single-property--text {
+            .unitize(margin-left, 20);
+        }
+    }
+
+    .matches-list--single-match {
+        color: @product-advisor-highlight-success;
+    }
+
+    .misses-list--single-miss {
+        color: @product-advisor-miss-color;
+    }
+}
+
+.question-ct--filter,
+.question-name--arrow {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.advisor--sidebar-content {
+    .unitize(margin-bottom, 20);
+    width: 100%;
+}
+
+.is--ctl-advisor .sidebar-main:not(.is--open) {
+    display: none;
+}
+
+.advisor--listing-ct .listing--actions {
+    .unitize(margin-top, 20);
+    margin-left: 2%;
+    margin-bottom: 0;
+    padding-top: 0;
+}
+
+.advisor--listing {
+    float: left;
+    width: 100%;
+}
+
+.advisor--content-inner {
+    .clearfix();
+}
+
+/* We're not using the default hidden-class because we may not have an !important here */
+.advisor--is-hidden {
+    display: none;
+}
+
+.advisor--listing-ct .infinite--actions {
+    .unitize(margin-top, 20);
+}
+
+.badge--tophit {
+    background-color: @product-advisor-highlight-success;
+    color: #fff;
+}
+
+.advisor--tophit-buy {
+    .unitize(margin-top, 10);
+}
+
+.advisor--last-question {
+    .unitize(margin-top, 20);
+}
+
+.advisor--no-results-title {
+    .unitize(font-size, 25);
+    .unitize(margin-bottom, 10);
+    font-weight: 700;
+    color: @product-advisor-text-color-dark;
+}
+
+@media screen and (min-width: @phoneLandscapeViewportWidth) {
+    .box--show_matches,
+    .box--show_matches_and_misses,
+    .box--advisor-tophit {
+        .product--info {
+            .unitize(padding-left, 190);
+        }
+
+        .product--image {
+            .unitize-width(170);
+            height: 100%;
+            left: 0;
+            margin: 0;
+            position: absolute;
+            top: 0;
+        }
+    }
+}
+
+@media screen and (min-width: @tabletViewportWidth) {
+    .advisor--sidebar-content {
+        .unitize(margin-left, 270);
+        width: auto;
+    }
+
+    .advisor--content .advisor--content-inner .content-inner--main {
+        .unitize-margin(0, 25);
+    }
+}
+
+@media screen and (min-width: @tabletLandscapeViewportWidth) {
+    .advisor--content .box--advisor-tophit {
+        .product--image {
+            .unitize-width(400);
+        }
+        .product--info {
+            .unitize(padding-left, 420);
+        }
+    }
+}

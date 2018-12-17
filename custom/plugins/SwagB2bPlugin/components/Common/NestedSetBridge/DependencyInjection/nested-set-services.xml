@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="b2b_nested_set.config" class="Shopware\DbalNestedSet\NestedSetConfig">
+            <argument>id</argument>
+            <argument>left</argument>
+            <argument>right</argument>
+            <argument>level</argument>
+        </service>
+        <service id="b2b_nested_set.writer" class="Shopware\DbalNestedSet\NestedSetWriter">
+            <factory class="Shopware\DbalNestedSet\NestedSetFactory" method="createWriter"/>
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="b2b_nested_set.config"/>
+        </service>
+        <service id="b2b_nested_set.query_factory" class="Shopware\DbalNestedSet\NestedSetQueryFactory">
+            <factory class="Shopware\DbalNestedSet\NestedSetFactory" method="createQueryFactory"/>
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="b2b_nested_set.config"/>
+        </service>
+        <service id="b2b_nested_set.inspector" class="Shopware\DbalNestedSet\NestedSetTableNodeInspector">
+            <factory class="Shopware\DbalNestedSet\NestedSetFactory" method="createTableNodeInspector"/>
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="b2b_nested_set.config"/>
+        </service>
+    </services>
+</container>

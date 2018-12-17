@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_contingent_group.validation_service_class">Shopware\B2B\ContingentGroup\Framework\ContingentGroupValidationService</parameter>
+    <parameter key="b2b_contingent_group.repository_class">Shopware\B2B\ContingentGroup\Framework\ContingentGroupRepository</parameter>
+    <parameter key="b2b_contingent_group.crud_service_class">Shopware\B2B\ContingentGroup\Framework\ContingentGroupCrudService</parameter>
+    <parameter key="b2b_contingent_group.acl_access_writer_class">Shopware\B2B\Acl\Framework\AclAccessWriter</parameter>
+    <parameter key="b2b_contingent_group.grid_helper_class">Shopware\B2B\Common\Controller\GridHelper</parameter>
+    <parameter key="b2b_contingent_group.acl_repository_class">Shopware\B2B\Acl\Framework\AclRepository</parameter>
+    <parameter key="b2b_contingent_group.contact_acl_table_class">Shopware\B2B\ContingentGroup\Framework\ContingentGroupContactAclTable</parameter>
+    <parameter key="b2b_contingent_group.role_acl_table_class">Shopware\B2B\ContingentGroup\Framework\ContingentGroupRoleAclTable</parameter>
+    <parameter key="b2b_contingent_group.acl_read_helper_class">Shopware\B2B\Acl\Framework\AclReadHelper</parameter>
+    <parameter key="b2b_contingent_group.company_assignment_helper_class">Shopware\B2B\ContingentGroup\Framework\ContingentGroupCompanyAssignmentFilter</parameter>
+    <parameter key="b2b_contingent_group.company_inheritance_helper_class">Shopware\B2B\ContingentGroup\Framework\ContingentGroupCompanyInheritanceFilter</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_contingent_group.validation_service_abstract" abstract="true">
+      <argument id="b2b_common.validation_builder" type="service"/>
+      <argument id="validator" type="service"/>
+    </service>
+    <service id="b2b_contingent_group.repository_abstract" abstract="true">
+      <argument id="dbal_connection" type="service"/>
+      <argument id="b2b_common.repository_dbal_helper" type="service"/>
+      <argument id="b2b_contingent_group.acl_read_helper" type="service"/>
+      <argument id="b2b_contingent_group.company_assignment_helper" type="service"/>
+      <argument id="b2b_company.filter_helper" type="service"/>
+      <argument type="service" id="b2b_contingent_group.company_inheritance_helper"/>
+    </service>
+    <service id="b2b_contingent_group.crud_service_abstract" abstract="true">
+      <argument id="b2b_contingent_group.repository" type="service"/>
+      <argument id="b2b_contingent_group.validation_service" type="service"/>
+      <argument id="b2b_contingent_group.acl_access_writer" type="service"/>
+    </service>
+    <service id="b2b_contingent_group.acl_access_writer_abstract" abstract="true">
+      <argument type="service" id="b2b_contingent_group.acl_repository"/>
+    </service>
+    <service id="b2b_contingent_group.grid_helper_abstract" abstract="true">
+      <argument type="service" id="b2b_contingent_group.repository"/>
+    </service>
+    <service id="b2b_contingent_group.acl_repository_abstract" abstract="true">
+      <factory service="b2b_acl.repository_factory" method="createRepository"/>
+      <argument type="constant">Shopware\B2B\ContingentGroup\Framework\ContingentGroupRepository::TABLE_NAME</argument>
+    </service>
+    <service id="b2b_contingent_group.contact_acl_table_abstract" abstract="true">
+            
+        </service>
+    <service id="b2b_contingent_group.role_acl_table_abstract" abstract="true">
+            
+        </service>
+    <service id="b2b_contingent_group.acl_read_helper_abstract" abstract="true">
+      <argument type="service" id="b2b_contingent_group.acl_repository"/>
+      <argument type="constant">Shopware\B2B\ContingentGroup\Framework\ContingentGroupRepository::TABLE_ALIAS</argument>
+    </service>
+    <service id="b2b_contingent_group.company_assignment_helper_abstract" abstract="true"/>
+    <service id="b2b_contingent_group.company_inheritance_helper_abstract" abstract="true">
+      <argument type="service" id="b2b_nested_set.query_factory"/>
+    </service>
+    <service id="b2b_contingent_group.validation_service" class="%b2b_contingent_group.validation_service_class%" parent="b2b_contingent_group.validation_service_abstract"/>
+    <service id="b2b_contingent_group.repository" class="%b2b_contingent_group.repository_class%" parent="b2b_contingent_group.repository_abstract"/>
+    <service id="b2b_contingent_group.crud_service" class="%b2b_contingent_group.crud_service_class%" parent="b2b_contingent_group.crud_service_abstract"/>
+    <service id="b2b_contingent_group.acl_access_writer" class="%b2b_contingent_group.acl_access_writer_class%" parent="b2b_contingent_group.acl_access_writer_abstract"/>
+    <service id="b2b_contingent_group.grid_helper" class="%b2b_contingent_group.grid_helper_class%" parent="b2b_contingent_group.grid_helper_abstract"/>
+    <service id="b2b_contingent_group.acl_repository" class="%b2b_contingent_group.acl_repository_class%" parent="b2b_contingent_group.acl_repository_abstract"/>
+    <service id="b2b_contingent_group.contact_acl_table" class="%b2b_contingent_group.contact_acl_table_class%" parent="b2b_contingent_group.contact_acl_table_abstract">
+      <tag name="b2b_acl.table"/>
+    </service>
+    <service id="b2b_contingent_group.role_acl_table" class="%b2b_contingent_group.role_acl_table_class%" parent="b2b_contingent_group.role_acl_table_abstract">
+      <tag name="b2b_acl.table"/>
+    </service>
+    <service id="b2b_contingent_group.acl_read_helper" class="%b2b_contingent_group.acl_read_helper_class%" parent="b2b_contingent_group.acl_read_helper_abstract"/>
+    <service id="b2b_contingent_group.company_assignment_helper" class="%b2b_contingent_group.company_assignment_helper_class%" parent="b2b_contingent_group.company_assignment_helper_abstract"/>
+    <service id="b2b_contingent_group.company_inheritance_helper" class="%b2b_contingent_group.company_inheritance_helper_class%" parent="b2b_contingent_group.company_inheritance_helper_abstract"/>
+  </services>
+</container>

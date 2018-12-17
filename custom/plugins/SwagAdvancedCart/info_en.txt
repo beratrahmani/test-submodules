@@ -1,0 +1,9 @@
+<div style="padding-bottom:12px;color:999;">
+    <strong style="font-weight:bold">Advanced Cart</strong>
+    <p>This plugin adds advanced features to Shopware's wishlists system.
+        Your customers will be able to create and manage multiple wishlists. Saved wishlists can be recovered later,
+        and easily added to the shopping cart.
+     </p>
+     <p>Customers can also specify wishlists as public or private. Public wishlists can be shared
+     on Facebook, Twitter, Google+ or via email.</p>
+</div>

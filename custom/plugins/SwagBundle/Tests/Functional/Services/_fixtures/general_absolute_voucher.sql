@@ -1,0 +1,2 @@
+INSERT INTO `s_emarketing_vouchers` (`id`, `description`, `vouchercode`, `numberofunits`, `value`, `minimumcharge`, `shippingfree`, `bindtosupplier`, `valid_from`, `valid_to`, `ordercode`, `modus`, `percental`, `numorder`, `customergroup`, `restrictarticles`, `strict`, `subshopID`, `taxconfig`) VALUES
+(123459, 'Absoluter Gutschein', 'test_absolute', 1, 10, 10, 0, NULL, NULL, NULL, 'GUTABSOLUTETESTGENERAL', 0, 0, 1, NULL, '', 0, NULL, '');

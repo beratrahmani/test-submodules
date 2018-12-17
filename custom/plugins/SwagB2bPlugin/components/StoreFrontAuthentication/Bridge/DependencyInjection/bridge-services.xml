@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="b2b_front_auth.user_repository" class="Shopware\B2B\StoreFrontAuthentication\Bridge\UserRepository">
+            <argument type="service" id="dbal_connection"/>
+        </service>
+        <service id="b2b_front_auth.auth_storage_adapter" class="Shopware\B2B\StoreFrontAuthentication\Bridge\ShopSessionAuthStorageAdapter">
+            <factory service="b2b_front_auth.auth_storage_adapter_factory" method="factory" />
+        </service>
+        <service id="b2b_front_auth.login_subscriber" class="Shopware\B2B\StoreFrontAuthentication\Bridge\LoginSubscriber">
+            <argument type="service" id="b2b_front_auth.login_service"/>
+            <argument type="service" id="b2b_front_auth.user_repository"/>
+            <argument type="service" id="b2b_front_auth.credentials_builder"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+        <service id="b2b_front_auth.address_repository_subscriber" class="Shopware\B2B\StoreFrontAuthentication\Bridge\AddressRepositorySubscriber">
+            <argument type="service" id="b2b_front_auth.authentication_service"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+        <service id="b2b_front_auth.auth_storage_adapter_factory" class="Shopware\B2B\StoreFrontAuthentication\Bridge\AuthStorageAdapterFactory">
+            <argument type="service" id="service_container"/>
+        </service>
+        <service id="b2b_front_auth.user_login_service" class="Shopware\B2B\StoreFrontAuthentication\Bridge\UserLoginService">
+            <argument type="service" id="b2b_front_auth.identity_chain_repository"/>
+            <argument type="service" id="b2b_front_auth.login_context"/>
+            <argument type="service" id="b2b_front_auth.repository"/>
+            <argument type="service" id="b2b_front_auth.user_repository"/>
+            <argument type="service" id="b2b_front_auth.login_service"/>
+            <argument type="service" id="b2b_front_auth.authentication_service"/>
+        </service>
+        <service id="b2b_front_auth.create_user_subscriber" class="Shopware\B2B\StoreFrontAuthentication\Bridge\CreateUserSubscriber">
+            <argument type="service" id="b2b_front_auth.login_service"/>
+            <argument type="service" id="b2b_front_auth.user_repository"/>
+            <argument type="service" id="b2b_front_auth.credentials_builder" />
+            <argument type="service" id="models"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+    </services>
+</container>

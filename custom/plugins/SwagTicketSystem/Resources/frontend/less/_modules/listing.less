@@ -1,0 +1,123 @@
+.ticketsystem {
+	border: 1px solid @border-color;
+
+	.ticketsystem--table-header {
+		display: none;
+	}
+
+	.panel--tr {
+		.unitize-padding(10, 0);
+	}
+
+	.panel--td {
+		.clearfix();
+		.unitize-padding(5, 10);
+		display: block;
+		float: none;
+	}
+
+	.column--date,
+	.column--id,
+	.column--status,
+	.column--actions{
+		width: 100%;
+	}
+
+	.column--label,
+	.column--value {
+		width: 50%;
+		float: left;
+	}
+
+	.column--label {
+		display: inline-block;
+	}
+
+	.ticketsystem--actions {
+		white-space: nowrap;
+
+		.is--align-right
+	}
+
+	.status--1 {
+		color: @ticketSystemStatusColorOne;
+	}
+
+	.status--2 {
+		color: @ticketSystemStatusColorTwo;
+	}
+
+	.status--3 {
+		color: @ticketSystemStatusColorThree;
+	}
+
+	.status--4 {
+		color: @ticketSystemStatusColorFour;
+	}
+
+	.listing--paging {
+		.unitize-padding(10, 10);
+	}
+}
+
+.ticketsystem--pagination {
+	.unitize-margin(10, 10);
+
+	.paging--display {
+		.unitize(10, 16, margin-left);
+	}
+}
+
+.is--act-listing .sidebar-main .ticketsystem--index-sidebar { display: none; }
+
+@media screen and (min-width: @tabletViewportWidth) {
+
+	.is--ctl-ticket {
+		.sidebar-main {
+			display: block;
+		}
+
+		&.is--act-listing {
+			.categories--headline,
+			.categories--navigation,
+			.shop-sites--headline,
+			.shop-sites--navigation,
+			.shop-sites--container,
+			.logo--trusted-shops {
+				display: none;
+			}
+		}
+	}
+
+	.ticketsystem {
+
+		.ticketsystem--table-header {
+			display: block;
+		}
+
+		.panel--tr {
+			padding: 0;
+		}
+		.panel--td {
+			.unitize-padding(10, 10);
+			display: inline-block;
+			float: left;
+		}
+
+		.column--label {
+			display: none;
+		}
+
+		.column--value {
+			width: 100%;
+			float: none;
+		}
+
+		.column--date,
+		.column--id,
+		.column--status,
+		.column--actions {
+			width: 22%;
+		}
+	}
+}

@@ -1,0 +1,18 @@
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <!-- ProductChunkerRegistry -->
+        <service id="swag_promotion.chunker.product_chunker_registry"
+                 class="SwagPromotion\Components\Promotion\ProductChunker\ProductChunkerRegistry">
+            <argument type="tagged" tag="swag_promotion.chunker"/>
+        </service>
+
+        <!-- Chunker -->
+        <service id="swag_promotion.chunker.cheapest_product"
+                 class="SwagPromotion\Components\Promotion\ProductChunker\CheapestProductChunker">
+            <tag name="swag_promotion.chunker"/>
+        </service>
+    </services>
+</container>

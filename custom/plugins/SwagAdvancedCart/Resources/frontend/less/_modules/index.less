@@ -1,0 +1,33 @@
+.off-canvas .mobile--switches .top-bar--cart-list {
+	display: none;
+}
+
+.cart--sidebar-note {
+	display: none;
+}
+
+.off-canvas.is--active .cart--sidebar-note {
+	.unitize(margin-top, 10);
+	border-bottom: 1px solid @border-color;
+	border-top: 1px solid @border-color;
+	display: block;
+	width: 100%;
+	background: @whiteColor;
+	cursor: pointer;
+
+	.sidebar-note--link{
+		color: @text-color;
+	}
+
+	&:hover {
+		color: @brand-primary;
+
+		.sidebar-note--link{
+			color: @brand-primary;
+		}
+	}
+}
+
+.cart--info-text {
+	.unitize(font-size, 16);
+}

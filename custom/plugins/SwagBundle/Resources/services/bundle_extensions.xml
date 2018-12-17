@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <!-- CriteriaRequestHandler -->
+        <service id="swag_bundle.criteria_request_handler"
+                 class="SwagBundle\Bundle\SearchBundle\CriteriaRequestHandler">
+            <tag name="criteria_request_handler"/>
+        </service>
+
+        <!-- SearchBundle DBAL -->
+        <service id="swag_bundle.search_bundle_dbal.join_helper"
+                 class="SwagBundle\Bundle\SearchBundleDBAL\BundleJoinHelper">
+            <argument type="service" id="dbal_connection"/>
+        </service>
+
+        <service id="swag_bundle.bundle_condition_handler_dbal"
+                 class="SwagBundle\Bundle\SearchBundleDBAL\ConditionHandler\BundleConditionHandler">
+            <argument type="service" id="swag_bundle.search_bundle_dbal.join_helper"/>
+            <tag name="condition_handler_dbal"/>
+        </service>
+
+        <service id="swag_bundle.bundle_facet_handler_dbal"
+                 class="SwagBundle\Bundle\SearchBundleDBAL\FacetHandler\BundleFacetHandler">
+            <argument type="service" id="shopware_searchdbal.dbal_query_builder_factory"/>
+            <argument type="service" id="swag_bundle.search_bundle_dbal.join_helper"/>
+            <argument id="snippets" type="service"/>
+            <tag name="facet_handler_dbal"/>
+        </service>
+
+        <service id="swag_bundle.bundle_sorting_handler_dbal"
+                 class="SwagBundle\Bundle\SearchBundleDBAL\SortingHandler\BundleSortingHandler">
+            <argument type="service" id="swag_bundle.search_bundle_dbal.join_helper"/>
+            <tag name="sorting_handler_dbal"/>
+        </service>
+
+        <!-- Elastic Search Indexing -->
+        <service id="swag_bundle.elastic_search.product_mapping"
+                 class="SwagBundle\Bundle\ESIndexingBundle\BundleMapping"
+                 decorates="shopware_elastic_search.product_mapping"
+                 public="false">
+            <argument type="service" id="swag_bundle.elastic_search.product_mapping.inner"/>
+            <argument type="service" id="shopware_elastic_search.identifier_selector"/>
+        </service>
+
+        <service id="swag_bundle.elastic_search.product_provider"
+                 class="SwagBundle\Bundle\ESIndexingBundle\BundleProvider"
+                 decorates="shopware_elastic_search.product_provider"
+                 public="false">
+            <argument type="service" id="swag_bundle.elastic_search.product_provider.inner"/>
+            <argument type="service" id="dbal_connection"/>
+        </service>
+
+        <!-- SearchBundle ES -->
+        <service id="swag_bundle.bundle_condition_handler_es"
+                 class="SwagBundle\Bundle\SearchBundleES\ConditionHandler\BundleConditionHandlerEs">
+            <tag name="shopware_search_es.search_handler"/>
+        </service>
+
+        <service id="swag_bundle.bundle_facet_handler_es"
+                 class="SwagBundle\Bundle\SearchBundleES\FacetHandler\BundleFacetHandlerEs">
+            <argument type="service" id="snippets"/>
+            <tag name="shopware_search_es.search_handler"/>
+        </service>
+
+        <service id="swag_bundle.bundle_sorting_handler_es"
+                 class="SwagBundle\Bundle\SearchBundleES\SortingHandler\BundleSortingHandler">
+            <tag name="shopware_search_es.search_handler"/>
+        </service>
+
+        <!-- Facet Filter Decorator -->
+        <service id="swag_bundle.product_stream.facet_filter"
+                 class="SwagBundle\Components\ProductStream\FacetFilter"
+                 decorates="shopware_product_stream.facet_filter"
+                 public="false">
+            <argument type="service" id="swag_bundle.product_stream.facet_filter.inner"/>
+        </service>
+
+        <!-- ListProductService Decorator -->
+        <service id="swag_bundle.list_product_service_decorator"
+                 class="SwagBundle\Bundle\StoreFrontBundle\ListProductServiceDecorator"
+                 decorates="shopware_storefront.list_product_service"
+                 public="false">
+            <argument type="service" id="swag_bundle.list_product_service_decorator.inner"/>
+            <argument type="service" id="swag_bundle.listing.bundle_service"/>
+        </service>
+    </services>
+</container>

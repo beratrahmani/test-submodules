@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="b2b_line_item_list.bridge_repository" class="Shopware\B2B\LineItemList\Bridge\LineItemBridgeRepository">
+                <argument type="service" id="dbal_connection"/>
+        </service>
+
+        <service id="b2b_line_item_list.shop_writer_service" class="Shopware\B2B\LineItemList\Bridge\LineItemShopWriterService"/>
+
+        <service id="b2b_line_item_list.product_provider" class="Shopware\B2B\LineItemList\Bridge\ProductProvider">
+            <argument type="service" id="shopware_storefront.product_service"/>
+            <argument type="service" id="shopware_storefront.context_service"/>
+            <argument type="service" id="models"/>
+        </service>
+
+        <service id="b2b_line_item_list.checkout_provider" class="Shopware\B2B\LineItemList\Bridge\LineItemCheckoutProvider">
+            <argument type="service" id="b2b_line_item_list.bridge_repository"/>
+            <argument type="service" id="b2b_currency.service"/>
+            <argument type="service" id="config"/>
+        </service>
+    </services>
+</container>

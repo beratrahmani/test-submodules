@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="b2b_budget.preference_subscriber" class="Shopware\B2B\Budget\Bridge\BudgetPreferenceSubscriber">
+            <argument id="b2b_front_auth.authentication_service" type="service"/>
+            <argument id="b2b_budget.repository" type="service"/>
+            <argument id="b2b_budget.service" type="service"/>
+            <argument id="b2b_currency.service" type="service"/>
+
+            <tag name="shopware.event_subscriber"/>
+        </service>
+        <service id="b2b_budget.transaction_order_subscriber" class="Shopware\B2B\Budget\Bridge\BudgetTransactionOrderSync">
+            <argument type="service" id="b2b_front_auth.authentication_service"/>
+            <argument type="service" id="b2b_order.order_context_repository"/>
+            <argument type="service" id="b2b_budget.service"/>
+            <argument type="service" id="b2b_currency.service"/>
+
+            <tag name="shopware.event_subscriber"/>
+        </service>
+        <service id="b2b_budget.notify_mail_cron" class="Shopware\B2B\Budget\Bridge\BudgetNotifyMailCronSubscriber">
+            <argument type="service" id="b2b_budget.service"/>
+            <argument type="service" id="b2b_budget.repository"/>
+            <argument type="service" id="b2b_budget.notification_repository"/>
+            <argument type="service" id="b2b_front_auth.authentication_service"/>
+            <argument type="service" id="templatemail"/>
+            <argument type="service" id="models"/>
+            <argument type="service" id="b2b_currency.service"/>
+
+            <tag name="shopware.event_subscriber"/>
+        </service>
+        <service id="b2b_budget.clearance_budget_item_loader" class="Shopware\B2B\Budget\Bridge\ClearanceBudgetItemLoader">
+            <argument type="service" id="b2b_budget.repository"/>
+            <argument type="service" id="b2b_budget.service"/>
+            <argument type="service" id="b2b_currency.service"/>
+
+            <tag name="b2b_order_clearance.item_provider"/>
+        </service>
+    </services>
+</container>

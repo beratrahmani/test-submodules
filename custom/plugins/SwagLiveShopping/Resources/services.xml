@@ -1,0 +1,52 @@
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <imports>
+        <import resource="services/decorator.xml"/>
+        <import resource="services/search_bundle.xml"/>
+        <import resource="services/subscriber.xml"/>
+    </imports>
+
+    <services>
+        <service id="swag_liveshopping.dependendency_provider"
+                 class="SwagLiveShopping\Components\DependencyProvider">
+            <argument type="service" id="service_container"/>
+        </service>
+
+        <service id="swag_liveshopping.live_shopping"
+                 class="SwagLiveShopping\Components\LiveShopping">
+            <argument type="service" id="models"/>
+            <argument type="service" id="events"/>
+            <argument type="service" id="swag_liveshopping.dependendency_provider"/>
+            <argument type="service" id="swag_liveshopping.price_service"/>
+        </service>
+
+        <service id="swag_liveshopping.live_shopping_basket"
+                 class="SwagLiveShopping\Components\LiveShoppingBasket">
+            <argument type="service" id="swag_liveshopping.dependendency_provider"/>
+            <argument type="service" id="models"/>
+            <argument type="service" id="events"/>
+            <argument type="service" id="snippets"/>
+            <argument type="service" id="swag_liveshopping.live_shopping"/>
+        </service>
+
+        <!-- Shopping world slider handler -->
+        <service id="swag_liveshopping.emotion_bundle.live_shopping_slider_handler"
+                 class="SwagLiveShopping\Bundle\EmotionBundle\ComponentHandler\LiveShoppingSliderHandler">
+            <argument type="service" id="shopware_search.store_front_criteria_factory"/>
+            <argument type="service" id="legacy_struct_converter"/>
+            <tag name="shopware_emotion.component_handler"/>
+        </service>
+
+        <service id="swag_liveshopping.price_service" class="SwagLiveShopping\Components\PriceService">
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="shopware_storefront.context_service"/>
+        </service>
+
+        <service id="swagliveshopping.price_for_date_service" class="SwagLiveShopping\Components\PriceForDateService">
+            <argument type="service" id="swag_liveshopping.price_service"/>
+            <deprecated>"%service_id%" id deprecated since version 3.2.0 to be removed in 4.0.0. Use the swag_liveshopping.price_service</deprecated>
+        </service>
+    </services>
+</container>

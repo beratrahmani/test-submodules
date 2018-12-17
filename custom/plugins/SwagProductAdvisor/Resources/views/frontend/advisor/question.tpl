@@ -1,0 +1,1 @@
+{extends file="parent:frontend/advisor/index.tpl"}

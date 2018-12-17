@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_currency.calculator_class">Shopware\B2B\Currency\Framework\CurrencyCalculator</parameter>
+    <parameter key="b2b_currency.service_class">Shopware\B2B\Currency\Framework\CurrencyService</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_currency.calculator_abstract" abstract="true"/>
+    <service id="b2b_currency.service_abstract" abstract="true">
+      <argument type="service" id="b2b_shop.shop"/>
+    </service>
+    <service id="b2b_currency.calculator" class="%b2b_currency.calculator_class%" parent="b2b_currency.calculator_abstract"/>
+    <service id="b2b_currency.service" class="%b2b_currency.service_class%" parent="b2b_currency.service_abstract"/>
+  </services>
+</container>

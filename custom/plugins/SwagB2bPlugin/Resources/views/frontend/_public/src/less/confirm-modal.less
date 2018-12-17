@@ -1,0 +1,29 @@
+.b2b--confirm-modal-content {
+  .b2b--confirm-modal-header {
+    width: 100%;
+    background-color: @highlight-error;
+    .unitize(padding, 20);
+    h3 {
+      .unitize(line-height, 20);
+      color: @gray-light;
+      margin: 0;
+    }
+  }
+  .b2b--confirm-modal-body {
+    width: 100%;
+    .unitize(padding, 20);
+    .unitize(line-height, 20);
+    border-bottom: solid 1px @gray-dark;
+  }
+  .b2b--confirm-modal-footer {
+    width: 100%;
+    .unitize(padding, 20);
+    float: right;
+    .b2b--confirm-action {
+      background-color: @highlight-error;
+      background-image: none;
+      color: @gray-light;
+      .unitize(margin-left, 15);
+    }
+  }
+}

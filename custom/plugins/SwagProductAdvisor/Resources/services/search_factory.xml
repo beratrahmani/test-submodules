@@ -1,0 +1,39 @@
+<container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://symfony.com/schema/dic/services"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <service id="swag_product_advisor.search"
+                 class="SwagProductAdvisor\Bundle\SearchBundle\AdvisorSearch">
+            <argument type="tagged" tag="swag_product_advisor.search_factory_decorator"/>
+            <argument type="service" id="shopware_search.product_search"/>
+        </service>
+
+        <service id="swag_product_advisor.manufacturer_matching_decorator"
+                 class="SwagProductAdvisor\Bundle\AdvisorBundle\Question\ManufacturerQuestion\ManufacturerMatchingDecorator">
+            <tag name="swag_product_advisor.search_factory_decorator"/>
+        </service>
+
+        <service id="swag_product_advisor.price_matching_decorator"
+                 class="SwagProductAdvisor\Bundle\AdvisorBundle\Question\PriceQuestion\PriceMatchingDecorator">
+            <argument type="service" id="config"/>
+            <argument type="service" id="currency"/>
+            <argument type="service" id="snippets"/>
+            <argument type="service" id="shopware_storefront.price_calculation_service"/>
+            <tag name="swag_product_advisor.search_factory_decorator"/>
+        </service>
+
+        <service id="swag_product_advisor.property_matching_decorator"
+                 class="SwagProductAdvisor\Bundle\AdvisorBundle\Question\PropertyQuestion\PropertyMatchingDecorator">
+            <argument type="service" id="dbal_connection"/>
+            <tag name="swag_product_advisor.search_factory_decorator"/>
+        </service>
+
+        <service id="swag_product_advisor.attribute_matching_decorator"
+                 class="SwagProductAdvisor\Bundle\AdvisorBundle\Question\AttributeQuestion\AttributeMatchingDecorator">
+            <tag name="swag_product_advisor.search_factory_decorator"/>
+        </service>
+
+    </services>
+</container>

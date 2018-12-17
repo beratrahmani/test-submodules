@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_contingent_group.controller_class">Shopware\B2B\ContingentGroup\Frontend\ContingentGroupController</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_contingent_group.controller_abstract" abstract="true">
+      <argument type="service" id="b2b_front_auth.authentication_service"/>
+      <argument type="service" id="b2b_contingent_group.repository"/>
+      <argument type="service" id="b2b_contingent_group.crud_service"/>
+      <argument type="service" id="b2b_contingent_group.grid_helper"/>
+      <argument type="service" id="b2b_company.acl_resolver"/>
+      <argument type="service" id="b2b_acl.grant_context_provider_chain"/>
+    </service>
+    <service id="b2b_contingent_group.controller" class="%b2b_contingent_group.controller_class%" parent="b2b_contingent_group.controller_abstract"/>
+  </services>
+</container>

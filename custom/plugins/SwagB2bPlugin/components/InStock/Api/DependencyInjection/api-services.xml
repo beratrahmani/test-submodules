@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_in_stock.api_route_provider_class">Shopware\B2B\InStock\Api\DependencyInjection\InStockApiRouteProvider</parameter>
+    <parameter key="b2b_in_stock.api_controller_class">Shopware\B2B\InStock\Api\InStockController</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_in_stock.api_route_provider_abstract" abstract="true">
+            
+        </service>
+    <service id="b2b_in_stock.api_controller_abstract" abstract="true">
+      <argument type="service" id="b2b_in_stock.repository"/>
+      <argument type="service" id="b2b_in_stock.grid_helper"/>
+      <argument type="service" id="b2b_in_stock.crud_service"/>
+    </service>
+    <service id="b2b_in_stock.api_route_provider" class="%b2b_in_stock.api_route_provider_class%" parent="b2b_in_stock.api_route_provider_abstract">
+      <tag name="b2b_common.rest_route_provider"/>
+    </service>
+    <service id="b2b_in_stock.api_controller" class="%b2b_in_stock.api_controller_class%" parent="b2b_in_stock.api_controller_abstract"/>
+  </services>
+</container>

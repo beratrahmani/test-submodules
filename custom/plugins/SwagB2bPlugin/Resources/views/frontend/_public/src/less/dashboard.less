@@ -1,0 +1,115 @@
+.b2b--dashboard {
+  .content--emotions {
+    .unitize(margin-top, 50);
+  }
+
+  width: 100%;
+
+  .dashboard--header {
+    text-align: center;
+    .unitize-margin(60, 0, 60, 0);
+  }
+
+  .block-group {
+    width: 100%;
+  }
+
+  .block--dash {
+    width: 100% !important;
+    .unitize-padding(0, 0, 15, 0);
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    .panel {
+      width: 100%;
+      .unitize(padding, 20);
+      position: relative;
+      margin: 0;
+      overflow: hidden;
+      transition: border-color .3s ease;
+
+      .type--icon {
+        .unitize-width(80);
+        position: absolute;
+        .unitize(left, 20);
+        .unitize(top, 20);
+        .unitize(font-size, 60);
+        color: @brand-secondary;
+        text-align: center;
+        transition: color .3s ease;
+
+        .icon--basket {
+          .unitize(font-size, 50);
+        }
+
+        .icon--clock {
+          .unitize(font-size, 50);
+        }
+      }
+
+      .type--content {
+        .unitize(margin-left, 100);
+        text-align: left;
+
+        h3 {
+          margin-top: 0;
+          text-align: left;
+        }
+
+        p {
+          margin: 0;
+          color: @brand-secondary;
+        }
+      }
+
+      &:hover {
+        border-color: @brand-primary;
+
+        .type--icon {
+          color: @brand-primary;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: @tabletViewportWidth) {
+
+  .b2b--dashboard {
+    .block--dash {
+      width: 50% !important;
+      .unitize-padding(15, 25, 20, 25);
+
+      .panel {
+        .unitize-height(140);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: @tabletLandscapeViewportWidth) {
+
+  .b2b--dashboard {
+    .block--dash {
+      width: 33.3% !important;
+      .unitize-padding(15, 25, 20, 25);
+
+      .panel {
+        .unitize-height(160);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: @desktopViewportWidth) {
+
+  .b2b--dashboard {
+    .block--dash {
+      .panel {
+        .unitize(height, 140);
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+.promotion--show {
+    height: inherit !important;
+}
+
+.promotion-handle-rotate {
+    .rotate(180deg);
+    display: inline-block;
+}
+
+.promotion-message-spacer {
+    .unitize(margin, 10);
+}
+
+.promotion--outer {
+    .unitize-height(30);
+    .unitize-padding(10, 2, 0, 2);
+
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    overflow: hidden;
+    z-index: 800;
+
+    -webkit-transition: height 0.8s ease;
+    -moz-transition: height 0.8s ease;
+    -o-transition: height 0.8s ease;
+    transition: height 0.8s ease;
+}
+
+.promotion--inner {
+    background-color: @gray-light;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid @border-color;
+}
+
+.promotion-handle {
+    .unitize(line-height, 6);
+    .unitize-height(20);
+    .unitize-width(80);
+    .border-radius-multi(30px, 30px, 0, 0);
+    .unitize(top, 1);
+    .unitize(font-size, 17);
+    .unitize(padding, 1);
+    position: relative;
+    float: right;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid @border-color;
+    border-bottom-color: @gray-light;
+    background-color: @gray-light;
+}

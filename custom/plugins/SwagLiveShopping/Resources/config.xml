@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.5/engine/Shopware/Components/Plugin/schema/config.xsd">
+    <elements>
+        <element type="boolean" scope="shop">
+            <name>displayRating</name>
+            <label lang="de">Artikelbewertung anzeigen</label>
+            <label lang="en">Show product rating</label>
+            <value>true</value>
+        </element>
+
+        <element type="text" scope="shop">
+            <name>listingHeadline</name>
+            <label lang="de">Listingüberschrift</label>
+            <label lang="en">Listing Headline</label>
+        </element>
+
+        <element type="html" scope="shop">
+            <name>listingText</name>
+            <label lang="de">Text für das Liveshopping Listing</label>
+            <label lang="en">Text for the Liveshopping listing</label>
+        </element>
+
+        <element type="mediaselection" scope="shop" required="false">
+            <name>listingBanner</name>
+            <label lang="de">Banner für das Liveshopping Listing</label>
+            <label lang="en">Banner for the Liveshopping listing</label>
+        </element>
+
+        <element type="select" scope="shop">
+            <name>listingTemplate</name>
+            <label lang="de">Templateauswahl</label>
+            <label lang="en">Template selection</label>
+            <value>5</value>
+            <store>
+                <option>
+                    <value>5</value>
+                    <label lang="de">Responsive: Dataillierte Informationen</label>
+                    <label lang="en">Responsive: detailed information</label>
+                </option>
+                <option>
+                    <value>6</value>
+                    <label lang="de">Responsive: Wichtige Informationen</label>
+                    <label lang="en">Responsive: important information</label>
+                </option>
+                <option>
+                    <value>7</value>
+                    <label lang="de">Responsive: Großes Bild</label>
+                    <label lang="en">Responsive: large image</label>
+                </option>
+            </store>
+        </element>
+
+        <element type="text" scope="shop">
+            <name>listingMetaTitle</name>
+            <label lang="de">Listing metatitle</label>
+            <label lang="en">Listing metatitle</label>
+        </element>
+
+        <element type="text" scope="shop">
+            <name>listingMetaDescription</name>
+            <label lang="de">Listing metadescription</label>
+            <label lang="en">Listing metadescription</label>
+        </element>
+
+        <element type="text" scope="shop">
+            <name>listingMetaKeywords</name>
+            <label lang="de">Listing metakeywords</label>
+            <label lang="en">Listing metakeywords</label>
+        </element>
+
+        <element type="boolean" scope="shop">
+            <name>showDescriptionInTheListing</name>
+            <label lang="de">Zeige Artikelbeschreibung in der Kategorie</label>
+            <label lang="en">Show product description in the category</label>
+            <value>true</value>
+        </element>
+    </elements>
+</config>

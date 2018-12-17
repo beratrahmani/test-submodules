@@ -1,0 +1,49 @@
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="swag_promotion.discount_handler_registry"
+                 class="SwagPromotion\Components\Promotion\DiscountHandler\DiscountHandlerRegistry">
+            <argument type="tagged" tag="swag_promotion.discount_handler"/>
+        </service>
+
+        <service id="swag_promotion.discount_handler_registry.absolut_basket"
+                 class="SwagPromotion\Components\Promotion\DiscountHandler\BasketHandler\AbsoluteBasketHandler">
+            <argument type="service" id="swag_promotion.currency_converter"/>
+            <tag name="swag_promotion.discount_handler"/>
+        </service>
+
+        <service id="swag_promotion.discount_handler_registry.percetage_basket"
+                 class="SwagPromotion\Components\Promotion\DiscountHandler\BasketHandler\PercentageBasketHandler">
+            <tag name="swag_promotion.discount_handler"/>
+        </service>
+
+        <service id="swag_promotion.discount_handler_registry.absolute_product"
+                 class="SwagPromotion\Components\Promotion\DiscountHandler\ProductHandler\AbsoluteProductHandler">
+            <argument type="service" id="swag_promotion.currency_converter"/>
+            <tag name="swag_promotion.discount_handler"/>
+        </service>
+
+        <service id="swag_promotion.discount_handler_registry.bye_x_get_y_free"
+                 class="SwagPromotion\Components\Promotion\DiscountHandler\ProductHandler\BuyXGetYFreeProductHandler">
+            <tag name="swag_promotion.discount_handler"/>
+        </service>
+
+        <service id="swag_promotion.discount_handler_registry.free_doods"
+                 class="SwagPromotion\Components\Promotion\DiscountHandler\ProductHandler\FreeGoodsHandler">
+            <tag name="swag_promotion.discount_handler"/>
+        </service>
+
+        <service id="swag_promotion.discount_handler_registry.percentage_product"
+                 class="SwagPromotion\Components\Promotion\DiscountHandler\ProductHandler\PercentageProductHandler">
+            <tag name="swag_promotion.discount_handler"/>
+        </service>
+
+        <service id="swag_promotion.discount_handler_registry.shipping_free"
+                 class="SwagPromotion\Components\Promotion\DiscountHandler\BasketHandler\ShippingFreeHandler">
+            <argument type="service" id="swag_promotion.service.dependency_provider"/>
+            <tag name="swag_promotion.discount_handler"/>
+        </service>
+    </services>
+</container>

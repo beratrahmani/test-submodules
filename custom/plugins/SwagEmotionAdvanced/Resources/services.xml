@@ -1,0 +1,67 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <!-- Shopping world element handler -->
+        <service id="swag_emotion_advanced.emotion_bundle.side_view_component_handler"
+                 class="SwagEmotionAdvanced\Bundle\EmotionBundle\ComponentHandler\SideViewComponentHandler">
+            <argument type="service" id="shopware_media.media_service"/>
+            <argument type="service" id="shopware_product_stream.repository"/>
+            <argument type="service" id="shopware_search.store_front_criteria_factory"/>
+            <argument type="service" id="legacy_struct_converter"/>
+            <argument type="service" id="shopware_storefront.additional_text_service"/>
+            <argument type="service" id="config"/>
+            <tag name="shopware_emotion.component_handler"/>
+        </service>
+
+        <!-- Shopping world element handler for import/export -->
+        <service id="swag_emotion_advanced.emotion.preset_side_view_component_handler"
+                 class="SwagEmotionAdvanced\Components\Emotion\Preset\ComponentHandler\SideViewComponentHandler">
+            <argument type="service" id="shopware.api.media"/>
+            <argument type="service" id="shopware_media.media_service"/>
+            <argument type="service" id="service_container"/>
+            <tag name="shopware.emotion.preset_component_handler"/>
+        </service>
+
+        <!-- Subscriber -->
+        <service id="swag_emotion_advanced.subscriber.emotion_view_subscriber"
+                 class="Shopware\Components\Emotion\EmotionComponentViewSubscriber">
+            <argument>%swag_emotion_advanced.plugin_dir%</argument>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swag_emotion_advanced.subscriber.backend" class="SwagEmotionAdvanced\Subscriber\Backend">
+            <argument>%swag_emotion_advanced.plugin_dir%</argument>
+            <argument type="service" id="shopware_attribute.data_persister"/>
+            <argument type="service" id="shopware_media.media_service"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swag_emotion_advanced.subscriber.emotion_extension"
+                 class="SwagEmotionAdvanced\Subscriber\EmotionExtension">
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swag_emotion_advanced.subscriber.quick_view_listing"
+                 class="SwagEmotionAdvanced\Subscriber\QuickViewListing">
+            <argument>%swag_emotion_advanced.plugin_name%</argument>
+            <argument type="service" id="shopware.plugin.cached_config_reader"/>
+            <argument type="service" id="config"/>
+            <tag name="shopware.event_subscriber"/>
+            <argument type="service" id="swag_emotion_advanced.services.dependency_provider"/>
+        </service>
+
+        <service id="swag_emotion_advanced.subscriber.theme" class="SwagEmotionAdvanced\Subscriber\Theme">
+            <argument>%swag_emotion_advanced.plugin_dir%</argument>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swag_emotion_advanced.services.dependency_provider"
+                 class="SwagEmotionAdvanced\Services\Dependencies\DependencyProvider">
+            <argument type="service" id="service_container"/>
+        </service>
+    </services>
+</container>

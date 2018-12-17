@@ -1,0 +1,25 @@
+.quick-view--view .view--content {
+    .buy-btn--cart-text {
+        display: none;
+    }
+
+    .icon--basket {
+        .unitize(left, 2);
+        .unitize(top, 1);
+        .unitize(font-size, 14);
+        display: inline-block;
+        position: relative;
+    }
+}
+
+@media screen and (min-width: @phoneLandscapeViewportWidth) {
+    .quick-view--view .view--content {
+        .buy-btn--cart-text {
+            display: inline-block;
+        }
+
+        .buybox--button-container .icon--basket {
+            display: none;
+        }
+    }
+}

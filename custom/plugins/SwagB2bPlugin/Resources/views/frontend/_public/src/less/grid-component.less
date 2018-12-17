@@ -1,0 +1,213 @@
+.b2b--grid-container {
+
+  table {
+    width: 100%;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #ccc;
+  }
+
+  .grid--errors {
+    .unitize-padding(10, 0, 10, 0);
+  }
+
+  .unitize-padding(0, 0, 70, 0);
+  position: relative;
+
+  .b2b--component-pagination {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    .box--page-info {
+      .unitize-margin(10, 0);
+      width: 50%;
+
+      &.col-page-info {
+        width: 30%;
+      }
+    }
+
+    .box--page-select {
+      width: 50%;
+      text-align: right;
+      .unitize(max-width, 90);
+      float: right;
+
+      &.col-page-select {
+        width: 70%;
+      }
+    }
+
+    .box--page-button {
+      width: auto;
+      float: right;
+
+      .btn {
+        font-family: 'shopware';
+        text-align: center;
+        .unitize(font-size, 10);
+
+        &:hover {
+          color: @brand-primary;
+        }
+      }
+    }
+  }
+}
+
+.component-table tr .col-status {
+  text-align: center;
+}
+
+.component-table tr .col-small {
+  .unitize-width(100);
+}
+
+.component-table tr .col-actions {
+  text-align: right;
+  width: 10%;
+
+  &.wide {
+    width: 16%;
+  }
+
+  .component-action-delete {
+    .icon--loading-indicator {
+      display: inline-block;
+      .unitize(width, 10);
+      .unitize(height, 10);
+      padding: 0;
+
+    }
+  }
+}
+
+/* Pagination */
+.b2b--component-pagination {
+  .unitize-padding(10, 0, 0, 0);
+
+  .box--text {
+    width: 30%;
+  }
+
+  .box--actions {
+    width: 70%;
+    text-align: right;
+  }
+
+  .block {
+    width: 25%;
+
+    &.box--label {
+      .unitize-padding(10, 0, 0, 20);
+    }
+
+    &.box--textarea {
+      .unitize-padding(10, 0, 0, 20);
+    }
+
+    &.box--input {
+    }
+
+    &.is--center {
+      text-align: center;
+    }
+
+    &.is--full {
+      width: 100%;
+    }
+  }
+
+  .btn--next {
+    border-left: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+
+    &:hover {
+      border-left: 0;
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+      border-color: @border-color;
+    }
+  }
+
+  .btn--previous {
+    border-right: 0;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+
+    &:hover {
+      border-right: 0;
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+      border-color: @border-color;
+    }
+  }
+
+  .select-field select {
+    border-radius: 0;
+  }
+
+}
+
+@media screen and (max-width: @tabletViewportWidth) {
+
+  .b2b--grid-container {
+
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+      display: block;
+      overflow: hidden;
+    }
+
+    thead {
+      tr {
+        position: absolute;
+        .unitize(top, -9999);
+        .unitize(left, -9999);
+      }
+    }
+
+    tr:nth-child(even) {
+      td {
+        border-bottom: 0 none !important;
+      }
+    }
+
+    tr:nth-child(2n+3) {
+      td {
+        border-bottom: 0 none !important;
+      }
+    }
+
+    td {
+      display: flex;
+
+      text-align: left !important;
+
+      &.is--align-right {
+        text-align: left !important;
+      }
+
+      &:before { content: attr(data-label)": ";
+        flex: 0 0 120px;
+        font-weight: bold;
+        margin-right: 1em;
+        margin-bottom: 0.25em;
+      }
+
+      &.col-actions {
+        width: auto !important;
+      }
+    }
+
+  }
+
+}

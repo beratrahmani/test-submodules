@@ -1,0 +1,138 @@
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="swag_promotion.service.stream_service" class="SwagPromotion\Components\Services\StreamService">
+            <argument type="service" id="shopware_storefront.context_service"/>
+            <argument type="service" id="shopware_search.store_front_criteria_factory"/>
+            <argument type="service" id="shopware_product_stream.repository"/>
+            <argument type="service" id="shopware_search.product_number_search"/>
+        </service>
+
+        <service id="swag_promotion.service.free_goods_service"
+                 class="SwagPromotion\Components\Services\FreeGoodsService">
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="swag_promotion.stacker.product_stacker_registry"/>
+        </service>
+
+        <service id="swag_promotion.service.article_service"
+                 class="SwagPromotion\Components\Services\ProductService">
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="shopware_storefront.context_service"/>
+            <argument type="service" id="shopware_storefront.list_product_service"/>
+            <argument type="service" id="legacy_struct_converter"/>
+        </service>
+
+        <service id="swag_promotion.service.dependency_provider"
+                 class="SwagPromotion\Components\Services\DependencyProvider">
+            <argument id="service_container" type="service"/>
+        </service>
+
+        <service id="swag_promotion.repository" class="SwagPromotion\Models\Repository\PromotionRepository">
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="swag_promotion.hydrator"/>
+        </service>
+
+        <service id="swag_promotion.hydrator" class="SwagPromotion\Models\PromotionHydrator"/>
+
+        <service id="swag_promotion.registry" class="SwagPromotion\Components\Rules\Registry\Registry"/>
+
+        <service id="swag_promotion.rule_builder" class="SwagPromotion\Components\Rules\RuleBuilder">
+            <argument type="service" id="swag_promotion.registry"/>
+        </service>
+
+        <service id="swag_promotion.product_matcher" class="SwagPromotion\Components\ProductMatcher">
+            <argument type="service" id="swag_promotion.registry"/>
+            <argument type="service" id="swag_promotion.rule_builder"/>
+        </service>
+
+        <service id="swag_promotion.tax_calculator" class="SwagPromotion\Components\Promotion\Tax">
+            <argument type="service" id="config"/>
+        </service>
+
+        <service id="swag_promotion.currency_converter" class="SwagPromotion\Components\Promotion\CurrencyConverter">
+            <argument type="service" id="shopware_storefront.context_service"/>
+        </service>
+
+        <service id="swag_promotion.basket_service" class="SwagPromotion\Components\Services\BasketService">
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="session"/>
+            <argument type="service" id="swag_promotion.currency_converter"/>
+            <argument type="service" id="shopware.cart.basket_helper"/>
+            <argument type="service" id="config"/>
+            <argument type="service" id="shopware_storefront.context_service"/>
+        </service>
+
+        <service id="swag_promotion.promotion_discount" class="SwagPromotion\Components\Promotion\PromotionDiscount">
+            <argument type="service" id="swag_promotion.discount_handler_registry"/>
+            <argument type="service" id="swag_promotion.stacker.product_stacker_registry"/>
+            <argument type="service" id="swag_promotion.discount_command_registry"/>
+        </service>
+
+        <service id="swag_promotion.product_data_provider"
+                 class="SwagPromotion\Components\DataProvider\ProductDataProvider">
+            <argument type="service" id="db"/>
+        </service>
+
+        <service id="swag_promotion.basket_context_builder" class="SwagPromotion\Components\BasketContextBuilder">
+            <argument type="service" id="db"/>
+            <argument type="service" id="swag_promotion.service.dependency_provider"/>
+            <argument type="service" id="swag_promotion.product_data_provider"/>
+        </service>
+
+        <service id="swag_promotion.promotion_selector"
+                 class="SwagPromotion\Components\Promotion\Selector\PromotionSelector">
+            <argument type="service" id="swag_promotion.repository"/>
+            <argument type="service" id="swag_promotion.product_matcher"/>
+            <argument type="service" id="swag_promotion.promotion_discount"/>
+            <argument type="service" id="swag_promotion.basket_context_builder"/>
+            <argument type="service" id="swag_promotion.service.free_goods_service"/>
+        </service>
+
+        <service id="swag_promotion.promotion_product_highlighter"
+                 class="SwagPromotion\Components\Listing\PromotionProductHighlighter">
+            <argument type="service" id="swag_promotion.product_data_provider"/>
+            <argument type="service" id="swag_promotion.repository"/>
+            <argument type="service" id="swag_promotion.product_matcher"/>
+            <argument type="service" id="swag_promotion.service.dependency_provider"/>
+            <argument type="service" id="swag_promotion.basket_context_builder"/>
+        </service>
+
+        <service id="swag_promotion.list_product_service_decorator"
+                 class="SwagPromotion\Components\Listing\ListProductDecorator"
+                 decorates="shopware_storefront.list_product_service"
+                 public="false">
+            <argument>%swag_promotion.plugin_name%</argument>
+            <argument type="service" id="swag_promotion.list_product_service_decorator.inner"/>
+            <argument type="service" id="swag_promotion.promotion_product_highlighter"/>
+            <argument type="service" id="shopware.plugin.cached_config_reader"/>
+            <argument type="service" id="custom_products.template_service" on-invalid="null"/>
+        </service>
+
+        <service id="swag_promotion.statistics" class="SwagPromotion\Components\Promotion\Statistics">
+            <argument type="service" id="dbal_connection"/>
+        </service>
+
+        <service id="swag_promotion.stream_service" class="SwagPromotion\Components\Services\StreamService">
+            <argument type="service" id="shopware_storefront.context_service"/>
+            <argument type="service" id="shopware_search.store_front_criteria_factory"/>
+            <argument type="service" id="shopware_product_stream.repository"/>
+            <argument type="service" id="shopware_search.product_number_search"/>
+        </service>
+
+        <service id="swag_promotion.promotion_export" class="SwagPromotion\Components\ProductExport\PromotionExport">
+            <argument type="service" id="swag_promotion.repository"/>
+            <argument type="service" id="swag_promotion.promotion_product_highlighter"/>
+            <argument type="service" id="shopware_storefront.list_product_service"/>
+            <argument type="service" id="shopware_storefront.context_service"/>
+        </service>
+
+        <service id="swag_promotion.basket_query_helper_decorator"
+                 class="SwagPromotion\Components\Cart\BasketQueryHelperDecorator"
+                 decorates="shopware.cart.basket_query_helper"
+                 public="false">
+            <argument type="service" id="swag_promotion.basket_query_helper_decorator.inner"/>
+        </service>
+    </services>
+</container>

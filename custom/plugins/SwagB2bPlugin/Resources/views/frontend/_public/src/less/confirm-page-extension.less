@@ -1,0 +1,60 @@
+/* /checkout/confirm extension*/
+
+.confirm--content {
+
+  .table--aggregation {
+    display: block;
+
+    .b2b--row {
+      .unitize-margin(0, 10, 0, 10);
+
+      p {
+        .unitize(font-size, 12);
+        .unitize-margin(0, 0, 5, 0);
+      }
+    }
+
+    .b2b--budget {
+      .select-field {
+        width: 100%;
+        max-width: 100%;
+
+        select {
+          width: 100%;
+        }
+      }
+    }
+
+    .b2b--order-reference {
+      input {
+        width: 100%;
+        background: lighten(@gray, 5%);
+      }
+    }
+
+    .b2b--delivery-date {
+      input {
+        width: 100%;
+        background: lighten(@gray, 5%);
+      }
+    }
+  }
+}
+
+@media screen and(min-width: @tabletViewportWidth) {
+  .confirm--content {
+    .table--aggregation {
+      .b2b--row {
+        .unitize-margin(0, 0, 20, 0);
+      }
+
+      .b2b--order-reference {
+
+      }
+
+      .b2b--delivery-date {
+        .unitize-margin(0, 0, 0, 0);
+      }
+    }
+  }
+}

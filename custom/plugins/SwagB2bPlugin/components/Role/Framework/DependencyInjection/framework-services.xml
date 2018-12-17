@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_role.repository_class">Shopware\B2B\Role\Framework\RoleRepository</parameter>
+    <parameter key="b2b_role.grid_helper_class">Shopware\B2B\Common\Controller\GridHelper</parameter>
+    <parameter key="b2b_role.crud_service_class">Shopware\B2B\Role\Framework\RoleCrudService</parameter>
+    <parameter key="b2b_role.validation_service_class">Shopware\B2B\Role\Framework\RoleValidationService</parameter>
+    <parameter key="b2b_role.acl_route_table_class">Shopware\B2B\Role\Framework\AclRouteAclTable</parameter>
+    <parameter key="b2b_role.acl_role_role_acl_table_class">Shopware\B2B\Role\Framework\RoleRoleAclTable</parameter>
+    <parameter key="b2b_role.acl_role_contact_acl_table_class">Shopware\B2B\Role\Framework\RoleContactAclTable</parameter>
+    <parameter key="b2b_role.acl_repository_class">Shopware\B2B\Acl\Framework\AclRepository</parameter>
+    <parameter key="b2b_role.acl_read_helper_class">Shopware\B2B\Acl\Framework\AclReadHelper</parameter>
+    <parameter key="b2b_role.role_remove_dependency_validator_class">Shopware\B2B\Role\Framework\AclRoleRemoveDependencyValidator</parameter>
+    <parameter key="b2b_role.acl_grant_context_provider_class">Shopware\B2B\Role\Framework\RoleAclGrantContextProvider</parameter>
+    <parameter key="b2b_role.service_class">Shopware\B2B\Role\Framework\RoleService</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_role.repository_abstract" abstract="true">
+      <argument type="service" id="dbal_connection"/>
+      <argument type="service" id="b2b_common.repository_dbal_helper"/>
+      <argument type="service" id="b2b_nested_set.query_factory"/>
+      <argument type="service" id="b2b_nested_set.writer"/>
+      <argument type="service" id="b2b_role.acl_read_helper"/>
+      <argument type="collection"/>
+    </service>
+    <service id="b2b_role.grid_helper_abstract" abstract="true">
+      <argument type="service" id="b2b_role.repository"/>
+    </service>
+    <service id="b2b_role.crud_service_abstract" abstract="true">
+      <argument type="service" id="b2b_role.repository"/>
+      <argument type="service" id="b2b_role.validation_service"/>
+      <argument type="service" id="b2b_role.acl_repository"/>
+    </service>
+    <service id="b2b_role.validation_service_abstract" abstract="true">
+      <argument type="service" id="b2b_common.validation_builder"/>
+      <argument type="service" id="validator"/>
+      <argument type="service" id="b2b_role.repository"/>
+    </service>
+    <service id="b2b_role.acl_route_table_abstract" abstract="true">
+            
+        </service>
+    <service id="b2b_role.acl_role_role_acl_table_abstract" abstract="true">
+            
+        </service>
+    <service id="b2b_role.acl_role_contact_acl_table_abstract" abstract="true">
+            
+        </service>
+    <service id="b2b_role.acl_repository_abstract" abstract="true">
+      <factory service="b2b_acl.repository_factory" method="createRepository"/>
+      <argument type="constant">Shopware\B2B\Role\Framework\RoleRepository::TABLE_ROLE_NAME</argument>
+    </service>
+    <service id="b2b_role.acl_read_helper_abstract" abstract="true">
+      <argument type="service" id="b2b_role.acl_repository"/>
+      <argument type="constant">Shopware\B2B\Role\Framework\RoleRepository::TABLE_ROLE_ALIAS</argument>
+    </service>
+    <service id="b2b_role.role_remove_dependency_validator_abstract" abstract="true">
+      <argument type="service" id="b2b_role.acl_repository"/>
+    </service>
+    <service id="b2b_role.acl_grant_context_provider_abstract" abstract="true">
+      <argument type="service" id="b2b_role.repository"/>
+    </service>
+    <service id="b2b_role.service_abstract" abstract="true">
+      <argument type="service" id="b2b_role.repository"/>
+    </service>
+    <service id="b2b_role.repository" class="%b2b_role.repository_class%" parent="b2b_role.repository_abstract"/>
+    <service id="b2b_role.grid_helper" class="%b2b_role.grid_helper_class%" parent="b2b_role.grid_helper_abstract"/>
+    <service id="b2b_role.crud_service" class="%b2b_role.crud_service_class%" parent="b2b_role.crud_service_abstract"/>
+    <service id="b2b_role.validation_service" class="%b2b_role.validation_service_class%" parent="b2b_role.validation_service_abstract"/>
+    <service id="b2b_role.acl_route_table" class="%b2b_role.acl_route_table_class%" parent="b2b_role.acl_route_table_abstract">
+      <tag name="b2b_acl.table"/>
+    </service>
+    <service id="b2b_role.acl_role_role_acl_table" class="%b2b_role.acl_role_role_acl_table_class%" parent="b2b_role.acl_role_role_acl_table_abstract">
+      <tag name="b2b_acl.table"/>
+    </service>
+    <service id="b2b_role.acl_role_contact_acl_table" class="%b2b_role.acl_role_contact_acl_table_class%" parent="b2b_role.acl_role_contact_acl_table_abstract">
+      <tag name="b2b_acl.table"/>
+    </service>
+    <service id="b2b_role.acl_repository" class="%b2b_role.acl_repository_class%" parent="b2b_role.acl_repository_abstract"/>
+    <service id="b2b_role.acl_read_helper" class="%b2b_role.acl_read_helper_class%" parent="b2b_role.acl_read_helper_abstract"/>
+    <service id="b2b_role.role_remove_dependency_validator" class="%b2b_role.role_remove_dependency_validator_class%" parent="b2b_role.role_remove_dependency_validator_abstract">
+      <tag name="b2b_role.remove_dependency_validator"/>
+    </service>
+    <service id="b2b_role.acl_grant_context_provider" class="%b2b_role.acl_grant_context_provider_class%" parent="b2b_role.acl_grant_context_provider_abstract">
+      <tag name="b2b_acl.grant_context_provider"/>
+    </service>
+    <service id="b2b_role.service" class="%b2b_role.service_class%" parent="b2b_role.service_abstract"/>
+  </services>
+</container>

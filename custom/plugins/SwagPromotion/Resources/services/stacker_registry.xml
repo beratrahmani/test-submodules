@@ -1,0 +1,30 @@
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <!-- ProductStackerRegistry -->
+        <service id="swag_promotion.stacker.product_stacker_registry"
+                 class="SwagPromotion\Components\Promotion\ProductStacker\ProductStackRegistry">
+            <argument type="tagged" tag="swag_promotion.stacker"/>
+        </service>
+
+        <!-- Stacker -->
+        <service id="swag_promotion.stacker.product"
+                 class="SwagPromotion\Components\Promotion\ProductStacker\ArticleProductStacker">
+            <argument type="service" id="swag_promotion.chunker.product_chunker_registry"/>
+            <tag name="swag_promotion.stacker"/>
+        </service>
+
+        <service id="swag_promotion.stacker.product_details"
+                 class="SwagPromotion\Components\Promotion\ProductStacker\DetailProductStacker">
+            <tag name="swag_promotion.stacker"/>
+        </service>
+
+        <service id="swag_promotion.stacker.global_product"
+                 class="SwagPromotion\Components\Promotion\ProductStacker\GlobalProductStacker">
+            <argument type="service" id="swag_promotion.chunker.product_chunker_registry"/>
+            <tag name="swag_promotion.stacker"/>
+        </service>
+    </services>
+</container>

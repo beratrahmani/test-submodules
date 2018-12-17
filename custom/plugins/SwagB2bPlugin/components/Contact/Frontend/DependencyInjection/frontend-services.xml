@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_contact.controller_class">Shopware\B2B\Contact\Frontend\ContactController</parameter>
+    <parameter key="b2b_contact.password_activation_controller_class">Shopware\B2B\Contact\Frontend\ContactPasswordActivationController</parameter>
+    <parameter key="b2b_contact.route_controller_class">Shopware\B2B\Contact\Frontend\ContactRouteController</parameter>
+    <parameter key="b2b_contact.contact_contact_visibility_controller_class">Shopware\B2B\Contact\Frontend\ContactContactVisibilityController</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_contact.controller_abstract" abstract="true">
+      <argument type="service" id="b2b_front_auth.authentication_service"/>
+      <argument type="service" id="b2b_contact.repository"/>
+      <argument type="service" id="b2b_contact.crud_service"/>
+      <argument type="service" id="b2b_contact.grid_helper"/>
+      <argument type="service" id="b2b_company.acl_resolver"/>
+      <argument type="service" id="b2b_acl.grant_context_provider_chain"/>
+    </service>
+    <service id="b2b_contact.password_activation_controller_abstract" abstract="true">
+      <argument type="service" id="b2b_contact.contact_password_activation_service"/>
+      <argument type="service" id="b2b_contact.crud_service"/>
+      <argument type="service" id="b2b_contact.repository"/>
+      <argument type="service" id="b2b_front_auth.authentication_service"/>
+    </service>
+    <service id="b2b_contact.route_controller_abstract" abstract="true">
+      <argument type="service" id="b2b_front_auth.authentication_service"/>
+      <argument type="service" id="b2b_acl_route.repository"/>
+      <argument type="service" id="b2b_acl_route.acl_repository"/>
+      <argument type="service" id="b2b_acl.access_extension_service"/>
+      <argument type="service" id="b2b_acl_route.service"/>
+      <argument type="service" id="b2b_contact.repository"/>
+      <argument type="service" id="b2b_acl_route.assignment_service"/>
+      <argument>%b2b_acl_route.route_mapping%</argument>
+    </service>
+    <service id="b2b_contact.contact_contact_visibility_controller_abstract" abstract="true">
+      <argument type="service" id="b2b_front_auth.authentication_service"/>
+      <argument type="service" id="b2b_contact.acl_repository"/>
+      <argument type="service" id="b2b_contact.repository"/>
+      <argument type="service" id="b2b_contact.grid_helper"/>
+      <argument type="service" id="b2b_acl.access_extension_service"/>
+    </service>
+    <service id="b2b_contact.controller" class="%b2b_contact.controller_class%" parent="b2b_contact.controller_abstract"/>
+    <service id="b2b_contact.password_activation_controller" class="%b2b_contact.password_activation_controller_class%" parent="b2b_contact.password_activation_controller_abstract"/>
+    <service id="b2b_contact.route_controller" class="%b2b_contact.route_controller_class%" parent="b2b_contact.route_controller_abstract"/>
+    <service id="b2b_contact.contact_contact_visibility_controller" class="%b2b_contact.contact_contact_visibility_controller_class%" parent="b2b_contact.contact_contact_visibility_controller_abstract"/>
+  </services>
+</container>

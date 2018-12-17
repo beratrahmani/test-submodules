@@ -1,0 +1,21 @@
+.autocomplete-suggestions {
+    background-color: @autocomplete-background;
+    border: 1px solid @autocomplete-border;
+}
+
+.autocomplete-suggestion {
+  .unitize(margin, 0);
+  .unitize(padding, 10);
+  border-bottom: 1px solid @autocomplete-border;
+  cursor: pointer;
+  display: block;
+  font-size: 12px;
+  overflow: hidden;
+}
+.autocomplete-selected {
+  background-color: @autocomplete-focus;
+  color: #D9400B;
+}
+.autocomplete-suggestions:last-child {
+   border-bottom: 0;
+ }

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_line_item_list.repository_class">Shopware\B2B\LineItemList\Framework\LineItemListRepository</parameter>
+    <parameter key="b2b_line_item_list.reference_repository_class">Shopware\B2B\LineItemList\Framework\LineItemReferenceRepository</parameter>
+    <parameter key="b2b_line_item_list.reference_service_class">Shopware\B2B\LineItemList\Framework\LineItemReferenceService</parameter>
+    <parameter key="b2b_line_item_list.reference_grid_class">Shopware\B2B\Common\Controller\GridHelper</parameter>
+    <parameter key="b2b_line_item_list.service_class">Shopware\B2B\LineItemList\Framework\LineItemListService</parameter>
+    <parameter key="b2b_line_item_list.reference_validation_service_class">Shopware\B2B\LineItemList\Framework\LineItemReferenceValidationService</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_line_item_list.repository_abstract" abstract="true">
+      <argument type="service" id="dbal_connection"/>
+      <argument type="service" id="b2b_line_item_list.reference_repository"/>
+      <argument type="service" id="b2b_currency.calculator"/>
+    </service>
+    <service id="b2b_line_item_list.reference_repository_abstract" abstract="true">
+      <argument type="service" id="dbal_connection"/>
+      <argument type="service" id="b2b_common.repository_dbal_helper"/>
+      <argument type="service" id="b2b_line_item_list.product_provider"/>
+    </service>
+    <service id="b2b_line_item_list.reference_service_abstract" abstract="true">
+      <argument type="service" id="b2b_line_item_list.reference_repository"/>
+      <argument type="service" id="b2b_order_number.repository"/>
+      <argument type="service" id="b2b_product_name.product_name_service"/>
+    </service>
+    <service id="b2b_line_item_list.reference_grid_abstract" abstract="true">
+      <argument type="service" id="b2b_line_item_list.reference_repository"/>
+    </service>
+    <service id="b2b_line_item_list.service_abstract" abstract="true">
+      <argument type="service" id="b2b_line_item_list.repository"/>
+      <argument type="service" id="b2b_line_item_list.reference_repository"/>
+      <argument type="service" id="b2b_line_item_list.shop_writer_service"/>
+      <argument type="service" id="b2b_line_item_list.checkout_provider"/>
+      <argument type="service" id="b2b_line_item_list.product_provider"/>
+      <argument type="service" id="b2b_line_item_list.reference_validation_service"/>
+    </service>
+    <service id="b2b_line_item_list.reference_validation_service_abstract" abstract="true">
+      <argument type="service" id="b2b_common.validation_builder"/>
+      <argument type="service" id="validator"/>
+      <argument type="service" id="b2b_line_item_list.product_provider"/>
+      <argument type="service" id="b2b_line_item_list.reference_repository"/>
+    </service>
+    <service id="b2b_line_item_list.repository" class="%b2b_line_item_list.repository_class%" parent="b2b_line_item_list.repository_abstract"/>
+    <service id="b2b_line_item_list.reference_repository" class="%b2b_line_item_list.reference_repository_class%" parent="b2b_line_item_list.reference_repository_abstract"/>
+    <service id="b2b_line_item_list.reference_service" class="%b2b_line_item_list.reference_service_class%" parent="b2b_line_item_list.reference_service_abstract"/>
+    <service id="b2b_line_item_list.reference_grid" class="%b2b_line_item_list.reference_grid_class%" parent="b2b_line_item_list.reference_grid_abstract"/>
+    <service id="b2b_line_item_list.service" class="%b2b_line_item_list.service_class%" parent="b2b_line_item_list.service_abstract"/>
+    <service id="b2b_line_item_list.reference_validation_service" class="%b2b_line_item_list.reference_validation_service_class%" parent="b2b_line_item_list.reference_validation_service_abstract"/>
+  </services>
+</container>

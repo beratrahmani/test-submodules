@@ -1,0 +1,36 @@
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <imports>
+        <import resource="Services/subscriber.xml"/>
+        <import resource="Services/component_handler.xml"/>
+    </imports>
+
+    <services>
+        <service id="digital_publishing.translation_service"
+                 class="SwagDigitalPublishing\Services\TranslationService">
+            <argument type="service" id="translation"/>
+        </service>
+
+        <service id="digital_publishing.populate_element_handler_factory"
+                 class="SwagDigitalPublishing\Services\PopulateElementHandlerFactory">
+            <argument type="service" id="events"/>
+            <argument type="service" id="shopware_storefront.list_product_service"/>
+            <argument type="service" id="shopware_storefront.media_service"/>
+            <argument type="service" id="legacy_struct_converter"/>
+        </service>
+
+        <service id="digital_publishing.content_banner_service"
+                 class="SwagDigitalPublishing\Services\ContentBanner">
+            <argument type="service" id="models"/>
+            <argument type="service" id="digital_publishing.translation_service"/>
+            <argument type="service" id="shopware_storefront.list_product_service"/>
+            <argument type="service" id="shopware_storefront.media_service"/>
+            <argument type="service" id="digital_publishing.populate_element_handler_factory"/>
+            <argument type="service" id="events"/>
+            <argument type="service" id="legacy_struct_converter"/>
+        </service>
+
+    </services>
+</container>

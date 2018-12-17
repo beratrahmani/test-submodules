@@ -1,0 +1,44 @@
+.salesRepresentativeBar {
+  width: 100%;
+  .unitize(line-height, 20);
+  background: rgba(0, 0, 0, 0.6);
+  .block-group {
+    color: lighten(@gray, 10%);
+    .unitize(max-width, 1260);
+    margin: 0 auto;
+    .unitize(padding-top, 10);
+    .unitize(padding-bottom, 10);
+
+    .block-actions, .block-meta {
+      width: 50%;
+    }
+
+    .block-meta {
+      .unitize(padding-top, 5);
+      .unitize(padding-bottom, 5);
+    }
+
+    .block-actions {
+      text-align: right;
+      &--link {
+        float: right;
+        .unitize(padding-top, 5);
+        .unitize(padding-bottom, 5);
+        a {
+          color: lighten(@gray, 10%);
+          &:hover {
+            color: @brand-primary;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: @desktopViewportWidth) {
+
+  .salesRepresentativeBar {
+    .unitize(padding-left, 10);
+    .unitize(padding-right, 10);
+  }
+}

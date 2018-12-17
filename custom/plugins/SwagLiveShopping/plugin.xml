@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.5/engine/Shopware/Components/Plugin/schema/plugin.xsd">
+
+    <label lang="de">Liveshopping</label>
+    <label lang="en">Liveshopping</label>
+
+    <version>3.2.0</version>
+    <copyright>(c) by shopware AG</copyright>
+    <license>proprietary</license>
+    <link>http://store.shopware.com</link>
+    <author>shopware AG</author>
+    <compatibility minVersion="5.5.0" />
+
+    <description lang="de">
+        <![CDATA[<div style="padding-bottom:30px;color:999;font-style:italic;">
+    <h2>Produktinformationen "Liveshopping"</h2>
+    <p>Liegt Ihnen vielleicht ein wenig das Zocken im Blut? Juckt es Ihnen „in den Fingern“, wenn Sie ein zeitlich begrenztes Sonderangebot sehen? Dann geht es Ihnen genauso wie den meisten Ihrer Kunden. Denn sobald ein Shopkunde einen Countdown sieht, kann er fast nicht mehr widerstehen. Machen Sie sich diese natürliche Reaktion mit dem „Liveshopping“ von Shopware zunutze. Stellen Sie zeitlich begrenzte Angebote in Ihren Shop, die den Kunden per Countdown visuell dargestellt werden oder nutzen Sie die vielfältigen anderen Möglichkeiten, die Ihnen dieses Premium Plugin bietet.</p>
+    <br>
+    <b>Unterstützte Funktionen:</b>
+    <br>
+    <ul>
+        <li>Standard: Artikel wird zu einem reduzierten Preis für eine bestimmte Zeit oder in einem begrenzten Kontingent angeboten</li>
+        <li>Countdown: Der Artikel wird jede Minute günstiger, wobei die Schnellen profitieren</li>
+        <li>Aufschlag: Der Artikel startet zu einem günstigen Preis und wird jede Minute teurer</li>
+    </ul>
+    <br>
+    Wecken Sie das Zocker-Gen in Ihren Kunden. Integrieren Sie das „Liveshopping“!
+    <br>
+</div>]]>
+    </description>
+
+    <description lang="en">
+        <![CDATA[<div style="padding-bottom:30px;color:999;font-style:italic;">
+    <h2>Product Information: Live Shopping</h2>
+    <p>
+    Have you been bit by the gambling bug? Do you enjoy the roll of the dice;
+    feel the itch in your fingers when you see a limited time offer?
+    If so, you shop with the same “too hard to resist” mentality as your customers.
+    With Live Shopping, you design an interactive shopping experience by offering special sales
+    attached to a live countdown. Incite customer purchases by creating dynamic discounts, which
+    are offered for either a limited time or quantity. Additionally, you can display price
+    increases and decreases on a minute-by-minute basis.</p>
+    <br>
+    <b>Features:</b>
+    <br>
+    <ul>
+        <li>Standard: items are discounted for either a set time-period or until a certain quota is reached</li>
+        <li>Countdown: item prices decease by the minute, thereby rewarding those who act quickly</li>
+        <li>Markup: begin with the item’s full discount and increase the price every minute</li>
+    </ul>
+    <br>
+    Bring your shop to life and promote purchases at the same time with Live Shopping!
+    <br>
+</div>]]>
+    </description>
+
+    <changelog version="3.2.0">
+        <changes lang="de">PT-9165 - Shopware 5.5 Kompatibilität;</changes>
+        <changes lang="en">PT-9165 - Shopware 5.5 compatibility;</changes>
+    </changelog>
+
+    <changelog version="3.1.3">
+        <changes lang="de">
+            PT-8865 - Artikelpreis bleibt im Warenkorb bestehen;
+            PT-9005 - Netto- und Bruttopreis Berechnung korrigiert;
+        </changes>
+        <changes lang="en">
+            PT-8865 - Product price remains in the shopping cart;
+            PT-9005 - Fix net and gross price calculation;
+        </changes>
+    </changelog>
+
+    <changelog version="3.1.2">
+        <changes lang="de">
+            PT-8807 - Fehler in der Einkaufswelt nach Update behoben;
+            PT-8940 - Fehler behoben, bei dem Bruttopreise ausgegeben wurden, obwohl eine UstID vorliegt und das Land für Firmen steuerfrei ist;
+        </changes>
+        <changes lang="en">
+            PT-8807 - Fixed bug in shopping worlds after update;
+            PT-8940 - Fixed net prices for customers with vat id if the country is net free for companies;
+        </changes>
+    </changelog>
+
+    <changelog version="3.1.1">
+        <changes lang="de">PT-8967 - Deaktiviere Custom Facet beim Deinstallieren und Deaktivieren des Plugins;</changes>
+        <changes lang="en">PT-8967 - Deactivate custom facet if plugin is uninstalled or deactivated;</changes>
+    </changelog>
+
+    <changelog version="3.1.0">
+        <changes lang="de">PT-8810 - Shopware 5.4 Kompatibilität;</changes>
+        <changes lang="en">PT-8810 - Shopware 5.4 compatibility;</changes>
+    </changelog>
+
+    <changelog version="3.0.2">
+        <changes lang="de">PT-8836 - Problem mit der Anzeige von Netto-/steuerfreien Preisen behoben</changes>
+        <changes lang="en">PT-8836 - Fixes a problem with displaying of net prices and tax free prices</changes>
+    </changelog>
+
+    <changelog version="3.0.1">
+        <changes lang="de">PT-8793 - Kompatibilität zu anderen Plugins verbessert;</changes>
+        <changes lang="en">PT-8793 - Improve compatibility to other plugins;</changes>
+    </changelog>
+
+    <changelog version="3.0.0">
+        <changes lang="de">PT-8127 - Migration auf das Shopware 5.2 Plugin System; PT-8714 - Behebt ein Problem mit Endpreisen bei Währungsfaktor ungleich 1</changes>
+        <changes lang="en">PT-8127 - Migration to the Shopware 5.2 plugin system; PT-8714 - Fixes a problem with end price when using currency factor not 1</changes>
+    </changelog>
+
+    <changelog version="2.8.4">
+        <changes lang="de">PT-7681 - Anpassungen des Events 'Shopware_Modules_Basket_AddArticle_Start', um die Kompatibilität zu anderen Plugins sicherzustellen;</changes>
+        <changes lang="en">PT-7681 - Change the event 'Shopware_Modules_Basket_AddArticle_Start' to ensure the compatibility with other plugins;</changes>
+    </changelog>
+
+    <changelog version="2.8.3">
+        <changes lang="de">PT-7974 - Falsche Position vom Liveshopping Container im Minimal Artikel-Box Listingtyp;</changes>
+        <changes lang="en">PT-7974 - Wrong position of LiveShopping container in minimal product box listing type;</changes>
+    </changelog>
+
+    <changelog version="2.8.2">
+        <changes lang="de">PT-7636 - Shopware 5.3 Kompatibilität;</changes>
+        <changes lang="en">PT-7636 - Shopware 5.3 compatibility;</changes>
+    </changelog>
+
+    <changelog version="2.8.1">
+        <changes lang="de">PT-7704 - Bugfix: Kompatibilität zu älteren Shopware 5.2 Versionen; PT-7710 - Bugfix: Kompatibilität mit Newsletter Plugin verbessert (Achtung: Benötigt zwingend SwagNewsletter 2.1.7); PT-7738 - Bugfix: Laden der Dateien für Backend Erweiterung;</changes>
+        <changes lang="en">PT-7704 - Bugfix: Compatibility with older Shopware 5.2 versions; PT-7710 - Bugfix: Improved compatibility with newsletter plugin (Attention: Mandatory needs SwagNewsletter 2.1.7); PT-7738 - Bugfix: Loading of files for backend extension;</changes>
+    </changelog>
+
+    <changelog version="2.8.0">
+        <changes lang="de">PT-6958 - Bugfix: CSRF-Token Fehler auf der Detailseite; PT-7041 - Feature: Typo in Snippet geändert; PT-7070 - Feature: Filter Kompatibilität mit Productstreams hinzugefügt; SW-16633, SW-16691 - Shopware 5.3 Kompatibilität hinzugefügt;</changes>
+        <changes lang="en">PT-6958 - Bugfix: CSRF-Token issue on detail page; PT-7041 - Feature: Updated typo in snippets; PT-7070 - Feature: Added filter compatibility with product-streams; SW-16633, SW-16691 - Added Shopware 5.3 compatibility;</changes>
+    </changelog>
+
+    <changelog version="2.7.4">
+        <changes lang="de">PT-7027 - Bugfix: Fehler beim Update;</changes>
+        <changes lang="en">PT-7027 - Bugfix: Error on update;</changes>
+    </changelog>
+
+    <changelog version="2.7.3">
+        <changes lang="de">PT-6911 - Bugfix: CSRF-Token Fehler auf der Detailseite;</changes>
+        <changes lang="en">PT-6911 - Bugfix: CSRF token issue on detail page;</changes>
+    </changelog>
+
+    <changelog version="2.7.2">
+        <changes lang="de">PT-4868 - Bugfix: Doppelte Anzeige rechtlicher Hinweis;</changes>
+        <changes lang="en">PT-4868 - Bugfix: Doubled displaying of legal hint;</changes>
+    </changelog>
+
+    <changelog version="2.7.1">
+        <changes lang="de">PT-4458 - Bugfix: SecureUninstall Implementierung; PT-4464 - Feature: Suche und Filterung im LiveShopping Backend Modul; PT-4868 - Bugfix: Rechtlicher Preishinweis; PT-4941 - Bugfix: Falsche Mengenangaben; PT-5759 - Bugfix: HTTP Cache Kompatibilität; PT-5903 - Bugfix: LiveShopping Anzeige in Artikel Slidern; PT-5983 - Feature: LiveShopping Filter im Listing deaktivieren; PT-6384 - Bugfix: Verbesserung Frontend Performance;</changes>
+        <changes lang="en">PT-4458 - Bugfix: Implement secure uninstall; PT-4464 - Feature: Search and filter in LiveShopping backend module; PT-4868 - Bugfix: Legal price hint; PT-4941 - Bugfix: Wrong unit for quantity; PT-5759 - Bugfix: HTTP cache compatibility; PT-5903 - Bugfix: Displaying of LiveShopping products in sliders; PT-5983 - Feature: Deactivate LiveShopping filter in listing; PT-6384 - Bugfix: Improve frontend performance;</changes>
+    </changelog>
+
+    <changelog version="2.7.0">
+        <changes lang="de">PT-5426 - Feature: Shopware 5.2 Kompatibilität; PT-5641 - Bugfix: Ajax Listing;</changes>
+        <changes lang="en">PT-5426 - Feature: Shopware 5.2 compatibility; PT-5641 - Bugfix: Ajax listing;</changes>
+    </changelog>
+
+    <changelog version="2.6.2">
+        <changes lang="de">PT-5568 - Bugfix: Shopware 5.1.4 Kompatibilität;</changes>
+        <changes lang="en">PT-5568 - Bugfix: Shopware 5.1.4 compatibility;</changes>
+    </changelog>
+
+    <changelog version="2.6.1">
+        <changes lang="de">PT-4892 - Bugfix: Elasticsearch Kompatibilität;</changes>
+        <changes lang="en">PT-4892 - Bugfix: Elasticsearch compatibility;</changes>
+    </changelog>
+
+    <changelog version="2.6.0">
+        <changes lang="de">PT-4347 - Bugfix: Snippets Update; PT-4652 - Feature: Elasticsearch Kompatibilität;</changes>
+        <changes lang="en">PT-4347 - Bugfix: Snippets update; PT-4652 - Feature: Elasticsearch compatibility;</changes>
+    </changelog>
+
+    <changelog version="2.5.7">
+        <changes lang="de">PT-4129 - Bugfix: Preise in der Storytelling Quickview;</changes>
+        <changes lang="en">PT-4129 - Bugfix: Prices in story telling quick view;</changes>
+    </changelog>
+
+    <changelog version="2.5.6">
+        <changes lang="de">PT-3400 - Bugfix: Problem mit Mulitshop Plugin; PT-3963 - Bugfix: Lieferzeit und Versandkostenfrei Hinweis;</changes>
+        <changes lang="en">PT-3400 - Bugfix: Problem with Mulitshop plugin; PT-3963 - Bugfix: Shipping time and shipping free hint;</changes>
+    </changelog>
+
+    <changelog version="2.5.5">
+        <changes lang="de">PT-3811 - Bugfix: Anzeigefehler auf der Detailseite;</changes>
+        <changes lang="en">PT-3811 - Bugfix: Display error on detail page;</changes>
+    </changelog>
+
+    <changelog version="2.5.4">
+        <changes lang="de">PT-3206 - Bugfix: Problem mit Varianten und Länder ohne MwSt; PT-3467 - Bugfix: Template Blöcke hinzugefügt; PT-3516 - Bugfix: Darstellung in den Advanced Einkaufswelten; PT-3517 - Bugfix: Falsche Maßeinheit; PT-3636 - Bugfix: Darstellung im LiveShopping Listing; PT-3662 - Bugfix: Shopware 5.1 Kompatibilität; PT-3666 - Bugfix: Badge Farbe korrigiert;</changes>
+        <changes lang="en">PT-3206 - Bugfix: Problem with variants and countries without VAT; PT-3467 - Bugfix: Added template Blocks; PT-3516 - Bugfix: Displaying in the Advanced Shopping Worlds; PT-3517 - Bugfix: Wrong measurement; PT-3636 - Bugfix: Displaying in the LiveShopping Listing; PT-3662 - Bugfix: Shopware 5.1 compatibility; PT-3666 - Bugfix: Corrected badge color;</changes>
+    </changelog>
+
+    <changelog version="2.5.3">
+        <changes lang="de">PT-3486 - Bugfix: Shopware 5.1 Kompatibilität; PT-3510 - Bugfix: Fehler beim Menüpunkt erstellen;</changes>
+        <changes lang="en">PT-3486 - Bugfix: Shopware 5.1 compatibility; PT-3510 - Bugfix: Error on creating menu item;</changes>
+    </changelog>
+
+    <changelog version="2.5.2">
+        <changes lang="de">PT-2961 - Bugfix: Doppelte Meta-Beschreibung; PT-3178 - Bugfix: Unnötige Requests entfernt; PT-3188 - Bugfix: Löschen einer LiveShopping Aktion; PT-3238 - Bugfix: Währungsformatierung; PT-3291 - Bugfix: Angabe 'gültig von', 'gültig bis';</changes>
+        <changes lang="en">PT-2961 - Bugfix: Double meta description; PT-3178 - Bugfix: Deleted unnecessary requests; PT-3188 - Bugfix: Deleting of a LiveShopping action; PT-3238 - Bugfix: Formatting of currency; PT-3291 - Bugfix: Declaration of 'valid from', 'valid to';</changes>
+    </changelog>
+
+    <changelog version="2.5.1">
+        <changes lang="de">PT-2992 - Bugfix: Setzen eines Banners im LiveShopping Listing; PT-3022 - Bugfix: LiveShopping Emotion-Slider; PT-3054 - Bugfix: Falsche Preisanzeige in den Suchergebnissen; PT-3104 - Bugfix: LiveShopping-Preis in den Richsnippets; PT-3144 - Bugfix: Fehler beim Setzen des Enddatums; PT-3163 - Bugfix: Cache pro Artikel wird nun beim Anlegen von LiveShopping korrekt geleert; PT-3172 - Bugfix: LiveShopping Aktionen in der Zukunft werden nicht mehr angezeigt;</changes>
+        <changes lang="en">PT-2992 - Bugfix: Setting of a banner in LiveShopping listing; PT-3022 - Bugfix: LiveShopping emotion slider; PT-3054 - Bugfix: Wrong displaying of prices in the search results; PT-3104 - Bugfix: LiveShopping price in the rich snippets; PT-3144 - Bugfix: Error at setting the end date; PT-3163 - Bugfix: Cache per product now cleared correctly after creating a LiveShopping; PT-3172 - Bugfix: LiveShopping promotions in the future are not displayed anymore;</changes>
+    </changelog>
+
+    <changelog version="2.5.0">
+        <changes lang="de">SW-9190, PT-2898 - Feature: Shopware 5 Kompatibilität;</changes>
+        <changes lang="en">SW-9190, PT-2898 - Feature: Shopware 5 compatibility;</changes>
+    </changelog>
+
+    <changelog version="2.1.6">
+        <changes lang="de">PT-2644 - Bugfix: auf Listing/Detail-Seiten wird ein no-cache header gesetzt; PT-2631 - Bugfix: Die Bildressourcen wurden komprimiert; PT-2294 - Bugfix: Styling im Checkout; PT-2283 - Bugfix: Problem beim LiveShopping Einkaufswelten-Element;</changes>
+        <changes lang="en">PT-2644 - Bugfix: a no-cache header is set on listing/detail pages; PT-2632 - Bugfix: The image resources have been compressed; PT-2294 - Bugfix: Styling on checkout page; PT-2283 - Bugfix: Problem in the LiveShopping shopping worlds component;</changes>
+    </changelog>
+
+    <changelog version="2.1.5">
+        <changes lang="de">Behebt Fehler mit Landingpages und Artikeldarstellung; Neu: Definition von meta-Tags für das Liveshopping-Listing;Korrektur: Darstellung im 4-Spalten-Layout; Korrektur: Liveshopping-Darstellung in den Einkaufswelten;Korrektur: Verhindert Caching von Liveshopping-Widgets; Korrektur: Snippet im Frontend; Korrektur: Änderung des Bundle Artikelpreises; Wenn einige Einstellungen für einen Liveshopping Artikel nicht gesetzt sind, werden diese Artikel nicht angezeigt; Leerfläche zwischen Beschreibung und Preisbereich hinzugefügt; Fehler bei der Grundpreisberechnung von Varianten behoben;Korrektur:Berücksichtigung des Varianten-Preises im Warenkorb; Korrektur: Zusammenspiel LiveShopping-Listing mit HttpCache; Übersetzung zur Liveshopping-Slider Komponente in den 'Einkaufswelten' hinzugefügt; PT-2550 Option hinzugefügt, ausblenden der Artikelbeschreibung in der Kategorie.;PT-2553 Korrektur: Doppelte Artikel werden nun unterdrückt. Überlagern des LiveShopping FLags verhindert. Cache-Problem gelöst; PT-2631: Die Bildresourcen wurden nun komprimiert.</changes>
+        <changes lang="en">Fix liveshopping product slider for landing page and liveshopping product display; Added new plugin configuration field for meta data; Fixed design bug in 4 column layout; Fixed design bug in the 'Live-Shopping-Slider' used in 'Shoppin Worlds'; Fix: Don't cache live shopping widgets; Fixed snippet namespace; Fix change of bundle product price; When some configuration settings are not set for a liveshopping product - don't show these products; Added space between the description and price area; Fixed base price calculation for variants; Use liveshopping variant price in the basket; Fix: Compatibility liveshopping listing and http cache; Added translation for the Live-Shopping-Slider commponent in 'Shopping world'; PT-2550 Added plugin config option, which hides product description in the category;PT-2553 Fix: Duplicate product prevented. Overlay LiveShopping FLags prevented. Cache-Error fixed; PT-2632: The image resources have been compressed.</changes>
+    </changelog>
+
+    <changelog version="2.1.4">
+        <changes lang="de">Korrektur der Datums- und Zeitwahl im englischen Backend;Korrigiert dreispaltiges Layout in den Einkaufswelten; Ergänzt: fehlende englische Übersetzungen; Englische Beschreibung in der Pluginkonfiguration hinzugefügt.</changes>
+        <changes lang="en">Fixes date and time pickers for the english backend;fixes 3-column layout; adds some english snippets;Added english description in the plugin's configuration</changes>
+    </changelog>
+
+    <changelog version="2.1.3">
+        <changes lang="de">Zeige 'additionaltext' bei Varianten</changes>
+        <changes lang="en">Show 'additionaltext' for variants</changes>
+    </changelog>
+</plugin>

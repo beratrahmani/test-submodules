@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_role_budget.crud_service_class">Shopware\B2B\RoleBudget\Framework\RoleBudgetAssignmentService</parameter>
+    <parameter key="b2b_role_budget.validation_service_class">Shopware\B2B\Role\Framework\RoleAssignmentValidationService</parameter>
+    <parameter key="b2b_role_budget.role_remove_dependency_validator_class">Shopware\B2B\Role\Framework\AclRoleRemoveDependencyValidator</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_role_budget.crud_service_abstract" abstract="true">
+      <argument id="b2b_role_budget.validation_service" type="service"/>
+      <argument id="b2b_role.repository" type="service"/>
+      <argument id="b2b_budget.acl_repository" type="service"/>
+    </service>
+    <service id="b2b_role_budget.validation_service_abstract" abstract="true">
+      <argument id="b2b_common.validation_builder" type="service"/>
+      <argument id="validator" type="service"/>
+      <argument id="b2b_budget.acl_repository" type="service"/>
+      <argument type="constant">Shopware\B2B\RoleBudget\Framework\RoleBudgetAssignmentService::ENTITY_TYPE_NAME</argument>
+    </service>
+    <service id="b2b_role_budget.role_remove_dependency_validator_abstract" abstract="true">
+      <argument id="b2b_budget.acl_repository" type="service"/>
+    </service>
+    <service id="b2b_role_budget.crud_service" class="%b2b_role_budget.crud_service_class%" parent="b2b_role_budget.crud_service_abstract"/>
+    <service id="b2b_role_budget.validation_service" class="%b2b_role_budget.validation_service_class%" parent="b2b_role_budget.validation_service_abstract"/>
+    <service id="b2b_role_budget.role_remove_dependency_validator" class="%b2b_role_budget.role_remove_dependency_validator_class%" parent="b2b_role_budget.role_remove_dependency_validator_abstract">
+      <tag name="b2b_role.remove_dependency_validator"/>
+    </service>
+  </services>
+</container>

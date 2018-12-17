@@ -1,0 +1,286 @@
+.navigation--signin {
+  border-bottom: 0 none !important;
+}
+
+.b2b--navigation-container {
+  overflow: hidden;
+}
+
+.b2b--navigation {
+  background: @brand-secondary;
+  display: block;
+  position: relative;
+  overflow: hidden;
+
+  ul {
+    list-style: none;
+    font-size: 0;
+    white-space: nowrap;
+
+    li {
+      list-style: none;
+      display: inline-block;
+      .unitize(font-size, 14);
+      -webkit-font-smoothing: antialiased;
+
+      &.is--right {
+        float: right;
+      }
+
+      &.is--userinfo {
+        display: none;
+      }
+
+      a {
+        .unitize(height, 60);
+        .unitize-padding(20, 20, 20, 20);
+        display: block;
+        color: lighten(@brand-secondary, 30%);
+
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: darken(@brand-secondary, 3%);
+          color: lighten(@brand-secondary, 50%);
+        }
+
+        &.is--active {
+          background: darken(@brand-secondary, 5%);
+          color: lighten(@brand-secondary, 50%);
+        }
+      }
+    }
+  }
+
+  .navigation--submenu {
+    display: none;
+    background: darken(@brand-secondary, 10%);
+    border-top: 0 none;
+
+    li {
+      padding: 0;
+      .unitize(font-size, 13);
+      color: lighten(@brand-secondary, 20%);
+      text-transform: uppercase;
+
+      span {
+        display: inline-block;
+        .unitize(padding-right, 10);
+      }
+
+      a {
+        border: 0 none;
+      }
+
+      &.is--right {
+        float: right;
+      }
+
+      &.has--padding {
+        .unitize-padding(8, 12, 8, 12);
+      }
+
+      &.is--logout {
+        background: darken(@brand-secondary, 15%);
+
+        a {
+          .unitize-padding(8, 15, 8, 15);
+          height: auto;
+
+          &:hover {
+            background: darken(@brand-secondary, 20%);
+            color: lighten(@highlight-error, 2%);
+          }
+        }
+      }
+
+      &.is--account {
+        background: darken(@brand-secondary, 15%);
+
+        a {
+          .unitize-padding(8, 15, 8, 15);
+          height: auto;
+
+          &:hover {
+            background: darken(@brand-secondary, 20%);
+            color: lighten(@brand-secondary, 40%);
+          }
+        }
+      }
+
+      .progress {
+        .unitize(margin-left, 10);
+        .unitize(margin-right, 10);
+        display: inline-block;
+        .unitize(width, 100);
+        .unitize(height, 10);
+        border: 1px solid lighten(@brand-secondary, 5%);
+
+        .progress-fill {
+          background: lighten(@brand-secondary, 5%);
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  .js--menu-scroller--arrow {
+    .unitize(top, 10);
+  }
+}
+
+@media screen and (min-width: @tabletLandscapeViewportWidth) {
+
+  .b2b--navigation {
+    background: @brand-secondary;
+    display: block;
+
+    ul {
+      list-style: none;
+      font-size: 0;
+
+      li {
+        list-style: none;
+        display: inline-block;
+        .unitize(font-size, 14);
+        -webkit-font-smoothing: antialiased;
+
+        &.is--right {
+          float: right;
+        }
+
+        &.is--userinfo {
+          display: none;
+        }
+
+        a {
+          .unitize(height, 60);
+          .unitize-padding(20, 20, 20, 20);
+          display: block;
+          color: lighten(@brand-secondary, 30%);
+
+          -webkit-transition: all 0.3s ease;
+          -moz-transition: all 0.3s ease;
+          -o-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: darken(@brand-secondary, 3%);
+            color: lighten(@brand-secondary, 50%);
+          }
+
+          &.is--active {
+            background: darken(@brand-secondary, 5%);
+            color: lighten(@brand-secondary, 50%);
+          }
+        }
+      }
+    }
+
+    .navigation--submenu {
+      display: block;
+      background: darken(@brand-secondary, 10%);
+      border-top: 0 none;
+
+      &.submenu--right {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+
+      li {
+        padding: 0;
+        .unitize(font-size, 13);
+        color: lighten(@brand-secondary, 20%);
+        text-transform: uppercase;
+
+        span {
+          display: inline-block;
+          .unitize(padding-right, 10);
+        }
+
+        a {
+          border: 0 none;
+        }
+
+        &.is--right {
+          float: right;
+        }
+
+        &.has--padding {
+          .unitize-padding(8, 12, 8, 12);
+        }
+
+        &.is--logout {
+          background: darken(@brand-secondary, 15%);
+
+          a {
+            .unitize-padding(8, 15, 8, 15);
+            height: auto;
+
+            &:hover {
+              background: darken(@brand-secondary, 20%);
+              color: lighten(@highlight-error, 2%);
+            }
+          }
+        }
+
+        &.is--account {
+          background: darken(@brand-secondary, 15%);
+
+          a {
+            .unitize-padding(8, 15, 8, 15);
+            height: auto;
+
+            &:hover {
+              background: darken(@brand-secondary, 20%);
+              color: lighten(@brand-secondary, 40%);
+            }
+          }
+        }
+
+        .progress {
+          .unitize(margin-left, 10);
+          .unitize(margin-right, 10);
+          display: inline-block;
+          .unitize(width, 100);
+          .unitize(height, 10);
+          border: 1px solid lighten(@brand-secondary, 5%);
+
+          .progress-fill {
+            background: lighten(@brand-secondary, 5%);
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: @desktopViewportWidth) {
+
+  .b2b--navigation {
+    ul {
+      li {
+        &.is--userinfo {
+          background: darken(@brand-secondary, 5%);
+          .unitize-padding(12, 0, 11, 20);
+          .unitize(width, 220);
+          .unitize(height, 60);
+          overflow: hidden;
+          float: right;
+          display: block;
+
+          a {
+            display: block;
+            padding: 0;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}

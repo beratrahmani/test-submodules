@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_fast_order.fast_order_service_class">Shopware\B2B\FastOrder\Framework\FastOrderService</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_fast_order.fast_order_service_abstract" abstract="true">
+      <argument id="b2b_common.csv_reader" type="service"/>
+      <argument id="b2b_common.xls_reader" type="service"/>
+      <argument id="b2b_shop.product_service" type="service"/>
+      <argument id="b2b_order_list.crud_service" type="service"/>
+      <argument id="b2b_order_list.repository" type="service"/>
+      <argument id="b2b_line_item_list.reference_crud_service" type="service"/>
+      <argument id="b2b_line_item_list.shop_writer_service" type="service"/>
+      <argument id="b2b_order_number.repository" type="service"/>
+    </service>
+    <service id="b2b_fast_order.fast_order_service" class="%b2b_fast_order.fast_order_service_class%" parent="b2b_fast_order.fast_order_service_abstract"/>
+  </services>
+</container>

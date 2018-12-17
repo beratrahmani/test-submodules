@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="b2b_address.country_repository" class="Shopware\B2B\Address\Bridge\CountryRepository">
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="b2b_shop.component_translation"/>
+            <argument type="service" id="service_container"/>
+        </service>
+        <service id="b2b_address.checkout_service" class="Shopware\B2B\Address\Bridge\AddressCheckoutService">
+            <argument type="service" id="session"/>
+            <argument type="service" id="shopware_storefront.context_service"/>
+            <argument type="service" id="b2b_address.country_repository"/>
+        </service>
+        <service id="b2b_address.config_service" class="Shopware\B2B\Address\Bridge\ConfigService" >
+            <argument type="service" id="config" />
+        </service>
+
+        <service id="b2b_address.repository" class="Shopware\B2B\Address\Bridge\AddressRepository">
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="b2b_common.repository_dbal_helper" />
+            <argument type="service" id="b2b_address.country_repository" />
+            <argument type="service" id="b2b_address.acl_read_helper" />
+            <argument type="service" id="b2b_company.filter_helper"/>
+            <argument type="service" id="b2b_address.company_assignment_filter"/>
+            <argument type="service" id="b2b_address.company_inheritance_filter"/>
+        </service>
+    </services>
+</container>

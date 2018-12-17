@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.3/engine/Shopware/Components/Plugin/schema/plugin.xsd">
+
+    <label lang="de">B2B-Suite</label>
+    <label lang="en">B2B-Suite</label>
+
+    <version>2.0.2-0-6cfc509</version>
+    <author>shopware AG</author>
+    <link>https://en.shopware.com</link>
+    <compatibility minVersion="5.3.0"/>
+    <requiredPlugins>
+        <requiredPlugin pluginName="Cron"/>
+    </requiredPlugins>
+
+    <changelog version="1.0.0">
+        <changes lang="de">Initiales Release</changes>
+        <changes lang="en">Initial release</changes>
+    </changelog>
+    <changelog version="1.2.0">
+        <changes lang="de">
+            * Shopware 5.2 Kompatibilität
+            * Unterstützung von mehreren Währungen
+        </changes>
+        <changes lang="en">
+            * Added Shopware 5.2 support
+            * Added support of multiple currencies
+        </changes>
+    </changelog>
+    <changelog version="1.3.0">
+        <changes lang="de">
+            * Shopware 5.3.3 Kompatibilität hinzugefügt
+        </changes>
+        <changes lang="en">
+            * Added Shopware 5.3.3 support
+        </changes>
+    </changelog>
+    <changelog version="1.3.1">
+        <changes lang="de">
+            * Problembehebung einer Migration für Debitoren ohne Außendienstmitarbeiter
+        </changes>
+        <changes lang="en">
+            * Fixed migration for debtors without sales representatives
+        </changes>
+    </changelog>
+    <changelog version="1.4.0">
+        <changes lang="de">
+            * PHP 7.1 Support
+            * ACL CSS Klassen hinzugefügt, um Buttons bei nicht vorhandenen Berechtigungen auszublenden
+            * Automatische Kontaktsichtbarkeit beim Hinzufügen eines Kontaktes
+            * Automatische Rollensichtbarkeit beim Hinzufügen einer Rolle
+            * Optmierte Berechtigungsvergabe
+
+            * Falsche Datumsangabe in `components/Statistic/Framework/Statistic` entity behoben
+            * Freigabe Fehlermeldung behoben
+            * Rollengrid wird nun korrekt neu gelanden nach Änderungen im Rollenmodal
+            * Duplizierung der Datumsauswahl in den Statistiken behoben
+
+            * Composer Abhängigkeit `roave/security-advisories` entfernt
+        </changes>
+        <changes lang="en">
+            * Added PHP 7.1 support
+            * Added ACL classes to modal save buttons
+            * Added contact visibility permission to contact after contact creation
+            * Added contact visibility permission to contact after role creation
+            * Added mapped route assignment for allow process at permission management
+            * `b2b_acl_route.route_mapping` - mapping DI variable
+
+            * Fixed wrong date declaration for `components/Statistic/Framework/Statistic` entity
+            * Fixed clearance decline error
+            * Fixed role grid reload after change in role detail modal
+            * Fixed `swDatePicker` duplication at statistics
+
+            * Removed composer dependency `roave/security-advisories`
+        </changes>
+    </changelog>
+    <changelog version="1.4.1">
+        <changes lang="de">
+            * Verbesserungen der Docker-Umgebung
+
+            * Berechnung des historischen Warenkorbs korrigiert
+            * Darstellung der Datumsauswahl angepasst
+            * Kontingentgruppen Grid Handling korrigiert
+            * Automatische Rollensichtbarkeit nach dem Erstellen umgesetzt
+            * Automatische Kontaktsichtbarkeit nach dem Erstellen umgesetzt
+
+            * Warenkorb wird nicht mehr geleert, wenn man eine Schnellbestellung, Bestelliste in den Warenkorb legt
+        </changes>
+        <changes lang="en">
+            * Improvements for the docker environment
+
+            * Fix cart history calculation
+            * Datepicker handling
+            * Contingent group grid reload after detail save
+            * Role visibility after creation by contact
+            * Contact visibility after creation by contact
+
+            * Didn't clear the basket in produceCart method
+        </changes>
+    </changelog>
+    <changelog version="1.4.2">
+        <changes lang="de">
+            * Backend Kundenübersicht, Paginierung und Sortierung
+            * Anlegen von Kunden Debitoren über die API
+        </changes>
+        <changes lang="en">
+            * Fix backend customer listing, pagination and sorting
+            * Fix customer creation by API for debtors
+        </changes>
+    </changelog>
+    <changelog version="1.5.0">
+        <changes lang="de">
+            * Profilseite für Kontakte, Debitoren und Ausßendienstmitarbeiter hinzugefügt
+            * Cronjob und CLI-Befehl für die Bestellsynchronisation implementiert
+            * HTML minimum Eingabe für Nummerfelder hinzugefügt
+            * Standard Design verbessert
+            * Standard Liefer- und Rechnungsadressen hinzugefügt
+            * API Kontakt erstellen verbessert: context owner id wird anhand der Debitor E-Mail Adresse ausgelesen
+            * Sortierung von Produkten in Besteslllisten hinzugefügt
+            * Schnellbestellung-Upload verbessert
+
+            * Fehlende Hinweise bei Anchor Tags und Icons hinzugefügt
+            * Budgetauswahl im Checkout gefixt
+            * Pagination in der Kundenübersicht gefixt
+            * Textbausteine optimiert
+            * Handhabung von Bestell-Referenznummer und Wunschlieferdatum behoben
+            * Handhabung der Preise bei Shops mit Nettoausgabe behohben
+            * Fehlerausgabe bei Bestellungen ohne Liefermethode behoben
+
+            * Bestellungsattribut b2b_requested_delivery_date gelöscht
+            * Bestellungsattribut b2b_order_reference gelöscht
+            * Bestellungsattribut b2b_clearance_comment gelöscht
+            * Benutzerattribut b2b_sales_representative_media_id gelöscht
+        </changes>
+        <changes lang="en">
+            * Added profile page for contacts, debtors and sales representatives
+            * Added cronjob and cli command for order sync implemented
+            * Added html min value for number inputs
+            * Added default billing and shipping address
+            * Added sorting for order list items
+            * Added missing tooltips to anchor tags and icons
+
+            * Improved API contact creation: get context owner id from debtor email
+            * Improved fast order upload
+            * Improved default styling
+            * Fixed budget selection in checkout
+            * Fixed pagination in customer overview
+            * Optimized snippets
+            * Fixed order reference number and requested deliver date handling
+            * Fix price handling for show net prices in frontend
+            * Fix exception if order has no shipping method
+
+            * Removed order attribute b2b_requested_delivery_date
+            * Removed order attribute b2b_order_reference
+            * Removed order attribute b2b_clearance_comment
+            * Removed user attribute b2b_sales_representative_media_id
+        </changes>
+    </changelog>
+    <changelog version="2.0.0">
+        <changes lang="de">
+            ### neue Funktionen
+
+            * Hierachien
+            * Angebotsfunktion
+            * ProductNameAwareInterface für einfache Übersetzung der Produktnamen
+            * Debitoren können nun die Kontaktperson für ein Budget sein
+            * Merkzettelbutton wird bei aktivem b2b Kontext ausgeblendet
+            * Performance Optimierung im AuthenticationService
+            * Verwendung von ContextServiceInterface anstatt ContextService
+
+            ### Fehlerbehebungen
+
+            * Varianten werden in der Produktsuche angezeigt ENT-1427
+            * Darstellung aller Bestelllsiten ENT-1527
+            * AddressRepository wurde ins Bridge Namespace verlegt ENT-1555
+            * Unterstützung von Pflichtfeldern bei Rechnungs- und Lieferadressen ENT-1313
+            * BudgetBenachrichtiguns Cronjob ENT-1591
+            * Budget Checkout Handling
+            * Weiterer Kontakt hinzufügen
+            * Instandsetzung Passwortvergessen Funktion
+            * weitere fixes: ENT-1438, ENT-1549
+
+            ### entfernte Methoden
+
+            * Shopware\B2B\AclRoute\Frontend\AssignmentController::gridAction()
+            * Shopware\B2B\Address\Frontend\ContactAddressController::billingAction()
+            * Shopware\B2B\Address\Frontend\ContactAddressController::shippingAction()
+            * Shopware\B2B\Budget\Framework\BudgetRepository::fetchBudgetContactList()
+            * Shopware\B2B\Budget\Frontend\BudgetController::editAction()
+            * Shopware\B2B\Budget\Frontend\ContactBudgetController::gridAction()
+            * Shopware\B2B\Contact\Frontend\ContactContactVisibilityController::gridAction()
+            * Shopware\B2B\Contact\Frontend\ContactController::indexAction()->contactGrid view Variable
+            * Shopware\B2B\ContingentGroupContact\Frontend\ContactContingentController::gridAction()
+            * Shopware\B2B\ContingentRule\Framework\ContingentRuleTypeFactory::getAllTypeNames()
+            * Shopware\B2B\FastOrder\Frontend\FastOrderController::processProductsAction()
+            * Shopware\B2B\FastOrder\Frontend\FastOrderController::processItemsFromListingAction()
+            * Shopware\B2B\Order\Bridge\OrderRepository::setRequestedDeliveryDateByOrderContextId()
+            * Shopware\B2B\Order\Bridge\OrderRepository::setOrderReferenceNumber()
+            * Shopware\B2B\Order\Bridge\OrderRepository::updateRequestedDeliveryDate()
+            * Shopware\B2B\Order\Bridge\OrderRepository::setRequestedDeliveryDate()
+            * Shopware\B2B\Order\Bridge\ShopOrderRepository::setRequestedDeliveryDate()
+            * Shopware\B2B\Order\Bridge\ShopOrderRepository::updateOrderReferenceNumber()
+            * Shopware\B2B\Order\Framework\OrderContextRepository::setOrderNumber()
+            * Shopware\B2B\Order\Framework\OrderRepositoryInterface::setOrderCommentByOrderContextId()
+            * Shopware\B2B\Order\Framework\OrderRepositoryInterface::setOrderCommentByOrderContextId()
+            * Shopware\B2B\Order\Framework\ShopOrderRepositoryInterface::setRequestedDeliveryDate()
+            * Shopware\B2B\Order\Framework\ShopOrderRepositoryInterface::setOrderCommentByOrderContextId()
+            * Shopware\B2B\Order\Framework\ShopOrderRepositoryInterface::updateOrderReferenceNumber()
+            * Shopware\B2B\OrderClearance\Framework\OrderClearanceRepositoryInterface::acceptOrder()
+            * Shopware\B2B\OrderList\Framework\OrderListService::createLineItemListFromProductsRequest()
+            * Shopware\B2B\OrderList\Framework\ContactOrderListController::gridAction()
+            * Shopware\B2B\OrderList\Framework\RoleOrderListController::gridAction()
+            * Shopware\B2B\RoleContact\Frontend\RoleContactVisibilityController::gridAction()
+            * Shopware\B2B\StoreFrontAuthentication\Bridge\CredentialsBuilder
+            * Shopware\B2B\StoreFrontAuthentication\Framework\CredentialsBuilderInterface
+            * Shopware\B2B\StoreFrontAuthentication\Bridge\UserRepository::syncContact()
+        </changes>
+        <changes lang="en">
+            ### Additions
+
+            * hierarchies
+            * request for quotation
+            * ProductNameAwareInterface for easy translation of the product name
+            * Debtor as contact person for Budgets ENT-1335
+            * Changed visibility of the wish list button in the product detail view
+            * Changed FrontendAccountFirewall $routes property from private to protected
+            * Performance improvements for the AuthenticationService
+            * Usage of ContextServiceInterface instead of ContextService
+
+            ### Fixes
+
+            * display variants in product search ENT-1427
+            * view all order lists ENT-1527
+            * move AddressRepository to Bridge Namespace ENT-1555
+            * support of required fields in billing/shipping addresses ENT-1313
+            * BudgetNotify Cron ENT-1591
+            * Fixed budget checkout handling
+            * Fixed "add another contact"
+            * Several fixes: ENT-1438, ENT-1549
+            * Fixed password reset function
+
+            ### Removals
+
+            * Shopware\B2B\AclRoute\Frontend\AssignmentController::gridAction()
+            * Shopware\B2B\Address\Frontend\ContactAddressController::billingAction()
+            * Shopware\B2B\Address\Frontend\ContactAddressController::shippingAction()
+            * Shopware\B2B\Budget\Framework\BudgetRepository::fetchBudgetContactList()
+            * Shopware\B2B\Budget\Frontend\BudgetController::editAction()
+            * Shopware\B2B\Budget\Frontend\ContactBudgetController::gridAction()
+            * Shopware\B2B\Contact\Frontend\ContactContactVisibilityController::gridAction()
+            * Shopware\B2B\Contact\Frontend\ContactController::indexAction()->contactGrid view Variable
+            * Shopware\B2B\ContingentGroupContact\Frontend\ContactContingentController::gridAction()
+            * Shopware\B2B\ContingentRule\Framework\ContingentRuleTypeFactory::getAllTypeNames()
+            * Shopware\B2B\FastOrder\Frontend\FastOrderController::processProductsAction()
+            * Shopware\B2B\FastOrder\Frontend\FastOrderController::processItemsFromListingAction()
+            * Shopware\B2B\Order\Bridge\OrderRepository::setRequestedDeliveryDateByOrderContextId()
+            * Shopware\B2B\Order\Bridge\OrderRepository::setOrderReferenceNumber()
+            * Shopware\B2B\Order\Bridge\OrderRepository::updateRequestedDeliveryDate()
+            * Shopware\B2B\Order\Bridge\OrderRepository::setRequestedDeliveryDate()
+            * Shopware\B2B\Order\Bridge\ShopOrderRepository::setRequestedDeliveryDate()
+            * Shopware\B2B\Order\Bridge\ShopOrderRepository::updateOrderReferenceNumber()
+            * Shopware\B2B\Order\Framework\OrderContextRepository::setOrderNumber()
+            * Shopware\B2B\Order\Framework\OrderRepositoryInterface::setOrderCommentByOrderContextId()
+            * Shopware\B2B\Order\Framework\OrderRepositoryInterface::setOrderCommentByOrderContextId()
+            * Shopware\B2B\Order\Framework\ShopOrderRepositoryInterface::setRequestedDeliveryDate()
+            * Shopware\B2B\Order\Framework\ShopOrderRepositoryInterface::setOrderCommentByOrderContextId()
+            * Shopware\B2B\Order\Framework\ShopOrderRepositoryInterface::updateOrderReferenceNumber()
+            * Shopware\B2B\OrderClearance\Framework\OrderClearanceRepositoryInterface::acceptOrder()
+            * Shopware\B2B\OrderList\Framework\OrderListService::createLineItemListFromProductsRequest()
+            * Shopware\B2B\OrderList\Framework\ContactOrderListController::gridAction()
+            * Shopware\B2B\OrderList\Framework\RoleOrderListController::gridAction()
+            * Shopware\B2B\RoleContact\Frontend\RoleContactVisibilityController::gridAction()
+            * Shopware\B2B\StoreFrontAuthentication\Bridge\CredentialsBuilder
+            * Shopware\B2B\StoreFrontAuthentication\Framework\CredentialsBuilderInterface
+            * Shopware\B2B\StoreFrontAuthentication\Bridge\UserRepository::syncContact()
+        </changes>
+    </changelog>
+    <changelog version="2.0.1">
+        <changes lang="de">
+            ### Fehlerbehebungen
+
+            * Kompatibilität mit ES ENT-1615
+            * Eigene Artikelnummern nach Artikelnamen durchsuchbar
+            * Fehler beim Ändern der Artikelanzahl im Freigabemodul behoben
+            * Fehler beim Anfragen eines Angebotes im Warenkorb
+            * Shopware 5.5 Kompatibilität ENT-1624
+        </changes>
+        <changes lang="en">
+            ### Fixes
+
+            * Compatibility with ES ENT-1615
+            * Custom ordernumber product name searchable
+            * Fix product quantity update in the order clearance module
+            * Fix offer request submission from cart
+            * Shopware 5.5 compatibility ENT-1624
+        </changes>
+    </changelog>
+    <changelog version="2.0.2">
+        <changes lang="de">
+            ### Verbesserungen
+
+            * Auditlog geteilt ENT-1618
+            * Neugestaltung der Bestelllisten ENT-1622
+            * Nutzung von Kontakt ID anstatt der E-Mail Adresse in Frontend Controllers
+            * Ergebnisse der Ajax Produktsuche sind scrollbar ENT-1568
+            * Scrollbare B2B-Navigation in der Tablet-Ansicht ENT-1671
+
+            ### Fehlerbehebung
+
+            * Korrektur der englischen Snippets ENT-1625
+            * Fehler beim Hinzufügen von Artikeln in Bestelllisten behoben ENT-1621
+            * Fehlerhafte Sortierung nach Datum behoben ENT-1569
+            * Behebung eines fatalen Fehlers beim Hinzufügen einer ungültigen Artikelnummer ENT-1640
+            * Korrektur von Snippets und Behebung einer fehlerhaften Weiterleitung beim Hinzufügen von Artikeln in den Warenkorb ENT-1636
+            * Zeigt eine Fehlermeldung an, wenn ein Außendienstler-Kunde kein Passwort hat
+            * Unendlich drehende Ladeanzeigen wurden behoben ENT-1688
+            * Rechte werden nicht mehr unerwaretet vergeben ENT-1697
+            * Zeigt eine Fehlermeldung an, wenn ein Außendienstler-Kunde kein Passwort hat ENT-1675
+            * Fehlerbehebung der Navigation in Firefox ENT-1690
+
+            ### neue Funktionen
+
+            * Warnung beim Überschreiben von Artikelnummern per Datei-Upload ENT-1620
+            * Neues Event beim Hinzufügen von Artikeln in der Schnellbestellung
+            * JavaScript Events für das Modul Schnellbestellungen ENT-1652
+            * JavaScript Events für das Modul Eigene Bestellnummern ENT-1653
+            * Kundengruppen spezifische Preise ENT-1552
+        </changes>
+        <changes lang="en">
+            ### Improvements
+
+            * Auditlog divided ENT-1618
+            * Restyling orderlists component ENT-1622
+            * Use contact id instead of email in frontend controllers
+            * Scrollable ajax product search results ENT-1568
+            * Scrollable B2B-navigation in the tablet view ENT-1671
+
+            ### Fixes
+
+            * Correction of the english snippets ENT-1625
+            * Fix add product to order list ENT-1621
+            * Fix incorrect sorting by date ENT-1569
+            * Fix a fatal error when adding an invalid productnumber ENT-1640
+            * Corrected snippets and fixed an incorrect forwarding when adding products to the cart ENT-1636
+            * Customer group related prices ENT-1552
+            * Show error message if a sales representative client has no password ENT-1675
+            * Fix infinite loading indicators ENT-1688
+            * Rights are no longer given unexpectedly ENT-1697
+            * Error due to preselection of insufficient budget fixed. ENT-1687
+            * Fix navigation for firefox ENT-1690
+
+            ### Additions
+
+            * Warning when overwriting productnumbers by file upload ENT-1620
+            * Added "add item" event to fast-order
+            * JavaScript Events for the fastorder module ENT-1652
+            * JavaScript Events for the custom product numbers module ENT-1653
+        </changes>
+    </changelog>
+</plugin>

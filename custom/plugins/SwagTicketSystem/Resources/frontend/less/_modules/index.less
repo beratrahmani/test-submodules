@@ -1,0 +1,31 @@
+.is--ctl-ticket {
+	&.is--act-index {
+		.forms--headline {
+			margin-bottom: 0;
+			border: 0 none;
+		}
+	}
+}
+
+@media screen and (min-width: @tabletViewportWidth) {
+	.is--ctl-ticket  {
+		&.is--act-index {
+
+			.hide-menu { display: none; }
+
+			.forms--content {
+				.unitize-margin(20, 0, 0, 20);
+				width: 65%;
+			}
+
+		  	.shop-sites--container {
+			    display: block;
+
+			    .shop-sites--navigation {
+				  	display: block;
+				}
+			}
+		}
+	}
+}
+

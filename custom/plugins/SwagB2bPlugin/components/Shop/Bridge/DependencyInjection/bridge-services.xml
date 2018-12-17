@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="b2b_shop.component_translation" class="Shopware_Components_Translation" public="false">
+                <argument type="service" id ="dbal_connection"/>
+        </service>
+        <service id="b2b_shop.category_repository" class="Shopware\B2B\Shop\Bridge\CategoryRepository">
+                <argument type="service" id ="dbal_connection"/>
+        </service>
+        <service id="b2b_shop.shop" class="Shopware\B2B\Shop\Bridge\ShopService">
+            <argument type="service" id="service_container" />
+        </service>
+        <service id="b2b_shop.order_relation_repository" class="Shopware\B2B\Shop\Bridge\OrderRelationRepository" public="false">
+            <argument type="service" id="dbal_connection" />
+        </service>
+        <service id="b2b_shop.order_relation_service" class="Shopware\B2B\Shop\Bridge\OrderRelationService">
+            <argument type="service" id="b2b_shop.order_relation_repository" />
+            <argument type="service" id="b2b_shop.component_translation" />
+            <argument type="service" id="service_container" />
+        </service>
+        <service id="b2b_shop.product_service" class="Shopware\B2B\Shop\Bridge\ProductService">
+            <argument type="service" id="shopware_storefront.list_product_service"/>
+            <argument type="service" id="shopware_storefront.context_service"/>
+            <argument type="service" id="shopware_search.product_search"/>
+            <argument type="service" id="models"/>
+        </service>
+        <service id="b2b_shop.storage" class="Shopware\B2B\Shop\Bridge\SessionStorage" />
+        <service id="b2b_shop.translation_service" class="Shopware\B2B\Shop\Bridge\TranslationService">
+            <argument type="service" id="snippets"/>
+        </service>
+
+        <service id="b2b_shop.variant_condition_handler" class="Shopware\B2B\Shop\Bridge\VariantConditionHandler">
+            <tag name="condition_handler_dbal"/>
+            <tag name="shopware_search_es.search_handler"/>
+        </service>
+    </services>
+</container>

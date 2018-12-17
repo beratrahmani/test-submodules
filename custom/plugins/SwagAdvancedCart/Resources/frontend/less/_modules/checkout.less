@@ -1,0 +1,350 @@
+.cart--save-cart.panel {
+    .unitize-margin(20, 0, 10, 0);
+    border: 1px solid @border-color;
+}
+
+.shop--navigation .navigation--entry .icon--text {
+	.unitize(font-size, 18);
+	vertical-align: middle;
+}
+
+.cart--clear {
+    .clearfix();
+}
+
+.cart--load-list-container {
+    .unitize-width(290);
+    margin: 0 auto;
+}
+
+.cart--label {
+	.unitize(margin-bottom, 10);
+    display: block;
+}
+
+.cart--modal-share-container {
+	.clearfix();
+    .unitize(margin-bottom, 10);
+}
+
+.cart--modal-share-btn {
+    .unitize(margin-bottom, 10);
+    float: right;
+}
+
+.cart--textarea {
+    width: 100%;
+
+	&.cart--mail-message {
+		.unitize-height(250);
+	}
+}
+
+.save-cart--content {
+    border: 0 none;
+}
+
+.save-cart--img {
+    .unitize(padding, 10);
+    .unitize-margin(0, 10, 5, 0);
+    .unitize-height(100);
+    .unitize-width(100);
+    float: left;
+    border: 3px dotted @primaryCartIconColor;
+    border-radius: 100%;
+    color: @primaryCartIconColor;
+    text-align: center;
+}
+
+.save-cart--img-icon {
+    .unitize(font-size, 50);
+    .unitize(top, 14);
+    position: relative;
+}
+
+.save-cart--field {
+    .unitize(padding-top, 5);
+
+    .clearfix()
+}
+
+.save-cart--button {
+    .unitize(margin-top, 10);
+}
+
+.save-cart--share {
+    .unitize(margin-top, 10);
+    margin-left: 0;
+    float: left;
+}
+
+.save-cart--log-in-text {
+    .unitize(margin-left, 10);
+    width: 50%;
+    float: left;
+}
+.save-cart--login-buttons {
+    float: right;
+}
+
+.share--checkout-label {
+    .unitize(padding-left, 3);
+}
+
+.login-buttons--btn {
+    .unitize(margin-bottom, 5);
+    display: inline-block;
+}
+
+#wishlist--name {
+    width: 100%
+}
+
+/**
+* Overwrite existing selector
+*/
+.product--table .cart--save-cart .save-cart--slide-down,
+.list-container--article-table .article-table--table .save-cart--slide-down {
+    .unitize(margin, 20);
+    display: none;
+    text-align: center;
+}
+
+.product--table .table--actions .main--actions .is--secondary {
+    float: left;
+}
+
+.show-lists--button {
+    text-align: center;
+    opacity: 0;
+}
+
+.save-cart--show-lists {
+    display: none;
+}
+
+#inner--cart-share {
+    .unitize(margin, 10);
+}
+
+.cart--save-cart .save-cart--container {
+    border: 0 none;
+}
+
+
+.cart--share-alert,
+.cart--header-alert,
+.cart--header-info-bundle,
+.cart--header-error {
+	display: none;
+}
+
+.cart--header-alert,
+.cart--header-info-bundle,
+.cart--header-error {
+	.unitize-margin(10, 10, 0, 10);
+}
+
+.cart--option-containers {
+	.clearfix();
+	.unitize(margin-bottom, 20);
+	border: 1px solid @border-color;
+
+	&.cart--empty-basket {
+		.unitize(margin-top, 20);
+	}
+
+	&.cart--half-option {
+		.cart--option-container {
+			height: 50%;
+			width: 100%;
+		}
+	}
+
+	.cart--option-container {
+		.unitize(padding, 10);
+		width: 100%;
+		height: 33%;
+		position: relative;
+
+		.option-container--headline {
+			color: @text-color;
+			margin-top: 0;
+		}
+
+		.load-wishlist--default-option {
+			display: none;
+		}
+
+		.save-wishlist--input {
+			width: 90%;
+		}
+
+		/* Overwrite existing selector */
+		.add-product--button {
+			.unitize-padding(3, 0);
+			.border-radius-multi(0px, 3px, 0px, 3px);
+			right: 0;
+			position: absolute;
+			width: 10%;
+		}
+
+		.icon-container--container {
+			.clearfix();
+			display: inline-block;
+		}
+
+		&.option-container--load-wishlist .js--fancy-select,
+		.save-wishlist--button-container {
+			.unitize(margin-top, 10);
+		}
+
+		&.option-container--load-wishlist .js--fancy-select {
+			width: 100%;
+		}
+
+		.save-wishlist--button-container {
+			width: 100%;
+			position: relative;
+
+			.save-wishlist--button {
+				.border-radius-multi(0, 3px, 3px, 0);
+				line-height: 0;
+				height: 100%;
+			}
+		}
+
+		&.option-container--icon-container {
+			.unitize(line-height, 200);
+			.unitize(font-size, 55);
+			color: @brand-primary;
+			text-align: center;
+
+			.icon-container--icon {
+				float: left;
+				display: block;
+			}
+
+			.icon--arrow-left3,
+			.icon--arrow-right3 {
+				.unitize(font-size, 25);
+				.unitize(margin-left, 5);
+				.unitize(margin-right, 5);
+				.unitize(top, 15);
+				margin: 0;
+				padding: 0;
+				position: relative;
+			}
+
+			.icon--arrow-left3 {
+				margin-right: 0;
+			}
+
+			.icon--arrow-right3 {
+				margin-left: 0;
+			}
+		}
+
+		&.option-container--login-container {
+			text-align: center;
+			position: relative;
+
+			.login-container--text {
+				.unitize(margin-top, 20);
+				display: inline-block;
+			}
+
+			.login-container--button {
+				.unitize(margin-top, 20);
+			}
+		}
+	}
+}
+
+@media screen and (min-width: @tabletViewportWidth) {
+    .save-cart--share {
+        .unitize(margin-left, 25);
+    }
+
+    .log-in-buttons-btn {
+        .unitize(margin-bottom, 10);
+        display: block;
+    }
+
+	.cart--option-containers {
+		.unitize-height(350);
+
+		&.cart--half-option {
+			.cart--option-container {
+				width: 50%;
+				height: 100%;
+			}
+		}
+
+		.cart--option-container {
+			.unitize-padding(0, 10);
+			height: 100%;
+			width: 33%;
+			float: left;
+
+			.save-wishlist--input {
+				width: 80%;
+			}
+
+			.add-product--button {
+				right: 4%;
+				width: 16%;
+			}
+
+			&.option-container--load-wishlist .js--fancy-select {
+				width: 90%;
+			}
+
+			&.option-container--load-wishlist .js--fancy-select,
+			.save-wishlist--button-container {
+				.unitize(bottom, 20);
+				.unitize(left, 10);
+				position: absolute;
+				margin-top: 0;
+			}
+
+			&.option-container--icon-container {
+				.unitize(line-height, 350);
+			}
+
+			.option-container--headline {
+				.unitize(margin-top, 16);
+			}
+		}
+
+		.login-container--wrapper {
+			position: absolute;
+			top: 50%;
+			.translate(0, -50%);
+		}
+	}
+
+}
+
+@media screen and (min-width: @tabletLandscapeViewportWidth) {
+
+    #wishlist--name {
+        .unitize-width(290);
+    }
+
+    .save-cart--button {
+        margin-top: 0;
+    }
+
+    .save-cart--log-in-text {
+        width: 65%;
+    }
+
+	.cart--option-containers {
+		.unitize-height(260);
+
+		.cart--option-container.option-container--icon-container {
+			.unitize(line-height, 260);
+		}
+	}
+}

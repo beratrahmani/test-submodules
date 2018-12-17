@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.5/engine/Shopware/Components/Plugin/schema/plugin.xsd">
+
+    <version>4.0.0</version>
+
+    <label lang="de">AboCommerce</label>
+    <label lang="en">Subscriptions</label>
+    <copyright>(c) by shopware AG</copyright>
+    <license>proprietary</license>
+    <link>http://store.shopware.com</link>
+    <author>shopware AG</author>
+    <compatibility minVersion="5.5.0"/>
+
+    <changelog version="4.0.0">
+        <changes lang="de">
+            PT-8977 - Reiner Abo Artikel kann nicht mehr über die Artikelnummer auf der Warenkorbseite in den Warenkorb gelegt werden;
+            PT-9009 - Preisanzeige im Listing und auf der Detailseite verbessert;
+            PT-9164 - Shopware 5.5 Kompatibilität;
+        </changes>
+        <changes lang="en">
+            PT-8977 - Subscription only product can no longer be put in the basket via the product number on the basket page;
+            PT-9009 - Improved price display in listing and on detail page;
+            PT-9164 - Shopware 5.5 compatibility;
+        </changes>
+    </changelog>
+
+    <changelog version="3.0.0">
+        <changes lang="de">
+            PT-7188 - Englische Übersetzungen angepasst;
+            PT-7462 - Ermöglicht das Ändern von Zahlungsart, Liefer- und Rechnungsadresse beim laufenden Abo;
+            PT-9089 - Behebt ein Problem mit dem Facet Filter beim Update des Plugins;
+            PT-9212 - Inkorrekte SQL-Syntax behoben;
+            PT-9231 - Wiederkehrende Bestellungen optimiert;
+            PT-9235 - Kündigungsrückfrage beim Kündigen von Abos;
+            PT-9263 - Benutzt nun den richtigen Preis für die Kundengruppe oder den Standard;
+            PT-9276 - Behebt ein Problem mit endlosen Abos im Cronjob;
+            PT-9280 - Kompatibilität zu Staffelpreisen wiederhergestellt;
+            PT-9282 - Handling von mehreren Abos des gleichen Produkts im Warenkorb verbessert;
+            PT-9384 - Problem bei Folgebestellung behoben, wenn initial das Abo-Produkt mehrfach mit unterschiedlichen Laufzeiten gekauft wurde;
+        </changes>
+        <changes lang="en">
+            PT-7188 - Fix english translation;
+            PT-7462 - Offers a way to change payment method, delivery and billing address for running subscriptions;
+            PT-9089 - Solves an issue with facet filter status when updating the plugin;
+            PT-9212 - Fix incorrect sql syntax;
+            PT-9231 - Optimize recurring orders;
+            PT-9235 - Implemented subscription termination confirmation in account;
+            PT-9263 - Use now the right price for the customer group or the default;
+            PT-9276 - Solves an issues with endless subscriptions via cron job;
+            PT-9280 - Fix compatibility with graduated prices;
+            PT-9282 - Improve handling of several subscriptions of the same product in the cart;
+            PT-9384 - Fix problem on recurring orders if the subscriptions product was bought multiple times with different durations;
+        </changes>
+    </changelog>
+
+    <changelog version="2.2.1">
+        <changes lang="de">PT-9233 - Problem beim Update behoben;</changes>
+        <changes lang="en">PT-9233 - Fix problem on update;</changes>
+    </changelog>
+
+    <changelog version="2.2.0">
+        <changes lang="de">
+            PT-4376 - Abonnements können nun ohne bestimmtes Laufzeitende definiert werden;
+            PT-8336 - Anzeige Artikelpreis bei wiederkehrenden Bestellungen korrigiert;
+            PT-9110 - Artikelmengenauswahl korrigiert;
+        </changes>
+        <changes lang="en">
+            PT-4376 - Subscriptions can now be defined without specific end date;
+            PT-8336 - Fix displaying of product price on recurring orders;
+            PT-9110 - Fix product quantity selection;
+        </changes>
+    </changelog>
+
+    <changelog version="2.1.2">
+        <changes lang="de">PT-9013 - Wiederkehrende Zahlungen korrigiert;</changes>
+        <changes lang="en">PT-9013 - Fix recurring payments;</changes>
+    </changelog>
+
+    <changelog version="2.1.1">
+        <changes lang="de">PT-9001 - Behebt ein Problem mit Firefox Kompatibilität;</changes>
+        <changes lang="en">PT-9001 - Solves an issue with firefox compatibility;</changes>
+    </changelog>
+
+    <changelog version="2.1.0">
+        <changes lang="de">PT-8810 - Shopware 5.4 Kompatibilität;</changes>
+        <changes lang="en">PT-8810 - Shopware 5.4 compatibility;</changes>
+    </changelog>
+
+    <changelog version="2.0.0">
+        <changes lang="de">
+            PT-4836 - Problem mit der Auswahl der Menge bei Abo Produkten behoben;
+            PT-4718 - Fehler behoben, bei dem Cronjobs durch fehler unterbrochen werden;
+            PT-6395 - Kompatibilität mit CustomProducts hergestellt;
+            PT-8008, PT-8177 - Update der Snippets;
+            PT-8052 - Anzeige der Account Navigation verbessert;
+            PT-8125 - Migration auf das Shopware 5.2 Plugin System;
+            PT-8298 - Problem mit dem Layout der Anzahl Auswahl beim Variantenwechsel behoben;
+            PT-8803 - Problem mit der Anzeige von Liefermengen im Abo behoben;
+            PT-8909 - Berücksichtigt die Limitierung von Abos im Warenkorb;
+            PT-8943 - Undeutlichkeit zur Wiedergabe der gelieferten Menge bei Abos behoben;
+        </changes>
+        <changes lang="en">
+            PT-4836 - Fixes a problem with quantity selection on abo products;
+            PT-4718 - Fixes bug which stops the execution of the Cronjob if an error occurred;
+            PT-6395 - Add compatibility with CustomProducts;
+            PT-8008, PT-8177 - Update of snippets;
+            PT-8052 - Improve displaying of account navigation;
+            PT-8125 - Migration to the Shopware 5.2 plugin system;
+            PT-8298 - Fixes an display issue for quantity selection when switching variants;
+            PT-8803 - Fixes an display issue with delivery quantities when using abo;
+            PT-8909 - Considers limits on abos in the basket;
+            PT-8943 - Fixes an issue where display of delivery quantity is confusing;
+        </changes>
+    </changelog>
+
+    <changelog version="1.5.0">
+        <changes lang="de">
+            PT-7897, SW-16633, SW-16690, SW-16691, SW-18896 - Shopware 5.3 Kompatibilität;
+            PT-7070 - Filter Kompatibilität zu Product Streams;
+        </changes>
+        <changes lang="en">
+            PT-7897, SW-16633, SW-16690, SW-16691, SW-18896 - Shopware 5.3 compatibility;
+            PT-7070 - Filter compatibility with Product Streams;
+        </changes>
+    </changelog>
+
+    <changelog version="1.4.2">
+        <changes lang="de">
+            PT-4444 - Bugfix: SecureUninstall Implementierung;
+            PT-5487 - Bugfix: Ausführung des CronJobs;
+            PT-5562 - Bugfix: Übersetzungen;
+            PT-5716 - Bugfix: Preise im E-Mail Template;
+            PT-5867 - Bugfix: Erweiterung des Templates;
+            PT-5875 - Bugfix: Logo und Naming;
+            PT-6396 - Bugfix: Änderung einer Abo Adresse;
+            PT-5964 - Feature: Informationen zum Abo auf Dokumenten Template;
+        </changes>
+        <changes lang="en">
+            PT-4444 - Bugfix: Implement SecureUninstall;
+            PT-5487 - Bugfix: Execution of CronJob;
+            PT-5562 - Bugfix: Translations;
+            PT-5716 - Bugfix: Prices in eMail template;
+            PT-5867 - Bugfix: Extension of the theme;
+            PT-5875 - Bugfix: Logo and naming;
+            PT-6396 - Bugfix: Changing an address of subscription;
+            PT-5964 - Feature: Information about the subscription on document template;
+        </changes>
+    </changelog>
+
+    <changelog version="1.4.1">
+        <changes lang="de">PT-6156 - Bugfix: Menü Icon;</changes>
+        <changes lang="en">PT-6156 - Bugfix: Menu icon;</changes>
+    </changelog>
+
+    <changelog version="1.4.0">
+        <changes lang="de">PT-5422 - Feature: Shopware 5.2 Kompatibilität;</changes>
+        <changes lang="en">PT-5422 - Feature: Shopware 5.2 compatibility;</changes>
+    </changelog>
+
+    <changelog version="1.3.0">
+        <changes lang="de">
+            PT-3459 - Bugfix: Template Blöcke hinzugefügt;
+            PT-4157 - Bugfix: Preisberechnung Kundengruppenpreise bei wiederholten Bestellungen;
+            PT-4158 - Feature: Lieferadresse eines Abonnements ändern;
+            PT-4176 - Bugfix: Badge im Suchlisting;
+            PT-4179 - Bugfix: Abo Rabatt im OffCanvas Warenkorb;
+            PT-4276 - Feature: Option Artikelpreis bei wiederholenden Bestellungen;
+        </changes>
+        <changes lang="en">
+            PT-3459 - Bugfix: Add template blocks;
+            PT-4157 - Bugfix: Price calculation customer group prices on recurring orders;
+            PT-4158 - Feature: Change shipping address of a subscription;
+            PT-4176 - Bugfix: Badge in search listing;
+            PT-4179 - Bugfix: Abo discount in off canvas cart;
+            PT-4276 - Feature: Option product price at recurring orders;
+        </changes>
+    </changelog>
+
+    <changelog version="1.2.6">
+        <changes lang="de">PT-3489, PT-3643 - Bugfix: Shopware 5.1 Kompatibilität;</changes>
+        <changes lang="en">PT-3489, PT-3643 - Bugfix: Shopware 5.1 compatibility;</changes>
+    </changelog>
+
+    <changelog version="1.2.5">
+        <changes lang="de">
+            PT-3213 - Bugfix: Styling OffCanvas Warenkorb;
+            PT-3332, PT-3365 - Bugfix: Snippetfehler;
+        </changes>
+        <changes lang="en">
+            PT-3213 - Bugfix: Styling offCanvas cart;
+            PT-3332, PT-3365 - Bugfix: Snippet errors;
+        </changes>
+    </changelog>
+
+    <changelog version="1.2.4">
+        <changes lang="de">PT-3247 - Feature: Sortieren nach Kundengruppe, -E-Mail und Artikelnamen. Suchen nach Kundengruppen;</changes>
+        <changes lang="en">PT-3247 - Feature: Sort by customer group, e-mail und item name. Search for customer groups;</changes>
+    </changelog>
+
+    <changelog version="1.2.3">
+        <changes lang="de">
+            PT-3019 - Bugfix: Filteranzeige korrigiert;
+            PT-3180 - Bugfix: Preisberechnung pro Lieferung korrigiert;
+        </changes>
+        <changes lang="en">
+            PT-3019 - Bugfix: Corrected displaying of filter;
+            PT-3180 - Bugfix: Corrected calculation of price per delivery;
+        </changes>
+    </changelog>
+
+    <changelog version="1.2.2">
+        <changes lang="de">
+            PT-2827 - Feature: Anzeige der Kundengruppe im Backendmodul;
+            PT-2985 - Bugfix: Fehlender additionalText bei Abo-Bestellungen;
+            PT-2982, PT-3161 - Bugfix: Kompatibilität mit CustomProducts;
+        </changes>
+        <changes lang="en">
+            PT-2827 - Feature: Displaying of the customer group in the backend module;
+            PT-2985 - Bugfix: Missing additionalText in recurring orders;
+            PT-2982, PT-3161 - Bugfix: Compatibility with CustomProducts;
+        </changes>
+    </changelog>
+
+    <changelog version="1.2.1">
+        <changes lang="de">
+            PT-3045 - Bugfix: Fehler bei der Installation;
+            PT-3068 - Bugfix: Unnötigen Ajax-Call entfernt;
+        </changes>
+        <changes lang="en">
+            PT-3045 - Bugfix: Error on installation;
+            PT-3068 - Bugfix: Removed unnecessary ajax call;
+        </changes>
+    </changelog>
+
+    <changelog version="1.2.0">
+        <changes lang="de">PT-2897 - Shopware 5 Kompatibilität</changes>
+        <changes lang="en">PT-2897 - Shopware 5 compatibility</changes>
+    </changelog>
+
+    <changelog version="1.1.2">
+        <changes lang="de">
+            PT-2126 - Fix: Hinweis, wenn Abo abgelaufen ist im Backend;
+            PT-2494 - Fix: Anzeige des Variantennamens im Checkout
+        </changes>
+        <changes lang="en">
+            PT-2126 - Fix: Show backend user when subscription expired;
+            PT-2494 - Fix: Show variant name in checkout
+        </changes>
+    </changelog>
+
+    <changelog version="1.1.1">
+        <changes lang="de">
+            PT-2487: Fehler mit Varianten korrigiert;
+            PT-1997: Fehler mit SSL korrigiert;
+            PT-1925: Fehlende Übersetzungen hinzugefügt;
+            PT-1465: Korrigiert Fehler mit dem 'Highlight' Feature
+        </changes>
+        <changes lang="en">
+            PT-2487: Fixed error with variants;
+            PT-1997: Fixed error with SSL;
+            PT-1925: Added missing translations;
+            PT-1465 Fix highlight product feature
+        </changes>
+    </changelog>
+
+    <changelog version="1.1.0">
+        <changes lang="de">Korrigiert Versandkosten- und Preisberechnung; Korrigiert Problem mit Custom Products; Zeigt Hinweis, wenn die Lieferadresse zur Laufzeit eines Abos geändert werden soll; Korrigiert Fehler mit Gutscheinen; Korrigiert Probleme bei mehreren geöffneten Artikel-Modulen; Korrigiert falsche Zahlungsart bei wiederkehrenden Bestellungen</changes>
+        <changes lang="en">Fixed shipping cost and price calculation; Fixed issue with custom products; Show hint if you want to change the shipping address within an abo; Fixed issues with vouchers; Fixed problems with multiple open products modules; Fixed wrong payment method on recurring orders;</changes>
+    </changelog>
+
+    <description lang="de"><![CDATA[<p>Du möchtest Deine Kunden langfristig an Deinen Shop binden? Dann ist AboCommerce genau das Richtige für Dich. <br>Dieses Premium-Plugin ermöglicht es Dir, Deinen Kunden eine Auto-Bestellung mit beliebig vielen Produkten in selbst bestimmten Intervallen nach Hause liefern zu lassen. Mit der optionalen Rabatt-Funktion kannst Du Deinen Kunden in Abhängigkeit von der Abo-Laufzeit zudem Preisnachlässe gewähren.</p>
+<h2>Die Vorteile des Plugins im Überblick</h2>
+<p>Produkte, die regelmäßig benötigt werden, kommen automatisch und ohne wiederholt bestellt werden zu müssen direkt nach Hause. Die Zahlung der Produkte wird dabei auch jeweils in Intervallen fällig, Deine Kunden müssen also nicht das komplette Abo im Voraus bezahlen.
+<br>
+Mit einer Rabatt-Funktion ist auch die Gewährung gestaffelter Rabatte abhängig von der Laufzeit des Abos möglich: Je länger das Abo dauert, desto niedriger der Preis. Die Steuerung erfolgt in gewohnt einfacher Shopware-Usability über einen eigenen Konto-Bereich. </p>
+<h2>Unterstützte Funktionen</h2>
+<p>
+<ul>
+<li>Auto-Bestellung von Produkten in Intervallen</li>
+<li>Gewährung gestaffelter Rabatte</li>
+<li>Abrechung in Intervallen</li>
+<li>Unbegrenzte Laufzeit</li>
+</ul>
+</p>]]></description>
+    <description lang="en"><![CDATA[<p>Subscriptions provides you with the tools you need to increase usability and build long-term relationships with your customers. Using this Premium Plugin, customers can set up automatic orders for any number of items and select the delivery intervals that fits their needs. The advantage for your customers: items which are regularly in demand are automatically ordered and delivered on a schedule, all without the hassle of repeating the order process. Payment can also made in intervals, so your customers are not required to pay everything in advance.</p>
+<p>An incremental discount feature can also be applied in order to grant discounts based on the subscription length. The longer the subscription, the lower the price. </p>
+<h2>Features:</h2>
+<p>
+<ul>
+<li>Items ordered automatically according to selected delivery dates</li>
+<li>Possibility to offer customers staggered discounts</li>
+<li>Payment in intervals</li>
+<li>Unlimited runtime</li>
+</ul>
+</p>]]></description>
+
+</plugin>

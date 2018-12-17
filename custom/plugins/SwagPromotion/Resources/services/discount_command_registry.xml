@@ -1,0 +1,31 @@
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <!-- DiscountCommandRegistry -->
+        <service id="swag_promotion.discount_command_registry"
+                 class="SwagPromotion\Components\Promotion\DiscountCommand\DiscountCommandRegistry">
+            <argument type="tagged" tag="swag_promotion.command_registry"/>
+        </service>
+
+        <service id="swag_promotion.discount_command_handler"
+                 class="SwagPromotion\Components\Promotion\DiscountCommand\Handler\DiscountCommandHandler">
+            <argument type="service" id="swag_promotion.tax_calculator"/>
+            <argument type="service" id="swag_promotion.basket_service"/>
+            <tag name="swag_promotion.command_registry"/>
+        </service>
+
+        <service id="swag_promotion.free_goods_command_handler"
+                 class="SwagPromotion\Components\Promotion\DiscountCommand\Handler\FreeGoodsCommandHandler">
+            <argument type="service" id="swag_promotion.tax_calculator"/>
+            <argument type="service" id="swag_promotion.basket_service"/>
+            <tag name="swag_promotion.command_registry"/>
+        </service>
+
+        <service id="swag_promotion.shipping_free_command_handler" class="SwagPromotion\Components\Promotion\DiscountCommand\Handler\ShippingFreeCommandHandler">
+            <argument type="service" id="swag_promotion.basket_service"/>
+            <tag name="swag_promotion.command_registry"/>
+        </service>
+    </services>
+</container>

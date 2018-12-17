@@ -1,0 +1,114 @@
+{
+    "name": "shopware/b2b",
+    "description": "The Shopware B2B suite",
+    "type": "framework",
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "Shopware\\B2B\\": "components"
+        }
+    },
+    "autoload-dev": {
+        "psr-0": {
+            "Doctrine\\Common\\Proxy\\AbstractProxyFactory": "vendor/shopware/shopware/engine/Library/",
+            "Doctrine\\ORM\\Persisters\\Entity\\BasicEntityPersister": "vendor/shopware/shopware/engine/Library/",
+            "Shopware_Controllers_Frontend_": [
+                "components/SwagB2bPlugin/Controllers/Frontend",
+                "components/SwagB2bPlugin/Controllers/ExtendedFrontend"
+            ],
+            "Shopware_Controllers_Widgets_": [
+                "components/SwagB2bPlugin/Controllers/Widgets"
+            ]
+        },
+        "psr-4": {
+            "Shopware\\B2BTest\\Account\\": "components/Account/tests",
+            "Shopware\\B2BTest\\Acl\\": "components/Acl/tests",
+            "Shopware\\B2BTest\\AclRoute\\": "components/AclRoute/tests",
+            "Shopware\\B2BTest\\AuditLog\\": "components/AuditLog/tests",
+            "Shopware\\B2BTest\\Address\\": "components/Address/tests",
+            "Shopware\\B2BTest\\Budget\\": "components/Budget/tests",
+            "Shopware\\B2BTest\\Cart\\": "components/Cart/tests",
+            "Shopware\\B2BTest\\Common\\": "components/Common/tests",
+            "Shopware\\B2BTest\\Contact\\": "components/Contact/tests",
+            "Shopware\\B2BTest\\ContingentGroup\\": "components/ContingentGroup/tests",
+            "Shopware\\B2BTest\\ContingentRule\\": "components/ContingentRule/tests",
+            "Shopware\\B2BTest\\Currency\\": "components/Currency/tests",
+            "Shopware\\B2BTest\\Debtor\\": "components/Debtor/tests",
+            "Shopware\\B2BTest\\FastOrder\\": "components/FastOrder/tests",
+            "Shopware\\B2BTest\\SalesRepresentative\\": "components/SalesRepresentative/tests",
+            "Shopware\\B2BTest\\LineItemList\\": "components/LineItemList/tests",
+            "Shopware\\B2BTest\\DebtorContact\\": "components/Contact/tests",
+            "Shopware\\B2BTest\\Order\\": "components/Order/tests",
+            "Shopware\\B2BTest\\OrderClearance\\": "components/OrderClearance/tests",
+            "Shopware\\B2BTest\\RoleAddress\\": "components/RoleAddress/tests",
+            "Shopware\\B2BTest\\RoleBudget\\": "components/RoleBudget/tests",
+            "Shopware\\B2BTest\\RoleContact\\": "components/RoleContact/tests",
+            "Shopware\\B2BTest\\RoleContingentGroup\\": "components/RoleContingentGroup/tests",
+            "Shopware\\B2BTest\\Role\\": "components/Role/tests",
+            "Shopware\\B2BTest\\StoreFrontAuthentication\\": "components/StoreFrontAuthentication/tests",
+            "Shopware\\B2BTest\\SwagB2bPlugin\\": "components/SwagB2bPlugin/tests/SwagB2bPlugin",
+            "Shopware\\B2BTest\\Shop\\": "components/Shop/tests",
+            "Shopware\\B2BTest\\Price\\": "components/Price/tests",
+            "Shopware\\B2BTest\\ProductName\\": "components/ProductName/tests",
+            "Shopware\\B2BTest\\OrderList\\": "components/OrderList/tests",
+            "Shopware\\B2BTest\\Statistic\\": "components/Statistic/tests",
+            "Shopware\\B2BTest\\InStock\\": "components/InStock/tests",
+            "Shopware\\B2BTest\\Offer\\": "components/Offer/tests",
+            "Shopware\\B2BTest\\Dashboard\\": "components/Dashboard/tests",
+            "Shopware\\B2BTest\\OrderNumber\\": "components/OrderNumber/tests",
+            "SwagB2bPlugin\\": "components/SwagB2bPlugin"
+        }
+    },
+    "authors": [
+        {
+            "name": "Daniel Nögel",
+            "email": "d.noegel@shopware.com"
+        },
+        {
+            "name": "Linus Holtstiege",
+            "email": "l.holtstiege@shopware.com"
+        },
+        {
+            "name": "Pascal Thesing",
+            "email": "P.Thesing@shopware.com"
+        },
+        {
+            "name": "Jan Philipp Pietrzyk",
+            "email": "J.PhilippPietrzyk@shopware.com"
+        },
+        {
+            "name": "Thomas Eiling",
+            "email": "t.eiling@shopware.com"
+        },
+        {
+            "name": "Raphael Emmerich",
+            "email": "r.emmerich@shopware.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^6.0",
+        "symfony/dom-crawler": "~2.8",
+        "sllh/composer-versions-check": "^2.0",
+        "johnkary/phpunit-speedtrap": "^2.0",
+        "symfony/var-dumper": "^3.3",
+        "symfony/browser-kit": "^3.3",
+        "symfony/css-selector": "^3.3",
+        "shopware/shopware": "5.4.x-dev",
+        "symfony/yaml": "3.*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "nikic/fast-route": "^1.0",
+        "phpoffice/phpspreadsheet": "dev-master",
+        "shopware/dbal-nested-set": "^1",
+        "ext-intl": "*"
+    },
+    "config": {
+        "bin-dir": "bin",
+        "platform": {
+            "php": "7.0.8"
+        },
+        "optimize-autoloader": true
+    }
+}

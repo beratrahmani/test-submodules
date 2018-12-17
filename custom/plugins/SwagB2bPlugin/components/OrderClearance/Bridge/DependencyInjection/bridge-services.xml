@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service class="Shopware\B2B\OrderClearance\Bridge\OrderClearanceEntityFactory" id="b2b_order_clearance.entity_factory">
+            <argument type="service" id="b2b_line_item_list.checkout_provider"/>
+        </service>
+        <service class="Shopware\B2B\OrderClearance\Bridge\OrderAuditLogSubscriber" id="b2b_order_clearance.audit_log_subscriber">
+            <argument type="service" id="b2b_front_auth.authentication_service"/>
+            <argument type="service" id="b2b_order_clearance.service"/>
+
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service class="Shopware\B2B\OrderClearance\Bridge\OrderClearanceShopWriterService" id="b2b_order_clearance.order_clearance_shop_writer_service">
+            <argument type="service" id="b2b_cart.cart_state"/>
+        </service>
+
+        <service class="Shopware\B2B\OrderClearance\Bridge\OrderClearanceRepository" id="b2b_order_clearance.repository">
+            <argument id="dbal_connection" type="service"/>
+            <argument id="b2b_common.repository_dbal_helper" type="service"/>
+            <argument id="b2b_order.shop_repository" type="service"/>
+            <argument type="service" id="b2b_order.order_context_repository"/>
+            <argument id="b2b_order_clearance.entity_factory" type="service"/>
+            <argument id="b2b_front_auth.authentication_service" type="service"/>
+            <argument id="b2b_line_item_list.repository" type="service"/>
+            <argument id="b2b_contact.acl_repository" type="service"/>
+        </service>
+
+        <service class="Shopware\B2B\OrderClearance\Bridge\OrderClearanceOldStateSubscriber" id="b2b_order_clearance.order_status_subscriber">
+            <argument type="service" id="b2b_order_clearance.repository"/>
+            <argument type="service" id="b2b_cart.cart_state"/>
+            <argument type="service" id="b2b_front_auth.authentication_service"/>
+
+            <tag name="shopware.event_subscriber"/>
+        </service>
+    </services>
+</container>

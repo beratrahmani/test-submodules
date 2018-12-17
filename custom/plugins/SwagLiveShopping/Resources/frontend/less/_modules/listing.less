@@ -1,0 +1,100 @@
+.product--box .product--badges .badge--liveshopping {
+    display: none;
+    white-space: nowrap;
+
+    .discount--charge-icon {
+        .unitize(font-size, 12);
+        line-height: 0;
+        font-weight: bold;
+    }
+
+    .counter--text {
+        .unitize(font-size, 12);
+    }
+}
+
+// General liveshopping appearance for all product box types
+.liveshopping--listing {
+    overflow: hidden;
+    .liveshopping--container {
+        .border-radius();
+        .unitize-padding(0, 10);
+        display: none;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        background-color: @badge-discount-bg;
+        color: #ffffff;
+    }
+
+    .liveshopping--price {
+        .unitize(font-size, 18);
+        font-weight: bold;
+    }
+
+    .liveshopping--pseudoprice {
+        .unitize(font-size, 12);
+    }
+}
+
+// Product box specific styling
+.box--basic,
+.box--image,
+.box--emotion {
+
+    // Enlarge product boxes width 10 pixel additional height
+    .product--price-info {
+        .unitize-height(50);
+    }
+
+    .liveshopping--listing {
+        .liveshopping--container {
+            .unitize-height(30);
+            .unitize(line-height, 30);
+        }
+    }
+}
+
+// Product box minimal specific styling
+.box--minimal {
+    .liveshopping--listing {
+        .price--unit {
+            .unitize-height(24);
+        }
+
+        .product--price-outer {
+            height: 0;
+        }
+
+        .liveshopping--container {
+            .unitize-padding(2, 10);
+        }
+
+        .liveshopping--price {
+            display: block;
+        }
+
+        .liveshopping--pseudoprice {
+            display: block;
+        }
+    }
+}
+
+// Product box list specific styling
+.box--list {
+    .liveshopping--listing {
+        .liveshopping--container {
+            .unitize(max-width, 280);
+        }
+    }
+}
+
+.badge--stock {
+    background: @badgeStockBackground;
+    color: #ffffff;
+}
+
+@media screen and (min-width: @desktopViewportWidth) {
+    .is--ctl-live-shopping .sidebar-main + .content--wrapper {
+        .unitize(margin-left, 260);
+    }
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="./Tests/Bootstrap.php"
+         backupGlobals="false"
+         backupStaticAttributes="false">
+    <testsuite name="SwagProductAdvisor Test Suite">
+        <directory>Tests</directory>
+    </testsuite>
+
+    <filter>
+        <whitelist>
+            <directory suffix=".php">./</directory>
+            <exclude>
+                <directory suffix=".php">./Tests</directory>
+
+                <!-- Testing the Model's getter and setter is unnecessary -->
+                <file>./Models/Advisor.php</file>
+                <file>./Models/Answer.php</file>
+                <file>./Models/Question.php</file>
+                <file>./Models/Session.php</file>
+                <directory suffix=".php">./Structs</directory>
+
+                <!-- Bootstrap -->
+                <file>SwagProductAdvisor.php</file>
+                <directory suffix=".php">./Bootstrap</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>

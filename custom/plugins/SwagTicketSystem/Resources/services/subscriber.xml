@@ -1,0 +1,17 @@
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="swag_ticket_system.subscriber.backend" class="SwagTicketSystem\Subscriber\Backend">
+            <argument type="service" id="swag_ticket_system.dependency_provider" />
+            <argument type="service" id="acl" />
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swag_ticket_system.subscriber.template" class="SwagTicketSystem\Subscriber\Template">
+            <argument>%swag_ticket_system.plugin_dir%</argument>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+    </services>
+</container>

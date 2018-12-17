@@ -1,0 +1,47 @@
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="swag_abo_commerce.bundle.criteria_request_handler"
+                 class="SwagAboCommerce\Bundle\SearchBundle\CriteriaRequestHandler\CriteriaRequestHandler">
+            <tag name="criteria_request_handler"/>
+        </service>
+
+        <service id="swag_abo_commerce.bundle.es_sorting_handler"
+                 class="SwagAboCommerce\Bundle\SearchBundleES\AboCommerceESSortingHandler">
+            <tag name="shopware_search_es.search_handler"/>
+        </service>
+
+        <service id="swag_abo_commerce.bundle.es_conditon_handler"
+                 class="SwagAboCommerce\Bundle\SearchBundleES\AboCommerceESConditionHandler">
+            <tag name="shopware_search_es.search_handler"/>
+        </service>
+
+        <service id="swag_abo_commerce.bundle.es_facet_handler"
+                 class="SwagAboCommerce\Bundle\SearchBundleES\AboCommerceESFacetHandler">
+            <argument type="service" id="snippets"/>
+            <tag name="shopware_search_es.search_handler"/>
+        </service>
+
+        <service id="swag_abo_commerce.bundle.dbal_condition_handler"
+                 class="SwagAboCommerce\Bundle\SearchBundleDBAL\AboCommerceConditionHandler">
+            <argument type="service" id="swag_abo_commerce.dbal_join_table_service"/>
+            <tag name="condition_handler_dbal"/>
+        </service>
+
+        <service id="swag_abo_commerce.bundle.dbal_sorting_handler"
+                 class="SwagAboCommerce\Bundle\SearchBundleDBAL\AboCommerceSortingHandler">
+            <argument type="service" id="swag_abo_commerce.dbal_join_table_service"/>
+            <tag name="sorting_handler_dbal"/>
+        </service>
+
+        <service id="swag_abo_commerce.bundle.dbal_facet_handler"
+                 class="SwagAboCommerce\Bundle\SearchBundleDBAL\AboCommerceFacetHandler">
+            <argument type="service" id="swag_abo_commerce.dbal_join_table_service"/>
+            <argument type="service" id="shopware_searchdbal.dbal_query_builder_factory"/>
+            <argument type="service" id="snippets"/>
+            <tag name="facet_handler_dbal"/>
+        </service>
+    </services>
+</container>

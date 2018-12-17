@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_sales_representative.repository_class">Shopware\B2B\SalesRepresentative\Framework\SalesRepresentativeRepository</parameter>
+    <parameter key="b2b_sales_representative.grid_helper_class">Shopware\B2B\Common\Controller\GridHelper</parameter>
+    <parameter key="b2b_sales_representative.service_class">Shopware\B2B\SalesRepresentative\Framework\SalesRepresentativeService</parameter>
+    <parameter key="b2b_sales_representative.client_repository_class">Shopware\B2B\SalesRepresentative\Framework\SalesRepresentativeClientRepository</parameter>
+    <parameter key="b2b_sales_representative.sales_representative_authentication_identity_loader_class">Shopware\B2B\SalesRepresentative\Framework\SalesRepresentativeAuthenticationIdentityLoader</parameter>
+    <parameter key="b2b_sales_representative.client_identity_loader_class">Shopware\B2B\SalesRepresentative\Framework\ClientIdentityChainLoader</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_sales_representative.repository_abstract" abstract="true">
+      <argument type="service" id="dbal_connection"/>
+      <argument type="service" id="b2b_sales_representative.client_repository"/>
+    </service>
+    <service id="b2b_sales_representative.grid_helper_abstract" abstract="true">
+      <argument type="service" id="b2b_sales_representative.repository"/>
+    </service>
+    <service id="b2b_sales_representative.service_abstract" abstract="true">
+      <argument type="service" id="b2b_front_auth.authentication_service"/>
+      <argument type="service" id="b2b_front_auth.auth_storage_adapter"/>
+      <argument type="service" id="b2b_front_auth.user_login_service"/>
+      <argument type="service" id="b2b_front_auth.login_context"/>
+    </service>
+    <service id="b2b_sales_representative.client_repository_abstract" abstract="true">
+      <argument id="dbal_connection" type="service"/>
+      <argument id="b2b_sales_representative.client_identity_loader" type="service"/>
+      <argument id="b2b_common.repository_dbal_helper" type="service"/>
+      <argument id="b2b_front_auth.login_context" type="service"/>
+      <argument id="b2b_front_auth.repository" type="service"/>
+      <argument id="b2b_address.repository" type="service"/>
+    </service>
+    <service id="b2b_sales_representative.sales_representative_authentication_identity_loader_abstract" abstract="true">
+      <argument type="service" id="b2b_sales_representative.repository"/>
+    </service>
+    <service id="b2b_sales_representative.client_identity_loader_abstract" abstract="true">
+      <argument type="collection"/>
+    </service>
+    <service id="b2b_sales_representative.repository" class="%b2b_sales_representative.repository_class%" parent="b2b_sales_representative.repository_abstract"/>
+    <service id="b2b_sales_representative.grid_helper" class="%b2b_sales_representative.grid_helper_class%" parent="b2b_sales_representative.grid_helper_abstract"/>
+    <service id="b2b_sales_representative.service" class="%b2b_sales_representative.service_class%" parent="b2b_sales_representative.service_abstract"/>
+    <service id="b2b_sales_representative.client_repository" class="%b2b_sales_representative.client_repository_class%" parent="b2b_sales_representative.client_repository_abstract"/>
+    <service id="b2b_sales_representative.sales_representative_authentication_identity_loader" class="%b2b_sales_representative.sales_representative_authentication_identity_loader_class%" parent="b2b_sales_representative.sales_representative_authentication_identity_loader_abstract">
+      <tag name="b2b_front_auth.authentication_repository"/>
+    </service>
+    <service id="b2b_sales_representative.client_identity_loader" class="%b2b_sales_representative.client_identity_loader_class%" parent="b2b_sales_representative.client_identity_loader_abstract"/>
+  </services>
+</container>

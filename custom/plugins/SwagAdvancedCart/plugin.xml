@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.5/engine/Shopware/Components/Plugin/schema/plugin.xsd">
+
+    <label lang="de">Advanced Cart</label>
+    <label lang="en">Advanced Cart</label>
+
+    <version>2.2.0</version>
+    <copyright>(c) by shopware AG</copyright>
+    <license>proprietary</license>
+    <link>http://store.shopware.com</link>
+    <author>shopware AG</author>
+    <compatibility minVersion="5.5.0"/>
+
+    <changelog version="2.2.0">
+        <changes lang="de">PT-9176 - Shopware 5.5 Kompatibilität;</changes>
+        <changes lang="en">PT-9176 - Shopware 5.5 compatibility;</changes>
+    </changelog>
+
+    <changelog version="2.1.1">
+        <changes lang="de">
+            PT-8791 - Vergleichen Funktion auf der Wunschliste korrigiert;
+            PT-8981 - Kompatibilität mit anderen Plugins verbessert;
+        </changes>
+        <changes lang="en">
+            PT-8791 - Fix compare function on wish lists;
+            PT-8981 - Improve compatibility with other plugins;
+        </changes>
+    </changelog>
+
+    <changelog version="2.1.0">
+        <changes lang="de">PT-8810 - Shopware 5.4 Kompatibilität;</changes>
+        <changes lang="en">PT-8810 - Shopware 5.4 compatibility;</changes>
+    </changelog>
+
+    <changelog version="2.0.0">
+        <changes lang="de">PT-8125 - Migration auf das Shopware 5.2 Plugin System; PT-8715 - Performance der Anzeige 'Kunden haben auch in der Wunschliste' verbessert;</changes>
+        <changes lang="en">PT-8125 - Migration to the Shopware 5.2 plugin system; PT-8715 - Improve performance of 'Customer wislists also contain';</changes>
+    </changelog>
+
+    <changelog version="1.2.6">
+        <changes lang="de">PT-8695 - Hinzufügen von Artikeln zur Wunschliste beachtet nun korrekt Groß- und Kleinschreibung von Artikelnummern;</changes>
+        <changes lang="en">PT-8695 - Adding products to the wishlist now considers upper and lower case correctly;</changes>
+    </changelog>
+
+    <changelog version="1.2.5">
+        <changes lang="de">PT-7083 - Verhindert Verdopplung von Warenkorbpositionen beim Login; PT-7751 - jQuery Abhängigkeiten aktualisiert; PT-7953 - Anzeigefehler Wunschlisten Button im Listing; PT-7961 - Zeige Merken-Button korrekt, falls das Listing dynamisch nachgeladen wird; PT-8052 - Anzeige der Account Navigation verbessert; PT-8094 - Invalide Artikel verursachen keinen Fehler mehr beim Aufrufen der Wunschliste; PT-8153 - Kompatibilität zu LiveShopping verbessert; PT-8221 - Korrekter Login wird nun bei Abruf der Wunschliste genutzt; SW-18896 - Optimierung der Validierung für den Provisions-Link in den Partner Statistiken;</changes>
+        <changes lang="en">PT-7083 - Prevent duplication of cart positions on login; PT-7751 - Update jQuery dependencies; PT-7953 - Display bug of wishlist button in listing; PT-7961 - Show note button if listing is reloaded via AJAX; PT-8052 - Improve displaying of account navigation; PT-8094 - Invalid products do not cause an error anymore on opening the wish list; PT-8153 - Improve compatibility with LiveShopping; PT-8221 - Correct login is now used when accessing the wishlist; SW-18896 - Optimized validation for the partner statistic link in the account sidebar;</changes>
+    </changelog>
+
+    <changelog version="1.2.4">
+        <changes lang="de">PT-7645 - Shopware 5.3 Kompatibilität; PT-7752 - Zusätzliche Absicherung bei Zugriffen auf Wunschlisten; PT-7782 - Escaping des Wunschlistennamens im Template;</changes>
+        <changes lang="en">PT-7645 - Shopware 5.3 compatibility; PT-7752 - Additional validation for access to wish lists; PT-7782 - Escaping of wish list name in the template;</changes>
+    </changelog>
+
+    <changelog version="1.2.3">
+        <changes lang="de">PT-4191 - Bugfix: Name der Wunschliste korrekt gespeichert; PT-5755 - Bugfix: Menge der Artikel wird korrekt von der Wunschliste übernommen; PT-5760 - Bugfix: Speichern von Warenkörbe als nicht eingeloggter Benutzer; PT-5905 - Bugfix: Problem mit SSL; PT-6172 - Bugfix: Nicht verfügbare Artikel können nicht mehr von der Wunschliste in den Warenkorb gelegt werden; PT-6485 - Bugfix: Wunschlisten werden nun dauerhaft gespeichert; PT-6520 - Bugfix: Vergleichen Funktion auf Wunschliste; PT-6521 - Bugfix: CSRF-Token Verhalten verbessert; PT-6535 - Bugfix: Hinweis bei Bundle Aktionen; PT-6587 - Bugfix: Kollation der Plugintabellen korrigiert; PT-7080 - Bugfix: Artikel von Merkliste löschen; PT-7573 - Bugfix: Artikel aus der Wunschliste in den Warenkorb legen;</changes>
+        <changes lang="en">PT-4191 - Bugfix: Save name of wish list correctly; PT-5755 - Bugfix: Amount of product is now taken correctly from the wish list; PT-5760 - Bugfix: Saving of baskets as not logged in user; PT-5905 - Bugfix: Problem with SSL; PT-6172 - Bugfix: Unavailable products can not be put into the basket from the wish list anymore; PT-6485 - Bugfix: Wist lists are now saved permanently; PT-6520 - Bugfix: Compare function on wish list; PT-6521 - Bugfix: Improve CSRF token behaviour; PT-6535 - Bugfix: Hint for bundle promotion; PT-6587 - Bugfix: Correct collation of plugin tables; PT-7080 - Bugfix: Remove product from note list; PT-7573 - Bugfix: Put product from wish list into the basket;</changes>
+    </changelog>
+
+    <changelog version="1.2.2">
+        <changes lang="de">PT-6224 - Bugfix: Button in der QuickView;</changes>
+        <changes lang="en">PT-6224 - Bugfix: Button in QuickView;</changes>
+    </changelog>
+
+    <changelog version="1.2.1">
+        <changes lang="de">PT-6157 - Bugfix: Menü Icon;</changes>
+        <changes lang="en">PT-6157 - Bugfix: Menu icon;</changes>
+    </changelog>
+
+    <changelog version="1.2.0">
+        <changes lang="de">PT-5423, PT-5973 - Shopware 5.2 Kompatibilität</changes>
+        <changes lang="en">PT-5423, PT-5973 - Shopware 5.2 compatibility</changes>
+    </changelog>
+
+    <changelog version="1.1.7">
+        <changes lang="de">PT-5561 - Bugfix: Fehlende Übersetzungen;</changes>
+        <changes lang="en">PT-5561 - Bugfix: Missing translations;</changes>
+    </changelog>
+
+    <changelog version="1.1.6">
+        <changes lang="de">PT-4347 - Bugfix: Update Snippets; PT-4644 - Bugfix: Problem mit numerischen Bestellnummern und deaktivierten Artikeln;</changes>
+        <changes lang="en">PT-4347 - Bugfix: Update snippets; PT-4644 - Bugfix: Problem with numeric order numbers and inactive products;</changes>
+    </changelog>
+
+    <changelog version="1.1.5">
+        <changes lang="de">PT-4193 - Bugfix: Artikel zur Wunschliste hinzufügen;</changes>
+        <changes lang="en">PT-4193 - Bugfix: Add products to wish list;</changes>
+    </changelog>
+
+    <changelog version="1.1.4">
+        <changes lang="de">PT-4167 - Bugfix: Menü auf der linken Seite;</changes>
+        <changes lang="en">PT-4167 - Bugfix: Menu on the left;</changes>
+    </changelog>
+
+    <changelog version="1.1.3">
+        <changes lang="de">PT-3263 - Bugfix: Fehler Vergleichen Funktion; PT-3318 - Bugfix: Snippets angepasst; PT-3532 - Bugfix: Account Navigation; PT-3555 - Bugfix: Problem mit Custom Products; PT-3681 - Bugfix: Fehlende CSS-Klasse; PT-3683 - Bugfix: Darstellung öffentliche Wunschlisten; PT-3906 - Bugfix: Wunschlisten Button in der Storytelling Quickview (benötigt SwagEmotionAdvanced 1.0.8); PT-4113 - Bugfix: Wunschlisten pro Shop;</changes>
+        <changes lang="en">PT-3263 - Bugfix: Issue compare function; PT-3318 - Bugfix: Changed snippets; PT-3532 - Bugfix: Account navigation; PT-3555 - Bugfix: Problem with Custom Products; PT-3681 - Bugfix: Missing CSS class; PT-3683 - Bugfix: Displaying of public wish lists; PT-3906 - Bugfix: Wish list button in story telling quick view (needs SwagEmotionAdvanced 1.0.8); PT-4113 - Bugfix: Wish lists per shop;</changes>
+    </changelog>
+
+    <changelog version="1.1.2">
+        <changes lang="de">PT-3702 - Bugfix: Shopware 5.1 Kompatibilität;</changes>
+        <changes lang="en">PT-3702 - Bugfix: Shopware 5.1 compatibility;</changes>
+    </changelog>
+
+    <changelog version="1.1.1">
+        <changes lang="de">PT-3408 - Verbesserung der Requestzeit; PT-3460 - Bugfix: Template Blöcke hinzugefügt; PT-3490 - Bugfix: Shopware 5.1 Kompatibilität;</changes>
+        <changes lang="en">PT-3408 - Improvement of request time; PT-3460 - Bugfix: Add template blocks; PT-3490 - Bugfix: Shopware 5.1 compatibility;</changes>
+    </changelog>
+
+    <changelog version="1.1.0">
+        <changes lang="de">PT-3273 - Refaktorierung des Cookie und Session Handlings; PT-2823 - Bugfix: Kleinere Fehlerbehebungen und Verbesserungen; PT-3205 - Bugfix: Fehler bei nicht mehr vorhandenen Artikeln; PT-3237 - Feature: Einzelne Artikel von der Wunschliste in den Warenkorb legen;</changes>
+        <changes lang="en">PT-3273 - Refactoring of cookie and session handling; PT-2823 - Bugfix: Minor bugfixes and improvements; PT-3205 - Bugfix: Error with non existing products; PT-3237 - Feature: Add single products from the wish list to the cart;</changes>
+    </changelog>
+
+    <changelog version="1.0.6">
+        <changes lang="de">PT-2780 - Bugfix: Speicherung der Wunschliste nach Registrierung; PT-3053 - Bugfix: Fehlende Übersetzung; PT-3136 - Bugfix: Falscher Link bei Teilen-Funktion; PT-3167 - Bugfix: Handling der Sessions und Warenkörbe;</changes>
+        <changes lang="en">PT-2780 - Bugfix: Saving of wish list after registration; PT-3053 - Bugfix: Missing translation; PT-3136 - Bugfix: Share function had wrong link; PT-3167 - Bugfix: Handling of sessions and carts;</changes>
+    </changelog>
+
+    <changelog version="1.0.5">
+        <changes lang="de">PT-2977 - Shopware 5 Kompatibilität</changes>
+        <changes lang="en">PT-2977 - Shopware 5 compatibility</changes>
+    </changelog>
+
+    <changelog version="1.0.4">
+        <changes lang="de">PT-2442 - Feature: Anzahl der Artikel in der Wunschliste änderbar; PT-2464 - Feature: Subshop Kompatibilität; PT-2674 - Bugfix: Bots werden geblockt; PT-2724 - Bugfix: Caching Problem behoben; PT-2737 - Bugfix: Problem mit Sichtbarkeit von Wunschlisten behoben;</changes>
+        <changes lang="en">PT-2442 - Feature: Amount of products changeable on the wish list; PT-2464 - Feature: Subshop compatibility; PT-2674 - Bugfix: Bots are blocked; PT-2724 - Bugfix: Caching problem; PT-2737 - Bugfix: Problem with visibility of wish lists;</changes>
+    </changelog>
+
+    <changelog version="1.0.3">
+        <changes lang="de">Es wurde ein Fehler behoben, der das Backend in manchen Fällen abstürzen lies, wenn mehr als 10.000 Warenkörbe gespeichert wurden</changes>
+        <changes lang="en">Fixed a bug that let the backend crash if more than 10.000 carts were saved.</changes>
+    </changelog>
+
+    <changelog version="1.0.2">
+        <changes lang="de">Korrigiert Inkompatibilität mit SwagCustomizing; Behebt Probleme mit SSL; Korrigiert Wunschlisten-Slider; Behebt Problem, wenn ein Artikel von der Wunschliste in den Warenkorb gelegt wird</changes>
+        <changes lang="en">Fixed incompatibility with SwagCustomizing; Fixed problems with SSL; Fixed wish list slider; Fixed problem when putting an product from the wish list into the basket</changes>
+    </changelog>
+</plugin>

@@ -1,0 +1,139 @@
+/* single delivery */
+.abo--single-delivery {
+	.unitize-padding(10, 0);
+}
+
+.abo--delivery-info-icon {
+    .unitize(font-size, 18);
+    .unitize(top, 2);
+    cursor: pointer;
+    position: relative;
+}
+
+.abo--single-delivery-price,
+.abo--delivery-price {
+	.unitize(font-size, 24);
+}
+
+.abo--single-delivery-label {
+	.unitize(font-size, 14);
+	color: @brand-primary;
+}
+
+/* abo delivery */
+.abo--delivery {
+	.unitize-padding(10, 0);
+	border-top: 1px solid @border-color;
+	border-bottom: 1px solid @border-color;
+}
+
+.abo--delivery-price {
+	.unitize-margin(0, 20, 0, 0);
+	float: left;
+}
+
+.abo--pseudo-price {
+	.unitize(font-size, 12);
+	color: @text-color;
+    float: left;
+}
+
+.abo--percentage-container {
+    .unitize(line-height, 8);
+}
+
+.abo--delivery-label {
+	.unitize(font-size, 16);
+	.unitize-margin(15, 0, 0, 20);
+	color: @contrastColor;
+    clear: both;
+}
+
+.abo--table-head-duration,
+.abo--table-content-row-duration {
+	width: 50%;
+}
+
+.abo--table-head-discount,
+.abo--table-content-row-discount {
+	width: 50%;
+}
+
+/* abo description */
+.abo--info-description {
+	.unitize-margin(10, 0, 0, 0);
+	.unitize(font-size, 16);
+	color: @text-color;
+}
+
+.abo--discount-description {
+	.unitize-margin(10, 0);
+	.unitize(font-size, 16);
+	color: @text-color;
+}
+
+/* delivery intervall and duration */
+.abo--delivery-interval-container {
+	.unitize-margin(10, 0, 0, 20);
+	.unitize(font-size, 16);
+	color: @text-color;
+
+	.js--fancy-select {
+		width: 100%;
+	}
+}
+
+.abo--percent-icon {
+    .unitize(font-size, 21);
+    .unitize(line-height, 28);
+    .unitize(border-radius, 4);
+    .unitize-height(28);
+    .unitize-width(40);
+    float: right;
+    background-color: @contrastColor;
+    color: #FFFFFF;
+    font-weight: @font-bold-weight;
+    text-align: center;
+    display: none;
+}
+
+.delivery-interval--label,
+.duration-interval--label{
+    .unitize(font-size, 15);
+    .unitize(margin-bottom, 3);
+    display: inline-block;
+    font-weight: @font-bold-weight;
+}
+
+.abo--discount-label {
+	cursor: pointer;
+    font-weight: @font-bold-weight;
+}
+
+.abo--single-delivery-label-container {
+    .unitize(margin-left, 20);
+}
+
+.abo--commerce-container-panel-body {
+    padding: 0;
+}
+
+@media screen and (min-width: @tabletViewportWidth) {
+
+    .abo--percent-icon {
+        display: block;
+    }
+
+	.abo--info-quantity-text {
+        .unitize(margin-right, 10);
+		float: left;
+	}
+}
+
+@media screen and (min-width: @desktopViewportWidth) {
+	.abo--delivery-interval-container {
+		.js--fancy-select {
+			.unitize-width(290);
+		}
+	}
+}

@@ -1,0 +1,18 @@
+{
+    "name": "shopware/swag-emotion-advanced",
+    "type": "shopware-plugin",
+    "description": "Tell your own story, unified and atmospheric",
+    "license": "proprietary",
+    "extra": {
+        "installer-name": "SwagEmotionAdvanced"
+    },
+    "require-dev": {
+        "shopware/plugin-dev-tools": "master-dev"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/shopwareLabs/plugin-dev-tools"
+        }
+    ]
+}

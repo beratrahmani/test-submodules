@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.5/engine/Shopware/Components/Plugin/schema/plugin.xsd">
+
+    <label>Advanced Promotion Suite</label>
+    <version>2.4.1</version>
+    <copyright>(c) by shopware AG</copyright>
+    <license>proprietary</license>
+    <link>http://store.shopware.com</link>
+    <author>shopware AG</author>
+    <compatibility minVersion="5.5.0"/>
+
+    <changelog version="2.4.1">
+        <changes lang="de">
+            PT-9226 - Behebt ein Problem mit der Einbindung des Templates;
+            PT-9725 - Behebt ein Problem mit der Anzeige der Auswertungen;
+        </changes>
+        <changes lang="en">
+            PT-9226 - Solves an issue including the template;
+            PT-9725 - Solves an issue showing the evaluations;
+        </changes>
+    </changelog>
+
+    <changelog version="2.4.0">
+        <changes lang="de">PT-7684 - Versandkostenfrei auch ohne prozentualen und absoluten Abzug;</changes>
+        <changes lang="en">PT-7684 - Shippingfree even without percentual and absolute discount;</changes>
+    </changelog>
+
+    <changelog version="2.3.0">
+        <changes lang="de">PT-9172 - Shopware 5.5 Kompatibilität;</changes>
+        <changes lang="en">PT-9172 - Shopware 5.5 compatibility;</changes>
+    </changelog>
+
+    <changelog version="2.2.4">
+        <changes lang="de">PT-9068 - Behebt ein Problem mit Produktregeln und Kategoriebedingungen;</changes>
+        <changes lang="en">PT-9068 - Solves an issue using product rules with category conditions;</changes>
+    </changelog>
+
+    <changelog version="2.2.3">
+        <changes lang="de">PT-9012 - Anzeige des Promotion-Preis verbessert;</changes>
+        <changes lang="en">PT-9012 - Improve displaying of promotion price;</changes>
+    </changelog>
+
+    <changelog version="2.2.2">
+        <changes lang="de">PT-8991, PT-9121 - Anzeige der Promotions in der Storefront verbessert, wenn Kundenregeln benutzt werden;</changes>
+        <changes lang="en">PT-8991, PT-9121 - Improve displaying of promotions in the storefront if customer rules are defined;</changes>
+    </changelog>
+
+    <changelog version="2.2.1">
+        <changes lang="de">
+            PT-8795, PT-8706 - Fehler beim Variantenwechsel auf der Artikeldetailseite behoben;
+            PT-8837 - Prüfung auf Custom Products verbessert;
+            PT-8861 - Problem mit Product-Streams und nummerischen Artikelnummern behoben;
+            PT-9011 - Fehler behoben, bei dem Promotions trotz korrekter Kundengruppe nicht angezeigt werden;
+        </changes>
+        <changes lang="en">
+            PT-8795, PT-8706 - Fixed bugs after variant change on detail page;
+            PT-8837 - Improve check for Custom Products;
+            PT-8861 - Fixed problem with Product-Streams and numeric product numbers;
+            PT-9011 - Fixed bug that did not display promotions even though the customer group was correct;
+        </changes>
+    </changelog>
+
+    <changelog version="2.2.0">
+        <changes lang="de">
+            PT-5519 - Aktionspreise können nun über den Produktfeed exportiert werden;
+            PT-8795 - Fehler behoben, der nach Ändern der Variante, die Beschreibung auf Artikeldetailseiten durch Aktionsbeschreibungen ausgetauscht hat;
+        </changes>
+        <changes lang="en">
+            PT-5519 - Promotion prices could now be exported via the product feed;
+            PT-8795 - Fix replacing the product description with promotion descriptions on detail pages after variant change;
+        </changes>
+    </changelog>
+
+    <changelog version="2.1.0">
+        <changes lang="de">PT-7239 - MediaGarbageCollector Kompatibilität; PT-8810 - Shopware 5.4 Kompatibilität;</changes>
+        <changes lang="en">PT-7239 - MediaGarbageCollector compatibility; PT-8810 - Shopware 5.4 compatibility;</changes>
+    </changelog>
+
+    <changelog version="2.0.1">
+        <changes lang="de">PT-8919 - Behebt ein Problem mit Gutschein basierten Promotionen;</changes>
+        <changes lang="en">PT-8919 - Fixes an issues with voucher based promotions;</changes>
+    </changelog>
+
+    <changelog version="2.0.0">
+        <changes lang="de">PT-8125 - Migration auf das Shopware 5.2 Plugin System;</changes>
+        <changes lang="en">PT-8125 - Migration to the Shopware 5.2 plugin system;</changes>
+    </changelog>
+
+    <changelog version="1.4.1">
+        <changes lang="de">PT-8446 - Preisvergleich-Regel verbessert;</changes>
+        <changes lang="en">PT-8446 - Improve price compare rule;</changes>
+    </changelog>
+
+    <changelog version="1.4.0">
+        <changes lang="de">
+            PT-6257 - Neue Option um Warenkorb-Regeln auf Produkt-Regeln zu beziehen (UND-Verknüpfung beider Regeln);
+            PT-8088 - Anzeige des Variantentextes im Backend Modul korrigiert;
+            PT-8244 - Problem mit Vergleichen Funktion behoben;
+            PT-8268 - Gutscheinhandling wurde verbessert;
+            PT-8339 - Product-Stream Auswahl korrigiert;
+        </changes>
+        <changes lang="en">
+            PT-6257 - New option for referring basket rules zu product rules (AND connection of both rules);
+            PT-8088 - Fix displaying of variant text in backend module;
+            PT-8244 - Fix problem with compare function;
+            PT-8268 - Improve handling of vouchers;
+            PT-8339 - Fix Product-Stream selection;
+        </changes>
+    </changelog>
+
+    <changelog version="1.3.3">
+        <changes lang="de">
+            PT-6635 - Kompatibilität zu Custom Products;
+            PT-7827 - Gratisartikel Promotion schließen sich nun korrekt gegenseitig aus;
+            PT-7918 - Benutze Interface statt Klasse für den ContextService;
+            PT-8037 - Kompatibilität zu StoryTelling;
+            PT-8099 - Korrigiert Darstellung Gratisartikel Slider im OffCanvas Warenkorb;
+        </changes>
+        <changes lang="en">
+            PT-6635 - Compatibility with Custom Products;
+            PT-7827 - Free goods promotion are now excluding each other correctly;
+            PT-7918 - Use interface instead of class for ContextService;
+            PT-8037 - Compatibility with StoryTelling;
+            PT-8099 - Fix displaying of free goods slider in off canvas cart;
+        </changes>
+    </changelog>
+
+    <changelog version="1.3.2">
+        <changes lang="de">PT-7954 - jQuery Fehler unter Shopware 5.3;</changes>
+        <changes lang="en">PT-7954 - jQuery error with Shopware 5.3;</changes>
+    </changelog>
+
+    <changelog version="1.3.1">
+        <changes lang="de">PT-7931 - Fehler beim Update behoben;</changes>
+        <changes lang="en">PT-7931 - Fix issue on update;</changes>
+    </changelog>
+
+    <changelog version="1.3.0">
+        <changes lang="de">
+            SW-16697, PT-7641 - Shopware 5.3 Kompatibilität;
+            SW-18513 - Promotions auf Customer Streams einschränken (Shopware 5.3);
+            PT-7674 - Update Übersetzungen;
+        </changes>
+        <changes lang="en">
+            SW-16697, PT-7641 - Shopware 5.3 compatibility;
+            SW-18513 - Limit promotions on Customer Streams (Shopware 5.3);
+            PT-7674 - Update translations;
+        </changes>
+    </changelog>
+
+    <changelog version="1.2.4">
+        <changes lang="de">
+            SW-16690 - Feature: Shopware 5.3 Kompatibilität;
+            PT-6793 - Bugfix: Promotionen mit individuellen Gutscheinen;
+            PT-7040 - Bugfix: Promotion über Gutschein aktivieren und gleichzeitig andere Gutscheine ausschließen;
+        </changes>
+        <changes lang="en">
+            SW-16690 - Feature: Shopware 5.3 compatibility;
+            PT-6793 - Bugfix: Promotions with individual vouchers;
+            PT-7040 - Bugfix: Activate promotion with voucher and disable other vouchers;
+        </changes>
+    </changelog>
+
+    <changelog version="1.2.3">
+        <changes lang="de">
+            PT-5141 - Feature: Option um Promotion Badge im Listing anzuzeigen;
+            PT-5179 - Bugfix: Product Stream Regeln berücksichtigen Varianten;
+            PT-5864 - Feature: Hinweis wenn Promotionsregel noch nicht erfüllt ist;
+            PT-5943 - Bugfix: Übersetzung von Promotionoptionen im Backendmodul verbessert;
+            PT-6303 - Bugfix: Gratisartikel berücksichtigen Staffel;
+            PT-6415 - Feature: Text von Promotion Badge ist editierbar;
+            PT-6446 - Bugfix: Anzeige bei Gutschein einlösen verbessert;
+            PT-6620 - Bugfix: Berechnung von Warenkorbregeln verbessert;
+        </changes>
+        <changes lang="en">
+            PT-5141 - Feature: Option for displaying promotion badge in listing;
+            PT-5179 - Bugfix: Product Stream rules consider variants;
+            PT-5864 - Feature: Hint if promotion rule does not match;
+            PT-5943 - Bugfix: Improve translation of promotion settings in backend module;
+            PT-6303 - Bugfix: Free goods consider product steps;
+            PT-6415 - Feature: Text of promotion badge is editable;
+            PT-6446 - Bugfix: Improve displaying when redeeming a voucher;
+            PT-6620 - Bugfix: Improve calculation of basket rules;
+        </changes>
+    </changelog>
+
+    <changelog version="1.2.2">
+        <changes lang="de">PT-6330 - Bugfix: Ausschlusspromotionen;</changes>
+        <changes lang="en">PT-6330 - Bugfix: Exclusion promotions;</changes>
+    </changelog>
+
+    <changelog version="1.2.1">
+        <changes lang="de">PT-5428 - Bugfix: Shopware 5.2 Kompatibilität;</changes>
+        <changes lang="en">PT-5428 - Bugfix: Shopware 5.2 compatibility;</changes>
+    </changelog>
+
+    <changelog version="1.2.0">
+        <changes lang="de">PT-5428 - Feature: Shopware 5.2 Kompatibilität;</changes>
+        <changes lang="en">PT-5428 - Feature: Shopware 5.2 compatibility</changes>
+    </changelog>
+
+    <changelog version="1.1.1">
+        <changes lang="de">PT-5926 - Bugfix: Attribute Model Generierung;</changes>
+        <changes lang="en">PT-5926 - Bugfix: Attribute model generation;</changes>
+    </changelog>
+
+    <changelog version="1.1.0">
+        <changes lang="de">
+            PT-5138 - Bugfix: Badge für Gratisartikel Aktionen wird nun bei Artikeln angezeigt, die die Promotion gewähren;
+            PT-5176 - Feature: Refaktorierung der Codebasis, Verbesserung der Erweiterbarkeit, Performanceverbesserungen;
+            PT-5171 - Bugfix: Kompatibilität mit Custom Products;
+            PT-5213 - Bugfix: Falsches Verhalten der Option 'Versandkostenfrei';
+            PT-5312 - Bugfix: Anzeige von exklusiven Aktionen;
+            PT-5313 - Bugfix: Refaktorierung des Gratisartikel Handlings;
+            PT-5314 - Bugfix: Problem mit HTTP-Cache;
+            PT-5596 - Bugfix: Problem bei Product-Stream Regeln;
+            PT-5647 - Bugfix: Falsche Darstellung bei Nettopreisen;
+            PT-5732 - Bugfix: Problem mit Filtern im Listing;
+            PT-5807 - Bugfix: Abhängigkeit Gratisartikelanzeige auf Premiumartikel;
+        </changes>
+        <changes lang="en">
+            PT-5138 - Bugfix: Badge for free goods campaigns only displayed at products which grant this promotion;
+            PT-5176 - Feature: Code base refactoring, improve extensibility, performance improvements;
+            PT-5171 - Bugfix: Compatibility with Custom Products;
+            PT-5213 - Bugfix: Wrong behaviour of 'shipping free' option;
+            PT-5312 - Bugfix: Displaying of exclusive campaign;
+            PT-5313 - Bugfix: Refactoring of free goods handling;
+            PT-5314 - Bugfix: Problem with HTTP cache;
+            PT-5596 - Bugfix: Problem with Product-Stream rules;
+            PT-5647 - Bugfix: Wrong displaying of net prices;
+            PT-5732 - Bugfix: Problem with filters in listing;
+            PT-5807 - Bugfix: Dependency on premium articles at displaying free goods;
+        </changes>
+    </changelog>
+
+    <changelog version="1.0.1">
+        <changes lang="de">
+            PT-5401 - Bugfix: Produktregel - Auswahlstream;
+            PT-5460 - Bugfix: Datenbankfehler beim Hinzufügen von Promotions zum Warenkorb;
+        </changes>
+        <changes lang="en">
+            PT-5401 - Bugfix: Product rule - selection stream;
+            PT-5460 - Bugfix: Database error on inserting promotions into basket;
+        </changes>
+    </changelog>
+
+    <changelog version="1.0.0">
+        <changes lang="de">PT-3862 - Erstveröffentlichung</changes>
+        <changes lang="en">PT-3862 - First release</changes>
+    </changelog>
+</plugin>

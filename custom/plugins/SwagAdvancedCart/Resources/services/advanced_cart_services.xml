@@ -1,0 +1,49 @@
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="swag_advanced_cart.basket_utils" class="SwagAdvancedCart\Services\BasketUtils">
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="shopware_storefront.context_service"/>
+            <argument type="service" id="swag_advanced_cart.dependency_provider"/>
+        </service>
+
+        <service id="swag_advanced_cart.dependency_provider"
+                 class="SwagAdvancedCart\Services\Dependencies\DependencyProvider">
+            <argument type="service" id="service_container"/>
+        </service>
+
+        <service id="swag_advanced_cart.user" class="SwagAdvancedCart\Services\UserService">
+            <argument type="service" id="swag_advanced_cart.dependency_provider"/>
+            <argument type="service" id="dbal_connection"/>
+        </service>
+
+        <service id="swag_advanced_cart.wishlist_auth_service" class="SwagAdvancedCart\Services\WishlistAuthService">
+            <argument type="service" id="swag_advanced_cart.dependency_provider"/>
+            <argument type="service" id="dbal_connection"/>
+        </service>
+
+        <service id="swag_advanced_cart.also_list_service" class="SwagAdvancedCart\Services\ProductsAlsoInListService">
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="shopware_storefront.context_service"/>
+            <argument type="service" id="shopware_storefront.list_product_service"/>
+            <argument type="service" id="legacy_struct_converter"/>
+        </service>
+
+        <service id="swag_advanced_cart.plugin_dependency" class="SwagAdvancedCart\Services\Dependencies\PluginDependencies">
+            <argument type="service" id="dbal_connection"/>
+        </service>
+
+        <service id="swag_advanced_cart.cart_handler" class="SwagAdvancedCart\Services\CartHandler">
+            <argument>%swag_advanced_cart.plugin_name%</argument>
+            <argument type="service" id="swag_advanced_cart.dependency_provider"/>
+            <argument type="service" id="swag_advanced_cart.plugin_dependency"/>
+            <argument type="service" id="models"/>
+            <argument type="service" id="shopware_storefront.context_service"/>
+            <argument type="service" id="swag_advanced_cart.wishlist_auth_service"/>
+            <argument type="service" id="shopware_storefront.list_product_gateway"/>
+            <argument type="service" id="shopware.plugin.cached_config_reader"/>
+        </service>
+    </services>
+</container>

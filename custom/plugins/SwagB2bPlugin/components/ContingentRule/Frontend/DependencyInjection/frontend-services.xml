@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_contingent_rule.product_price_controller_class">Shopware\B2B\ContingentRule\Frontend\ProductPriceController</parameter>
+    <parameter key="b2b_contingent_rule.product_order_number_controller_class">Shopware\B2B\ContingentRule\Frontend\ProductOrderNumberController</parameter>
+    <parameter key="b2b_contingent_rule.category_controller_class">Shopware\B2B\ContingentRule\Frontend\CategoryController</parameter>
+    <parameter key="b2b_contingent_rule.time_restriction_controller_class">Shopware\B2B\ContingentRule\Frontend\TimeRestrictionController</parameter>
+    <parameter key="b2b_contingent_rule.contingent_rule_controller_class">Shopware\B2B\ContingentRule\Frontend\ContingentRuleController</parameter>
+    <parameter key="b2b_contingent_rule.contingent_restriction_controller_class">Shopware\B2B\ContingentRule\Frontend\ContingentRuleController</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_contingent_rule.product_price_controller_abstract" abstract="true">
+      <argument type="service" id="b2b_contingent_rule.repository"/>
+      <argument type="service" id="b2b_currency.service"/>
+      <argument type="service" id="b2b_front_auth.authentication_service"/>
+    </service>
+    <service id="b2b_contingent_rule.product_order_number_controller_abstract" abstract="true">
+      <argument type="service" id="b2b_contingent_rule.repository"/>
+      <argument type="service" id="b2b_currency.service"/>
+      <argument type="service" id="b2b_front_auth.authentication_service"/>
+    </service>
+    <service id="b2b_contingent_rule.category_controller_abstract" abstract="true">
+      <argument type="service" id="b2b_contingent_rule.repository"/>
+      <argument type="service" id="b2b_currency.service"/>
+      <argument type="service" id="b2b_front_auth.authentication_service"/>
+    </service>
+    <service id="b2b_contingent_rule.time_restriction_controller_abstract" abstract="true">
+      <argument type="service" id="b2b_contingent_rule.repository"/>
+      <argument type="service" id="b2b_contingent_rule.service"/>
+      <argument type="service" id="b2b_currency.service"/>
+      <argument type="service" id="b2b_front_auth.authentication_service"/>
+    </service>
+    <service id="b2b_contingent_rule.contingent_rule_controller_abstract" abstract="true">
+      <argument type="service" id="b2b_contingent_rule.repository"/>
+      <argument type="service" id="b2b_contingent_rule.grid_helper"/>
+      <argument type="service" id="b2b_contingent_rule.crud_service"/>
+      <argument type="service" id="b2b_front_auth.authentication_service"/>
+      <argument type="service" id="b2b_currency.service"/>
+      <argument>%b2b_contingent_rule.release_types%</argument>
+    </service>
+    <service id="b2b_contingent_rule.contingent_restriction_controller_abstract" abstract="true">
+      <argument type="service" id="b2b_contingent_rule.repository"/>
+      <argument type="service" id="b2b_contingent_rule.grid_helper"/>
+      <argument type="service" id="b2b_contingent_rule.crud_service"/>
+      <argument type="service" id="b2b_front_auth.authentication_service"/>
+      <argument type="service" id="b2b_currency.service"/>
+      <argument>%b2b_contingent_rule.restrict_types%</argument>
+    </service>
+    <service id="b2b_contingent_rule.product_price_controller" class="%b2b_contingent_rule.product_price_controller_class%" parent="b2b_contingent_rule.product_price_controller_abstract"/>
+    <service id="b2b_contingent_rule.product_order_number_controller" class="%b2b_contingent_rule.product_order_number_controller_class%" parent="b2b_contingent_rule.product_order_number_controller_abstract"/>
+    <service id="b2b_contingent_rule.category_controller" class="%b2b_contingent_rule.category_controller_class%" parent="b2b_contingent_rule.category_controller_abstract"/>
+    <service id="b2b_contingent_rule.time_restriction_controller" class="%b2b_contingent_rule.time_restriction_controller_class%" parent="b2b_contingent_rule.time_restriction_controller_abstract"/>
+    <service id="b2b_contingent_rule.contingent_rule_controller" class="%b2b_contingent_rule.contingent_rule_controller_class%" parent="b2b_contingent_rule.contingent_rule_controller_abstract"/>
+    <service id="b2b_contingent_rule.contingent_restriction_controller" class="%b2b_contingent_rule.contingent_restriction_controller_class%" parent="b2b_contingent_rule.contingent_restriction_controller_abstract"/>
+  </services>
+</container>

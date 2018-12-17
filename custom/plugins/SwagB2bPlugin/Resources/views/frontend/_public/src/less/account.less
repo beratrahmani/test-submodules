@@ -1,0 +1,98 @@
+.b2b--account {
+
+  .block-avatar {
+    width: 25%;
+    .unitize(padding-right, 30);
+
+    .block-avatar-image {
+      position: relative;
+      display: inline-block;
+
+      &:hover .block-avatar-edit {
+        background: rgba(0, 0, 0, 0.3);
+        width: 100%;
+        transition: opacity .25s ease-in;
+        opacity: 1;
+      }
+
+      &:hover img {
+        opacity: 0.8;
+        transition: opacity .25s ease-out;
+      }
+
+      .block-avatar-edit {
+        .unitize(margin-bottom, 20);
+        .unitize-padding(0, 0, 7, 7);
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        opacity: 0;
+
+        label {
+          cursor: pointer;
+          color: #fff;
+        }
+
+        input {
+          display: none;
+        }
+      }
+    }
+
+    img {
+      .border-radius-multi(3, 3, 3, 3);
+      .unitize(margin-bottom, 20);
+    }
+
+  }
+
+  .block-masterdata {
+    width: 75%;
+  }
+
+  ul.list--masterdata,
+  ul.list--password {
+    list-style: none;
+    .unitize-padding(0, 10, 0, 10);
+
+    li {
+      .unitize-padding(15, 0, 15, 0);
+      border-bottom: 1px solid @border-color;
+      font-weight: 500;
+
+      &:last-child {
+        border-bottom: 0 none;
+      }
+
+      span {
+        width: 20%;
+        display: inline-block;
+        font-weight: normal;
+      }
+    }
+  }
+
+  .panel--password {
+    .unitize(margin-top, 30);
+
+    ul.list--password {
+      li {
+        input {
+          width: 79%;
+        }
+      }
+    }
+  }
+
+  .panel--options {
+    ul.list--options {
+      list-style: none;
+      .unitize-padding(0, 10, 0, 10);
+
+      li {
+        .unitize-padding(10, 0, 10, 0);
+        list-style: none;
+      }
+    }
+  }
+}

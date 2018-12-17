@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_order_number.controller_class">Shopware\B2B\OrderNumber\Frontend\OrderNumberController</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_order_number.controller_abstract" abstract="true">
+      <argument type="service" id="b2b_shop.product_service"/>
+      <argument type="service" id="b2b_front_auth.authentication_service"/>
+      <argument type="service" id="b2b_order_number.repository"/>
+      <argument type="service" id="b2b_order_number.grid_helper"/>
+      <argument type="service" id="b2b_order_number.service"/>
+      <argument type="service" id="b2b_order_number.crud_service"/>
+    </service>
+    <service id="b2b_order_number.controller" class="%b2b_order_number.controller_class%" parent="b2b_order_number.controller_abstract"/>
+  </services>
+</container>

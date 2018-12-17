@@ -1,0 +1,124 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="b2b_offer.set_custom_price" class="Shopware\B2B\Offer\Bridge\OfferSetCustomPriceSubscriber">
+            <argument type="service" id="b2b_cart.cart_state"/>
+            <argument type="service" id="b2b_offer.line_item_reference_repository"/>
+            <argument type="service" id="b2b_offer.repository"/>
+            <argument type="service" id="b2b_currency.service"/>
+            <argument type="service" id="b2b_order.order_context_repository"/>
+            <argument type="service" id="b2b_front_auth.authentication_service"/>
+
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="b2b_offer.discount_subscriber" class="Shopware\B2B\Offer\Bridge\DiscountSubscriber">
+            <argument type="service" id="session"/>
+            <argument type="service" id="b2b_offer.repository"/>
+            <argument type="service" id="b2b_offer.basket_offer_repository"/>
+            <argument type="service" id="b2b_currency.service"/>
+            <argument type="service" id="b2b_offer.backend_authentication_service"/>
+
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="b2b_offer.checkout_confirm_subscriber" class="Shopware\B2B\Offer\Bridge\CheckoutConfirmSubscriber">
+            <argument type="service" id="session"/>
+
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="b2b_offer.offer_article_subscriber" class="Shopware\B2B\Offer\Bridge\OfferArticleSubscriber">
+            <argument type="service" id="b2b_cart.cart_state"/>
+            <argument type="service" id="b2b_offer.line_item_reference_repository"/>
+            <argument type="service" id="b2b_offer.repository"/>
+            <argument type="service" id="b2b_offer.basket_offer_repository"/>
+            <argument type="service" id="b2b_currency.service"/>
+            <argument type="service" id="b2b_front_auth.authentication_service"/>
+            <argument type="service" id="b2b_front_auth.authentication_service"/>
+
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="b2b_offer.offer_clearance_mode" class="Shopware\B2B\Offer\Bridge\CartAccessModeOffer">
+            <argument type="service" id="b2b_offer.line_item_list_service"/>
+            <argument type="service" id="b2b_order.order_context_service"/>
+            <argument type="service" id="b2b_currency.service"/>
+            <argument type="service" id="b2b_offer.order_context_repository"/>
+            <argument type="service" id="b2b_offer.service"/>
+            <argument type="service" id="b2b_offer.line_item_audit_log_service"/>
+            <argument type="service" id="b2b_cart.cart_state"/>
+            <argument type="service" id="b2b_line_item_list.repository"/>
+            <argument type="service" id="b2b_order.order_context_repository"/>
+            <argument type="service" id="b2b_offer.line_item_reference_repository"/>
+
+            <tag name="b2b_cart.mode"/>
+        </service>
+
+        <service id="b2b_offer.offer_checkout_mode" class="Shopware\B2B\Offer\Bridge\CartAccessModeOfferCheckout">
+            <argument type="service" id="b2b_order.order_context_repository"/>
+            <argument type="service" id="b2b_offer.line_item_list_service"/>
+            <argument type="service" id="b2b_order.order_context_service"/>
+            <argument type="service" id="b2b_currency.service"/>
+            <argument type="service" id="b2b_offer.repository"/>
+            <argument type="service" id="b2b_offer.line_item_list_repository"/>
+            <argument type="service" id="b2b_offer.basket_offer_repository"/>
+            <argument type="service" id="b2b_cart.cart_state"/>
+            <argument type="service" id="b2b_cart.order_mode"/>
+            <argument type="service" id="b2b_front_auth.authentication_service"/>
+
+            <tag name="b2b_cart.mode"/>
+        </service>
+
+        <service id="b2b_offer.tax_provider" class="Shopware\B2B\Offer\Bridge\TaxProvider">
+            <argument type="service" id="config" />
+            <argument type="service" id="b2b_offer.line_item_reference_repository"/>
+            <argument type="service" id="shopware_storefront.context_service"/>
+            <argument type="service" id="shopware_storefront.list_product_service"/>
+            <argument type="service" id="models"/>
+        </service>
+
+        <service id="b2b_offer.shop_writer_service" class="Shopware\B2B\Offer\Bridge\OfferShopWriterService">
+            <argument type="service" id="b2b_shop.storage"/>
+            <argument type="service" id="b2b_cart.cart_state"/>
+        </service>
+
+        <service id="b2b_offer.basket_offer_repository" class="Shopware\B2B\Offer\Bridge\BasketOfferRepository">
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="b2b_offer.tax_provider"/>
+            <argument type="service" id="snippets"/>
+        </service>
+
+        <service id="b2b_offer.line_item_checkout_provider" class="Shopware\B2B\Offer\Bridge\OfferLineItemCheckoutProvider">
+            <argument id="b2b_line_item_list.bridge_repository" type="service"/>
+            <argument id="b2b_currency.service" type="service"/>
+            <argument type="service" id="config"/>
+        </service>
+
+        <service id="b2b_offer.create_offer_through_cart" class="Shopware\B2B\Offer\Bridge\CreateOfferThroughCart">
+            <argument type="service" id="b2b_line_item_list.service"/>
+            <argument type="service" id="b2b_order.order_context_service"/>
+            <argument type="service" id="b2b_offer.order_context_repository"/>
+            <argument type="service" id="b2b_offer.service"/>
+        </service>
+
+        <service id="b2b_offer.audit_log_subscriber" class="Shopware\B2B\Offer\Bridge\OfferAuditLogSubscriber">
+            <argument type="service" id="b2b_front_auth.authentication_service"/>
+            <argument type="service" id="b2b_offer.service"/>
+
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="b2b_offer.cart_access_subscriber" class="Shopware\B2B\Offer\Bridge\OfferCartAccessSubscriber">
+            <argument type="service" id="b2b_cart.cart_state"/>
+            <argument type="service" id="b2b_offer.repository"/>
+            <argument type="service" id="b2b_currency.service"/>
+            <argument type="service" id="b2b_front_auth.authentication_service"/>
+
+            <tag name="shopware.event_subscriber"/>
+        </service>
+    </services>
+</container>

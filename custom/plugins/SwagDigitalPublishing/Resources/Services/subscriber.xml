@@ -1,0 +1,58 @@
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <!-- Add emotion component auto loader -->
+        <service id="digital_publishing.emotion_view_subscriber"
+                 class="Shopware\Components\Emotion\EmotionComponentViewSubscriber">
+            <argument>%swag_digital_publishing.plugin_dir%</argument>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="digital_publishing.subscriber.backend"
+                 class="SwagDigitalPublishing\Subscriber\Backend">
+            <argument>%swag_digital_publishing.plugin_dir%</argument>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="digital_publishing.subscriber.content_banner_subscriber"
+                 class="SwagDigitalPublishing\Subscriber\ContentBannerSubscriber">
+            <argument>%swag_digital_publishing.plugin_dir%</argument>
+            <argument type="service" id="service_container"/>
+            <argument type="service" id="shopware_media.media_service"/>
+            <argument type="service" id="models"/>
+            <argument type="service" id="template"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="digital_publishing.subscriber.emotion_detail"
+                 class="SwagDigitalPublishing\Subscriber\EmotionDetail">
+            <argument>%swag_digital_publishing.plugin_dir%</argument>
+            <argument type="service" id="shopware_storefront.media_service"/>
+            <argument type="service" id="legacy_struct_converter"/>
+            <argument type="service" id="models"/>
+            <argument type="service" id="shopware_storefront.context_service"/>
+            <argument type="service" id="dbal_connection"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="digital_publishing.subscriber.resources"
+                 class="SwagDigitalPublishing\Subscriber\Resources">
+            <argument>%swag_digital_publishing.plugin_dir%</argument>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="digital_publishing.subscriber.swag_content_banner_subscriber"
+                 class="SwagDigitalPublishing\Subscriber\SwagContentBannerSubscriber">
+            <argument>%swag_digital_publishing.plugin_dir%</argument>
+            <argument type="service" id="template"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="digital_publishing.subscriber.media_garbage_collector"
+                 class="SwagDigitalPublishing\Subscriber\MediaGarbageCollector">
+            <tag name="shopware.event_subscriber"/>
+        </service>
+    </services>
+</container>

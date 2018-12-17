@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<phpunit bootstrap="./Tests/Bootstrap.php" colors="true">
+    <testsuite name="Shopware Digital Publishing Plugin">
+        <directory>Tests/</directory>
+    </testsuite>
+
+    <filter>
+        <whitelist>
+            <directory suffix=".php">./</directory>
+            <exclude>
+                <directory suffix=".php">./Tests</directory>
+                <directory suffix=".php">./vendor</directory>
+                <file>/Bootstrap/Uninstaller.php</file>
+                <file>/Bootstrap/Installer.php</file>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>

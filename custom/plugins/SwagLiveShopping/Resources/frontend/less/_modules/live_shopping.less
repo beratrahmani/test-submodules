@@ -1,0 +1,57 @@
+.liveshopping--content {
+	.unitize-margin(30, 0);
+}
+
+.liveshopping--cat-text {
+	.unitize-padding(20, 20);
+	.unitize(margin-bottom, 20);
+}
+
+.product--table .cart--badge {
+	z-index: 1;
+    background: @badge-discount-bg;
+}
+
+@media screen and (min-width: @tabletViewportWidth) {
+	.is--ctl-LiveShopping .sidebar-main + .content--wrapper,
+	.is--ctl-liveshopping .sidebar-main + .content--wrapper {
+		.unitize(margin-left, 260);
+	}
+
+	.is--ctl-LiveShopping .sidebar-main,
+	.is--ctl-liveshopping .sidebar-main {
+		display: block;
+	}
+}
+
+@media screen and (min-width: @desktopViewportWidth) {
+	.liveshopping--content {
+		.unitize(padding-top, 45);
+		margin: 0;
+	}
+	.quick-view--view {
+	  	.unitize-height(550);
+	}
+}
+
+@media screen and (min-width: @phoneLandscapeViewportWidth) {
+	.quick-view--view {
+		.liveshopping--details {
+		 	width: 100%;
+		}
+	}
+	.is--storytelling {
+		.product-slider--container .liveshopping--listing .product--image {
+		  	height: 50%;
+		}
+
+		.emotion--product .liveshopping--listing {
+			.product--image {
+				height: 65%;
+			}
+			.product--details {
+				max-height: 35%;
+			}
+		}
+	}
+}

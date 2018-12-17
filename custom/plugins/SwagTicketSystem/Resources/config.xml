@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.5/engine/Shopware/Components/Plugin/schema/config.xsd">
+
+    <elements>
+        <element type="boolean" scope="shop">
+            <name>sendCustomerNotification</name>
+            <label lang="de">Ticketbestätigung an den Kunden</label>
+            <label lang="en">Send ticket confirmation to the customer</label>
+            <value>false</value>
+        </element>
+
+        <element type="boolean" scope="shop">
+            <name>sendShopOperatorNotification</name>
+            <label lang="de">Benachrichtigung bei neuen / beantworteten Tickets</label>
+            <label lang="en">Notification of new / unanswered tickets</label>
+            <value>false</value>
+        </element>
+
+        <element required="true" type="text" scope="shop">
+            <name>ticketAccountFormId</name>
+            <label lang="de">Mein-Konto - Formular ID</label>
+            <label lang="en">Account - Ticket form ID</label>
+        </element>
+
+        <element type="boolean" scope="shop">
+            <name>allowUploads</name>
+            <label lang="de">Erlaube Datei-Upload</label>
+            <label lang="en">Allow file uploads</label>
+            <value>true</value>
+        </element>
+
+        <element type="number" scope="shop">
+            <name>attachmentFileSize</name>
+            <label lang="de">Datei - Upload Größe (in KB)</label>
+            <label lang="en">File upload size (in KB)</label>
+            <value>6000</value>
+        </element>
+    </elements>
+</config>

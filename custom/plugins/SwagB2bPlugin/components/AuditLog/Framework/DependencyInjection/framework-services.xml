@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_audit_log.repository_class">Shopware\B2B\AuditLog\Framework\AuditLogRepository</parameter>
+    <parameter key="b2b_audit_log.author_repository_class">Shopware\B2B\AuditLog\Framework\AuditLogAuthorRepository</parameter>
+    <parameter key="b2b_audit_log.author_service_class">Shopware\B2B\AuditLog\Framework\AuditLogAuthorService</parameter>
+    <parameter key="b2b_audit_log.index_repository_class">Shopware\B2B\AuditLog\Framework\AuditLogIndexRepository</parameter>
+    <parameter key="b2b_audit_log.grid_helper_class">Shopware\B2B\Common\Controller\GridHelper</parameter>
+    <parameter key="b2b_audit_log.audit_log_service_class">Shopware\B2B\AuditLog\Framework\AuditLogService</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_audit_log.repository_abstract" abstract="true">
+      <argument id="dbal_connection" type="service"/>
+      <argument id="b2b_common.repository_dbal_helper" type="service"/>
+      <argument id="b2b_audit_log.index_repository" type="service"/>
+      <argument id="b2b_currency.calculator" type="service"/>
+      <argument id="b2b_product_name.product_name_service" type="service"/>
+    </service>
+    <service id="b2b_audit_log.author_repository_abstract" abstract="true">
+      <argument id="dbal_connection" type="service"/>
+    </service>
+    <service id="b2b_audit_log.author_service_abstract" abstract="true">
+      <argument id="b2b_audit_log.author_repository" type="service"/>
+      <argument type="service" id="b2b_audit_log.backend_provider"/>
+    </service>
+    <service id="b2b_audit_log.index_repository_abstract" abstract="true">
+      <argument id="dbal_connection" type="service"/>
+    </service>
+    <service id="b2b_audit_log.grid_helper_abstract" abstract="true">
+      <argument type="service" id="b2b_audit_log.repository"/>
+    </service>
+    <service id="b2b_audit_log.audit_log_service_abstract" abstract="true">
+      <argument id="b2b_audit_log.author_service" type="service"/>
+      <argument id="b2b_audit_log.repository" type="service"/>
+    </service>
+    <service id="b2b_audit_log.repository" class="%b2b_audit_log.repository_class%" parent="b2b_audit_log.repository_abstract"/>
+    <service id="b2b_audit_log.author_repository" class="%b2b_audit_log.author_repository_class%" parent="b2b_audit_log.author_repository_abstract"/>
+    <service id="b2b_audit_log.author_service" class="%b2b_audit_log.author_service_class%" parent="b2b_audit_log.author_service_abstract"/>
+    <service id="b2b_audit_log.index_repository" class="%b2b_audit_log.index_repository_class%" parent="b2b_audit_log.index_repository_abstract"/>
+    <service id="b2b_audit_log.grid_helper" class="%b2b_audit_log.grid_helper_class%" parent="b2b_audit_log.grid_helper_abstract"/>
+    <service id="b2b_audit_log.audit_log_service" class="%b2b_audit_log.audit_log_service_class%" parent="b2b_audit_log.audit_log_service_abstract"/>
+  </services>
+</container>

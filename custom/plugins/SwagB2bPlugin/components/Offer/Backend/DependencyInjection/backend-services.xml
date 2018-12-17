@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_offer.backend_controller_class">Shopware\B2B\Offer\Backend\OfferController</parameter>
+    <parameter key="b2b_offer.backend_line_item_reference_controller_class">Shopware\B2B\Offer\Backend\OfferLineItemReferenceController</parameter>
+    <parameter key="b2b_offer.backend_log_controller_class">Shopware\B2B\Offer\Backend\OfferLogController</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_offer.backend_controller_abstract" abstract="true">
+      <argument type="service" id="b2b_currency.service"/>
+      <argument type="service" id="b2b_offer.repository"/>
+      <argument type="service" id="b2b_offer.grid_helper"/>
+      <argument type="service" id="b2b_offer.crud_service"/>
+      <argument type="service" id="b2b_offer.service"/>
+      <argument type="service" id="b2b_line_item_list.repository"/>
+      <argument type="service" id="b2b_address.repository"/>
+      <argument type="service" id="b2b_line_item_list.product_provider"/>
+      <argument type="service" id="b2b_offer.discount_service"/>
+      <argument type="service" id="b2b_offer.backend_authentication_service"/>
+    </service>
+    <service id="b2b_offer.backend_line_item_reference_controller_abstract" abstract="true">
+      <argument type="service" id="b2b_offer.offer_line_item_reference_crud_service"/>
+      <argument type="service" id="b2b_currency.service"/>
+      <argument type="service" id="b2b_offer.repository"/>
+      <argument type="service" id="b2b_offer.line_item_reference_repository"/>
+      <argument type="service" id="b2b_offer.discount_service"/>
+      <argument type="service" id="b2b_line_item_list.product_provider"/>
+      <argument type="service" id="b2b_offer.line_item_reference_service"/>
+      <argument type="service" id="b2b_offer.backend_authentication_service"/>
+      <argument type="service" id="b2b_offer.line_item_reference_validation_service"/>
+    </service>
+    <service id="b2b_offer.backend_log_controller_abstract" abstract="true">
+      <argument type="service" id="b2b_audit_log.repository"/>
+      <argument type="service" id="b2b_audit_log.grid_helper"/>
+      <argument type="service" id="b2b_order.order_context_repository"/>
+      <argument type="service" id="b2b_offer.service"/>
+      <argument type="service" id="b2b_currency.service"/>
+      <argument type="service" id="b2b_order.backend_authentication_service"/>
+    </service>
+    <service id="b2b_offer.backend_controller" class="%b2b_offer.backend_controller_class%" parent="b2b_offer.backend_controller_abstract"/>
+    <service id="b2b_offer.backend_line_item_reference_controller" class="%b2b_offer.backend_line_item_reference_controller_class%" parent="b2b_offer.backend_line_item_reference_controller_abstract"/>
+    <service id="b2b_offer.backend_log_controller" class="%b2b_offer.backend_log_controller_class%" parent="b2b_offer.backend_log_controller_abstract"/>
+  </services>
+</container>

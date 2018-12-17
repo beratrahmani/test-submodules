@@ -1,0 +1,292 @@
+.advisor--wizard-title {
+    .unitize(padding-bottom, 5);
+    .unitize(margin-bottom, 40);
+    border-bottom: 1px solid @product-advisor-border-color;
+    color: @product-advisor-text-color-dark;
+    font-weight: 700;
+}
+
+.advisor--wizard-progress {
+    .unitize(margin-bottom, 40);
+    text-align: center;
+}
+
+.wizard-actions--next-button, .wizard-actions--back-button {
+    .unitize(margin-bottom, 10);
+    width: 100%;
+
+    .next-button--btn, .advisor--wizard-back {
+        width: 100%;
+    }
+}
+
+.wizard-actions--question-select {
+    .unitize(height, 38);
+    max-width: 100%;
+}
+
+.wizard-progress--current-step {
+    .unitize(font-size, 16);
+    .unitize(margin-bottom, 5);
+    font-weight: 700;
+}
+
+.wizard-progress--progress-bar {
+    .unitize-height(7);
+    .border-radius(10px);
+    overflow: hidden;
+    border: 1px solid @product-advisor-border-color;
+
+    .progress-bar--status {
+        background-color: @product-advisor-brand-secondary;
+        height: 100%;
+    }
+}
+
+.advisor--wizard-question .wizard-question--title {
+    .unitize(font-size, 17);
+    .unitize(margin-bottom, 15);
+    font-weight: 700;
+}
+
+.advisor--wizard-actions {
+    .unitize(margin-top, 20);
+    .clearfix();
+}
+
+// Necessary to prevent the layout from breaking when there is a float being placed into the info-text
+// by the tinymce editor in the backend
+.wizard-question--info {
+    .clearfix();
+}
+
+.wizard-question--info-ct {
+    .unitize(margin-bottom, 20);
+}
+
+.wizard-question--content {
+    text-align: center;
+    .question-ct--label {
+        .border-radius();
+        border: 1px solid @product-advisor-border-color;
+        font-weight: 600;
+        height: 100%;
+        padding-left: 0;
+    }
+
+    // Only for non-image elements
+    .question-ct--filter-ct {
+        overflow: hidden;
+
+        .question-ct--label {
+            .unitize(padding, 10);
+            overflow: hidden;
+            text-align: center;
+            word-wrap: break-word;
+        }
+
+        input:checked ~ .question-ct--label {
+            &:before {
+                .advisor-tick();
+                .unitize(right, 10);
+                .unitize(line-height, 25);
+                .unitize-height(25);
+                .unitize-width(25);
+                box-shadow: none;
+                left: auto;
+                transform: translate(0, -50%);
+            }
+            .box-shadow();
+            border-color: @product-advisor-brand-primary;
+            color: @product-advisor-brand-primary;
+        }
+    }
+}
+
+.wizard-question--content .advisor--range-slider {
+    text-align: center;
+
+    .range-slider--container {
+        display: inline-block;
+        width: 85%;
+    }
+}
+.advisor--hide-input {
+    display: none;
+}
+
+.advisor-cell--filled {
+    .advisor-cell--wrapper-ct {
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    input:checked ~ .question-ct--label {
+        .advisor-cell--image-ct {
+            &:before {
+                .advisor-tick();
+            }
+
+            &:after {
+                background-color: @product-advisor-overlay-background-color;
+                content: '';
+                opacity: .4;
+                position: absolute;
+                top: 0; bottom: 0;
+                left: 0; right: 0;
+                z-index: 999;
+            }
+        }
+    }
+
+    .image-ct--img-element {
+        top: 0; bottom: 0;
+        right: 0; left: 0;
+        margin: auto;
+        position: absolute;
+        pointer-events: none;
+        vertical-align: middle;
+        z-index: 500;
+    }
+}
+
+.wizard-content--ct {
+    display: inline-block;
+    width: 50%;
+
+    &.content--wizard-range_slider {
+        width: 70%;
+    }
+}
+
+.advisor--wizard img[src=""] {
+    display: none;
+}
+
+.advisor--listing-wizard-actions {
+    .clearfix();
+    .unitize(margin-bottom, 20);
+    margin-left: 2%;
+}
+
+.listing-wizard-actions--reset-btn {
+    .unitize(margin-top, 10);
+}
+
+.wizard-actions--back-button {
+    .unitize(margin-right, 10);
+}
+
+.listing-wizard-actions--back-btn {
+    .unitize(margin-right, 10);
+}
+
+.reset-button--wizard-question {
+    .unitize(margin-top, 10);
+    float: left;
+    display: block;
+    width: 100%;
+
+    .advisor--reset-advisor-btn {
+        width: 100%;
+    }
+}
+
+.wizard-actions--question-js-select {
+    .unitize(margin-top, 10);
+    .unitize-height(38);
+    .unitize(line-height, 38);
+    text-align: center;
+    float: left;
+    width: 100%;
+
+    .js--fancy-select-text {
+        font-weight: 700;
+    }
+
+    .advisor--empty-text {
+        display: none;
+    }
+}
+
+.advisor-wizard--warning-ul {
+    .unitize(margin-top, 10);
+
+    a {
+        color: @product-advisor-warning-message-color;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.advisor-wizard--warning-li {
+    .unitize(margin-left, 20);
+}
+
+.wizard--required {
+    .unitize(margin-top, 10);
+}
+
+.wizard--warning-ct {
+    .unitize(margin-bottom, 20);
+}
+
+@media screen and (min-width: @phoneLandscapeViewportWidth) {
+    .wizard-actions--next-button {
+        width: auto;
+        .next-button--btn {
+            width: auto
+        }
+    }
+
+    .wizard-actions--question-select {
+        .unitize(max-width, 250);
+    }
+}
+
+@media screen and (min-width: @tabletViewportWidth) {
+    .wizard-question--content .question-ct--label:hover {
+        .box-shadow();
+        border-color: @product-advisor-brand-primary;
+        color: @product-advisor-brand-primary;
+    }
+
+    .reset-button--wizard-question {
+        float: left;
+        margin-top: 0;
+        width: auto;
+    }
+
+    .listing-wizard-actions--reset-btn {
+        margin-top: 0;
+    }
+
+    .listing-wizard-actions--back-btn,
+    .listing-wizard-actions--reset-btn {
+        float: left;
+    }
+
+    .wizard-actions--question-js-select {
+        .unitize(margin-right, 10);
+        float: right;
+        margin-top: 0;
+        width: auto;
+    }
+
+    .wizard-actions--skip-wrapper {
+        text-align: center;
+    }
+
+    .wizard-actions--back-button {
+        .unitize(margin-right, 10);
+        width: auto;
+
+        .advisor--wizard-back {
+            width: auto;
+        }
+    }
+}

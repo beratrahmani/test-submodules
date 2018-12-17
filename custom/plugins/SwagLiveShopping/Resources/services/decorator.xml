@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <!-- Decorations -->
+    <services>
+        <service id="swag_liveshopping.search.list_product_service"
+                 class="SwagLiveShopping\Bundle\StoreFrontBundle\ListProductServiceDecorator"
+                 decorates="shopware_storefront.list_product_service"
+                 public="false">
+            <argument type="service" id="swag_liveshopping.search.list_product_service.inner"/>
+            <argument type="service" id="swag_liveshopping.live_shopping"/>
+        </service>
+
+        <service id="swag_liveshopping.product_stream_facet_filter"
+                 class="SwagLiveShopping\Components\ProductStream\FacetFilter"
+                 decorates="shopware_product_stream.facet_filter"
+                 public="false">
+            <argument type="service" id="swag_liveshopping.product_stream_facet_filter.inner"/>
+        </service>
+
+        <service id="swag_liveshopping.product_provider_es"
+                 class="SwagLiveShopping\Bundle\ESIndexingBundle\ProductProvider"
+                 decorates="shopware_elastic_search.product_provider"
+                 public="false">
+            <argument type="service" id="swag_liveshopping.product_provider_es.inner"/>
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="shopware_elastic_search.identifier_selector"/>
+        </service>
+
+        <service id="swag_liveshopping.product_mapping_es"
+                 class="SwagLiveShopping\Bundle\ESIndexingBundle\ProductMapping"
+                 decorates="shopware_elastic_search.product_mapping"
+                 public="false">
+            <argument type="service" id="swag_liveshopping.product_mapping_es.inner"/>
+            <argument type="service" id="shopware_elastic_search.identifier_selector"/>
+        </service>
+    </services>
+</container>

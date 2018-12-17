@@ -1,0 +1,11 @@
+INSERT INTO `s_order_basket` (`id`, `sessionID`, `userID`, `articlename`, `articleID`, `ordernumber`, `shippingfree`, `quantity`, `price`, `netprice`, `tax_rate`, `datum`, `modus`, `esdarticle`, `partnerID`, `lastviewport`, `useragent`, `config`, `currencyFactor`) VALUES
+(11229, 'c48d74eb0a312f5986d75bcef805d3f3da2b066da370c7cf05174aaa7fc2f76f', 0, 'Gutschein 10 %', 2, 'GUTPROZ', 0, 1, -3.894, -3.272, 19, '2017-02-02 15:35:03', 2, 0, '', 'checkout', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:47.0) Gecko/20100101 Firefox/47.0 FirePHP/0.7.4', '', 1),
+(11219, 'c48d74eb0a312f5986d75bcef805d3f3da2b066da370c7cf05174aaa7fc2f76f', 0, 'Warenkorbrabatt', 0, 'SHIPPINGDISCOUNT', 0, 1, -2, -1.68, 19, '2017-02-02 15:35:03', 4, 0, '', 'checkout', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:47.0) Gecko/20100101 Firefox/47.0 FirePHP/0.7.4', '', 1),
+(11189, 'c48d74eb0a312f5986d75bcef805d3f3da2b066da370c7cf05174aaa7fc2f76f', 0, 'Bundle discount', 0, 'SWBUNDLE01', 0, 1, -0.38936800000001, -0.3272, 19, '0000-00-00 00:00:00', 10, 0, '', 'checkout', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:47.0) Gecko/20100101 Firefox/47.0 FirePHP/0.7.4', '', 1),
+(11179, 'c48d74eb0a312f5986d75bcef805d3f3da2b066da370c7cf05174aaa7fc2f76f', 0, 'Spachtelmasse', 272, 'SW10239', 0, 1, 18.99, 15.957983193277, 19, '2017-02-02 15:34:03', 0, 0, '', 'checkout', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:47.0) Gecko/20100101 Firefox/47.0 FirePHP/0.7.4', '', 1),
+(11169, 'c48d74eb0a312f5986d75bcef805d3f3da2b066da370c7cf05174aaa7fc2f76f', 0, 'Strandtuch "Ibiza"', 178, 'SW10178', 0, 1, 19.95, 16.764705882353, 19, '2017-02-02 15:34:03', 0, 0, '', 'checkout', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:47.0) Gecko/20100101 Firefox/47.0 FirePHP/0.7.4', '', 1);
+
+INSERT INTO `s_order_basket_attributes` (`id`, `basketID`, `attribute1`, `attribute2`, `attribute3`, `attribute4`, `attribute5`, `attribute6`, `bundle_id`, `bundle_article_ordernumber`, `bundle_package_id`) VALUES
+(8377, 11189, NULL, NULL, NULL, NULL, NULL, NULL, 10007, 'SW10178', 11169),
+(8277, 11179, NULL, NULL, NULL, NULL, NULL, NULL, 10007, 'SW10178', 11169),
+(8177, 11169, NULL, NULL, NULL, NULL, NULL, NULL, 10007, 'SW10178', 11169);

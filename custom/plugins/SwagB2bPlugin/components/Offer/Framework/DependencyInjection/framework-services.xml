@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_offer.repository_class">Shopware\B2B\Offer\Framework\OfferRepository</parameter>
+    <parameter key="b2b_offer.crud_service_class">Shopware\B2B\Offer\Framework\OfferCrudService</parameter>
+    <parameter key="b2b_offer.validation_service_class">Shopware\B2B\Offer\Framework\OfferValidationService</parameter>
+    <parameter key="b2b_offer.grid_helper_class">Shopware\B2B\Common\Controller\GridHelper</parameter>
+    <parameter key="b2b_offer.order_context_repository_class">Shopware\B2B\Offer\Framework\OfferContextRepository</parameter>
+    <parameter key="b2b_offer.audit_log_service_class">Shopware\B2B\Offer\Framework\OfferAuditLogService</parameter>
+    <parameter key="b2b_offer.service_class">Shopware\B2B\Offer\Framework\OfferService</parameter>
+    <parameter key="b2b_offer.offer_line_item_reference_crud_service_class">Shopware\B2B\Offer\Framework\OfferLineItemReferenceCrudService</parameter>
+    <parameter key="b2b_offer.line_item_list_repository_class">Shopware\B2B\Offer\Framework\OfferLineItemListRepository</parameter>
+    <parameter key="b2b_offer.line_item_reference_repository_class">Shopware\B2B\Offer\Framework\OfferLineItemReferenceRepository</parameter>
+    <parameter key="b2b_offer.line_item_reference_validation_service_class">Shopware\B2B\Offer\Framework\OfferLineItemReferenceValidationService</parameter>
+    <parameter key="b2b_offer.line_item_reference_service_class">Shopware\B2B\Offer\Framework\OfferLineItemReferenceService</parameter>
+    <parameter key="b2b_offer.line_item_list_service_class">Shopware\B2B\LineItemList\Framework\LineItemListService</parameter>
+    <parameter key="b2b_offer.discount_service_class">Shopware\B2B\Offer\Framework\OfferDiscountService</parameter>
+    <parameter key="b2b_offer.status_provider_class">Shopware\B2B\Offer\Framework\OfferStatusProvider</parameter>
+    <parameter key="b2b_offer.line_item_audit_log_service_class">Shopware\B2B\Offer\Framework\OfferLineItemAuditLogService</parameter>
+    <parameter key="b2b_offer.backend_authentication_service_class">Shopware\B2B\Offer\Framework\OfferBackendAuthenticationService</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_offer.repository_abstract" abstract="true">
+      <argument type="service" id="dbal_connection"/>
+      <argument type="service" id="b2b_currency.calculator"/>
+      <argument type="service" id="b2b_common.repository_dbal_helper"/>
+      <argument type="service" id="b2b_line_item_list.repository"/>
+      <argument type="service" id="b2b_offer.status_provider"/>
+    </service>
+    <service id="b2b_offer.crud_service_abstract" abstract="true">
+      <argument type="service" id="b2b_offer.repository"/>
+      <argument type="service" id="b2b_offer.validation_service"/>
+      <argument type="service" id="b2b_offer.line_item_list_repository"/>
+      <argument type="service" id="b2b_line_item_list.service"/>
+      <argument type="service" id="b2b_offer.service"/>
+    </service>
+    <service id="b2b_offer.validation_service_abstract" abstract="true">
+      <argument type="service" id="b2b_common.validation_builder"/>
+      <argument type="service" id="validator"/>
+      <argument type="service" id="b2b_offer.line_item_reference_repository"/>
+    </service>
+    <service id="b2b_offer.grid_helper_abstract" abstract="true">
+      <argument type="service" id="b2b_offer.repository"/>
+    </service>
+    <service id="b2b_offer.order_context_repository_abstract" abstract="true">
+      <argument type="service" id="dbal_connection"/>
+      <argument type="service" id="b2b_order.shop_repository"/>
+    </service>
+    <service id="b2b_offer.audit_log_service_abstract" abstract="true">
+      <argument id="b2b_audit_log.audit_log_service" type="service"/>
+      <argument id="b2b_order_clearance.audit_log_service" type="service"/>
+    </service>
+    <service id="b2b_offer.service_abstract" abstract="true">
+      <argument type="service" id="b2b_offer.repository"/>
+      <argument type="service" id="b2b_offer.shop_writer_service"/>
+      <argument type="service" id="b2b_offer.tax_provider"/>
+      <argument type="service" id="b2b_debtor.debtor_repository"/>
+      <argument type="service" id="b2b_offer.audit_log_service"/>
+      <argument type="service" id="b2b_order.repository"/>
+      <argument type="service" id="b2b_order.order_context_repository"/>
+    </service>
+    <service id="b2b_offer.offer_line_item_reference_crud_service_abstract" abstract="true">
+      <argument type="service" id="b2b_offer.line_item_reference_repository"/>
+      <argument type="service" id="b2b_line_item_list.service"/>
+      <argument type="service" id="b2b_offer.service"/>
+      <argument type="service" id="b2b_offer.repository"/>
+      <argument type="service" id="b2b_offer.line_item_reference_validation_service"/>
+      <argument type="service" id="b2b_offer.line_item_list_repository"/>
+      <argument type="service" id="b2b_offer.tax_provider"/>
+      <argument type="service" id="b2b_offer.line_item_audit_log_service"/>
+      <argument type="service" id="b2b_order_number.repository"/>
+    </service>
+    <service id="b2b_offer.line_item_list_repository_abstract" abstract="true">
+      <argument type="service" id="dbal_connection"/>
+      <argument type="service" id="b2b_offer.line_item_reference_repository"/>
+      <argument type="service" id="b2b_currency.calculator"/>
+    </service>
+    <service id="b2b_offer.line_item_reference_repository_abstract" abstract="true">
+      <argument type="service" id="dbal_connection"/>
+      <argument type="service" id="b2b_common.repository_dbal_helper"/>
+      <argument type="service" id="b2b_line_item_list.reference_repository"/>
+      <argument type="service" id="b2b_product_name.product_name_service"/>
+      <argument type="service" id="b2b_line_item_list.product_provider"/>
+    </service>
+    <service id="b2b_offer.line_item_reference_validation_service_abstract" abstract="true">
+      <argument type="service" id="validator"/>
+      <argument type="service" id="b2b_line_item_list.product_provider"/>
+      <argument type="service" id="b2b_offer.line_item_reference_repository"/>
+      <argument type="service" id="b2b_line_item_list.reference_validation_service"/>
+    </service>
+    <service id="b2b_offer.line_item_reference_service_abstract" abstract="true">
+      <argument id="b2b_offer.line_item_reference_repository" type="service"/>
+      <argument id="b2b_product_name.product_name_service" type="service"/>
+      <argument id="b2b_line_item_list.reference_service" type="service"/>
+    </service>
+    <service id="b2b_offer.line_item_list_service_abstract" abstract="true">
+      <argument type="service" id="b2b_line_item_list.repository"/>
+      <argument type="service" id="b2b_line_item_list.reference_repository"/>
+      <argument type="service" id="b2b_line_item_list.shop_writer_service"/>
+      <argument type="service" id="b2b_offer.line_item_checkout_provider"/>
+      <argument type="service" id="b2b_line_item_list.product_provider"/>
+      <argument type="service" id="b2b_line_item_list.reference_validation_service"/>
+    </service>
+    <service id="b2b_offer.discount_service_abstract" abstract="true">
+      <argument type="service" id="b2b_offer.repository"/>
+      <argument type="service" id="b2b_offer.crud_service"/>
+    </service>
+    <service id="b2b_offer.status_provider_abstract" abstract="true"/>
+    <service id="b2b_offer.line_item_audit_log_service_abstract" abstract="true">
+      <argument type="service" id="b2b_order.order_context_repository"/>
+      <argument type="service" id="b2b_front_auth.authentication_service"/>
+      <argument type="service" id="b2b_order_clearance.audit_log_service"/>
+      <argument type="service" id="b2b_product_name.product_name_service"/>
+      <argument type="service" id="b2b_line_item.audit_log_service"/>
+    </service>
+    <service id="b2b_offer.backend_authentication_service_abstract" abstract="true">
+      <argument id="b2b_front_auth.authentication_service" type="service"/>
+      <argument id="b2b_offer.repository" type="service"/>
+    </service>
+    <service id="b2b_offer.repository" class="%b2b_offer.repository_class%" parent="b2b_offer.repository_abstract"/>
+    <service id="b2b_offer.crud_service" class="%b2b_offer.crud_service_class%" parent="b2b_offer.crud_service_abstract"/>
+    <service id="b2b_offer.validation_service" class="%b2b_offer.validation_service_class%" parent="b2b_offer.validation_service_abstract"/>
+    <service id="b2b_offer.grid_helper" class="%b2b_offer.grid_helper_class%" parent="b2b_offer.grid_helper_abstract"/>
+    <service id="b2b_offer.order_context_repository" class="%b2b_offer.order_context_repository_class%" parent="b2b_offer.order_context_repository_abstract"/>
+    <service id="b2b_offer.audit_log_service" class="%b2b_offer.audit_log_service_class%" parent="b2b_offer.audit_log_service_abstract"/>
+    <service id="b2b_offer.service" class="%b2b_offer.service_class%" parent="b2b_offer.service_abstract"/>
+    <service id="b2b_offer.offer_line_item_reference_crud_service" class="%b2b_offer.offer_line_item_reference_crud_service_class%" parent="b2b_offer.offer_line_item_reference_crud_service_abstract"/>
+    <service id="b2b_offer.line_item_list_repository" class="%b2b_offer.line_item_list_repository_class%" parent="b2b_offer.line_item_list_repository_abstract"/>
+    <service id="b2b_offer.line_item_reference_repository" class="%b2b_offer.line_item_reference_repository_class%" parent="b2b_offer.line_item_reference_repository_abstract"/>
+    <service id="b2b_offer.line_item_reference_validation_service" class="%b2b_offer.line_item_reference_validation_service_class%" parent="b2b_offer.line_item_reference_validation_service_abstract"/>
+    <service id="b2b_offer.line_item_reference_service" class="%b2b_offer.line_item_reference_service_class%" parent="b2b_offer.line_item_reference_service_abstract"/>
+    <service id="b2b_offer.line_item_list_service" class="%b2b_offer.line_item_list_service_class%" parent="b2b_offer.line_item_list_service_abstract"/>
+    <service id="b2b_offer.discount_service" class="%b2b_offer.discount_service_class%" parent="b2b_offer.discount_service_abstract"/>
+    <service id="b2b_offer.status_provider" class="%b2b_offer.status_provider_class%" parent="b2b_offer.status_provider_abstract"/>
+    <service id="b2b_offer.line_item_audit_log_service" class="%b2b_offer.line_item_audit_log_service_class%" parent="b2b_offer.line_item_audit_log_service_abstract"/>
+    <service id="b2b_offer.backend_authentication_service" class="%b2b_offer.backend_authentication_service_class%" parent="b2b_offer.backend_authentication_service_abstract"/>
+  </services>
+</container>

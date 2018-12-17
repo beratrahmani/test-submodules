@@ -1,0 +1,528 @@
+.b2b--modal-close {
+  .unitize(right, 15) !important;
+  .unitize(top, 20) !important;
+}
+
+.js--modal {
+  width: 100% !important;
+  height: 100% !important;
+
+  &.modal--confirm {
+    width: 80% !important;
+    height: auto !important;
+  }
+}
+
+.b2b--modal {
+  height: 100%;
+  position: relative;
+
+  .block-navigation {
+    width: 100%;
+    background: @brand-secondary;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 20%;
+    top: 20%;
+    overflow: scroll;
+
+    ul {
+      list-style: none;
+      height: 100%;
+
+      li.tab--header {
+        display: none;
+        .unitize-padding(10, 20);
+        background: @brand-secondary;
+        font-weight: 600;
+        .border-radius-multi(4, 0, 0, 0);
+        color: lighten(@gray, 10%);
+        height: 10%;
+        .unitize(padding-top, 25);
+        .unitize(font-size, 17);
+      }
+
+      li.tab--group {
+        background: darken(@brand-secondary, 4%);
+        color: lighten(@brand-secondary, 30%);
+        text-transform: uppercase;
+        .unitize(font-size, 12);
+        .unitize-padding(10, 20, 10, 20);
+      }
+
+      li a {
+        .unitize-padding(15, 20);
+        display: block;
+        background: lighten(@brand-secondary, 4%);
+        color: lighten(@gray, 10%);
+        cursor: pointer;
+
+        &:hover {
+          background: lighten(@brand-secondary, 8%);
+        }
+
+        &.tab--active {
+          background: lighten(@brand-secondary, 10%);
+          color: lighten(@gray, 10%);
+          border: 0 none;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-height: 650px) {
+    .block-navigation {
+      top: 10%;
+    }
+  }
+
+  .block-content {
+    width: 100%;
+    position: absolute;
+    top: 20%;
+    height: 80%;
+
+    &.has--navigation {
+      width: 100%;
+      left: 0;
+      top: 40%;
+      height: 60%;
+    }
+
+    @media screen and (min-height: 650px) {
+      &.has--navigation {
+        top: 30%;
+        height: 70%;
+      }
+    }
+
+    /* Top Toolbar */
+    .topbar {
+      width: 100%;
+      height: 20%;
+      background: @gray;
+      border-bottom: 1px solid lighten(@panel-border, 1%);
+      .unitize-padding(25, 15, 25, 15);
+      position: fixed;
+      top: 0;
+
+      h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    @media screen and (min-height: 650px) {
+      .topbar {
+        height: 10%;
+      }
+    }
+  }
+
+  @media screen and (min-height: 650px) {
+    .block-content {
+      top: 10%;
+      height: 90%;
+    }
+  }
+
+  /* Scrollable Content Area */
+  .scrollable {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #f8f8f8;
+
+    &.with--padding {
+      .unitize-padding(15, 15, 15, 15);
+    }
+
+    &.with--grid {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    /* Grid */
+    .inner--actions {
+      width: 100%;
+      height: 15%; // default: 10%;
+      float: left;
+      .unitize-padding(15, 15, 15, 15);
+      border-bottom: 1px solid @border-color;
+
+      .action--sort {
+        width: 50%;
+        float: left;
+        text-align: left;
+        .unitize-padding(0, 10, 0, 0);
+        margin: 0;
+      }
+
+      .action--search {
+        width: 50%;
+        float: left;
+        text-align: right;
+        .unitize(padding-top, 1);
+        .unitize(padding-left, 10);
+        margin: 0;
+
+        .search--area {
+          position: relative;
+
+          input[type="text"] {
+            width: 100%;
+          }
+
+          button[type="submit"] {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            height: 100%;
+          }
+        }
+      }
+
+      &:after {
+        clear: both;
+      }
+    }
+
+    .inner--content {
+      width: 100%;
+      height: 70%;
+      overflow-x: hidden;
+      overflow-y: auto;
+
+      &.with--padding {
+        .unitize-padding(15, 15, 15, 15);
+      }
+
+      &.without--actions,
+      &.without--bottom {
+        height: 80%;
+      }
+
+      &.without--actions.without--bottom {
+        height: 100%;
+      }
+    }
+
+    .inner--bottom {
+      width: 100%;
+      height: 20%;
+      .unitize-padding(15, 15, 15, 15);
+      background: #fff;
+      border-top: 1px solid #DDDDE7;
+
+      .bottom--page {
+        .unitize(padding-top, 10);
+        width: 20%;
+        float: left;
+        display: inline-block;
+      }
+
+      .bottom--pagination {
+        width: 10%;
+        float: right;
+        text-align: right;
+        display: inline-block;
+      }
+
+      .bottom--pagination--buttons {
+        float: right;
+        display: inline-block;
+      }
+
+      .bottom--actions {
+        .unitize-padding(0, 0, 15, 0);
+        text-align: right;
+
+        .bottom-button {
+          display: inline-block;
+        }
+      }
+    }
+
+  }
+
+  .block {
+    &.box--label {
+      .unitize-padding(10, 0, 0, 15);
+      width: 40%;
+
+      &.is--full {
+        width: 40%;
+      }
+    }
+
+    &.box--input {
+      width: 60%;
+
+      input, select, .js--fancy-select {
+        width: 100%;
+      }
+
+      &.is--full {
+        width: 60%;
+      }
+
+      &.is--text {
+        .unitize-padding(10, 0, 0, 0);
+      }
+
+      .checkbox {
+        .unitize-margin(13, 0, 0, 0);
+      }
+    }
+
+    &.box--actions {
+      width: 100%;
+      text-align: right;
+    }
+  }
+
+  .modal--errors {
+    .unitize-padding(10, 10, 10, 10);
+  }
+
+  .textarea--full {
+    width: 100%;
+  }
+
+  .visible-modal-xs {
+    display: inline-block;
+  }
+
+  .visible-modal-sm {
+    display: none;
+  }
+
+  .visible-modal-lg {
+    display: none;
+  }
+}
+
+/* Table Module inside Modal */
+@media screen and (max-width: 800px) {
+
+  .b2b--modal {
+
+    table.table--responsive {
+      thead,
+      tbody,
+      th,
+      td,
+      tr {
+        display: block;
+        overflow: hidden;
+      }
+
+      thead {
+        tr {
+          position: absolute;
+          .unitize(top, -9999);
+          .unitize(left, -9999);
+        }
+      }
+
+      tr:nth-child(even) {
+        td {
+          border-bottom: 0 none !important;
+        }
+      }
+
+      tr:nth-child(2n+3) {
+        td {
+          border-bottom: 0 none !important;
+        }
+      }
+
+      td {
+        display: flex;
+
+        text-align: left !important;
+
+        &.is--align-right {
+          text-align: left !important;
+        }
+
+        &:before { content: attr(data-label)": ";
+          flex: 0 0 120px;
+          font-weight: bold;
+          margin-right: 1em;
+          margin-bottom: 0.25em;
+        }
+
+        &.col-actions {
+          width: auto !important;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+
+  .b2b--modal {
+    .block-navigation {
+      width: 25%;
+      top: 0;
+      height: 100%;
+      overflow: auto;
+
+      ul {
+        li.tab--header {
+          display: block;
+        }
+      }
+    }
+
+    .block-content {
+      width: 100%;
+      height: 90%;
+      position: absolute;
+      top: 10%;
+
+      .topbar {
+        height: 10%;
+      }
+
+      &.has--navigation {
+        width: 75%;
+        left: 25%;
+        height: 90%;
+        top: 10%;
+      }
+    }
+
+    .scrollable {
+      height: 90%;
+
+      .inner--actions {
+        height: 10%; // mobile: 15%
+        .unitize(padding-top, 12);
+      }
+
+      .inner--content {
+        height: 80%; // mobile: 70%
+
+        &.without--actions,
+        &.without--bottom {
+          height: 90%;
+        }
+
+        &.without--actions.without--bottom {
+          height: 100%;
+        }
+      }
+
+      .inner--bottom {
+        height: 10%;
+        .unitize(padding-top, 12);
+
+        .bottom--actions {
+          padding: 0;
+        }
+      }
+    }
+
+    .bottombar {
+      position: absolute;
+    }
+
+    .visible-modal-xs {
+      display: none;
+    }
+
+    .visible-modal-sm {
+      display: inline-block;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+
+  .js--modal {
+    .unitize(width, 1000) !important;
+    .unitize(height, 711) !important;
+
+    &.modal--confirm {
+      .unitize(width, 800) !important;
+      height: auto !important;
+    }
+  }
+
+  .b2b--modal {
+    .block-navigation {
+      width: 25%;
+      top: 0;
+      height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    .block-content {
+      height: 100%;
+      top: 0;
+
+      &.has--navigation {
+        height: 100%;
+        top: 0;
+      }
+
+      .topbar {
+        position: relative;
+        top: auto;
+      }
+    }
+
+    .scrollable {
+      height: 80%;
+      background: #fff;
+      overflow-x: hidden;
+      overflow-y: auto;
+
+      &.without--footer {
+        height: 90%;
+      }
+
+      &.with--grid {
+        height: 90%;
+        overflow: hidden;
+      }
+    }
+
+    .bottombar {
+      position: absolute;
+    }
+
+    .block {
+      &.box--label {
+        width: 20%;
+
+        &.is--full {
+          width: 30%;
+        }
+      }
+
+      &.box--input {
+        width: 30%;
+
+        &.is--full {
+          width: 70%;
+        }
+      }
+    }
+
+    .visible-modal-sm {
+      display: none;
+    }
+
+    .visible-modal-lg {
+      display: inline-block;
+    }
+  }
+}

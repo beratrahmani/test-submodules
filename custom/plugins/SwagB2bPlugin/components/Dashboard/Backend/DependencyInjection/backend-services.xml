@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_dashboard.debtor_backend_extension_class">Shopware\B2B\Dashboard\Backend\DebtorBackendExtension</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_dashboard.debtor_backend_extension_abstract" abstract="true">
+      <argument type="service" id="b2b_debtor.debtor_repository"/>
+      <argument type="service" id="b2b_contact.repository"/>
+      <argument type="service" id="b2b_front_auth.login_context"/>
+      <argument type="service" id="b2b_dashboard.emotion_repository"/>
+    </service>
+    <service id="b2b_dashboard.debtor_backend_extension" class="%b2b_dashboard.debtor_backend_extension_class%" parent="b2b_dashboard.debtor_backend_extension_abstract"/>
+  </services>
+</container>

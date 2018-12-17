@@ -1,0 +1,24 @@
+.b2b-progress-bar {
+  width: 100%;
+  background-color: @gray-dark;
+  position: relative;
+  overflow: hidden;
+  .unitize(height, 30);
+  border-radius: 5%;
+
+  .b2b-progress-value {
+    .unitize(height, 30);
+    border-radius: 5%;
+    background-color: @brand-primary;
+  }
+
+  .b2b-progress-value-text {
+    top: 0;
+    left: 0;
+    .unitize(line-height, 30);
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: @text-color;
+  }
+}

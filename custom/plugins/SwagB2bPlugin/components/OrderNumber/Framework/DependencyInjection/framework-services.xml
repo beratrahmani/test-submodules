@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_order_number.service_class">Shopware\B2B\OrderNumber\Framework\OrderNumberService</parameter>
+    <parameter key="b2b_order_number.crud_service_class">Shopware\B2B\OrderNumber\Framework\OrderNumberCrudService</parameter>
+    <parameter key="b2b_order_number.validation_service_class">Shopware\B2B\OrderNumber\Framework\OrderNumberValidationService</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_order_number.service_abstract" abstract="true">
+      <argument type="service" id="b2b_common.csv_reader"/>
+      <argument type="service" id="b2b_common.xls_reader"/>
+      <argument type="service" id="b2b_order_number.repository"/>
+      <argument type="service" id="b2b_shop.product_service"/>
+      <argument type="service" id="b2b_common.csv_writer"/>
+      <argument type="service" id="b2b_common.xls_writer"/>
+      <argument type="service" id="b2b_shop.translation_service"/>
+      <argument type="service" id="b2b_order_number.crud_service"/>
+    </service>
+    <service id="b2b_order_number.crud_service_abstract" abstract="true">
+      <argument type="service" id="b2b_order_number.validation_service"/>
+      <argument type="service" id="b2b_order_number.repository"/>
+    </service>
+    <service id="b2b_order_number.validation_service_abstract" abstract="true">
+      <argument type="service" id="b2b_common.validation_builder"/>
+      <argument type="service" id="validator"/>
+      <argument type="service" id="b2b_order_number.repository"/>
+    </service>
+    <service id="b2b_order_number.service" class="%b2b_order_number.service_class%" parent="b2b_order_number.service_abstract"/>
+    <service id="b2b_order_number.crud_service" class="%b2b_order_number.crud_service_class%" parent="b2b_order_number.crud_service_abstract"/>
+    <service id="b2b_order_number.validation_service" class="%b2b_order_number.validation_service_class%" parent="b2b_order_number.validation_service_abstract"/>
+  </services>
+</container>

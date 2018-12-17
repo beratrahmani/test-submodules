@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_order.controller_class">Shopware\B2B\Order\Frontend\OrderController</parameter>
+    <parameter key="b2b_order.line_item_controller_class">Shopware\B2B\Order\Frontend\OrderLineItemReferenceController</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_order.controller_abstract" abstract="true">
+      <argument type="service" id="b2b_front_auth.authentication_service"/>
+      <argument type="service" id="b2b_order.repository"/>
+      <argument type="service" id="b2b_order.grid_helper"/>
+      <argument type="service" id="b2b_audit_log.repository"/>
+      <argument type="service" id="b2b_audit_log.grid_helper"/>
+      <argument type="service" id="b2b_currency.service"/>
+    </service>
+    <service id="b2b_order.line_item_controller_abstract" abstract="true">
+      <argument type="service" id="b2b_line_item_list.reference_repository"/>
+      <argument type="service" id="b2b_line_item_list.reference_grid"/>
+      <argument type="service" id="b2b_order.repository"/>
+      <argument type="service" id="b2b_address.repository"/>
+      <argument type="service" id="b2b_shop.order_relation_service"/>
+      <argument type="service" id="b2b_line_item_list.reference_crud_service"/>
+      <argument type="service" id="b2b_order.order_context_service"/>
+      <argument type="service" id="b2b_order_list.order_list_relation_repository"/>
+      <argument type="service" id="b2b_line_item_list.reference_service"/>
+      <argument type="service" id="b2b_currency.service"/>
+      <argument type="service" id="b2b_front_auth.authentication_service"/>
+    </service>
+    <service id="b2b_order.controller" class="%b2b_order.controller_class%" parent="b2b_order.controller_abstract"/>
+    <service id="b2b_order.line_item_controller" class="%b2b_order.line_item_controller_class%" parent="b2b_order.line_item_controller_abstract"/>
+  </services>
+</container>

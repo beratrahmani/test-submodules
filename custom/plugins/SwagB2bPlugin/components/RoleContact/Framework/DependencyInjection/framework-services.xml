@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_role_contact.repository_class">Shopware\B2B\RoleContact\Framework\RoleContactRepository</parameter>
+    <parameter key="b2b_role_contact.assignment_service_class">Shopware\B2B\RoleContact\Framework\RoleContactAssignmentService</parameter>
+    <parameter key="b2b_role_contact.service_class">Shopware\B2B\RoleContact\Framework\RoleContactService</parameter>
+    <parameter key="b2b_role_contact.acl_access_writer_class">Shopware\B2B\RoleContact\Framework\RoleContactAclAccessWriter</parameter>
+    <parameter key="b2b_role_contact.validation_service_class">Shopware\B2B\RoleContact\Framework\RoleContactValidationService</parameter>
+    <parameter key="b2b_role_contact.role_remove_dependency_validator_class">Shopware\B2B\Role\Framework\AclRoleRemoveDependencyValidator</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_role_contact.repository_abstract" abstract="true">
+      <argument type="service" id="dbal_connection"/>
+      <argument type="service" id="b2b_nested_set.query_factory"/>
+      <argument type="service" id="b2b_role.acl_read_helper"/>
+    </service>
+    <service id="b2b_role_contact.assignment_service_abstract" abstract="true">
+      <argument type="service" id="b2b_role_contact.repository"/>
+      <argument type="service" id="b2b_role.repository"/>
+      <argument type="service" id="b2b_role_contact.validation_service"/>
+    </service>
+    <service id="b2b_role_contact.service_abstract" abstract="true">
+      <argument type="service" id="b2b_role_contact.repository"/>
+    </service>
+    <service id="b2b_role_contact.acl_access_writer_abstract" abstract="true">
+      <argument type="service" id="b2b_contact.acl_repository"/>
+      <argument type="service" id="b2b_role_contact.repository"/>
+    </service>
+    <service id="b2b_role_contact.validation_service_abstract" abstract="true">
+      <argument type="service" id="b2b_common.validation_builder"/>
+      <argument type="service" id="validator"/>
+      <argument type="service" id="b2b_role_contact.repository"/>
+    </service>
+    <service id="b2b_role_contact.role_remove_dependency_validator_abstract" abstract="true">
+      <argument type="service" id="b2b_contact.acl_repository"/>
+    </service>
+    <service id="b2b_role_contact.repository" class="%b2b_role_contact.repository_class%" parent="b2b_role_contact.repository_abstract">
+      <tag name="b2b_role.remove_dependency_validator"/>
+    </service>
+    <service id="b2b_role_contact.assignment_service" class="%b2b_role_contact.assignment_service_class%" parent="b2b_role_contact.assignment_service_abstract"/>
+    <service id="b2b_role_contact.service" class="%b2b_role_contact.service_class%" parent="b2b_role_contact.service_abstract"/>
+    <service id="b2b_role_contact.acl_access_writer" class="%b2b_role_contact.acl_access_writer_class%" parent="b2b_role_contact.acl_access_writer_abstract">
+      <tag name="b2b_contact_create.acl_access_writer"/>
+    </service>
+    <service id="b2b_role_contact.validation_service" class="%b2b_role_contact.validation_service_class%" parent="b2b_role_contact.validation_service_abstract"/>
+    <service id="b2b_role_contact.role_remove_dependency_validator" class="%b2b_role_contact.role_remove_dependency_validator_class%" parent="b2b_role_contact.role_remove_dependency_validator_abstract">
+      <tag name="b2b_role.remove_dependency_validator"/>
+    </service>
+  </services>
+</container>

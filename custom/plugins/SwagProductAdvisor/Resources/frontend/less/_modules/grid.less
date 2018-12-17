@@ -1,0 +1,71 @@
+/**
+Creates the styles for the different column-layouts.
+@n is the number of columns being used.
+*/
+.createColumns(@n) {
+    @columns: @n;
+    .advisor-grid--row@{n} {
+        .unitize-margin(15, 0);
+        .clearfix();
+
+        .advisor-grid--advisor-cell {
+            .unitize(margin-bottom, 10);
+            height: 100%;
+            width: 100%;
+            float: left;
+        }
+    }
+
+    @media screen and(min-width: @phoneLandscapeViewportWidth) {
+        .advisor-grid--row@{n} .advisor-grid--advisor-cell {
+            width: 50%;
+        }
+    }
+
+    @media screen and(min-width: @tabletViewportWidth) {
+        .advisor-grid--row@{n} .advisor-grid--advisor-cell {
+            width: (100% / @columns);
+        }
+    }
+}
+
+.advisor-grid--ct {
+    .createColumns(1);
+    .createColumns(2);
+    .createColumns(3);
+    .createColumns(4);
+    .createColumns(5);
+    .createColumns(6);
+    .unitize-margin(0, -15);
+
+    .advisor-cell--inner {
+        .unitize-margin(0, 15);
+        height: 100%;
+
+        &.advisor-cell--filled {
+            cursor: pointer;
+        }
+    }
+}
+
+.advisor-cell--image-text {
+    .unitize-margin(10, 0, 5);
+    .unitize-padding(0, 10);
+    text-align: center;
+}
+
+.advisor-cell--image-ct {
+    .unitize(margin, 5);
+    position: relative;
+    overflow: hidden;
+}
+
+.advisor-cell--empty {
+    display: none;
+}
+
+@media screen and(min-width: @tabletViewportWidth) {
+    .advisor-cell--empty {
+        display: block;
+    }
+}

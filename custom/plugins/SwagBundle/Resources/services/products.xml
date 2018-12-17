@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="swag_bundle.products.longest_shipping_time_inspector" class="SwagBundle\Services\Products\LongestShippingTimeInspector"/>
+
+        <service id="swag_bundle.products.price_service" class="SwagBundle\Services\Products\ProductPriceService">
+            <argument type="service" id="swag_bundle.dependencies.provider"/>
+            <argument type="service" id="models"/>
+        </service>
+
+        <service id="swag_bundle.products.repository" class="SwagBundle\Services\Products\ProductRepository" >
+            <argument type="service" id="dbal_connection" />
+        </service>
+
+        <service id="swag_bundle.products.selection_service" class="SwagBundle\Services\Products\ProductSelectionService">
+            <argument type="service" id="swag_bundle.dependencies.provider"/>
+            <argument type="service" id="models"/>
+        </service>
+
+        <service id="swag_bundle.products.excluded_variants_service" class="SwagBundle\Services\ExcludedVariantsService">
+            <argument type="service" id="dbal_connection"/>
+        </service>
+    </services>
+</container>

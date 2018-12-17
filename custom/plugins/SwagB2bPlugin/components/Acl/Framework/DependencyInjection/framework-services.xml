@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_acl.ddl_service_class">Shopware\B2B\Acl\Framework\AclDdlService</parameter>
+    <parameter key="b2b_acl.repository_factory_class">Shopware\B2B\Acl\Framework\AclRepositoryFactory</parameter>
+    <parameter key="b2b_acl.grant_context_provider_chain_class">Shopware\B2B\Acl\Framework\AclGrantContextProviderChain</parameter>
+    <parameter key="b2b_acl.access_extension_service_class">Shopware\B2B\Acl\Framework\AclAccessExtensionService</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_acl.ddl_service_abstract" abstract="true">
+      <argument type="service" id="dbal_connection"/>
+    </service>
+    <service id="b2b_acl.repository_factory_abstract" abstract="true">
+      <argument type="collection"/>
+      <argument type="service" id="dbal_connection"/>
+    </service>
+    <service id="b2b_acl.grant_context_provider_chain_abstract" abstract="true"/>
+    <service id="b2b_acl.access_extension_service_abstract" abstract="true"/>
+    <service id="b2b_acl.ddl_service" class="%b2b_acl.ddl_service_class%" parent="b2b_acl.ddl_service_abstract"/>
+    <service id="b2b_acl.repository_factory" class="%b2b_acl.repository_factory_class%" parent="b2b_acl.repository_factory_abstract"/>
+    <service id="b2b_acl.grant_context_provider_chain" class="%b2b_acl.grant_context_provider_chain_class%" parent="b2b_acl.grant_context_provider_chain_abstract"/>
+    <service id="b2b_acl.access_extension_service" class="%b2b_acl.access_extension_service_class%" parent="b2b_acl.access_extension_service_abstract"/>
+  </services>
+</container>

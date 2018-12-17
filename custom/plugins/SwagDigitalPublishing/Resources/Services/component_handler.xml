@@ -1,0 +1,20 @@
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <service id="digital_publishing.banner_element_handler"
+                 class="SwagDigitalPublishing\Components\BannerElementHandler">
+            <argument type="service" id="digital_publishing.content_banner_service"/>
+            <tag name="shopware_emotion.component_handler"/>
+        </service>
+
+        <service id="digital_publishing.banner_slider_element_handler"
+                 class="SwagDigitalPublishing\Components\BannerSliderElementHandler">
+            <argument type="service" id="digital_publishing.content_banner_service"/>
+            <tag name="shopware_emotion.component_handler"/>
+        </service>
+
+    </services>
+</container>

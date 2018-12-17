@@ -1,0 +1,33 @@
+<container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://symfony.com/schema/dic/services"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <service id="swag_product_advisor.advisor_service" class="SwagProductAdvisor\Bundle\AdvisorBundle\AdvisorService">
+            <argument type="tagged" tag="swag_product_advisor.service_factory_dependency"/>
+            <argument type="service" id="swag_product_advisor.post_handler"/>
+            <argument type="service" id="shopware_storefront.media_service"/>
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="swag_product_advisor.url_generator"/>
+            <argument type="service" id="swag_product_advisor.translation_service"/>
+            <argument type="service" id="snippets"/>
+            <argument type="service" id="swag_product_advisor.dependency_provider"/>
+        </service>
+
+        <service id="swag_product_advisor.price_question_factory" class="SwagProductAdvisor\Bundle\AdvisorBundle\Question\PriceQuestion\PriceQuestionFactory">
+            <tag name="swag_product_advisor.service_factory_dependency"/>
+        </service>
+
+        <service id="swag_product_advisor.attribute_question_factory" class="SwagProductAdvisor\Bundle\AdvisorBundle\Question\AttributeQuestion\AttributeQuestionFactory">
+            <argument type="service" id="shopware_storefront.media_service"/>
+            <tag name="swag_product_advisor.service_factory_dependency"/>
+        </service>
+
+        <service id="swag_product_advisor.question_factory" class="SwagProductAdvisor\Bundle\AdvisorBundle\Question\QuestionFactory">
+            <argument type="service" id="shopware_storefront.media_service"/>
+            <tag name="swag_product_advisor.service_factory_dependency"/>
+        </service>
+
+    </services>
+</container>

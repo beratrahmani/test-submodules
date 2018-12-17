@@ -1,0 +1,37 @@
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="swag_abo_commerce.decorator.facet_filter"
+                 class="SwagAboCommerce\Components\ProductStream\FacetFilter"
+                 decorates="shopware_product_stream.facet_filter"
+                 public="false">
+            <argument type="service" id="swag_abo_commerce.decorator.facet_filter.inner"/>
+        </service>
+
+        <service id="swag_abo_commerce.decorator.list_product_service"
+                 class="SwagAboCommerce\Bundle\StoreFrontBundle\ListProductServiceDecorator"
+                 decorates="shopware_storefront.list_product_service"
+                 public="false">
+            <argument type="service" id="swag_abo_commerce.decorator.list_product_service.inner"/>
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="swag_abo_commerce.cheapest_price_service"/>
+        </service>
+
+        <service id="swag_abo_commerce.decorator.product_mapping"
+                 class="SwagAboCommerce\Bundle\ESIndexingBundle\ProductMapping"
+                 decorates="shopware_elastic_search.product_mapping"
+                 public="false">
+            <argument type="service" id="swag_abo_commerce.decorator.product_mapping.inner"/>
+        </service>
+
+        <service id="swag_abo_commerce.decorator.product_provider"
+                 class="SwagAboCommerce\Bundle\ESIndexingBundle\ProductProvider"
+                 decorates="shopware_elastic_search.product_provider"
+                 public="false">
+            <argument type="service" id="swag_abo_commerce.decorator.product_provider.inner"/>
+            <argument type="service" id="dbal_connection"/>
+        </service>
+    </services>
+</container>

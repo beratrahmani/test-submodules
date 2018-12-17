@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="b2b_price.price_helper_decorator"
+                 class="Shopware\B2B\Price\Bridge\SearchBundleDBALPriceHelper"
+                 decorates="shopware_searchdbal.search_price_helper_dbal">
+            <argument type="service" id="b2b_price.price_helper_decorator.inner" />
+            <argument type="service" id="dbal_connection" />
+            <argument type="service" id="b2b_front_auth.authentication_service"/>
+        </service>
+
+        <service id="b2b_price.cheapest_price_decorator"
+                 class="Shopware\B2B\Price\Bridge\StoreFrontBundleCheapestUserPriceService"
+                 decorates="shopware_storefront.cheapest_price_service">
+            <argument type="service" id="b2b_price.cheapest_price_decorator.inner" />
+            <argument type="service" id="b2b_price.repository" />
+            <argument type="service" id="b2b_price.price_rule_factory" />
+            <argument type="service" id="b2b_front_auth.authentication_service"/>
+            <argument type="service" id="config" />
+        </service>
+
+        <service id="b2b_price.graduated_price_decorator"
+                 class="Shopware\B2B\Price\Bridge\StoreFrontBundleGraduatedUserPricesService"
+                 decorates="shopware_storefront.graduated_prices_service">
+            <argument type="service" id="b2b_price.graduated_price_decorator.inner" />
+            <argument type="service" id="b2b_price.repository" />
+            <argument type="service" id="b2b_price.price_rule_factory" />
+            <argument type="service" id="b2b_front_auth.authentication_service"/>
+        </service>
+
+        <service id="price.basket_price_subscriber" class="Shopware\B2B\Price\Bridge\BasketPriceSubscriber">
+            <argument type="service" id="b2b_price.repository" />
+            <argument type="service" id="b2b_front_auth.authentication_service"/>
+            <tag name="shopware.event_subscriber" />
+        </service>
+
+        <service id="b2b_price.price_rule_factory" class="Shopware\B2B\Price\Bridge\StoreFrontBundlePriceRuleFactory" />
+    </services>
+</container>

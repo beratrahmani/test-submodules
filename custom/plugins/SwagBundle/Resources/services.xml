@@ -1,0 +1,90 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <imports>
+        <import resource="services/bundle_extensions.xml"/>
+        <import resource="services/calculation.xml"/>
+        <import resource="services/decoration.xml"/>
+        <import resource="services/discount.xml"/>
+        <import resource="services/products.xml"/>
+        <import resource="services/subscriber.xml"/>
+    </imports>
+
+    <services>
+        <service id="swag_bundle.bundle_basket" class="SwagBundle\Components\BundleBasket">
+            <argument type="service" id="swag_bundle.dependencies.provider"/>
+            <argument type="service" id="swag_bundle.products.price_service"/>
+            <argument type="service" id="swag_bundle.customer_group_service"/>
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="events"/>
+            <argument type="service" id="models"/>
+            <argument type="service" id="snippets"/>
+        </service>
+
+        <service id="swag_bundle.bundle_component" class="SwagBundle\Components\BundleComponent">
+            <argument type="service" id="models"/>
+            <argument type="service" id="swag_bundle.dependencies.provider"/>
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="swag_bundle.calculation.update_bundle_basket_discount"/>
+            <argument type="service" id="swag_bundle.bundle_basket"/>
+            <argument type="service" id="swag_bundle.validation_service"/>
+            <argument type="service" id="swag_bundle.products.selection_service"/>
+            <argument type="service" id="swag_bundle.full_bundle_service"/>
+            <argument type="service" id="swag_bundle.discount_service"/>
+            <argument type="service" id="swag_bundle.main_product_service"/>
+        </service>
+
+        <service id="swag_bundle.dependencies.provider" class="SwagBundle\Services\Dependencies\Provider">
+            <argument type="service" id="service_container"/>
+        </service>
+
+        <service id="swag_bundle.listing.bundle_service" class="SwagBundle\Services\Listing\BundleService">
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="config"/>
+            <argument type="service" id="swag_bundle.customer_group_service"/>
+        </service>
+
+        <service id="swag_bundle.available_service" class="SwagBundle\Services\BundleAvailableService">
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="swag_bundle.calculation.validation.bundle_last_stock_validator"/>
+            <argument type="service" id="models"/>
+        </service>
+
+        <service id="swag_bundle.main_product_service" class="SwagBundle\Services\BundleMainProductService">
+            <argument type="service" id="swag_bundle.dependencies.provider"/>
+        </service>
+
+        <service id="swag_bundle.validation_service" class="SwagBundle\Services\BundleValidationService">
+            <argument type="service" id="swag_bundle.customer_group_service"/>
+        </service>
+
+        <service id="swag_bundle.customer_group_service" class="SwagBundle\Services\CustomerGroupService">
+            <argument type="service" id="swag_bundle.dependencies.provider"/>
+            <argument type="service" id="models"/>
+        </service>
+
+        <service id="swag_bundle.full_bundle_service" class="SwagBundle\Services\FullBundleService">
+            <argument type="service" id="swag_bundle.dependencies.provider"/>
+            <argument type="service" id="swag_bundle.customer_group_service"/>
+            <argument type="service" id="swag_bundle.validation_service"/>
+            <argument type="service" id="swag_bundle.products.selection_service"/>
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="swag_bundle.products.price_service"/>
+            <argument type="service" id="swag_bundle.calculation.validation.bundle_last_stock_validator"/>
+            <argument type="service" id="models"/>
+            <argument type="service" id="swag_bundle.calculation.bundle_price_calculator"/>
+            <argument type="service" id="swag_bundle.discount_service"/>
+            <argument type="service" id="swag_bundle.products.longest_shipping_time_inspector"/>
+            <argument type="service" id="swag_bundle.main_product_service"/>
+        </service>
+
+        <service id="swag_bundle.voucher_service" class="SwagBundle\Services\VoucherService">
+            <argument type="service" id="front"/>
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="swag_bundle.dependencies.provider"/>
+        </service>
+    </services>
+</container>

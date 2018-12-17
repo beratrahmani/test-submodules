@@ -1,0 +1,234 @@
+.advisor--content-sidebar {
+    width: 100%;
+
+    .advisor--sidebar {
+        .border-radius(3px);
+    }
+}
+
+.sidebar-main.is--open .advisor--content-sidebar {
+    width: 100%;
+}
+
+.advisor--sidebar-header {
+    .unitize-margin(0, 10);
+    color: @product-advisor-text-color-dark;
+    font-weight: 700;
+
+    .sidebar-header--advisor-title {
+        .unitize(padding, 10);
+    }
+}
+
+.advisor--sidebar-header,
+.advisor--question-ct,
+.advisor--sidebar-buttons {
+    .unitize-margin(0, 10);
+}
+
+.advisor--sidebar-header,
+.advisor--question-ct {
+    border-bottom: 1px solid @product-advisor-border-color;
+}
+
+.advisor--question-ct {
+    .question-ct--answer-ct {
+        .clearfix();
+    }
+
+    &.advisor--price-ct {
+        .question-ct--answers {
+            .unitize-margin(0, 10);
+        }
+    }
+
+    .question-ct--question-name {
+        .unitize-padding(15, 0);
+        cursor: pointer;
+        position: relative;
+    }
+
+    .question-name--name {
+        font-weight: 700;
+        width: 85%;
+    }
+
+    .question-name--arrow {
+        .unitize(font-size, 7);
+        right: 0;
+    }
+
+    .question-ct--additional-info {
+        .unitize(font-size, 11);
+        .unitize(margin-bottom, 10);
+
+        color: @product-advisor-brand-primary;
+        cursor: pointer;
+        display: inline-block;
+    }
+}
+
+.question-ct--filter-ct {
+    .clearfix();
+    .unitize-margin(5, 0);
+
+    cursor: pointer;
+    position: relative;
+
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+.question-ct--filter {
+    float: left;
+}
+
+.question-ct--answers {
+    .unitize-margin(0, 0, 15);
+
+    .js--fancy-select {
+        .unitize(margin-top, 5);
+        width: 100%;
+
+        .advisor--empty-text {
+            color: #808080;
+        }
+    }
+
+    .advisor--range-slider {
+        .unitize(padding-top, 10);
+        text-align: center;
+
+        .range-slider--container {
+            display: inline-block;
+            width: 90%;
+        }
+    }
+}
+
+.advisor--turn-arrow .advisor--icon-arrow  {
+    display: inline-block;
+    transform: rotate(180deg);
+}
+
+.advisor--sidebar-buttons {
+    .clearfix();
+    .unitize-padding(10, 0);
+
+    .advisor--reset-advisor-btn {
+        .unitize(margin-top, 10);
+        text-align: center;
+        width: 100%;
+    }
+}
+
+.advisor--reset-btn {
+    display: none;
+    text-align: center;
+    width: 100%;
+}
+
+.question-ct--label {
+    .unitize(padding-left, 30);
+    cursor: pointer;
+    display: block;
+}
+
+.question-ct--off-canvas-info {
+    display: none;
+
+    &.is--open {
+        display: block;
+    }
+
+    .content--title {
+        .unitize(font-size, 20);
+        .unitize(margin-bottom, 10);
+        font-weight: 700;
+        color: @product-advisor-text-color-dark;
+    }
+
+    .content--description {
+        .unitize(padding, 20);
+    }
+}
+
+.question-ct--info-modal .content {
+    .unitize(padding, 20);
+}
+
+.question-ct--hidden {
+    display: none;
+}
+
+.advisor--content-sidebar {
+    .unitize(margin-top, 45);
+    float: none;
+    width: 100%;
+
+    &.advisor--state-start {
+        &.content-sidebar--position-upper {
+            display: none;
+        }
+
+        &.content-sidebar--position-lower {
+            display: block;
+        }
+    }
+}
+
+.advisor--required-info {
+    .unitize(font-size, 12);
+    .unitize-margin(15, 10, 10);
+}
+
+.sidebar-buttons--warning {
+    .unitize(margin-bottom, 10);
+
+    .alert--icon,
+    .icon--element {
+        width: 20%;
+    }
+
+    .alert--content {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: @tabletViewportWidth) {
+    .advisor--content-sidebar {
+        .unitize-width(230);
+        float: left;
+
+        &.advisor--state-start {
+            &.content-sidebar--position-upper {
+                display: block;
+            }
+
+            &.content-sidebar--position-lower {
+                display: none;
+            }
+        }
+    }
+
+    .question-ct--filter-ct:hover {
+        .question-ct--label {
+            color: @product-advisor-brand-primary;
+        }
+
+        .question-ct--filter {
+            border-color: @product-advisor-brand-primary;
+        }
+    }
+
+    .advisor--sidebar-content .box--advisor-tophit .product--info {
+        .unitize(padding-left, 175);
+    }
+}
+
+@media screen and (min-width: @tabletLandscapeViewportWidth) {
+    .advisor--sidebar-content .box--advisor-tophit .product--info {
+        .unitize(padding-left, 420);
+    }
+}

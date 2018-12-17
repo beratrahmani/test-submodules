@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_offer.api_route_provider_class">Shopware\B2B\Offer\Api\DependencyInjection\OfferApiRouteProvider</parameter>
+    <parameter key="b2b_offer.api_offer_controller_class">Shopware\B2B\Offer\Api\OfferController</parameter>
+    <parameter key="b2b_offer.api_offer_log_controller_class">Shopware\B2B\Offer\Api\OfferLogController</parameter>
+    <parameter key="b2b_offer.api_offer_line_item_reference_controller_class">Shopware\B2B\Offer\Api\OfferLineItemReferenceController</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_offer.api_route_provider_abstract" abstract="true">
+            
+        </service>
+    <service id="b2b_offer.api_offer_controller_abstract" abstract="true">
+      <argument type="service" id="b2b_offer.repository"/>
+      <argument type="service" id="b2b_offer.crud_service"/>
+      <argument type="service" id="b2b_offer.grid_helper"/>
+      <argument type="service" id="b2b_debtor.debtor_authentication_identity_loader"/>
+      <argument type="service" id="b2b_front_auth.login_context"/>
+      <argument type="service" id="b2b_currency.service"/>
+      <argument type="service" id="b2b_offer.service"/>
+      <argument type="service" id="b2b_offer.discount_service"/>
+    </service>
+    <service id="b2b_offer.api_offer_log_controller_abstract" abstract="true">
+      <argument type="service" id="b2b_audit_log.repository"/>
+      <argument type="service" id="b2b_offer.grid_helper"/>
+      <argument type="service" id="b2b_order.order_context_repository"/>
+      <argument type="service" id="b2b_offer.service"/>
+      <argument type="service" id="b2b_currency.service"/>
+      <argument type="service" id="b2b_offer.repository"/>
+      <argument type="service" id="b2b_front_auth.login_context"/>
+      <argument type="service" id="b2b_debtor.debtor_authentication_identity_loader"/>
+    </service>
+    <service id="b2b_offer.api_offer_line_item_reference_controller_abstract" abstract="true">
+      <argument type="service" id="b2b_offer.repository"/>
+      <argument type="service" id="b2b_debtor.debtor_authentication_identity_loader"/>
+      <argument type="service" id="b2b_front_auth.login_context"/>
+      <argument type="service" id="b2b_currency.service"/>
+      <argument type="service" id="b2b_offer.offer_line_item_reference_crud_service"/>
+      <argument type="service" id="b2b_offer.line_item_list_repository"/>
+    </service>
+    <service id="b2b_offer.api_route_provider" class="%b2b_offer.api_route_provider_class%" parent="b2b_offer.api_route_provider_abstract">
+      <tag name="b2b_common.rest_route_provider"/>
+    </service>
+    <service id="b2b_offer.api_offer_controller" class="%b2b_offer.api_offer_controller_class%" parent="b2b_offer.api_offer_controller_abstract"/>
+    <service id="b2b_offer.api_offer_log_controller" class="%b2b_offer.api_offer_log_controller_class%" parent="b2b_offer.api_offer_log_controller_abstract"/>
+    <service id="b2b_offer.api_offer_line_item_reference_controller" class="%b2b_offer.api_offer_line_item_reference_controller_class%" parent="b2b_offer.api_offer_line_item_reference_controller_abstract"/>
+  </services>
+</container>

@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_acl_route.route_mapping" type="collection">
+      <parameter key="create" type="collection">
+        <parameter>detail</parameter>
+        <parameter>list</parameter>
+      </parameter>
+      <parameter key="detail" type="collection">
+        <parameter>list</parameter>
+      </parameter>
+      <parameter key="delete" type="collection">
+        <parameter>list</parameter>
+      </parameter>
+      <parameter key="update" type="collection">
+        <parameter>detail</parameter>
+        <parameter>list</parameter>
+      </parameter>
+    </parameter>
+    <parameter key="b2b_acl_route.repository_class">Shopware\B2B\AclRoute\Framework\AclRouteRepository</parameter>
+    <parameter key="b2b_acl_route.service_class">Shopware\B2B\AclRoute\Framework\AclRouteService</parameter>
+    <parameter key="b2b_acl_route.acl_repository_class">Shopware\B2B\Acl\Framework\AclRepository</parameter>
+    <parameter key="b2b_acl_route.assignment_service_class">Shopware\B2B\AclRoute\Framework\AclRouteAssignmentService</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_acl_route.repository_abstract" abstract="true">
+      <argument type="service" id="dbal_connection"/>
+      <argument type="service" id="b2b_common.repository_dbal_helper"/>
+      <argument type="service" id="b2b_acl_route.acl_repository"/>
+    </service>
+    <service id="b2b_acl_route.service_abstract" abstract="true">
+      <argument type="service" id="b2b_front_auth.authentication_service"/>
+      <argument type="service" id="b2b_acl_route.repository"/>
+      <argument type="service" id="b2b_acl.repository_factory"/>
+    </service>
+    <service id="b2b_acl_route.acl_repository_abstract" abstract="true">
+      <factory service="b2b_acl.repository_factory" method="createRepository"/>
+      <argument type="constant">Shopware\B2B\AclRoute\Framework\AclRouteRepository::PRIVILEGE_TABLE_NAME</argument>
+    </service>
+    <service id="b2b_acl_route.assignment_service_abstract" abstract="true">
+      <argument type="service" id="b2b_acl_route.acl_repository"/>
+      <argument type="service" id="b2b_acl_route.repository"/>
+      <argument>%b2b_acl_route.route_mapping%</argument>
+    </service>
+    <service id="b2b_acl_route.repository" class="%b2b_acl_route.repository_class%" parent="b2b_acl_route.repository_abstract"/>
+    <service id="b2b_acl_route.service" class="%b2b_acl_route.service_class%" parent="b2b_acl_route.service_abstract"/>
+    <service id="b2b_acl_route.acl_repository" class="%b2b_acl_route.acl_repository_class%" parent="b2b_acl_route.acl_repository_abstract"/>
+    <service id="b2b_acl_route.assignment_service" class="%b2b_acl_route.assignment_service_class%" parent="b2b_acl_route.assignment_service_abstract"/>
+  </services>
+</container>

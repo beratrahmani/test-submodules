@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_shop.category_select_controller_class">Shopware\B2B\Shop\Frontend\CategorySelectController</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_shop.category_select_controller_abstract" abstract="true">
+      <argument type="service" id="b2b_shop.category_repository"/>
+      <argument type="service" id="b2b_shop.shop"/>
+    </service>
+    <service id="b2b_shop.category_select_controller" class="%b2b_shop.category_select_controller_class%" parent="b2b_shop.category_select_controller_abstract"/>
+  </services>
+</container>

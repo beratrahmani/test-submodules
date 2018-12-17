@@ -1,0 +1,74 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="b2b_plugin.backend_risk_management_extender" class="SwagB2bPlugin\Subscriber\BackendRiskManagementExtender">
+            <argument type="service" id="b2b_front_auth.authentication_service"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+        <service id="b2b_plugin.backend_debtor_extender" class="SwagB2bPlugin\Subscriber\BackendDebtorExtender">
+            <argument type="service" id="b2b_debtor.debtor_repository"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+        <service id="b2b_plugin.backend_sales_representative_extender" class="SwagB2bPlugin\Subscriber\BackendSalesRepresentativeExtender">
+            <tag name="shopware.event_subscriber"/>
+        </service>
+        <service id="b2b_plugin.backend_order_extender" class="SwagB2bPlugin\Subscriber\BackendOrderExtender">
+            <tag name="shopware.event_subscriber"/>
+        </service>
+        <service id="b2b_plugin.controller_resolver" class="SwagB2bPlugin\Subscriber\ControllerResolver">
+            <tag name="shopware.event_subscriber"/>
+        </service>
+        <service id="b2b_plugin.frontend_account_firewall" class="SwagB2bPlugin\Subscriber\FrontendAccountFirewall">
+            <argument type="service" id="service_container"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+        <service id="b2b_plugin.frontend_template_extender" class="SwagB2bPlugin\Subscriber\FrontendTemplateExtender">
+            <argument type="service" id="service_container"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+        <service id="b2b_plugin.backend_template_extender" class="SwagB2bPlugin\Subscriber\BackendTemplateExtender">
+            <argument type="service" id="template"/>
+
+            <tag name="shopware.event_subscriber"/>
+        </service>
+        <service id="b2b_plugin.login_header_sender" class="SwagB2bPlugin\Subscriber\LoginHeaderSender">
+            <argument type="service" id="service_container"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+        <service id="b2b_plugin.frontend_checkout" class="SwagB2bPlugin\Subscriber\FrontendCheckoutSubscriber">
+            <tag name="shopware.event_subscriber"/>
+        </service>
+        <service id="b2b_plugin.frontend_sales_representative" class="SwagB2bPlugin\Subscriber\FrontendSalesRepresentative">
+            <argument type="service" id="b2b_front_auth.authentication_service"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+        <service id="b2b_plugin.order_list_provider" class="SwagB2bPlugin\Subscriber\OrderListProvider">
+            <argument type="service" id="b2b_front_auth.authentication_service"/>
+            <argument type="service" id="b2b_order_list.repository"/>
+            <argument type="service" id="b2b_currency.service"/>
+
+            <tag name="shopware.event_subscriber"/>
+        </service>
+        <service id="b2b_plugin.frontend_listing" class="SwagB2bPlugin\Subscriber\FrontendListingSubscriber">
+            <tag name="shopware.event_subscriber"/>
+        </service>
+        <service id="b2b_plugin.frontend_search" class="SwagB2bPlugin\Subscriber\FrontendSearchSubscriber">
+            <tag name="shopware.event_subscriber"/>
+        </service>
+        <service id="b2b_plugin.frontend_error" class="SwagB2bPlugin\Subscriber\FrontendErrorSubscriber" >
+            <argument id="b2b_front_auth.authentication_service" type="service"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+        <service id="b2b_plugin.media_garbage_collector" class="SwagB2bPlugin\Subscriber\MediaGarbageCollector">
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="b2b_plugin.advanced_cart_subscriber" class="SwagB2bPlugin\Subscriber\AdvancedCartSubscriber">
+            <argument id="b2b_front_auth.authentication_service" type="service"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+    </services>
+</container>

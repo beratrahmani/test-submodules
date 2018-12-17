@@ -1,0 +1,336 @@
+.group--offer-compare {
+    .block--original {
+        width: 50%;
+        .unitize(padding-right, 10);
+    }
+
+    .block--offer {
+        width: 50%;
+        .unitize(padding-left, 10);
+    }
+
+    .group--details {
+        .block--label {
+            width: 70%;
+        }
+
+        .block--value {
+            width: 30%;
+        }
+    }
+}
+
+.b2b--modal {
+    .title--discount {
+        display: none;
+    }
+
+    .body--discount {
+        display: none;
+    }
+
+    .title-supertitle {
+        display: none;
+    }
+
+    .title--subline {
+        display: none;
+    }
+
+    .panel--original {
+        margin-top: 0 !important;
+    }
+
+    .panel--offer {
+        margin-top: 0 !important;
+    }
+}
+
+.no-border td{
+    border: 0;
+}
+
+.table--offer input{
+    width: 100%;
+}
+
+.b2b-offer-overview {
+    .panel {
+        .unitize-margin(50, 0, 50, 0) !important;
+
+        .block-group {
+            .block-label {
+                width: 25%;
+            }
+
+            .block-value {
+                width: 25%;
+            }
+
+            .author,
+            .created-at,
+            .order-reference,
+            .value,
+            .item-count,
+            .state {
+                display: inline-block;
+                width: 32%;
+                .unitize-padding(10, 10);
+            }
+
+            .comment {
+                .unitize-padding(10, 10);
+            }
+
+            .comment-area {
+                .unitize-padding(0, 10, 0, 10);
+            }
+
+            .b2b-shipping-address,
+            .b2b-billing-address,
+            .b2b-shipping,
+            .b2b-billing {
+                .block;
+                width: 100%;
+            }
+
+            .b2b-shipping-address tr,
+            .b2b-billing-address tr,
+            .b2b-shipping tr,
+            .b2b-billing tr {
+                cursor: default;
+            }
+
+            .changeable-values {
+
+                .is--label {
+                    width: 25%;
+                }
+            }
+
+            .quantity-input {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.offer-lineitem--save {
+    .unitize(min-height, 40);
+}
+
+.group--offer-details {
+    .block--details,
+    .block--prices {
+        width: 50%;
+
+        .panel {
+            margin-top: 0;
+        }
+    }
+
+    .block--details {
+        .unitize(padding-right, 15);
+    }
+
+    .block--prices {
+        .unitize(padding-left, 15);
+    }
+}
+
+.line-item--column-discountamount {
+    width: 30%;
+
+  input {
+    width: 100%;
+  }
+}
+
+.table--offer {
+    .text-center {
+        text-align: center;
+    }
+
+    &.has--no-hover {
+        tr {
+            cursor: default !important;
+
+            &:hover {
+                background: inherit !important;
+                background-color: inherit !important;
+
+                td {
+                    background: inherit !important;
+                    background-color: inherit !important;
+                }
+
+                &:nth-child(even) {
+                    background: darken(@btn-default-top-bg, 1%) !important;
+                    background-color: darken(@btn-default-top-bg, 1%) !important;
+
+                    td {
+                        background: darken(@btn-default-top-bg, 1%) !important;
+                        background-color: darken(@btn-default-top-bg, 1%) !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.offer-input-group {
+    position: relative;
+    width: 100%;
+
+    input {
+        width: 100%;
+        text-align: right;
+        .unitize(padding-right, 230);
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
+        border-left: 1px solid @border-color;
+    }
+
+    .group-addon {
+        background: @brand-secondary;
+        position: absolute;
+        display: block;
+        .unitize-height(40);
+        .unitize(line-height, 40);
+        .unitize-padding(0, 20, 0, 20);
+        border: 1px solid @brand-secondary !important;
+        color: @btn-default-top-bg;
+
+        &.is--left {
+            left: 0;
+            top: 0;
+            border-left: 1px solid darken(@btn-default-top-bg, 2%);
+            border-right: 1px solid darken(@btn-default-top-bg, 2%);
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+        }
+
+        &.is--right {
+            .unitize(right, 140);
+            top: 0;
+            border-left: 1px solid darken(@btn-default-top-bg, 2%);
+        }
+
+        &.is--wide {
+            .unitize-width(80);
+            text-align: center;
+        }
+    }
+
+    .btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+        .unitize-width(140);
+        .unitize-height(40);
+        text-align: center;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-left: 1px solid lighten(@brand-secondary, 10%);
+    }
+}
+
+.actions--offer-details {
+    .unitize-width(120) !important;
+}
+
+.b2b--checkout-offer {
+    .unitize(margin-top, 30);
+
+    .action--product-add {
+        .unitize(margin-top, 10);
+    }
+
+    .group-actions {
+        .unitize(margin-top, 30);
+
+        .block-discount {
+            width: 50%;
+            .unitize(padding-right, 10);
+        }
+
+        .block-submit {
+            width: 50%;
+            .unitize(padding-left, 10);
+
+            .offer-accept--offer {
+                position: relative;
+                input[name='comment'] {
+                    width: 100%;
+                }
+                button.component-action-create {
+                    height: 100%;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                }
+            }
+        }
+    }
+}
+
+.b2b--modal {
+  .block-label {
+    width: 50%;
+  }
+
+  .price-input {
+    .unitize-width(120);
+  }
+
+  .offer--comment-area {
+      height: 100%;
+
+      textarea {
+          width: 100%;
+          height: 100%;
+      }
+  }
+}
+
+.offerthroughcheckout--title {
+    .unitize(margin-top, 60);
+}
+
+.is--ctl-b2bofferthroughcheckout {
+
+    .header-main {
+        .logo-main { width: 100%; }
+        .logo--shop { width: 50% }
+        .logo--link { .unitize(margin-top, 10); }
+
+        .logo--supportinfo { display: none; }
+        border-bottom: 1px solid @brand-primary;
+
+        .btn--back-top-shop {
+            .unitize(margin-top, 10);
+            width: 40%;
+            float: right;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .form--offercheckout-back {
+            .unitize-margin(20, 0);
+        }
+    }
+}
+
+@media screen and (min-width: @tabletViewportWidth) {
+    .line-item--column-referencenumber {
+        .unitize-width(300);
+    }
+}
+
+/* Checkout Overwrite */
+.main--actions {
+    .action--offer-create {
+        float: left !important;
+    }
+}

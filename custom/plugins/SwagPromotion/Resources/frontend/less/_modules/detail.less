@@ -1,0 +1,68 @@
+//promotion description
+.promotion--description-box {
+    cursor: pointer;
+}
+
+.promotion--description {
+    width: 90%;
+
+    p:last-of-type {
+        display: inline;
+    }
+}
+
+.promotion--index {
+    .unitize(margin-left, 5);
+}
+
+.promotion--is-right {
+    .unitize(right, 20);
+    position: absolute;
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+//promotion detailed description
+.promotion--detail-modal {
+    .header {
+        .unitize(padding-left, 40);
+        .unitize(padding-right, 40);
+    }
+    .content {
+        .unitize-padding(20, 40);
+    }
+}
+
+.promotion--detail-offcanvas {
+    display: none;
+    .is--open {
+        display: block;
+    }
+}
+
+.alert {
+    &.is--promotion {
+        color: darken(@highlight-promotion, 15%);
+        background: desaturate(lighten(@highlight-promotion, 42%),20%);
+
+        .alert--icon {
+            background: @highlight-promotion;
+        }
+    }
+}
+
+//promotion footnotes
+.promotion--footnote-index {
+    color: darken(@highlight-success, 15%);
+}
+
+.promotion--content-description {
+    .unitize-padding(10, 10);
+}
+
+.promotion--content-title {
+    .unitize(font-size, 18);
+
+    font-weight: @font-bold-weight;
+}

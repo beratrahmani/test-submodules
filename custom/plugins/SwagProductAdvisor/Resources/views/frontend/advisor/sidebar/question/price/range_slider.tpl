@@ -1,0 +1,1 @@
+{include file="frontend/advisor/range_slider.tpl"}

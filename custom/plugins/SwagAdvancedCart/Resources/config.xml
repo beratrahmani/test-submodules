@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.5/engine/Shopware/Components/Plugin/schema/config.xsd">
+
+    <elements>
+        <element required="true" type="number" scope="shop">
+            <name>expireDateInDays</name>
+            <label lang="de">Session Warenkorb Speicherfrist in Tagen</label>
+            <label lang="en">Session basket save time in days</label>
+            <value>365</value>
+            <description lang="de">Nachdem die Speicherfrist in Tagen erreicht wurde, werden die Session Warenkörbe entfernt, nicht aber die Wunschlisten.</description>
+            <description lang="en">Once the retention period has been reached in days, the session carts are removed (this does not affect wishlists).</description>
+        </element>
+
+        <element required="false" type="boolean" scope="shop">
+            <name>clearBasketOnRestore</name>
+            <label lang="de">Bestehenden Warenkorb beim Wiederherstellen einer Wunschliste leeren</label>
+            <label lang="en">Clear existing basket on wishlist restore</label>
+            <value>true</value>
+            <description lang="de">Diese Funktion dient dazu, dass der Kunde beim Laden seiner Wunschliste keine alten Artikel im Warenkorb hat.</description>
+            <description lang="en">This function serves to ensure that the customer has no items in his shopping cart when loading his wishlist.</description>
+        </element>
+
+        <element required="false" type="boolean" scope="shop">
+            <name>shareViaMail</name>
+            <label lang="de">Teilen via E-Mail</label>
+            <label lang="en">Share via mail</label>
+            <value>false</value>
+            <description lang="de">Bei aktivierter Einstellung können die Wunschlisten per E-Mail geteilt werden. Bitte prüfen Sie vorab die gesetzlichen Bestimmungen für Ihr Land.</description>
+            <description lang="en">If set, wishlists can be shared via email. Legal restrictions may apply.</description>
+        </element>
+
+        <element required="false" type="boolean" scope="shop">
+            <name>alsoListShow</name>
+            <label lang="de">Artikel Kombinationen empfehlen (Langsam)</label>
+            <label lang="en">Recommend product combinations (slow)</label>
+            <value>false</value>
+            <description lang="de">Mit dieser Funktion werden den Kunden auf der Artikel Detailseite Artikel empfohlen, welche auf der gleichen Wunschliste liegen.</description>
+            <description lang="en">This feature displays, in the product detail page, recommended items which are on the same wishlist.</description>
+        </element>
+
+        <element required="false" type="boolean" scope="shop">
+            <name>replaceNote</name>
+            <label lang="de">Merkzettel ersetzen</label>
+            <label lang="en">Replace default wishlist</label>
+            <value>true</value>
+            <description lang="de">Mithilfe dieser Funktion können Sie den Merkzettel durch das Wunschlisten Plugin ersetzen. In der Store-Front wird der Merzettel nur noch über den direkten Link aufrufbar sein.</description>
+            <description lang="en">Replace the default wishlist with the advanced wishlist. In the store front, the default wishlist will only be accessible via a direct link.</description>
+        </element>
+
+        <element required="false" type="text" scope="shop">
+            <name>facebookAppId</name>
+            <label lang="de">Facebook App-ID</label>
+            <label lang="en">Facebook App-ID</label>
+            <description lang="de">Die App-ID wird für die Sozialen-Plugins von Facebook benötigt (Gefällt mir Angaben und Kommentare).</description>
+            <description lang="en">The App ID is required for Facebook social plugins (Likes information and comments).</description>
+        </element>
+
+        <element required="false" type="boolean" scope="shop">
+            <name>facebookLikes</name>
+            <label lang="de">Facebook Gefällt mir Angaben</label>
+            <label lang="en">Facebook Likes</label>
+            <value>false</value>
+            <description lang="de">Öffentliche Wunschlisten können bei aktivierter Einstellung mit Gefällt mir Angaben versehen werden.</description>
+            <description lang="en">Enable "Like" buttons on public wishlists.</description>
+        </element>
+
+        <element required="false" type="boolean" scope="shop">
+            <name>facebookComments</name>
+            <label lang="de">Facebook Kommentare</label>
+            <label lang="en">Facebook Comments</label>
+            <value>false</value>
+            <description lang="de">Wenn diese Funktion aktiviert ist, können die öffentlichen Wunschlisten mit dem sozialen Plug-in von Facebook kommentiert werden.</description>
+            <description lang="en">Public wishlists can be commented with the Facebook social plugin.</description>
+        </element>
+
+    </elements>
+</config>

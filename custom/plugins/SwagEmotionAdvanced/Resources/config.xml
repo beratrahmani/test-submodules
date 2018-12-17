@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.5/engine/Shopware/Components/Plugin/schema/config.xsd">
+
+    <elements>
+        <element type="select" scope="shop">
+            <name>additionalQuickViewMode</name>
+            <label lang="de">Zusätzliche QuickViews</label>
+            <label lang="en">Additional QuickViews</label>
+            <value>1</value>
+            <description lang="de"><![CDATA[Wählen Sie eine Option, um zusätzliche QuickView Funktionalitäten zu aktivieren <br><br> 1) Keine zusätzliche Funktionen <br> 2) QuickView für alle Produktlinks in Listings und Slidern aktivieren <br> 3) QuickView nur auf dem "Details" Button öffnen, wenn "Kaufenbutton im Listing anzeigen" aktiviert ist]]></description>
+            <description lang="en"><![CDATA[Select an option, to activate additional QuickView functionality <br><br> 1) No additional functionality <br> 2) Activate QuickView for all product links in listings and sliders <br> 3) Open QuickView only on "Details" Button, if "Display buy button in listing" is active]]></description>
+            <store>
+                <option>
+                    <value>1</value>
+                    <label lang="de">Nein</label>
+                    <label lang="en">No</label>
+                </option>
+                <option>
+                    <value>2</value>
+                    <label lang="de">Listings und Slider</label>
+                    <label lang="en">Listings and sliders</label>
+                </option>
+                <option>
+                    <value>3</value>
+                    <label lang="de">Nur "Details" Button</label>
+                    <label lang="en">Only "Details" button</label>
+                </option>
+            </store>
+        </element>
+    </elements>
+</config>

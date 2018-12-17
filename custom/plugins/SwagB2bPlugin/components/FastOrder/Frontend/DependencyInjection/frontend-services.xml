@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_fast_order.controller_class">Shopware\B2B\FastOrder\Frontend\FastOrderController</parameter>
+    <parameter key="b2b_fast_order.remote_controller_class">Shopware\B2B\FastOrder\Frontend\FastOrderRemoteController</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_fast_order.controller_abstract" abstract="true">
+      <argument id="b2b_fast_order.fast_order_service" type="service"/>
+      <argument id="b2b_shop.product_service" type="service"/>
+      <argument type="service" id="b2b_front_auth.authentication_service"/>
+    </service>
+    <service id="b2b_fast_order.remote_controller_abstract" abstract="true">
+      <argument id="b2b_fast_order.fast_order_service" type="service"/>
+      <argument id="b2b_order_list.service" type="service"/>
+      <argument id="b2b_order_list.remote_box_service" type="service"/>
+      <argument id="b2b_currency.service" type="service"/>
+      <argument id="b2b_front_auth.authentication_service" type="service"/>
+      <argument id="b2b_order_list.repository" type="service"/>
+      <argument id="b2b_order_list.grid_helper" type="service"/>
+    </service>
+    <service id="b2b_fast_order.controller" class="%b2b_fast_order.controller_class%" parent="b2b_fast_order.controller_abstract"/>
+    <service id="b2b_fast_order.remote_controller" class="%b2b_fast_order.remote_controller_class%" parent="b2b_fast_order.remote_controller_abstract"/>
+  </services>
+</container>

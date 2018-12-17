@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_common.csv_reader_class">Shopware\B2B\Common\File\CsvReader</parameter>
+    <parameter key="b2b_common.xls_reader_class">Shopware\B2B\Common\File\XlsReader</parameter>
+    <parameter key="b2b_common.csv_writer_class">Shopware\B2B\Common\File\CsvWriter</parameter>
+    <parameter key="b2b_common.xls_writer_class">Shopware\B2B\Common\File\XlsWriter</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_common.csv_reader_abstract" abstract="true"/>
+    <service id="b2b_common.xls_reader_abstract" abstract="true"/>
+    <service id="b2b_common.csv_writer_abstract" abstract="true"/>
+    <service id="b2b_common.xls_writer_abstract" abstract="true"/>
+    <service id="b2b_common.csv_reader" class="%b2b_common.csv_reader_class%" parent="b2b_common.csv_reader_abstract"/>
+    <service id="b2b_common.xls_reader" class="%b2b_common.xls_reader_class%" parent="b2b_common.xls_reader_abstract"/>
+    <service id="b2b_common.csv_writer" class="%b2b_common.csv_writer_class%" parent="b2b_common.csv_writer_abstract"/>
+    <service id="b2b_common.xls_writer" class="%b2b_common.xls_writer_class%" parent="b2b_common.xls_writer_abstract"/>
+  </services>
+</container>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="Tests/Functional/Bootstrap.php"
+         backupGlobals="false"
+         backupStaticAttributes="false">
+
+    <testsuite name="SwagBundle Test Suite">
+        <directory>Tests/Functional</directory>
+    </testsuite>
+
+    <testsuite name="SwagBundle Unit Test Suite">
+        <directory>Tests/Unit</directory>
+    </testsuite>
+
+    <filter>
+        <whitelist>
+            <directory suffix=".php">./</directory>
+            <exclude>
+                <directory suffix=".php">./Setup</directory>
+                <directory suffix=".php">./Tests</directory>
+                <directory suffix=".php">./vendor</directory>
+
+                <file>SwagBundle.php</file>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>

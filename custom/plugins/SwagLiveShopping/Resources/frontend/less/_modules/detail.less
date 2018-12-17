@@ -1,0 +1,129 @@
+.liveshopping--details {
+
+    display: none;
+
+	// Counter section
+	.counter {
+		.border-radius-multi(3px, 3px, 0, 0);
+        .unitize-padding(5, 0);
+        .clearfix();
+        border-top: 1px solid @border-color;
+        border-left: 1px solid @border-color;
+        border-right: 1px solid @border-color;
+		background-color: @gray-light;
+		color: @text-color;
+        font-weight: 700;
+	}
+
+    .counter--number {
+        .unitize(font-size, 18);
+    }
+
+    .counter--text {
+        .unitize(font-size, 12);
+    }
+
+    .counter--headline,
+    .stock--headline {
+        .unitize(font-size, 12);
+        .unitize(margin-bottom, 3);
+    }
+
+    .counter--time {
+        &.is--stock {
+            width: 60%;
+            float: left;
+        }
+    }
+
+    .counter--stock {
+        border-left: 1px solid @border-color;
+        width: 40%;
+        float: left;
+    }
+
+	// Content section
+	.liveshopping--prices {
+		.unitize(font-size, 12);
+
+		// Content price container
+		.content--price {
+            .border-radius-multi(0px, 0px, 3px, 3px);
+            .unitize-padding(10, 10);
+            color: #fff;
+            background-color: @badge-discount-bg;
+            width: 100%;
+		}
+
+        // Charge icon
+        .discount--charge-icon {
+            .unitize(top, 1);
+            .unitize(font-size, 16);
+            font-weight: bold;
+            position: relative;
+        }
+
+		// Price container
+		.price--container {
+			.unitize-min-height(30);
+            text-align: center;
+		}
+
+		.liveshopping--pseudoprice {
+			.unitize(font-size, 14);
+		}
+
+		.liveshopping--price {
+			.unitize(font-size, 30);
+            font-weight: 700;
+		}
+
+		// Discount container
+		.discount--container {
+            .unitize(font-size, 18);
+            font-weight: 700;
+            text-align: center;
+		}
+
+		.discount--charge-text {
+            .unitize-min-height(30);
+			.unitize(font-size, 14);
+            font-weight: bold;
+		}
+
+		.discount--charge--price {
+            .unitize-min-height(30);
+			.unitize(font-size, 18);
+		}
+
+		// Unit price container
+		.unit-price--container {
+			.unitize-padding(5, 0);
+		}
+	}
+
+    .liveshopping--elapse {
+        .unitize-margin(7, 0);
+        .border-radius(4px);
+        width: 100%;
+        background: darken(@badge-discount-bg, 15%);
+    }
+
+    .elapse--inner {
+        .border-radius(4px);
+        background: #fff;
+        height: 4px;
+    }
+}
+
+@media screen and (min-width: @phoneLandscapeViewportWidth) {
+    .liveshopping--details {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: @tabletViewportWidth) {
+    .liveshopping--details {
+        width: 100%;
+    }
+}

@@ -1,0 +1,18 @@
+.advisor-tick() {
+    &:extend(.icon--check:before);
+    &:extend([class^="icon--"], [class*=" icon--"]);
+    .unitize-height(30);
+    .unitize-width(30);
+    .unitize(line-height, 30);
+    .box-shadow();
+    background-color: #ffffff;
+    border-radius: 100%;
+    color: darken(@product-advisor-highlight-darken-success, 5%);
+    display: block;
+    left: 50%;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}

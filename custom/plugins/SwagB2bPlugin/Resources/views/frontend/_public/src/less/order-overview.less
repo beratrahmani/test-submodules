@@ -1,0 +1,155 @@
+.b2b-order-overview {
+  margin-top: 0 !important;
+
+  .panel.has--border {
+    overflow: hidden;
+    .unitize-margin(10, 10);
+
+    strong {
+      .unitize(font-size, 11);
+    }
+  }
+
+  .block-group {
+    clear: left;
+
+    .author,
+    .created-at,
+    .order-reference,
+    .value,
+    .item-count,
+    .state {
+      .block;
+      width: 33.33%;
+      .unitize-padding(10, 10);
+    }
+
+    .comment {
+      .unitize-padding(10, 10);
+    }
+
+    .comment-area {
+      .unitize-padding(0, 10, 0, 10);
+    }
+
+    .b2b-shipping-address,
+    .b2b-billing-address,
+    .b2b-shipping,
+    .b2b-billing {
+      .block;
+      width: 100%;
+    }
+
+    .b2b-shipping-address tr,
+    .b2b-billing-address tr,
+    .b2b-shipping tr,
+    .b2b-billing tr {
+      cursor: default;
+    }
+
+    .changeable-values {
+
+      .is--label {
+        width: 25%;
+      }
+
+      .b2b-requested-delivery-date {
+        .requested-delivery-date--col {
+          .unitize(padding-top, 5);
+          .unitize(padding-bottom, 5);
+          .requested-delivery-date--edit {
+            input {
+              width: 100%;
+              .unitize(padding-top, 5);
+              .unitize(padding-bottom, 5);
+            }
+          }
+        }
+      }
+
+      .b2b-order-reference {
+        .order-reference--col {
+          .unitize(padding-top, 5);
+          .unitize(padding-bottom, 5);
+          .order-reference--edit {
+            input {
+              width: 100%;
+              .unitize(padding-top, 5);
+              .unitize(padding-bottom, 5);
+            }
+          }
+        }
+      }
+
+      .b2b-comment {
+        .b2b-comment--col {
+          .unitize(padding-top, 5);
+          .unitize(padding-bottom, 5);
+          .b2b-comment--edit {
+            input {
+              width: 100%;
+              .unitize(padding-top, 5);
+              .unitize(padding-bottom, 5);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.modal--col-product {
+  width: 13%;
+}
+
+.modal--col-quantity {
+  width: 12%;
+
+  input {
+    width: 100%;
+  }
+}
+
+.modal--col-amount {
+  width: 20%;
+}
+
+.modal--col-comment {
+  width: 30%;
+  overflow-wrap: break-word;
+  word-break: break-all;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.modal--col-actions {
+  width: 15%;
+}
+
+@media screen and (min-width: 1000px) {
+
+  .b2b-order-overview {
+    .panel.has--border {
+      overflow: auto;
+
+      strong {
+        .unitize(font-size, 14);
+      }
+    }
+
+    .block-group {
+
+      .b2b-shipping-address,
+      .b2b-billing-address,
+      .b2b-shipping,
+      .b2b-billing {
+        .block;
+        width: 50%;
+      }
+
+    }
+  }
+
+}

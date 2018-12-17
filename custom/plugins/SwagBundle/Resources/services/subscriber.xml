@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="swag_bundle.subscriber.backend" class="SwagBundle\Subscriber\Backend">
+            <argument type="service" id="models"/>
+            <argument type="service" id="dbal_connection"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swag_bundle.subscriber.checkout" class="SwagBundle\Subscriber\Checkout">
+            <argument type="service" id="swag_bundle.bundle_basket"/>
+            <argument type="service" id="swag_bundle.bundle_component"/>
+            <argument type="service" id="models"/>
+            <argument type="service" id="shopware.plugin.config_reader"/>
+            <argument>%swag_bundle.plugin_name%</argument>
+            <argument type="service" id="swag_bundle.dependencies.provider"/>
+            <argument type="service" id="config"/>
+            <argument type="service" id="swag_bundle.voucher_service"/>
+            <argument type="service" id="dbal_connection"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swag_bundle.subscriber.listing_extension_subscriber"
+                 class="SwagBundle\Subscriber\ListingExtensionSubscriber">
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swag_bundle.subscriber.frontend" class="SwagBundle\Subscriber\ProductDetailPage">
+            <argument type="service" id="swag_bundle.listing.bundle_service"/>
+            <argument type="service" id="swag_bundle.bundle_component"/>
+            <argument type="service" id="shopware.plugin.config_reader"/>
+            <argument>%swag_bundle.plugin_name%</argument>
+            <argument type="service" id="swag_bundle.dependencies.provider"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swag_bundle.subscriber.template_registration" class="SwagBundle\Subscriber\TemplateRegistration">
+            <argument>%swag_bundle.plugin_dir%</argument>
+            <argument type="service" id="template"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swag_bundle.subscriber.voucher" class="SwagBundle\Subscriber\Voucher">
+            <tag name="shopware.event_subscriber"/>
+            <argument type="service" id="swag_bundle.voucher_service"/>
+            <argument type="service" id="shopware.plugin.cached_config_reader"/>
+            <argument>%swag_bundle.plugin_name%</argument>
+            <argument type="service" id="swag_bundle.dependencies.provider"/>
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="template"/>
+            <argument type="service" id="front"/>
+        </service>
+    </services>
+</container>

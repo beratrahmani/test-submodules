@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.5/engine/Shopware/Components/Plugin/schema/config.xsd">
+
+    <elements>
+        <element type="select">
+            <name>promotionPriceDisplaying</name>
+            <label lang="de">Preisdarstellung</label>
+            <label lang="en">Price displaying</label>
+            <value>normal</value>
+            <description lang="de">Durch bestimmte Promotions kann sich der Preise eines Aritkels ändern. Hier können Sie definieren, wie der Preis auf der Detailseite dargestellt werden soll.</description>
+            <description lang="en">The price of a product could be changed by particular promotions. Define here, how the price should be displayed on the detail page.</description>
+            <store>
+                <option>
+                    <value>normal</value>
+                    <label lang="de">Nicht anders darstellen</label>
+                    <label lang="en">Don't change displaying</label>
+                </option>
+                <option>
+                    <value>pseudo</value>
+                    <label lang="de">Alten Preis als neuen Pseudopreis setzen</label>
+                    <label lang="en">Set old price as new pseudo price</label>
+                </option>
+                <option>
+                    <value>price</value>
+                    <label lang="de">Nur neuen Preis hervorheben</label>
+                    <label lang="en">Only highlight new price</label>
+                </option>
+            </store>
+        </element>
+
+        <element type="boolean">
+            <name>promotionPricesInProductExport</name>
+            <label lang="de">Aktionspreise im Produktexport</label>
+            <label lang="en">Promotion prices in product export</label>
+            <description lang="de">Wenn diese Option aktiv ist werden die Aktionspreise im Produktexport verwendet (gilt nur für Produktregeln)</description>
+            <description lang="en">If active, the promotion prices will be exported during the product export (does only affect product rules)</description>
+        </element>
+    </elements>
+</config>

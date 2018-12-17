@@ -1,0 +1,113 @@
+<container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://symfony.com/schema/dic/services"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <service class="SwagProductAdvisor\Components\DeHydration"
+                 id="swag_product_advisor.de_hydration">
+            <argument type="service" id="models"/>
+        </service>
+
+        <service class="SwagProductAdvisor\Components\Helper\BackendStreamProductPreview"
+                 id="swag_product_advisor.backend_stream_product_preview">
+            <argument id="dbal_connection" type="service"/>
+            <argument id="shopware_storefront.context_service" type="service"/>
+            <argument id="shopware_product_stream.criteria_factory" type="service"/>
+            <argument id="shopware_product_stream.repository" type="service"/>
+            <argument id="shopware_search.product_number_search" type="service"/>
+            <argument id="swag_product_advisor.default_settings_service"
+                      type="service"/>
+            <argument id="swag_product_advisor.de_hydration" type="service"/>
+        </service>
+
+        <service class="SwagProductAdvisor\Components\Helper\BackendStreamHelper"
+                 id="swag_product_advisor.backend_stream_helper">
+            <argument id="shopware_storefront.context_service" type="service"/>
+            <argument id="shopware_product_stream.repository" type="service"/>
+            <argument id="shopware_search.product_number_search" type="service"/>
+            <argument id="swag_product_advisor.default_settings_service"
+                      type="service"/>
+            <argument id="shopware_search.store_front_criteria_factory" type="service"/>
+        </service>
+
+        <service class="SwagProductAdvisor\Components\Helper\DefaultSettingsService"
+                 id="swag_product_advisor.default_settings_service">
+            <argument id="dbal_connection" type="service"/>
+        </service>
+
+        <service class="SwagProductAdvisor\Components\Helper\SessionProvider"
+                 id="swag_product_advisor.session_provider">
+            <argument type="service" id="models"/>
+            <argument type="service" id="swag_product_advisor.answer_validator"/>
+            <argument type="service" id="swag_product_advisor.dependency_provider"/>
+        </service>
+
+        <service class="SwagProductAdvisor\Components\Helper\UrlGenerator"
+                 id="swag_product_advisor.url_generator">
+            <argument type="service" id="front"/>
+            <argument type="service" id="swag_product_advisor.session_provider"/>
+            <argument type="service" id="models"/>
+            <argument type="service" id="swag_product_advisor.rewrite_url_generator"/>
+            <argument type="service" id="config"/>
+        </service>
+
+        <service class="SwagProductAdvisor\Components\Helper\BackendLocale"
+                 id="swag_product_advisor.backend_locale">
+            <argument type="service" id="swag_product_advisor.dependency_provider"/>
+        </service>
+
+        <service class="SwagProductAdvisor\Components\Helper\AnswerBuilder"
+                 id="swag_product_advisor.answer_builder"/>
+
+        <service class="SwagProductAdvisor\Components\Helper\AdvisorValidator"
+                 id="swag_product_advisor.advisor_validator">
+            <argument type="service" id="swag_product_advisor.session_provider"/>
+            <argument type="service" id="swag_product_advisor.answer_builder"/>
+        </service>
+
+        <service class="SwagProductAdvisor\Components\Helper\AnswerValidator"
+                 id="swag_product_advisor.answer_validator">
+            <argument type="service" id="models"/>
+        </service>
+
+        <service class="SwagProductAdvisor\Components\Helper\RewriteUrlGenerator"
+                 id="swag_product_advisor.rewrite_url_generator">
+            <argument type="service" id="models"/>
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="swag_product_advisor.dependency_provider"/>
+        </service>
+
+        <service class="SwagProductAdvisor\Components\Helper\TranslationService"
+                 id="swag_product_advisor.translation_service">
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="swag_product_advisor.dependency_provider"/>
+        </service>
+
+        <service class="SwagProductAdvisor\Components\Helper\LiveShoppingHelper"
+                 id="swag_product_advisor.live_shopping_helper">
+            <argument type="service" id="swag_product_advisor.dependency_provider"/>
+            <argument type="service" id="shopware.plugin.config_reader"/>
+        </service>
+
+        <service class="SwagProductAdvisor\Components\Helper\ResultHelper"
+                 id="swag_product_advisor.result_helper">
+            <argument type="service" id="shopware_search.store_front_criteria_factory"/>
+            <argument type="service" id="config"/>
+            <argument type="service" id="shopware_storefront.context_service"/>
+            <argument type="service" id="shopware_product_stream.repository"/>
+            <argument type="service" id="swag_product_advisor.search"/>
+            <argument type="service" id="legacy_struct_converter"/>
+            <argument type="service" id="swag_product_advisor.live_shopping_helper"/>
+            <argument type="service" id="theme_inheritance"/>
+            <argument type="service" id="swag_product_advisor.dependency_provider"/>
+        </service>
+
+        <service id="swag_product_advisor.post_handler" class="SwagProductAdvisor\Bundle\AdvisorBundle\PostHandler"/>
+
+        <service id="swag_product_advisor.dependency_provider" class="SwagProductAdvisor\Components\DependencyProvider\DependencyProvider">
+            <argument type="service" id="service_container"/>
+        </service>
+
+    </services>
+</container>

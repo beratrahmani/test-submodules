@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_statistic.controller_class">Shopware\B2B\Statistic\Frontend\StatisticController</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_statistic.controller_abstract" abstract="true">
+      <argument type="service" id="b2b_front_auth.authentication_service"/>
+      <argument type="service" id="b2b_statistic.repository"/>
+      <argument type="service" id="b2b_statistic.grid"/>
+      <argument type="service" id="b2b_common.csv_writer"/>
+      <argument type="service" id="b2b_common.xls_writer"/>
+    </service>
+    <service id="b2b_statistic.controller" class="%b2b_statistic.controller_class%" parent="b2b_statistic.controller_abstract"/>
+  </services>
+</container>

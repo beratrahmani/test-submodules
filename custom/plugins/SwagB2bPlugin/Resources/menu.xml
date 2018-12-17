@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="../../../engine/Shopware/Components/Plugin/schema/menu.xsd">
+    <entries>
+        <entry>
+            <name>Offer</name>
+            <label lang="en">Offers</label>
+            <label lang="de">Angebote</label>
+            <controller>b2bOffer</controller>
+            <action>index</action>
+            <class>sprite-auction-hammer</class>
+            <parent identifiedBy="controller">Customer</parent>
+        </entry>
+    </entries>
+</menu>

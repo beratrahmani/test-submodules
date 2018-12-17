@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="b2b_order.shop_repository" class="Shopware\B2B\Order\Bridge\ShopOrderRepository">
+            <argument type="service" id="dbal_connection"/>
+        </service>
+        <service class="Shopware\B2B\Order\Bridge\OrderReferenceSubscriber" id="b2b_order.reference_subscriber">
+            <argument id="b2b_order.order_context_repository" type="service"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service class="Shopware\B2B\Order\Bridge\OrderRequestedDeliveryDateSubscriber" id="b2b_order.delivery_date_subscriber">
+            <argument id="b2b_order.order_context_repository" type="service"/>
+
+            <tag name="shopware.event_subscriber"/>
+        </service>
+        <service class="Shopware\B2B\Order\Bridge\DebtorAssigner" id="b2b_order.debtor_assign_subscriber">
+            <argument id="b2b_front_auth.authentication_service" type="service"/>
+            <argument id="b2b_order.shop_repository" type="service"/>
+
+            <tag name="shopware.event_subscriber"/>
+        </service>
+        <service class="Shopware\B2B\Order\Bridge\AuthAssigner" id="b2b_order.auth_assign_subscriber">
+            <argument id="b2b_front_auth.authentication_service" type="service"/>
+            <argument id="b2b_order.shop_repository" type="service"/>
+
+            <tag name="shopware.event_subscriber"/>
+        </service>
+        <service class="Shopware\B2B\Order\Bridge\OrderChangeQueueRepository" id="b2b_order.order_change_queue_repository">
+            <argument type="service" id="dbal_connection"/>
+        </service>
+        <service class="Shopware\B2B\Order\Bridge\OrderChangeTrigger" id="b2b_order.order_change_trigger_subscriber">
+            <argument type="service" id="b2b_order.order_change_queue_repository"/>
+            <argument type="service" id="b2b_order.shop_repository"/>
+            <argument type="service" id="b2b_order.order_context_repository" />
+            <argument type="service" id="events" />
+
+            <tag name="shopware.event_subscriber"/>
+        </service>
+        <service class="Shopware\B2B\Order\Bridge\OrderChangeTriggerCommand" id="b2b_order.order_change_trigger_command">
+            <argument type="service" id="b2b_order.order_change_queue_repository"/>
+            <argument type="service" id="b2b_order.order_change_trigger_subscriber"/>
+
+            <tag name="console.command"/>
+        </service>
+        <service class="Shopware\B2B\Order\Bridge\OrderChangeTriggerCronjob" id="b2b_order.order_change_trigger_cronjob">
+            <argument type="service" id="b2b_order.order_change_trigger_command"/>
+
+            <tag name="shopware.event_subscriber"/>
+        </service>
+        <service class="Shopware\B2B\Order\Bridge\OrderStatusInterpreterService" id="b2b_order.status_interpreter_service"/>
+        <service class="Shopware\B2B\Order\Bridge\OrderContextShopWriterService" id="b2b_order.order_context_shop_writer_service"/>
+        <service class="Shopware\B2B\Order\Bridge\OrderRepository" id="b2b_order.repository">
+            <argument id="dbal_connection" type="service"/>
+            <argument id="b2b_common.repository_dbal_helper" type="service"/>
+            <argument id="b2b_order.shop_repository" type="service"/>
+            <argument id="b2b_line_item_list.repository" type="service"/>
+        </service>
+        <service id="b2b_order.grid_helper" class="Shopware\B2B\Common\Controller\GridHelper">
+            <argument type="service" id="b2b_order.repository"/>
+        </service>
+    </services>
+</container>

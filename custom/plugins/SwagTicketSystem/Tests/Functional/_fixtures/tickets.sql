@@ -1,0 +1,13 @@
+-- Tickets
+INSERT INTO `s_ticket_support` (`id`, `uniqueID`, `userID`, `employeeID`, `ticket_typeID`, `statusID`, `formId`, `email`, `subject`, `message`, `receipt`, `last_contact`, `additional`, `shop_id`)
+VALUES (1, '33a106fa6cfb84a1ae108649716baa03', 1, 0 , 1, 1, 16, 'test@example.com', 'Subject', 'Message', '2018-01-01 16:00:00', '2018-01-01 16:00:00', 'a:4:{i:0;a:4:{s:4:"name";s:6:"anrede";s:5:"label";s:6:"Anrede";s:3:"typ";s:6:"select";s:5:"value";s:4:"Herr";}i:1;a:4:{s:4:"name";s:7:"vorname";s:5:"label";s:7:"Vorname";s:3:"typ";s:4:"text";s:5:"value";s:3:"Max";}i:2;a:4:{s:4:"name";s:8:"nachname";s:5:"label";s:8:"Nachname";s:3:"typ";s:4:"text";s:5:"value";s:10:"Mustermann";}i:3;a:4:{s:4:"name";s:7:"telefon";s:5:"label";s:7:"Telefon";s:3:"typ";s:4:"text";s:5:"value";s:0:"";}}', 1);
+
+INSERT INTO `s_ticket_support` (`id`, `uniqueID`, `userID`, `employeeID`, `ticket_typeID`, `statusID`, `formId`, `email`, `subject`, `message`, `receipt`, `last_contact`, `additional`, `shop_id`)
+VALUES (2, '44h5d6fa6cfb84a1ae108649716baa03', 1, 0 , 1, 2, 16, 'test@example.com', 'Subject2', 'Message2', '2018-01-02 16:00:00', '2018-01-02 16:00:00', 'a:4:{i:0;a:4:{s:4:"name";s:6:"anrede";s:5:"label";s:6:"Anrede";s:3:"typ";s:6:"select";s:5:"value";s:4:"Herr";}i:1;a:4:{s:4:"name";s:7:"vorname";s:5:"label";s:7:"Vorname";s:3:"typ";s:4:"text";s:5:"value";s:3:"Max";}i:2;a:4:{s:4:"name";s:8:"nachname";s:5:"label";s:8:"Nachname";s:3:"typ";s:4:"text";s:5:"value";s:10:"Mustermann";}i:3;a:4:{s:4:"name";s:7:"telefon";s:5:"label";s:7:"Telefon";s:3:"typ";s:4:"text";s:5:"value";s:0:"";}}', 1);
+
+INSERT INTO `s_ticket_support` (`id`, `uniqueID`, `userID`, `employeeID`, `ticket_typeID`, `statusID`, `formId`, `email`, `subject`, `message`, `receipt`, `last_contact`, `additional`, `shop_id`)
+VALUES (3, '66fhr6fa6cfb84a1ae108649716baa03', 2, 0 , 1, 3, 16, 'test@example.com', 'Subject3', 'Message3', '2018-01-03 16:00:00', '2018-01-03 16:00:00', 'a:4:{i:0;a:4:{s:4:"name";s:6:"anrede";s:5:"label";s:6:"Anrede";s:3:"typ";s:6:"select";s:5:"value";s:4:"Herr";}i:1;a:4:{s:4:"name";s:7:"vorname";s:5:"label";s:7:"Vorname";s:3:"typ";s:4:"text";s:5:"value";s:3:"Max";}i:2;a:4:{s:4:"name";s:8:"nachname";s:5:"label";s:8:"Nachname";s:3:"typ";s:4:"text";s:5:"value";s:10:"Mustermann";}i:3;a:4:{s:4:"name";s:7:"telefon";s:5:"label";s:7:"Telefon";s:3:"typ";s:4:"text";s:5:"value";s:0:"";}}', 1);
+
+-- History entries
+INSERT INTO `s_ticket_support_history` (`ticketID`, `swUser`, `subject`, `message`, `receipt`, `support_type`, `receiver`, `direction`, `attachment`, `statusId`)
+VALUES (1, '', 'Antwort zu Ihrem Ticket {sTicketId}', 'Standardvorlage Antwort auf das Ticket #1', '2018-01-02 16:00:00', 'direct', 'test@example.com', 'OUT', '', 2);

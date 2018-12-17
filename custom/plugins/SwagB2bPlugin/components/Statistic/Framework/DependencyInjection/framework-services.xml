@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_statistic.repository_class">Shopware\B2B\Statistic\Framework\StatisticRepository</parameter>
+    <parameter key="b2b_statistic.grid_class">Shopware\B2B\Common\Controller\GridHelper</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_statistic.repository_abstract" abstract="true">
+      <argument type="service" id="dbal_connection"/>
+      <argument type="service" id="b2b_common.repository_dbal_helper"/>
+      <argument type="service" id="b2b_front_auth.authentication_service"/>
+    </service>
+    <service id="b2b_statistic.grid_abstract" abstract="true">
+      <argument type="service" id="b2b_statistic.repository"/>
+    </service>
+    <service id="b2b_statistic.repository" class="%b2b_statistic.repository_class%" parent="b2b_statistic.repository_abstract"/>
+    <service id="b2b_statistic.grid" class="%b2b_statistic.grid_class%" parent="b2b_statistic.grid_abstract"/>
+  </services>
+</container>

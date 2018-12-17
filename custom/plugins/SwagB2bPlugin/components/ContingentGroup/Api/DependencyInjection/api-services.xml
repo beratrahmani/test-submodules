@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_contingent_group.api_route_provider_class">Shopware\B2B\ContingentGroup\Api\DependencyInjection\ContingentGroupApiRouteProvider</parameter>
+    <parameter key="b2b_contingent_group.api_contingent_group_controller_class">Shopware\B2B\ContingentGroup\Api\ContingentGroupController</parameter>
+    <parameter key="b2b_contingent_group.api_contingent_contact_route_provider_class">Shopware\B2B\ContingentGroup\Api\DependencyInjection\ContingentContactApiRouteProvider</parameter>
+    <parameter key="b2b_contingent_group.api_contingent_role_route_provider_class">Shopware\B2B\ContingentGroup\Api\DependencyInjection\ContingentRoleApiRouteProvider</parameter>
+    <parameter key="b2b_contingent_group.api_contingent_contact_controller_class">Shopware\B2B\AclRoute\Api\AssignmentContactController</parameter>
+    <parameter key="b2b_contingent_group.api_contingent_role_controller_class">Shopware\B2B\AclRoute\Api\AssignmentRoleController</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_contingent_group.api_route_provider_abstract" abstract="true">
+            
+        </service>
+    <service id="b2b_contingent_group.api_contingent_group_controller_abstract" abstract="true">
+      <argument type="service" id="b2b_contingent_group.repository"/>
+      <argument type="service" id="b2b_contingent_group.grid_helper"/>
+      <argument type="service" id="b2b_contingent_group.crud_service"/>
+      <argument type="service" id="b2b_debtor.debtor_authentication_identity_loader"/>
+      <argument type="service" id="b2b_front_auth.login_context"/>
+      <argument type="service" id="b2b_acl.grant_context_provider_chain"/>
+    </service>
+    <service id="b2b_contingent_group.api_contingent_contact_route_provider_abstract" abstract="true">
+            
+        </service>
+    <service id="b2b_contingent_group.api_contingent_role_route_provider_abstract" abstract="true">
+            
+        </service>
+    <service id="b2b_contingent_group.api_contingent_contact_controller_abstract" abstract="true">
+      <argument type="service" id="b2b_contact.repository"/>
+      <argument type="service" id="b2b_contact_contingent_group.acl_repository"/>
+      <argument type="service" id="b2b_debtor.debtor_authentication_identity_loader"/>
+      <argument type="service" id="b2b_front_auth.login_context"/>
+    </service>
+    <service id="b2b_contingent_group.api_contingent_role_controller_abstract" abstract="true">
+      <argument type="service" id="b2b_role.repository"/>
+      <argument type="service" id="b2b_role_contingent_group.acl_repository"/>
+      <argument type="service" id="b2b_debtor.debtor_authentication_identity_loader"/>
+      <argument type="service" id="b2b_front_auth.login_context"/>
+    </service>
+    <service id="b2b_contingent_group.api_route_provider" class="%b2b_contingent_group.api_route_provider_class%" parent="b2b_contingent_group.api_route_provider_abstract">
+      <tag name="b2b_common.rest_route_provider"/>
+    </service>
+    <service id="b2b_contingent_group.api_contingent_group_controller" class="%b2b_contingent_group.api_contingent_group_controller_class%" parent="b2b_contingent_group.api_contingent_group_controller_abstract"/>
+    <service id="b2b_contingent_group.api_contingent_contact_route_provider" class="%b2b_contingent_group.api_contingent_contact_route_provider_class%" parent="b2b_contingent_group.api_contingent_contact_route_provider_abstract">
+      <tag name="b2b_common.rest_route_provider"/>
+    </service>
+    <service id="b2b_contingent_group.api_contingent_role_route_provider" class="%b2b_contingent_group.api_contingent_role_route_provider_class%" parent="b2b_contingent_group.api_contingent_role_route_provider_abstract">
+      <tag name="b2b_common.rest_route_provider"/>
+    </service>
+    <service id="b2b_contingent_group.api_contingent_contact_controller" class="%b2b_contingent_group.api_contingent_contact_controller_class%" parent="b2b_contingent_group.api_contingent_contact_controller_abstract"/>
+    <service id="b2b_contingent_group.api_contingent_role_controller" class="%b2b_contingent_group.api_contingent_role_controller_class%" parent="b2b_contingent_group.api_contingent_role_controller_abstract"/>
+  </services>
+</container>

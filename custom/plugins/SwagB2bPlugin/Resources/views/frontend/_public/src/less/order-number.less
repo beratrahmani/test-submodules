@@ -1,0 +1,50 @@
+.module-ordernumber {
+  .table--ordernumber {
+    .col-name {
+      width: 30%;
+    }
+
+    .col-ordernumber {
+      width: 30%;
+    }
+
+    .col-custom-ordernumber {
+      width: 30%;
+    }
+
+    .col-actions {
+      width: 10%;
+    }
+
+    .input-ordernumber {
+      width: 100%;
+    }
+
+    .input-customproductnumber {
+      width: 100%;
+    }
+
+    .headline-product {
+      .unitize(margin-top, 8);
+    }
+
+    .headline-product-placeholder {
+      .unitize-margin(5, 0, 0, 0);
+      color: lighten(@text-color, 15%);
+      font-style: italic;
+    }
+
+    .headline-notfound {
+      .unitize(margin-top, 8);
+      color: lighten(@brand-secondary, 20%);
+    }
+
+    tr:last-child td {
+      border-bottom: 1px solid @border-color !important;
+    }
+  }
+
+  .btn.action--export {
+    .unitize(margin-left, 3);
+  }
+}

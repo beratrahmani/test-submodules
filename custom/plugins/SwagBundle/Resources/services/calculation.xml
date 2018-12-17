@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="swag_bundle.calculation.validation.bundle_last_stock_validator"
+                 class="SwagBundle\Services\Calculation\Validation\BundleLastStockValidator">
+            <argument type="service" id="swag_bundle.bundle_basket"/>
+        </service>
+
+        <service id="swag_bundle.calculation.calculation_repository" class="SwagBundle\Services\Calculation\CalculationRepository">
+            <argument type="service" id="models"/>
+        </service>
+
+        <service id="swag_bundle.calculation.bundle_price_calculator" class="SwagBundle\Services\Calculation\BundlePriceCalculator">
+            <argument type="service" id="swag_bundle.dependencies.provider"/>
+            <argument type="service" id="swag_bundle.calculation.calculation_repository"/>
+            <argument type="service" id="models"/>
+        </service>
+
+        <service id="swag_bundle.calculation.update_bundle_basket_discount" class="SwagBundle\Services\Calculation\BundleBasketDiscount">
+            <argument type="service" id="models"/>
+            <argument type="service" id="swag_bundle.dependencies.provider"/>
+            <argument type="service" id="swag_bundle.full_bundle_service"/>
+            <argument type="service" id="swag_bundle.customer_group_service"/>
+            <argument type="service" id="config"/>
+            <argument type="service" id="swag_bundle.discount.basket_helper"/>
+            <argument type="service" id="shopware.cart.proportional_tax_calculator"/>
+            <argument type="service" id="swag_bundle.discount_service"/>
+        </service>
+    </services>
+</container>

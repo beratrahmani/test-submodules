@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.5/engine/Shopware/Components/Plugin/schema/config.xsd">
+
+    <elements>
+        <element type="boolean" scope="shop">
+            <name>SwagBundleExcludeVoucher</name>
+            <label lang="de">Bundles von prozentualen Gutscheine ausschließen</label>
+            <label lang="en">Exclude bundles from percental vouchers</label>
+            <value>true</value>
+            <description lang="de">Bundle-Artikel werden bei der Berechnung von prozentualen Gutscheinen nicht berücksichtigt.</description>
+            <description lang="en">Bundle products are excluded from the calculation of percentage vouchers.</description>
+        </element>
+
+        <element type="boolean" scope="shop">
+            <name>SwagBundleSubtractBundle</name>
+            <label lang="de">Bundle-Rabatt bei der Berechnung von Gutscheinen berücksichtigen</label>
+            <label lang="en">Take bundle discount into account when calculating voucher</label>
+            <value>true</value>
+            <description lang="de">Zieht den Bundle-Rabatt bei der Berechnung prozentualer Gutscheine ab.</description>
+            <description lang="en">Subtract bundle discount from percental vouchers discount</description>
+        </element>
+
+        <element type="boolean" scope="shop">
+            <name>SwagBundleShowBelowDesc</name>
+            <label lang="de">Bundle unter der Produktbeschreibung anzeigen</label>
+            <label lang="en">Show bundle below product description</label>
+            <value>false</value>
+            <description lang="de">Position des Bundles auf der Artikel-Detail-Seite</description>
+            <description lang="en">Position of the bundle on the product detail page</description>
+        </element>
+
+        <element type="boolean" scope="shop">
+            <name>SwagBundleShowBundleIcon</name>
+            <label lang="de">Markiere Bundle Artikel im Listing</label>
+            <label lang="en">Mark bundle products in the listing</label>
+            <value>true</value>
+        </element>
+    </elements>
+</config>

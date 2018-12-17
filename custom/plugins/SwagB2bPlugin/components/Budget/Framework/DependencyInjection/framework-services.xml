@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_budget.repository_class">Shopware\B2B\Budget\Framework\BudgetRepository</parameter>
+    <parameter key="b2b_budget.grid_helper_class">Shopware\B2B\Common\Controller\GridHelper</parameter>
+    <parameter key="b2b_budget.service_class">Shopware\B2B\Budget\Framework\BudgetService</parameter>
+    <parameter key="b2b_budget.validation_service_class">Shopware\B2B\Budget\Framework\BudgetValidationService</parameter>
+    <parameter key="b2b_budget.crud_service_class">Shopware\B2B\Budget\Framework\BudgetCrudService</parameter>
+    <parameter key="b2b_budget.acl_access_writer_class">Shopware\B2B\Acl\Framework\AclAccessWriter</parameter>
+    <parameter key="b2b_budget.acl_repository_class">Shopware\B2B\Acl\Framework\AclRepository</parameter>
+    <parameter key="b2b_budget.contact_acl_table_class">Shopware\B2B\Budget\Framework\BudgetContactAclTable</parameter>
+    <parameter key="b2b_budget.role_acl_table_class">Shopware\B2B\Budget\Framework\BudgetRoleAclTable</parameter>
+    <parameter key="b2b_budget.notification_repository_class">Shopware\B2B\Budget\Framework\BudgetNotificationRepository</parameter>
+    <parameter key="b2b_budget.cart_access_factory_class">Shopware\B2B\Budget\Framework\BudgetCartAccessFactory</parameter>
+    <parameter key="b2b_budget.acl_read_helper_class">Shopware\B2B\Acl\Framework\AclReadHelper</parameter>
+    <parameter key="b2b_budget.company_assignment_filter_class">Shopware\B2B\Budget\Framework\BudgetCompanyAssignmentFilter</parameter>
+    <parameter key="b2b_budget.company_inheritance_filter_class">Shopware\B2B\Budget\Framework\BudgetCompanyInheritanceFilter</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_budget.repository_abstract" abstract="true">
+      <argument type="service" id="dbal_connection"/>
+      <argument type="service" id="b2b_common.repository_dbal_helper"/>
+      <argument type="service" id="b2b_shop.storage"/>
+      <argument type="service" id="b2b_currency.calculator"/>
+      <argument type="service" id="b2b_budget.acl_read_helper"/>
+      <argument type="service" id="b2b_company.filter_helper"/>
+      <argument type="service" id="b2b_budget.company_assignment_filter"/>
+      <argument type="service" id="b2b_budget.company_inheritance_filter"/>
+    </service>
+    <service id="b2b_budget.grid_helper_abstract" abstract="true">
+      <argument type="service" id="b2b_budget.repository"/>
+    </service>
+    <service id="b2b_budget.service_abstract" abstract="true">
+      <argument type="service" id="b2b_budget.repository"/>
+      <argument type="service" id="b2b_budget.notification_repository"/>
+      <argument type="service" id="b2b_order.status_interpreter_service"/>
+      <argument type="service" id="b2b_shop.shop"/>
+    </service>
+    <service id="b2b_budget.validation_service_abstract" abstract="true">
+      <argument type="service" id="b2b_common.validation_builder"/>
+      <argument type="service" id="validator"/>
+      <argument type="service" id="b2b_front_auth.authentication_service"/>
+    </service>
+    <service id="b2b_budget.crud_service_abstract" abstract="true">
+      <argument type="service" id="b2b_budget.repository"/>
+      <argument type="service" id="b2b_budget.validation_service"/>
+      <argument type="service" id="b2b_budget.acl_access_writer"/>
+    </service>
+    <service id="b2b_budget.acl_access_writer_abstract" abstract="true">
+      <argument id="b2b_budget.acl_repository" type="service"/>
+    </service>
+    <service id="b2b_budget.acl_repository_abstract" abstract="true">
+      <factory service="b2b_acl.repository_factory" method="createRepository"/>
+      <argument type="constant">Shopware\B2B\Budget\Framework\BudgetRepository::TABLE_NAME</argument>
+    </service>
+    <service id="b2b_budget.contact_acl_table_abstract" abstract="true">
+            
+        </service>
+    <service id="b2b_budget.role_acl_table_abstract" abstract="true">
+            
+        </service>
+    <service id="b2b_budget.notification_repository_abstract" abstract="true">
+      <argument type="service" id="dbal_connection"/>
+    </service>
+    <service id="b2b_budget.cart_access_factory_abstract" abstract="true">
+      <argument type="service" id="b2b_budget.service"/>
+      <argument type="service" id="b2b_currency.service"/>
+    </service>
+    <service id="b2b_budget.acl_read_helper_abstract" abstract="true">
+      <argument type="service" id="b2b_budget.acl_repository"/>
+      <argument type="constant">Shopware\B2B\Budget\Framework\BudgetRepository::TABLE_ALIAS</argument>
+    </service>
+    <service id="b2b_budget.company_assignment_filter_abstract" abstract="true"/>
+    <service id="b2b_budget.company_inheritance_filter_abstract" abstract="true">
+      <argument type="service" id="b2b_nested_set.query_factory"/>
+    </service>
+    <service id="b2b_budget.repository" class="%b2b_budget.repository_class%" parent="b2b_budget.repository_abstract"/>
+    <service id="b2b_budget.grid_helper" class="%b2b_budget.grid_helper_class%" parent="b2b_budget.grid_helper_abstract"/>
+    <service id="b2b_budget.service" class="%b2b_budget.service_class%" parent="b2b_budget.service_abstract"/>
+    <service id="b2b_budget.validation_service" class="%b2b_budget.validation_service_class%" parent="b2b_budget.validation_service_abstract"/>
+    <service id="b2b_budget.crud_service" class="%b2b_budget.crud_service_class%" parent="b2b_budget.crud_service_abstract"/>
+    <service id="b2b_budget.acl_access_writer" class="%b2b_budget.acl_access_writer_class%" parent="b2b_budget.acl_access_writer_abstract"/>
+    <service id="b2b_budget.acl_repository" class="%b2b_budget.acl_repository_class%" parent="b2b_budget.acl_repository_abstract"/>
+    <service id="b2b_budget.contact_acl_table" class="%b2b_budget.contact_acl_table_class%" parent="b2b_budget.contact_acl_table_abstract">
+      <tag name="b2b_acl.table"/>
+    </service>
+    <service id="b2b_budget.role_acl_table" class="%b2b_budget.role_acl_table_class%" parent="b2b_budget.role_acl_table_abstract">
+      <tag name="b2b_acl.table"/>
+    </service>
+    <service id="b2b_budget.notification_repository" class="%b2b_budget.notification_repository_class%" parent="b2b_budget.notification_repository_abstract"/>
+    <service id="b2b_budget.cart_access_factory" class="%b2b_budget.cart_access_factory_class%" parent="b2b_budget.cart_access_factory_abstract">
+      <tag name="b2b_cart.cart_access_strategies"/>
+    </service>
+    <service id="b2b_budget.acl_read_helper" class="%b2b_budget.acl_read_helper_class%" parent="b2b_budget.acl_read_helper_abstract"/>
+    <service id="b2b_budget.company_assignment_filter" class="%b2b_budget.company_assignment_filter_class%" parent="b2b_budget.company_assignment_filter_abstract"/>
+    <service id="b2b_budget.company_inheritance_filter" class="%b2b_budget.company_inheritance_filter_class%" parent="b2b_budget.company_inheritance_filter_abstract"/>
+  </services>
+</container>

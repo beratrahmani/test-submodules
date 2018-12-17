@@ -1,0 +1,65 @@
+.abo--cart-content-articlenumber {
+	.unitize(font-size, 14);
+}
+
+.table--media-outer {
+	position: relative;
+}
+
+.abo--cart-item-image {
+	.border-radius-multi(2px, 0, 0, 2px);
+	.unitize(font-size, 13);
+	.unitize(letter-spacing, 1);
+	.unitize(left, -1);
+	.unitize(top, -1);
+	.unitize-width(20);
+	background-color: @highlight-error;
+	border: 1px solid @highlight-error;
+	box-sizing: content-box;
+	color: #fff;
+	display: block;
+	height: 100%;
+	font-family: arial;
+	font-weight: @font-bold-weight;
+	position: absolute;
+	text-align: center;
+
+	z-index: 100;
+
+	.abo--cart-item-text {
+		.transform(translateX(-50%) translateY(-50%) rotate(-90deg));
+		left: 50%; top: 50%;
+		position: absolute;
+	}
+}
+
+.abo--table-content {
+    .unitize(margin-bottom, 20);
+	.unitize(padding-left, 10);
+
+	margin-left: 24%;
+}
+
+@media screen and (min-width: @phoneLandscapeViewportWidth) {
+	.abo--table-content {
+		margin-left: 15%;
+	}
+}
+
+@media screen and (min-width: @tabletViewportWidth) {
+	.abo--table-content {
+		margin-left: 20%;
+	}
+}
+
+@media screen and (min-width: @tabletLandscapeViewportWidth) {
+	.abo--table-content {
+		margin-left: 16%;
+	}
+}
+
+@media screen and (min-width: @desktopViewportWidth) {
+	.abo--table-content {
+		margin-left: 14%;
+	}
+}

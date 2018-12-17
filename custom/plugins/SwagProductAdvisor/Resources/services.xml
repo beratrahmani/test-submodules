@@ -1,0 +1,13 @@
+<container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://symfony.com/schema/dic/services"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <imports>
+        <import resource="services/advisor_service.xml"/>
+        <import resource="services/subscriber.xml"/>
+        <import resource="services/search_factory.xml"/>
+        <import resource="services/service_factory.xml"/>
+        <import resource="services/sorting_handler_factory_dbal.xml"/>
+        <import resource="services/sorting_handler_factory_es.xml"/>
+    </imports>
+</container>

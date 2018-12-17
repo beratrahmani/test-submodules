@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_order.order_context_service_class">Shopware\B2B\Order\Framework\OrderContextService</parameter>
+    <parameter key="b2b_order.order_context_repository_class">Shopware\B2B\Order\Framework\OrderContextRepository</parameter>
+    <parameter key="b2b_order.checkout_provider_class">Shopware\B2B\Order\Bridge\OrderCheckoutProvider</parameter>
+    <parameter key="b2b_line_item_list.reference_crud_service_class">Shopware\B2B\Order\Framework\OrderLineItemReferenceCrudService</parameter>
+    <parameter key="b2b_line_item.audit_log_service_class">Shopware\B2B\Order\Framework\OrderLineItemAuditLogService</parameter>
+    <parameter key="b2b_order_clearance.audit_log_service_class">Shopware\B2B\Order\Framework\OrderAuditLogService</parameter>
+    <parameter key="b2b_order.backend_authentication_service_class">Shopware\B2B\Order\Framework\OrderBackendAuthenticationService</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_order.order_context_service_abstract" abstract="true">
+      <argument type="service" id="b2b_front_auth.authentication_service"/>
+      <argument type="service" id="b2b_order.order_context_repository"/>
+      <argument type="service" id="b2b_order_clearance.audit_log_service"/>
+      <argument type="service" id="b2b_order.checkout_provider"/>
+      <argument type="service" id="b2b_order.order_context_shop_writer_service"/>
+    </service>
+    <service id="b2b_order.order_context_repository_abstract" abstract="true">
+      <argument type="service" id="dbal_connection"/>
+    </service>
+    <service id="b2b_order.checkout_provider_abstract" abstract="true"/>
+    <service id="b2b_line_item_list.reference_crud_service_abstract" abstract="true">
+      <argument type="service" id="b2b_line_item_list.service"/>
+      <argument type="service" id="b2b_line_item_list.reference_validation_service"/>
+      <argument type="service" id="b2b_line_item_list.reference_repository"/>
+      <argument type="service" id="b2b_line_item.audit_log_service"/>
+      <argument type="service" id="b2b_order_number.repository"/>
+    </service>
+    <service id="b2b_line_item.audit_log_service_abstract" abstract="true">
+      <argument type="service" id="b2b_order.order_context_repository"/>
+      <argument type="service" id="b2b_front_auth.authentication_service"/>
+      <argument type="service" id="b2b_order_clearance.audit_log_service"/>
+      <argument type="service" id="b2b_product_name.product_name_service"/>
+    </service>
+    <service id="b2b_order_clearance.audit_log_service_abstract" abstract="true">
+      <argument id="b2b_audit_log.audit_log_service" type="service"/>
+    </service>
+    <service id="b2b_order.backend_authentication_service_abstract" abstract="true">
+      <argument id="b2b_front_auth.authentication_service" type="service"/>
+      <argument id="b2b_order.repository" type="service"/>
+    </service>
+    <service id="b2b_order.order_context_service" class="%b2b_order.order_context_service_class%" parent="b2b_order.order_context_service_abstract"/>
+    <service id="b2b_order.order_context_repository" class="%b2b_order.order_context_repository_class%" parent="b2b_order.order_context_repository_abstract"/>
+    <service id="b2b_order.checkout_provider" class="%b2b_order.checkout_provider_class%" parent="b2b_order.checkout_provider_abstract"/>
+    <service id="b2b_line_item_list.reference_crud_service" class="%b2b_line_item_list.reference_crud_service_class%" parent="b2b_line_item_list.reference_crud_service_abstract"/>
+    <service id="b2b_line_item.audit_log_service" class="%b2b_line_item.audit_log_service_class%" parent="b2b_line_item.audit_log_service_abstract"/>
+    <service id="b2b_order_clearance.audit_log_service" class="%b2b_order_clearance.audit_log_service_class%" parent="b2b_order_clearance.audit_log_service_abstract"/>
+    <service id="b2b_order.backend_authentication_service" class="%b2b_order.backend_authentication_service_class%" parent="b2b_order.backend_authentication_service_abstract"/>
+  </services>
+</container>

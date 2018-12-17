@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <!-- Tagged services -->
+    <services>
+        <service id="swag_liveshopping.search.criteria_request_handler"
+                 class="SwagLiveShopping\Bundle\SearchBundle\CriteriaRequestHandler">
+            <tag name="criteria_request_handler"/>
+        </service>
+
+        <service id="swag_liveshopping.search.condition_handler_dbal"
+                 class="SwagLiveShopping\Bundle\SearchBundleDBAL\Condition\LiveShoppingConditionHandler">
+            <tag name="condition_handler_dbal"/>
+        </service>
+
+        <service id="swag_liveshopping.search.facet_handler_dbal"
+                 class="SwagLiveShopping\Bundle\SearchBundleDBAL\Facet\LiveShoppingFacetHandler">
+            <argument type="service" id="snippets"/>
+            <argument type="service" id="shopware_searchdbal.dbal_query_builder_factory"/>
+            <tag name="facet_handler_dbal"/>
+        </service>
+
+        <service id="swag_liveshopping.search.sorting_handler_dbal"
+                 class="SwagLiveShopping\Bundle\SearchBundleDBAL\Sorting\LiveShoppingSortingHandler">
+            <tag name="sorting_handler_dbal"/>
+        </service>
+
+        <service id="swag_liveshopping.search.condition_handler_es"
+                 class="SwagLiveShopping\Bundle\SearchBundleES\LiveShoppingConditionHandler">
+            <tag name="shopware_search_es.search_handler"/>
+        </service>
+
+        <service id="swag_liveshopping.search.facet_handler_es"
+                 class="SwagLiveShopping\Bundle\SearchBundleES\LiveShoppingFacetHandler">
+            <argument type="service" id="snippets"/>
+            <tag name="shopware_search_es.search_handler"/>
+        </service>
+
+        <service id="swag_liveshopping.search.sorting_handler_es"
+                 class="SwagLiveShopping\Bundle\SearchBundleES\LiveShoppingSortingHandler">
+            <tag name="shopware_search_es.search_handler"/>
+        </service>
+    </services>
+</container>

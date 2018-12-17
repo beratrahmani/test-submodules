@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.5/engine/Shopware/Components/Plugin/schema/config.xsd">
+
+    <elements>
+        <element type="boolean" scope="shop">
+            <name>allowPaymentChange</name>
+            <label lang="de">Zahlungsartenwechsel während der Laufzeit erlauben</label>
+            <label lang="en">Allow change of payment method during runtime</label>
+            <value>false</value>
+            <description lang="de">Ermöglicht das Ändern der Zahlungsmethode für den Kunden im Accountbereich. Diese Funktionalität könnte mit einigen Zahlungsarten wie Paypal zu Problemen führen, wenn während der Laufzeit zu diesen Methoden gewechselt wird, da diese eine Bestätigung erfordern.</description>
+            <description lang="en">Allows changing the payment method during subscription runtime for the client. This functionality could lead to problems with some payment methods like Paypal when switching to them during runtime because they need confirmation.</description>
+        </element>
+    </elements>
+</config>

@@ -1,0 +1,67 @@
+.digpub-icon,
+.digpub-icon-plus,
+.digpub-icon--layer,
+.digpub-icon--layer-plus,
+.digpub-icon--element-plus,
+.digpub-icon--image,
+.digpub-icon--text,
+.digpub-icon--button,
+.digpub-icon--layout,
+.digpub-icon--ad-rectangle,
+.digpub-icon--ad-banner,
+.digpub-icon--ad-skyscraper,
+.digpub-icon--ad-half-page {
+    background: url("../icons/digpub-icon-set.png") no-repeat transparent !important;
+}
+
+.digpub-icon {
+    background-position: 0 0 !important;
+}
+
+.digpub-icon-plus {
+    background-position: 0 -432px !important;
+}
+
+.digpub-icon--layer {
+    background-position: 0 -36px !important;
+}
+
+.digpub-icon--layer-plus {
+    background-position: 0 -72px !important;
+}
+
+.digpub-icon--element-plus {
+    background-position: 0 -108px !important;
+}
+
+.digpub-icon--image {
+    background-position: 0 -144px !important;
+}
+
+.digpub-icon--text {
+    background-position: 0 -180px !important;
+}
+
+.digpub-icon--button {
+    background-position: 0 -216px !important;
+}
+
+.digpub-icon--layout {
+    background-position: 0 -252px !important;
+}
+
+.digpub-icon--ad-rectangle {
+    background-position: 0 -288px !important;
+}
+
+.digpub-icon--ad-banner {
+    background-position: 0 -324px !important;
+}
+
+.digpub-icon--ad-half-page {
+    background-position: 0 -360px !important;
+}
+
+.digpub-icon--ad-skyscraper {
+    background-position: 0 -396px !important;
+}

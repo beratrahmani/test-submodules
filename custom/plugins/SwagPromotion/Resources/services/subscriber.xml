@@ -1,0 +1,72 @@
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="swag_promotion.subscriber.backend" class="SwagPromotion\Subscriber\Backend">
+            <argument>%swag_promotion.plugin_dir%</argument>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swag_promotion.subscriber.checkout" class="SwagPromotion\Subscriber\Checkout">
+            <argument type="service" id="swag_promotion.service.free_goods_service"/>
+            <argument type="service" id="swag_promotion.service.dependency_provider"/>
+            <argument type="service" id="dbal_connection"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swag_promotion.subscriber.frontend" class="SwagPromotion\Subscriber\Frontend">
+            <argument>%swag_promotion.plugin_name%</argument>
+            <argument type="service" id="shopware.plugin.cached_config_reader"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swag_promotion.subscriber.order_subscriber" class="SwagPromotion\Subscriber\OrderSubscriber">
+            <argument type="service" id="session"/>
+            <argument type="service" id="dbal_connection"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swag_promotion.subscriber.promotion_subscriber"
+                 class="SwagPromotion\Subscriber\PromotionSubscriber">
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="template"/>
+            <argument type="service" id="config"/>
+            <argument type="service" id="session"/>
+            <argument type="service" id="shopware_storefront.context_service"/>
+            <argument type="service" id="swag_promotion.service.article_service"/>
+            <argument type="service" id="swag_promotion.promotion_selector"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swag_promotion.subscriber.template_directory_registration"
+                 class="SwagPromotion\Subscriber\TemplateDirectoryRegistration">
+            <argument>%swag_promotion.plugin_dir%</argument>
+            <argument type="service" id="template"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swag_promotion.subscriber.voucher_subscriber" class="SwagPromotion\Subscriber\VoucherSubscriber">
+            <argument>%swag_promotion.plugin_dir%</argument>
+            <argument type="service" id="template"/>
+            <argument type="service" id="session"/>
+            <argument type="service" id="swag_promotion.repository"/>
+            <argument type="service" id="shopware_storefront.context_service"/>
+            <argument type="service" id="dbal_connection"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swag_promotion.subscriber.garbage_collector"
+                 class="SwagPromotion\Subscriber\MediaGarbageCollector">
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service id="swag_promotion.subscriber.product_export" class="SwagPromotion\Subscriber\ProductExport">
+            <argument type="service" id="swag_promotion.promotion_export"/>
+            <argument type="service" id="shopware.plugin.cached_config_reader"/>
+            <argument type="service" id="session"/>
+            <argument>%swag_promotion.plugin_name%</argument>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+    </services>
+</container>

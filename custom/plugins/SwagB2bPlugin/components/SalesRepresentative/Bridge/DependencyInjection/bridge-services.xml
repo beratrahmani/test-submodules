@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="b2b_sales_representative.backend_extension" class="Shopware\B2B\SalesRepresentative\Bridge\SalesRepresentativeBackendExtension">
+            <argument type="service" id="b2b_debtor.debtor_repository"/>
+            <argument type="service" id="b2b_contact.repository"/>
+            <argument type="service" id="b2b_sales_representative.client_repository"/>
+            <argument type="service" id="b2b_front_auth.repository"/>
+        </service>
+    </services>
+</container>

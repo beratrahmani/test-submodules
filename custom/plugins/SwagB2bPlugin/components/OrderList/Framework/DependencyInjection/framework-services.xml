@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_order_list.repository_class">Shopware\B2B\OrderList\Framework\OrderListRepository</parameter>
+    <parameter key="b2b_order_list.grid_helper_class">Shopware\B2B\Common\Controller\GridHelper</parameter>
+    <parameter key="b2b_order_list.validation_service_class">Shopware\B2B\OrderList\Framework\OrderListValidationService</parameter>
+    <parameter key="b2b_order_list.acl_repository_class">Shopware\B2B\Acl\Framework\AclRepository</parameter>
+    <parameter key="b2b_order_list.crud_service_class">Shopware\B2B\OrderList\Framework\OrderListCrudService</parameter>
+    <parameter key="b2b_order_list.contact_acl_table_class">Shopware\B2B\OrderList\Framework\OrderListContactAclTable</parameter>
+    <parameter key="b2b_order_list.role_acl_table_class">Shopware\B2B\OrderList\Framework\OrderListRoleAclTable</parameter>
+    <parameter key="b2b_order_list.service_class">Shopware\B2B\OrderList\Framework\OrderListService</parameter>
+    <parameter key="b2b_order_list.remote_box_service_class">Shopware\B2B\OrderList\Framework\RemoteBoxService</parameter>
+    <parameter key="b2b_order_list.acl_read_helper_class">Shopware\B2B\Acl\Framework\AclReadHelper</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_order_list.repository_abstract" abstract="true">
+      <argument type="service" id="dbal_connection"/>
+      <argument type="service" id="b2b_common.repository_dbal_helper"/>
+      <argument type="service" id="b2b_line_item_list.repository"/>
+      <argument type="service" id="b2b_order_list.acl_read_helper"/>
+    </service>
+    <service id="b2b_order_list.grid_helper_abstract" abstract="true">
+      <argument type="service" id="b2b_order_list.repository"/>
+    </service>
+    <service id="b2b_order_list.validation_service_abstract" abstract="true">
+      <argument type="service" id="b2b_common.validation_builder"/>
+      <argument type="service" id="validator"/>
+    </service>
+    <service id="b2b_order_list.acl_repository_abstract" abstract="true">
+      <factory service="b2b_acl.repository_factory" method="createRepository"/>
+      <argument type="constant">Shopware\B2B\OrderList\Framework\OrderListRepository::TABLE_NAME</argument>
+    </service>
+    <service id="b2b_order_list.crud_service_abstract" abstract="true">
+      <argument type="service" id="b2b_order_list.repository"/>
+      <argument type="service" id="b2b_order_list.validation_service"/>
+      <argument type="service" id="b2b_order_list.acl_repository"/>
+      <argument type="service" id="b2b_line_item_list.repository"/>
+      <argument type="service" id="b2b_line_item_list.service"/>
+      <argument type="service" id="b2b_order_list.order_list_relation_repository"/>
+    </service>
+    <service id="b2b_order_list.contact_acl_table_abstract" abstract="true">
+            
+        </service>
+    <service id="b2b_order_list.role_acl_table_abstract" abstract="true">
+            
+        </service>
+    <service id="b2b_order_list.service_abstract" abstract="true">
+      <argument type="service" id="b2b_line_item_list.service"/>
+      <argument type="service" id="b2b_order_list.repository"/>
+      <argument type="service" id="b2b_line_item_list.reference_validation_service"/>
+    </service>
+    <service id="b2b_order_list.remote_box_service_abstract" abstract="true">
+      <argument type="service" id="b2b_currency.service"/>
+      <argument type="service" id="b2b_order_list.service"/>
+      <argument type="service" id="b2b_order_number.repository"/>
+    </service>
+    <service id="b2b_order_list.acl_read_helper_abstract" abstract="true">
+      <argument type="service" id="b2b_order_list.acl_repository"/>
+      <argument type="constant">Shopware\B2B\OrderList\Framework\OrderListRepository::TABLE_ALIAS</argument>
+    </service>
+    <service id="b2b_order_list.repository" class="%b2b_order_list.repository_class%" parent="b2b_order_list.repository_abstract"/>
+    <service id="b2b_order_list.grid_helper" class="%b2b_order_list.grid_helper_class%" parent="b2b_order_list.grid_helper_abstract"/>
+    <service id="b2b_order_list.validation_service" class="%b2b_order_list.validation_service_class%" parent="b2b_order_list.validation_service_abstract"/>
+    <service id="b2b_order_list.acl_repository" class="%b2b_order_list.acl_repository_class%" parent="b2b_order_list.acl_repository_abstract"/>
+    <service id="b2b_order_list.crud_service" class="%b2b_order_list.crud_service_class%" parent="b2b_order_list.crud_service_abstract"/>
+    <service id="b2b_order_list.contact_acl_table" class="%b2b_order_list.contact_acl_table_class%" parent="b2b_order_list.contact_acl_table_abstract">
+      <tag name="b2b_acl.table"/>
+    </service>
+    <service id="b2b_order_list.role_acl_table" class="%b2b_order_list.role_acl_table_class%" parent="b2b_order_list.role_acl_table_abstract">
+      <tag name="b2b_acl.table"/>
+    </service>
+    <service id="b2b_order_list.service" class="%b2b_order_list.service_class%" parent="b2b_order_list.service_abstract"/>
+    <service id="b2b_order_list.remote_box_service" class="%b2b_order_list.remote_box_service_class%" parent="b2b_order_list.remote_box_service_abstract"/>
+    <service id="b2b_order_list.acl_read_helper" class="%b2b_order_list.acl_read_helper_class%" parent="b2b_order_list.acl_read_helper_abstract"/>
+  </services>
+</container>

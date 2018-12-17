@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_in_stock.repository_class">Shopware\B2B\InStock\Framework\InStockRepository</parameter>
+    <parameter key="b2b_in_stock.validation_service_class">Shopware\B2B\InStock\Framework\InStockValidationService</parameter>
+    <parameter key="b2b_in_stock.crud_service_class">Shopware\B2B\InStock\Framework\InStockCrudService</parameter>
+    <parameter key="b2b_in_stock.helper_class">Shopware\B2B\InStock\Framework\InStockHelper</parameter>
+    <parameter key="b2b_in_stock.grid_helper_class">Shopware\B2B\Common\Controller\GridHelper</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_in_stock.repository_abstract" abstract="true">
+      <argument type="service" id="dbal_connection"/>
+      <argument type="service" id="b2b_common.repository_dbal_helper"/>
+    </service>
+    <service id="b2b_in_stock.validation_service_abstract" abstract="true">
+      <argument type="service" id="b2b_common.validation_builder"/>
+      <argument type="service" id="validator"/>
+    </service>
+    <service id="b2b_in_stock.crud_service_abstract" abstract="true">
+      <argument type="service" id="b2b_in_stock.repository"/>
+      <argument type="service" id="b2b_in_stock.validation_service"/>
+    </service>
+    <service id="b2b_in_stock.helper_abstract" abstract="true">
+      <argument type="service" id="b2b_in_stock.repository"/>
+    </service>
+    <service id="b2b_in_stock.grid_helper_abstract" abstract="true">
+      <argument type="service" id="b2b_in_stock.repository"/>
+    </service>
+    <service id="b2b_in_stock.repository" class="%b2b_in_stock.repository_class%" parent="b2b_in_stock.repository_abstract"/>
+    <service id="b2b_in_stock.validation_service" class="%b2b_in_stock.validation_service_class%" parent="b2b_in_stock.validation_service_abstract"/>
+    <service id="b2b_in_stock.crud_service" class="%b2b_in_stock.crud_service_class%" parent="b2b_in_stock.crud_service_abstract"/>
+    <service id="b2b_in_stock.helper" class="%b2b_in_stock.helper_class%" parent="b2b_in_stock.helper_abstract"/>
+    <service id="b2b_in_stock.grid_helper" class="%b2b_in_stock.grid_helper_class%" parent="b2b_in_stock.grid_helper_abstract"/>
+  </services>
+</container>

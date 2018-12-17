@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.5/engine/Shopware/Components/Plugin/schema/menu.xsd">
+
+    <entries>
+        <entry>
+            <name>Liveshopping</name>
+            <label lang="en">Liveshopping</label>
+            <label lang="de">Liveshopping</label>
+            <controller>SwagLiveShopping</controller>
+            <action>index</action>
+            <class>sprite-liveshopping</class>
+            <parent identifiedBy="controller">Article</parent>
+        </entry>
+    </entries>
+</menu>

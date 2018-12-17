@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="shopware_core.s_admin_class">\sAdmin</parameter>
+    <parameter key="shopware_core.s_basket_class">\sBasket</parameter>
+    <parameter key="shopware_core.s_articles_class">\sArticles</parameter>
+    <parameter key="shopware_core.s_categories_class">\sCategories</parameter>
+    <parameter key="shopware_core.s_system_class">\sSystem</parameter>
+    <parameter key="shopware_core.s_order_class">\sOrder</parameter>
+    <parameter key="shopware_core.s_cms_class">\sCms</parameter>
+    <parameter key="shopware_core.s_core_class">\sCore</parameter>
+    <parameter key="shopware_core.s_rewrite_table_class">\sRewriteTable</parameter>
+    <parameter key="shopware_core.s_export_class">\sExport</parameter>
+  </parameters>
+  <services>
+    <service id="shopware_core.s_admin_abstract" abstract="true">
+      <factory service="modules" method="Admin"/>
+    </service>
+    <service id="shopware_core.s_basket_abstract" abstract="true">
+      <factory service="modules" method="Basket"/>
+    </service>
+    <service id="shopware_core.s_articles_abstract" abstract="true">
+      <factory service="modules" method="Articles"/>
+    </service>
+    <service id="shopware_core.s_categories_abstract" abstract="true">
+      <factory service="modules" method="Categories"/>
+    </service>
+    <service id="shopware_core.s_system_abstract" abstract="true">
+      <factory service="modules" method="Categories"/>
+    </service>
+    <service id="shopware_core.s_order_abstract" abstract="true">
+      <factory service="modules" method="Order"/>
+    </service>
+    <service id="shopware_core.s_cms_abstract" abstract="true">
+      <factory service="modules" method="Cms"/>
+    </service>
+    <service id="shopware_core.s_core_abstract" abstract="true">
+      <factory service="modules" method="Core"/>
+    </service>
+    <service id="shopware_core.s_rewrite_table_abstract" abstract="true">
+      <factory service="modules" method="Cms"/>
+    </service>
+    <service id="shopware_core.s_export_abstract" abstract="true">
+      <factory service="modules" method="Cms"/>
+    </service>
+    <service id="shopware_core.s_admin" class="%shopware_core.s_admin_class%" parent="shopware_core.s_admin_abstract"/>
+    <service id="shopware_core.s_basket" class="%shopware_core.s_basket_class%" parent="shopware_core.s_basket_abstract"/>
+    <service id="shopware_core.s_articles" class="%shopware_core.s_articles_class%" parent="shopware_core.s_articles_abstract"/>
+    <service id="shopware_core.s_categories" class="%shopware_core.s_categories_class%" parent="shopware_core.s_categories_abstract"/>
+    <service id="shopware_core.s_system" class="%shopware_core.s_system_class%" parent="shopware_core.s_system_abstract"/>
+    <service id="shopware_core.s_order" class="%shopware_core.s_order_class%" parent="shopware_core.s_order_abstract"/>
+    <service id="shopware_core.s_cms" class="%shopware_core.s_cms_class%" parent="shopware_core.s_cms_abstract"/>
+    <service id="shopware_core.s_core" class="%shopware_core.s_core_class%" parent="shopware_core.s_core_abstract"/>
+    <service id="shopware_core.s_rewrite_table" class="%shopware_core.s_rewrite_table_class%" parent="shopware_core.s_rewrite_table_abstract"/>
+    <service id="shopware_core.s_export" class="%shopware_core.s_export_class%" parent="shopware_core.s_export_abstract"/>
+  </services>
+</container>

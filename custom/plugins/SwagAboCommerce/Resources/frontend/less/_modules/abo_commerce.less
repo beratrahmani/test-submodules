@@ -1,0 +1,235 @@
+.is--ctl-AboCommerce.is--act-orders,
+.is--ctl-abocommerce.is--act-orders {
+	.sidebar-main {
+		&.is--active {
+			.shop-sites--container,
+			.categories--navigation {
+				display: block;
+			}
+		}
+		.shop-sites--container,
+		.categories--navigation {
+			display: none;
+		}
+	}
+}
+
+.div--shipping-content {
+    .unitize(border-left-width, 8);
+    .unitize(padding, 10, 10);
+    border-left-style: solid;
+}
+
+.div--shipping-group {
+    .unitize(padding, 10, 10);
+    .unitize(margin-top, -36);
+}
+
+.div--billing-content {
+  .unitize(border-left-width, 8);
+  .unitize(padding, 10, 10);
+  border-left-style: solid;
+}
+
+.div--billing-group {
+  .unitize(padding, 10, 10);
+  .unitize(margin-top, -36);
+}
+
+.div--payment-content {
+  .unitize(border-left-width, 8);
+  .unitize(padding, 10, 10);
+  border-left-style: solid;
+}
+
+.div--payment-group {
+  .unitize(padding, 10, 10);
+}
+
+.panel--tr-actions {
+    .unitize(margin, 10, 10);
+    .unitize(height, -37);
+}
+
+.is--ctl-AboCommerce .panel--th,
+.is--ctl-abocommerce .panel--th {
+	word-wrap: break-word;
+}
+
+.account--orders-overview {
+    .column--info-labels,
+    .column--info-data {
+        display: block;
+        float: left;
+    }
+
+    .column--info-labels {
+        .unitize-padding(5, 10, 0, 10);
+        width: 50%;
+    }
+
+    .column--info-data {
+        .unitize-padding(5, 10, 0, 0);
+        width: 50%;
+    }
+}
+
+.abo--welcome .panel--body {
+    width: 50%;
+}
+
+.abo--sidebar {
+    .unitize-margin(10, 0, 10, 0);
+
+    .sidebar--headline {
+        .unitize(font-size, 14);
+        .unitize-margin(10, 9, 16, 9);
+    }
+
+    .sidebar--content {
+        .unitize-margin(16, 9);
+    }
+
+    .sidebar--abo-image {
+        .unitize-height(27);
+        .unitize-width(29);
+        background: url("../../img/icn_abo-small.png") no-repeat right top;
+        margin: 0 auto;
+    }
+
+    .share--google {
+        background: url("../../img/icn_share-gp.png") no-repeat;
+    }
+
+    .share--facebook {
+        background: url("../../img/icn_share-fb.png") no-repeat;
+    }
+
+    .share--twitter {
+        background: url("../../img/icn_share-twitter.png") no-repeat;
+    }
+
+    .share--mail {
+        background: url("../../img/icn_share-mail.png") no-repeat
+    }
+}
+
+.abo-sharing {
+    .unitize-height(16);
+    .unitize-width(16);
+    .unitize(line-height, 16);
+    .unitize-margin(0, 28, 0, 0);
+    display: inline-block;
+}
+
+.abo--content {
+	.unitize-margin(30, 0);
+}
+
+.abo--info-wrapper {
+    .unitize-margin(15, 0, 0, 0);
+    .unitize-padding(0, 0, 0, 20);
+}
+
+@media screen and(min-width: @tabletViewportWidth) {
+	.is--ctl-AboCommerce .content--wrapper,
+    .is--ctl-abocommerce .content--wrapper {
+		.unitize(margin-left, 260);
+	}
+
+    .abo--quantity {
+        text-align: center;
+    }
+
+    .column--info-labels {
+        display: block;
+    }
+
+    .account--orders-overview {
+        .column--article_number {
+            width: 20%;
+        }
+
+        .panel--td.column--info-labels {
+            .unitize-padding(10, 10);
+            width: 20%;
+        }
+
+        .panel--td.column--info-data {
+            .unitize-padding(10, 10);
+            width: 40%;
+        }
+    }
+
+    .column--interval {
+        width: 20%;
+    }
+
+    .column--expiry {
+        width: 20%;
+    }
+
+	.is--ctl-AboCommerce .sidebar-main,
+	.is--ctl-abocommerce .sidebar-main {
+		display: block;
+	}
+
+	.abo--welcome .panel--body {
+		width: 75%;
+	}
+}
+
+@media screen and (min-width: @desktopViewportWidth) {
+
+    /* Overwrite selector */
+    .account--orders-overview .panel--td .abo--order-button {
+        white-space: nowrap;
+    }
+
+	.abo--content {
+		.unitize(padding-top, 45);
+	}
+}
+
+.abo--termination {
+    .alert + .alert {
+      margin-top: 10px;
+    }
+}
+
+.abo--termination + .account--orders-overview {
+    .unitize(margin-top, 20);
+}
+
+.abo--termination-button {
+    .unitize(margin, 32);
+}
+
+.abo-modal-content-wrapper {
+    .unitize(padding, 10);
+    height: 100%;
+}
+
+.abo-bottom {
+    position: absolute;
+    .unitize(bottom, 10);
+}
+
+.abo-left {
+    .unitize(left, 10);
+}
+
+.abo-right {
+    .unitize(right, 10);
+}
+
+.abo-payment-selection-button {
+  .unitize(margin-top, 20);
+  .unitize(margin-bottom, 20);
+}
+
+.abo-payment-selection-error {
+  .unitize(margin-top, 20);
+  .unitize(margin-left, 20);
+  .unitize(margin-right, 20);
+}

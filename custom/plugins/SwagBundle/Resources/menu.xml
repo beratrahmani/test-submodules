@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.5/engine/Shopware/Components/Plugin/schema/menu.xsd">
+
+    <entries>
+        <entry>
+            <name>Bundles</name>
+            <label lang="en">Bundles</label>
+            <label lang="de">Bundles</label>
+            <controller>Bundle</controller>
+            <action>Index</action>
+            <class>sprite-bundle</class>
+            <parent identifiedBy="controller">Article</parent>
+        </entry>
+    </entries>
+</menu>

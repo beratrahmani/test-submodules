@@ -1,0 +1,2 @@
+{$showListing = true}
+{$sArticles = $products}

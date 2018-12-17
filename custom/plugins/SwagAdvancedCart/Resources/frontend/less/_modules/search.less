@@ -1,0 +1,18 @@
+/* Overwrite selector */
+div.acResults {
+    background-color: @search-background;
+
+    ul li {
+        .unitize(padding, 10);
+        border-bottom: 1px solid @border-color;
+        &:last-child {
+            border-bottom: 0;
+        }
+
+    }
+
+    .acSelect {
+        background-color: @search-item-background;
+        color: @brand-primary;
+    }
+}

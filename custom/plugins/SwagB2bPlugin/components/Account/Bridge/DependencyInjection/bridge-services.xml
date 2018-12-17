@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="b2b_account.service" class="Shopware\B2B\Account\Bridge\AccountService">
+            <argument type="service" id="PasswordEncoder" />
+            <argument type="service" id="b2b_front_auth.authentication_service"/>
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="b2b_shop.storage"/>
+            <argument type="service" id="b2b_front_auth.login_service"/>
+        </service>
+        <service id="b2b_account.image_service" class="Shopware\B2B\Account\Bridge\AccountImageService">
+            <argument type="service" id="b2b_front_auth.repository"/>
+        </service>
+    </services>
+</container>

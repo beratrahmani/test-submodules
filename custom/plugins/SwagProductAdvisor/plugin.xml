@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.5/engine/Shopware/Components/Plugin/schema/plugin.xsd">
+
+    <label lang="de">Shopping Advisor</label>
+    <label lang="en">Shopping Advisor</label>
+
+    <version>3.2.0</version>
+    <copyright>(c) by shopware AG</copyright>
+    <author>shopware AG</author>
+    <link>http://store.shopware.com</link>
+    <compatibility minVersion="5.5.0"/>
+
+    <changelog version="3.2.0">
+        <changes lang="de">PT-9171 - Shopware 5.5 Kompatibilität;</changes>
+        <changes lang="en">PT-9171 - Shopware 5.5 compatibility;</changes>
+    </changelog>
+
+    <changelog version="3.1.2">
+        <changes lang="de">PT-8985 - Kompatibilität zu anderen Plugins verbessert;</changes>
+        <changes lang="en">PT-8985 - Improve compatibility to other plugins;</changes>
+    </changelog>
+
+    <changelog version="3.1.1">
+        <changes lang="de">PT-8920 - Deprecated Methodenaufruf entfernt;</changes>
+        <changes lang="en">PT-8920 - Removed deprecated function call;</changes>
+    </changelog>
+
+    <changelog version="3.1.0">
+        <changes lang="de">PT-8810 - Shopware 5.4 Kompatibilität;</changes>
+        <changes lang="en">PT-8810 - Shopware 5.4 compatibility;</changes>
+    </changelog>
+
+    <changelog version="3.0.0">
+        <changes lang="de">PT-8128 - Migration auf das Shopware 5.2 Plugin System</changes>
+        <changes lang="en">PT-8128 - Migration to the Shopware 5.2 plugin system</changes>
+    </changelog>
+
+    <changelog version="2.1.2">
+        <changes lang="de">PT-8774 - Kompatibilität zu anderen Plugins verbessert;</changes>
+        <changes lang="en">PT-8774 - Improved compatibility with other plugins;</changes>
+    </changelog>
+
+    <changelog version="2.1.1">
+        <changes lang="de">PT-8572 - Obsolete Datei entfernt</changes>
+        <changes lang="en">PT-8572 - Remove obsolete file</changes>
+    </changelog>
+
+    <changelog version="2.1.0">
+        <changes lang="de">
+            PT-7810, PT-8230, PT-8231 - Aussehen und Verhalten vom Ergebnis-Listing verbessert;
+            PT-8360 - Verhalten vom Kaufenbutton im Ergebnis-Listing korrigiert;
+        </changes>
+        <changes lang="en">
+            PT-7810, PT-8230, PT-8231 - Improved appearance and behavior of the result listing;
+            PT-8360 - Fixed behaviour of the buy button in the result listing;
+        </changes>
+    </changelog>
+
+    <changelog version="2.0.1">
+        <changes lang="de">
+            PT-7810, PT-8235 - Fehler in Paginierung/Infinite Scrolling behoben;
+            PT-8196 - SEO URL Generierung 5.3 kompatibel;
+            PT-8037 - QuickView Funktionalität in Berater Listing;
+            PT-8184 - Backend Texte von Sie zu du umgeschrieben;
+        </changes>
+        <changes lang="en">
+            PT-7810, PT-8235 - Fixed error in pagination;
+            PT-8196 - Added 5.3 compatibility for the SEO URL generation;
+            PT-8037 - QuickView functionality in advisor listing;
+            PT-8184 - Update german backend translation from Sie to du;
+        </changes>
+    </changelog>
+
+    <changelog version="2.0.0">
+        <changes lang="de">
+            PT-7325 - Shopware 5.3 Kompatibilität;
+            PT-7489 - Backendmodul nutzt nun Standard-Media-Komponente;
+        </changes>
+        <changes lang="en">
+            PT-7325 - Shopware 5.3 compatibility;
+            PT-7489 - Backend module now uses standard media component;
+        </changes>
+    </changelog>
+
+    <changelog version="1.0.3">
+        <changes lang="de">
+            PT-5896 - Bugfix: Auswahl des richtigen Elements beim Drag'n'Drop;
+            PT-7489: Deprecated `Shopware.apps.Advisor.view.details.ui.MediaSelection`;
+            PT-7580 - Bugfix: Kompatibilität Listing-Anpassungen durch andere Plugins;
+            PT-7640 - Bugfix: Shopware 5.3 Kompatibilität;
+        </changes>
+        <changes lang="en">
+            PT-5896 - Bugfix: Selection of the right elements on Drag'n'Drop;
+            PT-7489: Deprecated `Shopware.apps.Advisor.view.details.ui.MediaSelection`;
+            PT-7580 - Bugfix: Compatibility listing extensions from other plugins;
+            PT-7640 - Bugfix: Shopware 5.3 compatibility;
+        </changes>
+    </changelog>
+
+    <changelog version="1.0.2">
+        <changes lang="de">
+            PT-6526 - Bugfix: Paginierung bei der Stream Auswahl;
+            PT-6762 - Bugfix: Probleme mit Subshops;
+        </changes>
+        <changes lang="en">
+            PT-6526 - Bugfix: Pagination of stream selection;
+            PT-6762 - Bugfix: Problems with sub shops;
+        </changes>
+    </changelog>
+
+    <changelog version="1.0.1">
+        <changes lang="de">
+            PT-6159 - Bugfix: Menüitem;
+            PT-6228 - Bugfix: Speichern einer Vorlage;
+            PT-6333 - Bugfix: Kompatibilität zu anderen Plugins;
+        </changes>
+        <changes lang="en">
+            PT-6159 - Bugfix: Menu item;
+            PT-6228 - Bugfix: Saving of template;
+            PT-6333 - Bugfix: Compatibility with other plugins;
+        </changes>
+    </changelog>
+
+    <changelog version="1.0.0">
+        <changes lang="de">Initiales Release</changes>
+        <changes lang="en">Initial release</changes>
+    </changelog>
+</plugin>

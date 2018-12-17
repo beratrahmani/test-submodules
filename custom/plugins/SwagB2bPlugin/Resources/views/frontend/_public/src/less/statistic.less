@@ -1,0 +1,87 @@
+.b2b-statistics-chart {
+  .unitize(margin-top, 50);
+  .unitize(margin-bottom, 30);
+  .unitize(height, 80);
+}
+
+.b2b--chart-filter {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+
+  .block-group {
+    .block {
+      .unitize(margin-bottom, 30);
+      width: 100%;
+
+      h5 {
+        &.margin-top-none {
+          margin-top: 0;
+        }
+      }
+    }
+
+    .block--title {
+      margin-bottom: 0;
+    }
+
+    &.margin-top-x-small {
+      .unitize(margin-top, 10);
+    }
+  }
+
+  .group--date-from,
+  .group--date-to {
+    .block:first-child {
+      margin: 0;
+      width: 25%;
+    }
+
+    .block:last-child {
+      margin: 0;
+      width: 70%;
+    }
+
+    .datepicker {
+      width: 100%;
+    }
+  }
+
+  .group--actions {
+    .unitize(margin-top, 15);
+  }
+
+  .action--export {
+    display: none;
+  }
+}
+
+@media screen and (min-width: @phoneLandscapeViewportWidth) {
+
+  .b2b-statistics-chart {
+    .unitize(height, 40);
+  }
+
+  .b2b--chart-filter {
+    .block-group {
+      .block {
+        .unitize(margin-bottom, 0);
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: @tabletViewportWidth) {
+
+  .b2b--chart-filter {
+    .block-group {
+      .block {
+        width: 25%;
+      }
+    }
+
+    .action--export {
+      display: inline-block;
+    }
+  }
+}

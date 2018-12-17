@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/5.5/engine/Shopware/Components/Plugin/schema/plugin.xsd">
+
+    <label lang="en">Shopware Storytelling</label>
+    <label lang="de">Shopware Storytelling</label>
+
+    <version>3.2.1</version>
+    <copyright>(c) by shopware AG</copyright>
+    <license>proprietary</license>
+    <link>http://store.shopware.com</link>
+    <author>shopware AG</author>
+    <compatibility minVersion="5.5.0"/>
+
+    <changelog version="3.2.1">
+        <changes lang="de">PT-9490 - Kompatibilität zu anderen Plugins verbessert;</changes>
+        <changes lang="en">PT-9490 - Improve compatibility with other plugins;</changes>
+    </changelog>
+
+    <changelog version="3.2.0">
+        <changes lang="de">PT-9174 - Shopware 5.5 Kompatibilität;</changes>
+        <changes lang="en">PT-9174 - Shopware 5.5 compatibility;</changes>
+    </changelog>
+
+    <changelog version="3.1.4">
+        <changes lang="de">
+            PT-9053 - QuickView Checkbox verschoben;
+            PT-9065 - Verhindert, dass Produktlistings unter Storytelling angezeigt werden;
+        </changes>
+        <changes lang="en">
+            PT-9053 - Moved QuickView Checkbox;
+            PT-9065 - Prevent displaying of product listings below Storytelling;
+        </changes>
+    </changelog>
+
+    <changelog version="3.1.3">
+        <changes lang="de">PT-9066 - Problem beim Update korrigiert;</changes>
+        <changes lang="en">PT-9066 - Fix problem on update;</changes>
+    </changelog>
+
+    <changelog version="3.1.2">
+        <changes lang="de">PT-7239 - Problem beim Update korrigiert;</changes>
+        <changes lang="en">PT-7239 - Fix problem on update;</changes>
+    </changelog>
+
+    <changelog version="3.1.1">
+        <changes lang="de">
+            PT-7239 - MediaGarbageCollector Kompatibilität;
+            PT-8024 - Scrollverhalten im Footer-Bereich auf Mobile-Viewport verbessert;
+            PT-8895 - Konfiguriertes Link-Target wird nun korrekt berücksichtigt;
+        </changes>
+        <changes lang="en">
+            PT-7239 - MediaGarbageCollector compatibility;
+            PT-8024 - Improve scroll behaviour in the footer area on mobile viewport;
+            PT-8895 - Configured link target is now considered correctly;
+        </changes>
+    </changelog>
+
+    <changelog version="3.1.0">
+        <changes lang="de">PT-8810 - Shopware 5.4 Kompatibilität;</changes>
+        <changes lang="en">PT-8810 - Shopware 5.4 compatibility;</changes>
+    </changelog>
+
+    <changelog version="3.0.0">
+        <changes lang="de">
+            PT-8126 - Migration auf das Shopware 5.2 Plugin System;
+            PT-8426 - Das Sideview Element lädt nun die korrekte Bildgröße;
+        </changes>
+        <changes lang="en">
+            PT-8126 - Migration to the Shopware 5.2 plugin system;
+            PT-8426 - The sideview element loads now the correct image size;
+        </changes>
+    </changelog>
+
+    <changelog version="2.1.2">
+        <changes lang="de">
+            PT-8375 - Kompatibilität zum Produktberater verbessert;
+            PT-8376 - Quickview nach Laden der 'vorherigen Seite' über Infinite Scrolling korrigiert;
+        </changes>
+        <changes lang="en">
+            PT-8375 - Improve compatibility with Product Advisor;
+            PT-8376 - Fixed the Quickview after loading the 'previous page' with infinite scrolling;
+        </changes>  
+    </changelog>
+
+    <changelog version="2.1.1">
+        <changes lang="de">
+            PT-8190 - Kompatibilität zu Advanced Cart;
+            PT-8233 - Übersetzung der Pluginkonfiguration korrigiert;
+            PT-8247 - Fehler im OffCanvas Warenkorb mit Storytelling und Quickview behoben;
+        </changes>
+        <changes lang="en">
+            PT-8190 - Compatibility with Advanced Cart;
+            PT-8233 - Fix translation of plugin configuration;
+            PT-8247 - Fix error in OffCanvas cart with Storytelling and Quickview;
+        </changes>
+    </changelog>
+
+    <changelog version="2.1.0">
+        <changes lang="de">
+            PT-8037 - Die QuickView Funktionalität kann jetzt auch für Artikel-Listings und Slider aktiviert werden;
+            PT-7952, PT-8050 - Anzeige Kaufen-Button-Text korrigiert;
+            PT-7945, PT-8048 - Problem mit Variantenwechsel behoben;
+            PT-8072 - Varianten Links im SideView Element korrigiert;
+        </changes>
+        <changes lang="en">
+            PT-8037 - The QuickView functionality could now be enabled in product listings and sliders;
+            PT-7952, PT-8050 - Fixed displaying of buy button text;
+            PT-7945, PT-8048 - Fixed problem with variant change;
+            PT-8072 - Fixed variants links in SideView element;
+        </changes>
+    </changelog>
+
+    <changelog version="2.0.1">
+        <changes lang="de">
+            PT-7949 - Behebt Fehler beim Update des Plugins;
+            PT-7697 - Fehler beim Speichern eines leeren SideView Elements;
+        </changes>
+        <changes lang="en">
+            PT-7949 - Fix issue on updating the plugin;
+            PT-7697 - Error on saving an empty SideView element;
+        </changes>
+    </changelog>
+
+    <changelog version="2.0.0">
+        <changes lang="de">
+            PT-7256, PT-7638, SW-16649, SW-17933, SW-18611 - Shopware 5.3 Kompatibilität;
+            SW-16697 - Kaufen aus der Quick-View (Shopware 5.3);
+            SW-16697 - Einkaufswelten-Elemente sind nun variantenfähig (Shopware 5.3);
+        </changes>
+        <changes lang="en">
+            PT-7256, PT-7638, SW-16649, SW-17933, SW-18611 - Shopware 5.3 compatibility;
+            SW-16697 - Buy from Quick-View (Shopware 5.3);
+            SW-16697 - Select product variants in shopping world elements (Shopware 5.3);
+        </changes>
+    </changelog>
+
+    <changelog version="1.1.4">
+        <changes lang="de">
+            PT-7943 - Produkte wurden teilweise nicht richtig in der Quickview geöffnet;
+            PT-7947 - Problem mit Scrollen in der Quickview;
+        </changes>
+        <changes lang="en">
+            PT-7943 - The Quickview displayed the wrong products sometimes;
+            PT-7947 - Problem with scrolling in Quickview;
+        </changes>
+    </changelog>
+
+    <changelog version="1.1.3">
+        <changes lang="de">
+            PT-7464 - PHP7 Fehler behoben;
+            PT-7674 - Update Übersetzungen;
+            SW-17705 - Problem mit automatisch rotierenden Artikel-Slidern und dem Quick-View-Element behoben;
+        </changes>
+        <changes lang="en">
+            PT-7464 - Fix PHP7 issue;
+            PT-7674 - Update translations;
+            SW-17705 - Fix problem with automatic rotating product sliders and Quick-View element;
+        </changes>
+    </changelog>
+
+    <changelog version="1.1.2">
+        <changes lang="de">
+            PT-4455 - Bugfix: SecureUninstall Implementierung;
+            PT-5902 - Bugfix: Probleme mit Firefox Browser;
+        </changes>
+        <changes lang="en">
+            PT-4455 - Bugfix: Implement SecureUninstall;
+            PT-5902 - Bugfix: Problem with Firefox browser;
+        </changes>
+    </changelog>
+
+    <changelog version="1.1.1">
+        <changes lang="de">PT-5872 - Bugfix: Shopware 5.2 Kompatibilität;</changes>
+        <changes lang="en">PT-5872 - Bugfix: Shopware 5.2 compatibility;</changes>
+    </changelog>
+
+    <changelog version="1.1.0">
+        <changes lang="de">PT-5425, PT-5872, PT-5979, SW-13789, SW-14357, SW-14644, SW-15018 - Feature: Shopware 5.2 Kompatibilität;</changes>
+        <changes lang="en">PT-5425, PT-5872, PT-5979, SW-13789, SW-14357, SW-14644, SW-15018 - Feature: Shopware 5.2 compatibility;</changes>
+    </changelog>
+
+    <changelog version="1.0.10">
+        <changes lang="de">PT-5560 - Bugfix: Fehlende Übersetzungen. Kleinere Refaktorierungen;</changes>
+        <changes lang="en">PT-5560 - Bugfix: Missing translations. Minor refactoring;</changes>
+    </changelog>
+
+    <changelog version="1.0.9">
+        <changes lang="de">PT-3987 - Bugfix: Scrollbars in mobiler Ansicht; PT-4178 - Bugfix: Bestimmung der Bildergröße;</changes>
+        <changes lang="en">PT-3987 - Bugfix: Scrollbars in mobile view; PT-4178 - Bugfix: Getting of image size;</changes>
+    </changelog>
+
+    <changelog version="1.0.8">
+        <changes lang="de">PT-3906 - Bugfix: Template Erweiterung der Quickview;</changes>
+        <changes lang="en">PT-3906 - Bugfix: Template extension of quick view;</changes>
+    </changelog>
+
+    <changelog version="1.0.7">
+        <changes lang="de">
+            PT-3824 - Bugfix: Blockpreise in der Sideview;
+            PT-3942 - Bugfix: Fehler in der Quickview;
+            PT-3983 - Bugfix: Problem mit Product-Streams;
+        </changes>
+        <changes lang="en">
+            PT-3824 - Bugfix: Block prices in side view;
+            PT-3942 - Bugfix: Error in quick view;
+            PT-3983 - Bugfix: Problem with Product-Streams;
+        </changes>
+    </changelog>
+
+    <changelog version="1.0.6">
+        <changes lang="de">
+            PT-3466 - Bugfix: Template Blöcke hinzugefügt;
+            PT-3622 - Bugfix: Problem mit Lizenzcheck;
+            PT-3684 - Bugfix: Anzeige Nettopreise;
+            PT-3834 - Bugfix: Shopware 5.1 Kompatibilität;
+        </changes>
+        <changes lang="en">
+            PT-3466 - Bugfix: Added template Blocks;
+            PT-3622 - Bugfix: Problem with license check;
+            PT-3684 - Bugfix: Displaying net price;
+            PT-3834 - Bugfix: Shopware 5.1 compatibility;
+        </changes>
+    </changelog>
+
+    <changelog version="1.0.5">
+        <changes lang="de">PT-3485, PT-3625, PT-3711, PT-3767, PT-3788: Shopware 5.1 Kompatibilität;</changes>
+        <changes lang="en">PT-3485, PT-3625, PT-3711, PT-3767, PT-3788: Shopware 5.1 compatibility;</changes>
+    </changelog>
+
+    <changelog version="1.0.4">
+        <changes lang="de">PT-3474 - Bugfix: Link zur Herstellerseite in der Quickview; PT-3485 - Bugfix: Shopware 5.1 Kompatibilität;</changes>
+        <changes lang="en">PT-3474 - Bugfix: Link to supplier page in the quick view element; PT-3485 - Bugfix: Shopware 5.1 compatibility;</changes>
+    </changelog>
+
+    <changelog version="1.0.3">
+        <changes lang="de">
+            PT-3315 - Bugfix: Theme Kompilierung per Konsole;
+            PT-3367 - Bugfix: Problem bei vielen Unterkategorien;
+            PT-3368 - Bugfix: Kategorieteaser am Ende eines Abschnitts;
+            PT-3439 - Bugfix: Problem mit Quickview unter Shopware 5.0.2;
+        </changes>
+        <changes lang="en">
+            PT-3315 - Bugfix: Theme compiling per console;
+            PT-3367 - Bugfix: Problem with many subcategories;
+            PT-3368 - Bugfix: Category teaser at the end of a section;
+            PT-3439 - Bugfix: Problem with Quickview under Shopware 5.0.2;
+        </changes>
+    </changelog>
+
+    <changelog version="1.0.2">
+        <changes lang="de">SW-11318 - Shopware 5.0.1 Kompatibilität; PT-3171 - Bugfix: Lizenzcheck;</changes>
+        <changes lang="en">SW-11318 - Shopware 5.0.1 compatibility; PT-3171 - Bugfix: License check;</changes>
+    </changelog>
+
+    <changelog version="1.0.1">
+        <changes lang="de">PT-3044 - Fix: Kompatibilität mit anderen Plugins</changes>
+        <changes lang="en">PT-3044 - Fix: Compatibility with other plugins</changes>
+    </changelog>
+
+    <changelog version="1.0.0">
+        <changes lang="de">Erstveröffentlichung</changes>
+        <changes lang="en">First release</changes>
+    </changelog>
+</plugin>

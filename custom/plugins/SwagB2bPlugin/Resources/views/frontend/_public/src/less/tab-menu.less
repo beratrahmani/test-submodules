@@ -1,0 +1,31 @@
+.b2b--tab-menu {
+
+  .tab--navigation {
+    display: block;
+    a,
+    button {
+      display: inline-block;
+    }
+    button[disabled] {
+      color: @body-bg;
+      border-color: @body-bg;
+
+      &:hover {
+        cursor: not-allowed;
+      }
+    }
+
+    .form--inline {
+      font-size: 0;
+      .unitize(margin-right, 5);
+    }
+  }
+
+  .tab--container-list .tab--container {
+    display: block;
+  }
+
+  .tab--container.b2b--ajax-panel .panel {
+    .unitize-margin(10, 0, 0, 0);
+  }
+}

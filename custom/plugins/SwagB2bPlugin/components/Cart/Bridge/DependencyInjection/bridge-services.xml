@@ -1,0 +1,67 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service class="Shopware\B2B\Cart\Bridge\CartAccessModeOrder" id="b2b_cart.order_mode">
+            <argument type="service" id="b2b_line_item_list.service"/>
+            <argument type="service" id="b2b_order.order_context_service"/>
+            <argument type="service" id="b2b_order.order_context_repository"/>
+            <argument type="service" id="b2b_order_clearance.repository"/>
+            <argument type="service" id="b2b_cart.cart_state"/>
+            <argument type="service" id="b2b_line_item_list.repository"/>
+            <argument type="service" id="b2b_currency.service"/>
+        </service>
+
+        <service class="Shopware\B2B\Cart\Bridge\CartAccessModeOrderClearance" id="b2b_cart.order_clearance_mode">
+            <argument type="service" id="b2b_order_clearance.repository"/>
+            <argument type="service" id="b2b_order.order_context_repository"/>
+            <argument type="service" id="b2b_line_item_list.service"/>
+            <argument type="service" id="b2b_order.order_context_service"/>
+            <argument type="service" id="b2b_currency.service"/>
+            <argument type="service" id="b2b_cart.cart_state"/>
+            <argument type="service" id="b2b_acl_route.service"/>
+            <argument type="service" id="shopware_core.s_basket"/>
+
+            <tag name="b2b_cart.mode"/>
+        </service>
+
+        <service class="Shopware\B2B\Cart\Bridge\CartAccessModeRegistry" id="b2b_cart.mode_registry">
+            <argument type="service" id="b2b_cart.order_mode"/>
+        </service>
+
+        <service class="Shopware\B2B\Cart\Bridge\CartAccessSubscriber" id="b2b_cart.access_subscriber">
+            <argument type="service" id="b2b_front_auth.authentication_service"/>
+            <argument type="service" id="b2b_cart.cart_access"/>
+            <argument type="service" id="b2b_order_clearance.entity_factory"/>
+            <argument type="service" id="events"/>
+            <argument type="service" id="b2b_cart.mode_registry"/>
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="b2b_cart.cart_state"/>
+
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service class="Shopware\B2B\Cart\Bridge\CartHistoryRepository" id="b2b_cart.cart_history_repository">
+            <argument type="service" id="dbal_connection"/>
+            <argument type="service" id="b2b_currency.calculator"/>
+        </service>
+
+        <service class="Shopware\B2B\Cart\Bridge\CartState" id="b2b_cart.cart_state">
+            <argument type="service" id="service_container"/>
+        </service>
+
+        <service class="Shopware\B2B\Cart\Bridge\FinishActionExtender" id="b2b_cart.finish_action_extender">
+            <argument type="service" id="b2b_front_auth.authentication_service"/>
+
+            <tag name="shopware.event_subscriber"/>
+        </service>
+
+        <service class="Shopware\B2B\Cart\Bridge\CartStateSubscriber" id="b2b_cart.cart_state_subscriber">
+            <argument type="service" id="b2b_front_auth.authentication_service"/>
+            <argument type="service" id="b2b_cart.cart_state"/>
+
+            <tag name="shopware.event_subscriber"/>
+        </service>
+    </services>
+</container>

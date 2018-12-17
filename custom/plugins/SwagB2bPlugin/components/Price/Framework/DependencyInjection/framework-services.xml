@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_price.repository_class">Shopware\B2B\Price\Framework\PriceRepository</parameter>
+    <parameter key="b2b_price.validation_service_class">Shopware\B2B\Price\Framework\PriceValidationService</parameter>
+    <parameter key="b2b_price.crud_service_class">Shopware\B2B\Price\Framework\PriceCrudService</parameter>
+    <parameter key="b2b_price.grid_helper_class">Shopware\B2B\Common\Controller\GridHelper</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_price.repository_abstract" abstract="true">
+      <argument type="service" id="dbal_connection"/>
+      <argument type="service" id="b2b_common.repository_dbal_helper"/>
+    </service>
+    <service id="b2b_price.validation_service_abstract" abstract="true">
+      <argument type="service" id="b2b_common.validation_builder"/>
+      <argument type="service" id="validator"/>
+      <argument type="service" id="b2b_price.repository"/>
+      <argument type="service" id="b2b_debtor.debtor_repository"/>
+    </service>
+    <service id="b2b_price.crud_service_abstract" abstract="true">
+      <argument type="service" id="b2b_price.repository"/>
+      <argument type="service" id="b2b_price.validation_service"/>
+    </service>
+    <service id="b2b_price.grid_helper_abstract" abstract="true">
+      <argument type="service" id="b2b_price.repository"/>
+    </service>
+    <service id="b2b_price.repository" class="%b2b_price.repository_class%" parent="b2b_price.repository_abstract"/>
+    <service id="b2b_price.validation_service" class="%b2b_price.validation_service_class%" parent="b2b_price.validation_service_abstract"/>
+    <service id="b2b_price.crud_service" class="%b2b_price.crud_service_class%" parent="b2b_price.crud_service_abstract"/>
+    <service id="b2b_price.grid_helper" class="%b2b_price.grid_helper_class%" parent="b2b_price.grid_helper_abstract"/>
+  </services>
+</container>

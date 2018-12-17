@@ -1,0 +1,35 @@
+<container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://symfony.com/schema/dic/services"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <service id="swag_product_advisor.sorting_handler_es"
+                 class="SwagProductAdvisor\Bundle\SearchBundleES\AdvisorSortingHandler">
+            <argument type="tagged" tag="swag_product_advisor.sorting_handler_factory_es_handler"/>
+            <tag name="shopware_search_es.search_handler"/>
+        </service>
+
+        <service id="swag_product_advisor.attribute_question_handler_es"
+                 class="SwagProductAdvisor\Bundle\AdvisorBundle\Question\AttributeQuestion\AttributeQuestionHandlerES">
+            <tag name="swag_product_advisor.sorting_handler_factory_es_handler"/>
+        </service>
+
+        <service id="swag_product_advisor.property_question_handler_es"
+                 class="SwagProductAdvisor\Bundle\AdvisorBundle\Question\PropertyQuestion\PropertyQuestionHandlerES">
+            <tag name="swag_product_advisor.sorting_handler_factory_es_handler"/>
+        </service>
+
+        <service id="swag_product_advisor.price_question_handler_es"
+                 class="SwagProductAdvisor\Bundle\AdvisorBundle\Question\PriceQuestion\PriceQuestionHandlerES">
+            <argument type="service" id="shopware_elastic_search.field_mapping"/>
+            <tag name="swag_product_advisor.sorting_handler_factory_es_handler"/>
+        </service>
+
+        <service id="swag_product_advisor.manufacturer_question_handler_es"
+                 class="SwagProductAdvisor\Bundle\AdvisorBundle\Question\ManufacturerQuestion\ManufacturerQuestionHandlerES">
+            <tag name="swag_product_advisor.sorting_handler_factory_es_handler"/>
+        </service>
+
+    </services>
+</container>

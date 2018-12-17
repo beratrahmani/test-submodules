@@ -1,0 +1,1 @@
+{include file="frontend/_base/assign.tpl"}

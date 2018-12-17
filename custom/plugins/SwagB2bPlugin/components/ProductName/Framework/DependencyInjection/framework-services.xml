@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="b2b_product_name.product_name_service_class">Shopware\B2B\ProductName\Framework\ProductNameService</parameter>
+  </parameters>
+  <services>
+    <service id="b2b_product_name.product_name_service_abstract" abstract="true">
+      <argument id="b2b_shop.product_service" type="service"/>
+    </service>
+    <service id="b2b_product_name.product_name_service" class="%b2b_product_name.product_name_service_class%" parent="b2b_product_name.product_name_service_abstract"/>
+  </services>
+</container>

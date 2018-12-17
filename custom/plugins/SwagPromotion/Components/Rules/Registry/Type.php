@@ -1,0 +1,50 @@
+<?php
+/**
+ * Shopware Premium Plugins
+ * Copyright (c) shopware AG
+ *
+ * According to our dual licensing model, this plugin can be used under
+ * a proprietary license as set forth in our Terms and Conditions,
+ * section 2.1.2.2 (Conditions of Usage).
+ *
+ * The text of our proprietary license additionally can be found at and
+ * in the LICENSE file you have received along with this plugin.
+ *
+ * This plugin is distributed in the hope that it will be useful,
+ * with LIMITED WARRANTY AND LIABILITY as set forth in our
+ * Terms and Conditions, sections 9 (Warranty) and 10 (Liability).
+ *
+ * "Shopware" is a registered trademark of shopware AG.
+ * The licensing of the plugin does not imply a trademark license.
+ * Therefore any rights, title and interest in our trademarks
+ * remain entirely with us.
+ */
+
+namespace SwagPromotion\Components\Rules\Registry;
+
+use SwagPromotion\Components\Rules\Rule;
+
+/**
+ * Type represents a registry type. Its basically a wrapper for for a rule in the rule registry
+ * and takes care of the proper instantiation of a new rule object in the get method.
+ *
+ * Also it knows whether or not a rule is a container.
+ */
+interface Type
+{
+    /**
+     * Return true, if the rule is a container
+     *
+     * @return bool
+     */
+    public function isContainer();
+
+    /**
+     * Return an instance of your rule / container
+     *
+     * @param array $config
+     *
+     * @return Rule
+     */
+    public function get(array $config);
+}
