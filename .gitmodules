@@ -1,0 +1,3 @@
+[submodule "custom/plugins/ReplyITUtils"]
+	path = custom/plugins/ReplyITUtils
+	url = https://github.com/beratrahmani/test-submodules-plugin.git
